@@ -15,10 +15,10 @@ H5P.QuestionSet = function (options) {
 
   var texttemplate = '' +
 '<div class="questionset">' +
-'  <h2 class="title"><%= title %></h2>' +
+'  <div class="title"><%= title %></div>' +
 '  <% for (var i=0; i<questions.length; i++) { %>' +
 '    <div class="question" id="q-<%= i %>">' +
-'      <h1><%= questions[i].machineName %></h1>' +
+'      <div><%= questions[i].machineName %></div>' +
 '    </div>' +
 '  <% } %>' +
 '  <div class="question-footer">' +
@@ -28,15 +28,12 @@ H5P.QuestionSet = function (options) {
 '        <span class="progress-dot unanswered" id="qdot-<%= i %>">o</span>' +
 '        <%} %>' +
 '      <% } else if (progressType == "textual") { %>' +
-'        <span class="progress-current"></span>' +
-'        of' +
-'        <span class="progress-total"><%= questions.length %></span>' +
-'        questions' +
+'        <span class="progress-text"></span>' +
 '      <% } %>' +
 '    </div>' +
-'    <button class="prev button">Previous</button>' +
-'    <button class="next button">Next</button>' +
-'    <button class="finish button">Finish</button>' +
+'    <button class="prev button"><%= texts.prevButton %></button>' +
+'    <button class="next button"><%= texts.nextButton %></button>' +
+'    <button class="finish button"><%= texts.finishButton %></button>' +
 '  </div>' +
 '</div>' +
   '';
@@ -46,7 +43,13 @@ H5P.QuestionSet = function (options) {
     randomOrder: false,
     initialQuestion: 0,
     progressType: 'textual',
-    questions: []
+    questions: [],
+    texts: {
+      prevButton: "Previous",
+      nextButton: "Next",
+      finishButton: "Finish",
+      textualProgress: "Question: @current of @total questions"
+    }
   };
 
   var template = new EJS({text: texttemplate});
@@ -79,7 +82,8 @@ H5P.QuestionSet = function (options) {
     // Update progress indicator
     // Test if current has been answered.
     if (params.progressType == 'textual') {
-      $('.progress-current', myDom).text("" + (questionNumber+1));
+      $('.progress-text', myDom).text(params.texts.textualProgress.replace("@current", questionNumber+1).replace("@total", params.questions.length));
+      // $('.progress-current', myDom).text("" + (questionNumber+1));
     } else {
       $('.progress-dot.current', myDom).removeClass('current');
       // Set answered/unanswered for current.

@@ -28,6 +28,7 @@
     "name": "Questions",
     "description": "List of questions in this set.",
     "type": "h5p-library",
+    "validLibs": ["H5P.MultiChoice"],
     "array": true,
     "minEntries": 1,
     "maxEntries": -1
