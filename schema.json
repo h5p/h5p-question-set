@@ -1,0 +1,35 @@
+{
+  "title": {
+    "name": "Title",
+    "description": "Question set title (optional)",
+    "type": "text",
+    "default": ""
+  },
+  "randomOrder": {
+    "name": "Randomize order",
+    "description": "Whether questions should be shown in random order",
+    "type": "boolean",
+    "default": false
+  },
+  "initialQuestion": {
+    "name": "Initial question",
+    "description": "Which question to start with. Count from 0",
+    "type": "integer",
+    "default": 0
+  },
+  "progressType": {
+    "name": "Progress indicator",
+    "description": "Question set progress indicator style",
+    "type": "select",
+    "values": [{"text": "Textual", "value": "textual"}, {"text": "Dots", "value": "dots"}],
+    "default": "textual"
+    },
+  "questions": {
+    "name": "Questions",
+    "description": "List of questions in this set.",
+    "type": "h5p-library",
+    "array": true,
+    "minEntries": 1,
+    "maxEntries": -1
+  }
+}

@@ -1,0 +1,25 @@
+<div class="questionset">
+  <h2 class="title"><%= title %></h2>
+  <% for (var i=0; i<questions.length; i++) { %>
+    <div class="question" id="q-<%= i %>">
+      <h1><%= questions[i].machineName %></h1>
+    </div>
+  <% } %>
+  <div class="question-footer">
+    <div class="progress">
+      <% if (progressType == "dots") { %>
+        <% for (var i=0; i<questions.length; i++) { %>
+        <span class="progress-dot unanswered" id="qdot-<%= i %>">o</span>
+        <%} %>
+      <% } else if (progressType == "textual") { %>
+        <span class="progress-current"></span>
+        of
+        <span class="progress-total"><%= questions.length %></span>
+        questions
+      <% } %>
+    </div>
+    <button class="prev button">Previous</button>
+    <button class="next button">Next</button>
+    <button class="finish button">Finish</button>
+  </div>
+</div>
