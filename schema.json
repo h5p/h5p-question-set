@@ -17,13 +17,18 @@
     "type": "integer",
     "default": 0
   },
+  "backgroundImage": {
+    "name": "Background image",
+    "description": "An optional background image for the Question set.",
+    "type": "image"
+  },
   "progressType": {
     "name": "Progress indicator",
     "description": "Question set progress indicator style",
     "type": "select",
     "values": [{"text": "Textual", "value": "textual"}, {"text": "Dots", "value": "dots"}],
     "default": "textual"
-    },
+  },
   "questions": {
     "name": "Questions",
     "description": "List of questions in this set.",

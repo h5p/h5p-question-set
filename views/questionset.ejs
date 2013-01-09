@@ -1,16 +1,38 @@
+<style type="text/css">
+.dots-container {
+  text-align: center;
+}
+.progress-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.progress-dot.unanswered {
+  background: darkred;
+}
+.progress-dot.answered {
+  background: darkgreen;
+}
+.progress-dot.current {
+  box-shadow: 0px 0px 6px firebrick;
+}
+</style>
 <div class="questionset">
   <div class="title"><%= title %></div>
   <% for (var i=0; i<questions.length; i++) { %>
-    <div class="question" id="q-<%= i %>">
+    <div class="question-container" id="q-<%= i %>">
       <div><%= questions[i].machineName %></div>
     </div>
   <% } %>
   <div class="question-footer">
     <div class="progress">
       <% if (progressType == "dots") { %>
-        <% for (var i=0; i<questions.length; i++) { %>
-        <span class="progress-dot unanswered" id="qdot-<%= i %>">o</span>
-        <%} %>
+        <div class="dots-container">
+          <% for (var i=0; i<questions.length; i++) { %>
+          <span class="progress-dot unanswered" id="qdot-<%= i %>"></span>
+          <%} %>
+        </div>
       <% } else if (progressType == "textual") { %>
         <span class="progress-text"></span>
       <% } %>

@@ -14,19 +14,41 @@ H5P.QuestionSet = function (options) {
     return new H5P.QuestionSet(options);
 
   var texttemplate = '' +
+'<style type="text/css">' +
+'.dots-container {' +
+'  text-align: center;' +
+'}' +
+'.progress-dot {' +
+'  display: inline-block;' +
+'  width: 10px;' +
+'  height: 10px;' +
+'  border-radius: 50%;' +
+'}' +
+'.progress-dot.unanswered {' +
+'  background: darkred;' +
+'}' +
+'.progress-dot.answered {' +
+'  background: darkgreen;' +
+'}' +
+'.progress-dot.current {' +
+'  box-shadow: 0px 0px 6px firebrick;' +
+'}' +
+'</style>' +
 '<div class="questionset">' +
 '  <div class="title"><%= title %></div>' +
 '  <% for (var i=0; i<questions.length; i++) { %>' +
-'    <div class="question" id="q-<%= i %>">' +
+'    <div class="question-container" id="q-<%= i %>">' +
 '      <div><%= questions[i].machineName %></div>' +
 '    </div>' +
 '  <% } %>' +
 '  <div class="question-footer">' +
 '    <div class="progress">' +
 '      <% if (progressType == "dots") { %>' +
-'        <% for (var i=0; i<questions.length; i++) { %>' +
-'        <span class="progress-dot unanswered" id="qdot-<%= i %>">o</span>' +
-'        <%} %>' +
+'        <div class="dots-container">' +
+'          <% for (var i=0; i<questions.length; i++) { %>' +
+'          <span class="progress-dot unanswered" id="qdot-<%= i %>"></span>' +
+'          <%} %>' +
+'        </div>' +
 '      <% } else if (progressType == "textual") { %>' +
 '        <span class="progress-text"></span>' +
 '      <% } %>' +
@@ -55,7 +77,7 @@ H5P.QuestionSet = function (options) {
   var template = new EJS({text: texttemplate});
   var params = jQuery.extend({}, defaults, options);
 
-  var currentQuestion = -1;
+  var currentQuestion = 0;
   var questionInstances = new Array();
   var allQuestionsAnswered = false;
   var myDom;
@@ -65,6 +87,14 @@ H5P.QuestionSet = function (options) {
     console.log("TODO: Randomize order of questions");
   }
 
+  var _allQuestionsAnswered = function () {
+    var answered = true;
+    for (var i = questionInstances.length - 1; i >= 0; i--) {
+      answered = answered && (questionInstances[i]).getAnswerGiven();
+    }
+    return answered;
+  };
+
   var _showQuestion = function (questionNumber) {
     // Sanitize input.
     if (questionNumber < 0) { questionNumber = 0; }
@@ -72,9 +102,10 @@ H5P.QuestionSet = function (options) {
 
     $('.prev.button', myDom).attr({'disabled': (questionNumber === 0)});
     $('.next.button', myDom).attr({'disabled': (questionNumber == params.questions.length-1)});
+    $('.finish.button', myDom).attr({'disabled': !(_allQuestionsAnswered())});
 
     // Hide all questions
-    $('.question', myDom).hide();
+    $('.question-container', myDom).hide();
 
     // Reshow the requested question
     $('#q-' + questionNumber, myDom).show();
@@ -88,6 +119,9 @@ H5P.QuestionSet = function (options) {
       $('.progress-dot.current', myDom).removeClass('current');
       // Set answered/unanswered for current.
       $('#qdot-' + questionNumber, myDom).addClass('current');
+      if (questionInstances[currentQuestion].getAnswerGiven()) {
+        $('#qdot-' + currentQuestion, myDom).removeClass('unanswered').addClass('answered');
+      }
     }
 
     // Remember where we are
@@ -110,11 +144,18 @@ H5P.QuestionSet = function (options) {
     }
 
     // Set event listeners.
-    $('.next.button', myDom).click(function() {
+    $('.next.button', myDom).click(function (ev) {
       _showQuestion(currentQuestion + 1);
     });
-    $('.prev.button', myDom).click(function() {
+    $('.prev.button', myDom).click(function (ev) {
       _showQuestion(currentQuestion - 1);
+    });
+    $('.finish.button', myDom).click(function (ev) {
+      // get total score.
+      // Display result page.
+      // Display animation if present.
+      // Remove DOM. (delete container)
+      myDom.remove();
     });
 
     // Hide all but initial Question.
