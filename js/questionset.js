@@ -7,11 +7,16 @@
 //   answers: [{text: "Answer text", correct: false}, ...],
 //   singleAnswer: true, // or false, will change rendered output slightly.
 // }
+//
+// Events provided:
+// - h5pQuestionSetFinished: Triggered when a question is finished. (User presses Finish-button)
 window.H5P = window.H5P || {};
 
 H5P.QuestionSet = function (options) {
   if ( !(this instanceof H5P.QuestionSet) )
     return new H5P.QuestionSet(options);
+
+  var $ = H5P.jQuery;
 
   var texttemplate = '' +
 '<style type="text/css">' +
@@ -60,22 +65,63 @@ H5P.QuestionSet = function (options) {
 '</div>' +
   '';
 
+  var resulttemplate = '' +
+'<div class="questionset-results">' +
+'  <div class="greeting"><%= greeting %></div>' +
+'  <div class="score <%= scoreclass %>"><%= score %></div>' +
+'  <div class="resulttext"><%= resulttext %></div>' +
+'  <div><button class="qs-finishbutton"><%= finishButtonText %></button></div>' +
+'</div>' +
+'';
+
+  var that = this;
   var defaults = {
     title: "",
     randomOrder: false,
     initialQuestion: 0,
+    backgroundImage: "",
     progressType: 'textual',
+    passPercentage: 50,
     questions: [],
+    introPage: {
+      showIntroPage: true,
+      title: "Welcome",
+      introduction: "Click start to start.",
+      startButtonText: "Start"
+    },
     texts: {
       prevButton: "Previous",
       nextButton: "Next",
       finishButton: "Finish",
       textualProgress: "Question: @current of @total questions"
+    },
+    endGame: {
+      showResultPage: true,
+      resultPage: {
+        succesGreeting: "Congratulations!",
+        successComment: "You have enough correct answers to pass the test.",
+        failGreeting: "Sorry!",
+        failComment: "You don't have enough correct answers to pass this test.",
+        scoreString: "@score/@total",
+        finishButtonText: "Finish"
+      },
+      animations: {
+        showAnimations: false,
+        succesResultAnimation: {
+          machineName: "H5P.Image",
+          options: {image: ""}
+        },
+        failedResultAnimation: {
+          machineName: "H5P.Image",
+          options: {image: ""}
+        }
+      }
     }
   };
 
   var template = new EJS({text: texttemplate});
-  var params = jQuery.extend({}, defaults, options);
+  var endTemplate = new EJS({text: resulttemplate});
+  var params = $.extend({}, defaults, options);
 
   var currentQuestion = 0;
   var questionInstances = new Array();
@@ -87,12 +133,21 @@ H5P.QuestionSet = function (options) {
     console.log("TODO: Randomize order of questions");
   }
 
-  var _allQuestionsAnswered = function () {
+  // Instantiate question instances
+  for (var i=0; i<params.questions.length; i++) {
+    var quest = params.questions[i];
+    // TODO: Render on init, inject in template.
+    var tmp = new (H5P.classFromName(quest.machineName))(quest.options);
+    questionInstances.push(tmp);
+  }
+
+
+  var _updateFinishButton = function () {
     var answered = true;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
-    return answered;
+    $('.finish.button', myDom).attr({'disabled': !answered});
   };
 
   var _showQuestion = function (questionNumber) {
@@ -102,7 +157,7 @@ H5P.QuestionSet = function (options) {
 
     $('.prev.button', myDom).attr({'disabled': (questionNumber === 0)});
     $('.next.button', myDom).attr({'disabled': (questionNumber == params.questions.length-1)});
-    $('.finish.button', myDom).attr({'disabled': !(_allQuestionsAnswered())});
+
 
     // Hide all questions
     $('.question-container', myDom).hide();
@@ -114,14 +169,10 @@ H5P.QuestionSet = function (options) {
     // Test if current has been answered.
     if (params.progressType == 'textual') {
       $('.progress-text', myDom).text(params.texts.textualProgress.replace("@current", questionNumber+1).replace("@total", params.questions.length));
-      // $('.progress-current', myDom).text("" + (questionNumber+1));
     } else {
+      // Set currentNess
       $('.progress-dot.current', myDom).removeClass('current');
-      // Set answered/unanswered for current.
       $('#qdot-' + questionNumber, myDom).addClass('current');
-      if (questionInstances[currentQuestion].getAnswerGiven()) {
-        $('#qdot-' + currentQuestion, myDom).removeClass('unanswered').addClass('answered');
-      }
     }
 
     // Remember where we are
@@ -133,14 +184,17 @@ H5P.QuestionSet = function (options) {
   var attach = function (targetId) {
     // Render own DOM into target.
     template.update(targetId, params);
-    myDom = jQuery('#' + targetId);
+    myDom = $('#' + targetId);
 
     // Attach questions
-    for (var i=0; i<params.questions.length; i++) {
-      var quest = params.questions[i];
+    for (var i=0; i<questionInstances.length; i++) {
+      var quest = questionInstances[i];
       // TODO: Render on init, inject in template.
-      var tmp = new (H5P.classFromName(quest.machineName))(quest.options).attach('q-' + i);
-      questionInstances.push(tmp);
+      quest.attach('q-' + i);
+      $(quest).on('h5pQuestionAnswered', function (ev) {
+        $('#qdot-' + currentQuestion, myDom).removeClass('unanswered').addClass('answered');
+        _updateFinishButton();
+      });
     }
 
     // Set event listeners.
@@ -151,19 +205,47 @@ H5P.QuestionSet = function (options) {
       _showQuestion(currentQuestion - 1);
     });
     $('.finish.button', myDom).click(function (ev) {
-      // get total score.
+      // Get total score.
+      var finals = getScore();
+      var totals = totalScore();
+      var scoreString = params.endGame.resultPage.scoreString.replace("@score", finals).replace("@total", totals);
+      var success = ((100 * finals / totals) >= params.passPercentage);
+
       // Display result page.
-      // Display animation if present.
-      // Remove DOM. (delete container)
-      myDom.remove();
+      if (params.endGame.showResultPage) {
+        // Render result page into.
+        var eparams = {
+          greeting: (success ? params.endGame.resultPage.succesGreeting : params.endGame.resultPage.failGreeting),
+          score: scoreString,
+          scoreclass: (success ? 'success' : 'fail'),
+          resulttext: (success ? params.endGame.resultPage.successComment : params.endGame.resultPage.failComment),
+          finishButtonText: params.endGame.resultPage.finishButtonText
+        };
+        endTemplate.update(targetId, eparams);
+        $('.qs-finishbutton').click(function (ev) {
+          // Display animation if present.
+          if (params.endGame.animations.showAnimations) {
+            // Init anims.
+            console.log("Now we should have started some anims...");
+            // On animation finished:
+              $(returnObject).trigger('h5pQuestionSetFinished');
+          } else {
+            // Trigger finished event.
+            $(returnObject).trigger('h5pQuestionSetFinished');
+          }
+        });
+      } else {
+        $(returnObject).trigger('h5pQuestionSetFinished');
+      }
     });
 
     // Hide all but initial Question.
     _showQuestion(params.initialQuestion);
-
+    _updateFinishButton();
     return this;
   };
 
+  // Get current score for questionset.
   var getScore = function () {
     var score = 0;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
@@ -172,10 +254,24 @@ H5P.QuestionSet = function (options) {
     return score;
   };
 
-  return {
+  // Get total score possible for questionset.
+  var totalScore = function () {
+    return questionInstances.length;
+    // FIXME: questions need to get totalScore function.
+    var score = 0;
+    for (var i = questionInstances.length - 1; i >= 0; i--) {
+      score += questionInstances[i].totalScore();
+    }
+    return score;
+  };
+
+  // Masquerade the main object to hide inner properties and functions.
+  var returnObject = {
     attach: attach, // Attach to DOM object
     getQuestions: function () {return questionInstances;},
     getScore: getScore,
+    totalScore: totalScore,
     defaults: defaults // Provide defaults for inspection
   };
+  return returnObject;
 };
