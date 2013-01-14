@@ -126,7 +126,7 @@ H5P.QuestionSet = function (options) {
   var currentQuestion = 0;
   var questionInstances = new Array();
   var allQuestionsAnswered = false;
-  var myDom;
+  var $myDom;
 
   if (params.randomOrder) {
     // TODO: Randomize order of questions
@@ -147,7 +147,7 @@ H5P.QuestionSet = function (options) {
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
-    $('.finish.button', myDom).attr({'disabled': !answered});
+    $('.finish.button', $myDom).attr({'disabled': !answered});
   };
 
   var _showQuestion = function (questionNumber) {
@@ -155,24 +155,24 @@ H5P.QuestionSet = function (options) {
     if (questionNumber < 0) { questionNumber = 0; }
     if (questionNumber >= params.questions.length) { questionNumber = params.questions.length - 1; }
 
-    $('.prev.button', myDom).attr({'disabled': (questionNumber === 0)});
-    $('.next.button', myDom).attr({'disabled': (questionNumber == params.questions.length-1)});
+    $('.prev.button', $myDom).attr({'disabled': (questionNumber === 0)});
+    $('.next.button', $myDom).attr({'disabled': (questionNumber == params.questions.length-1)});
 
 
     // Hide all questions
-    $('.question-container', myDom).hide();
+    $('.question-container', $myDom).hide();
 
     // Reshow the requested question
-    $('#q-' + questionNumber, myDom).show();
+    $('#q-' + questionNumber, $myDom).show();
 
     // Update progress indicator
     // Test if current has been answered.
     if (params.progressType == 'textual') {
-      $('.progress-text', myDom).text(params.texts.textualProgress.replace("@current", questionNumber+1).replace("@total", params.questions.length));
+      $('.progress-text', $myDom).text(params.texts.textualProgress.replace("@current", questionNumber+1).replace("@total", params.questions.length));
     } else {
       // Set currentNess
-      $('.progress-dot.current', myDom).removeClass('current');
-      $('#qdot-' + questionNumber, myDom).addClass('current');
+      $('.progress-dot.current', $myDom).removeClass('current');
+      $('#qdot-' + questionNumber, $myDom).addClass('current');
     }
 
     // Remember where we are
@@ -184,7 +184,9 @@ H5P.QuestionSet = function (options) {
   var attach = function (targetId) {
     // Render own DOM into target.
     template.update(targetId, params);
-    myDom = $('#' + targetId);
+    $myDom = $('#' + targetId);
+
+    $myDom.find(".questionset").css({backgroundImage: 'url(' + params.backgroundImage + ')'});
 
     // Attach questions
     for (var i=0; i<questionInstances.length; i++) {
@@ -192,19 +194,19 @@ H5P.QuestionSet = function (options) {
       // TODO: Render on init, inject in template.
       quest.attach('q-' + i);
       $(quest).on('h5pQuestionAnswered', function (ev) {
-        $('#qdot-' + currentQuestion, myDom).removeClass('unanswered').addClass('answered');
+        $('#qdot-' + currentQuestion, $myDom).removeClass('unanswered').addClass('answered');
         _updateFinishButton();
       });
     }
 
     // Set event listeners.
-    $('.next.button', myDom).click(function (ev) {
+    $('.next.button', $myDom).click(function (ev) {
       _showQuestion(currentQuestion + 1);
     });
-    $('.prev.button', myDom).click(function (ev) {
+    $('.prev.button', $myDom).click(function (ev) {
       _showQuestion(currentQuestion - 1);
     });
-    $('.finish.button', myDom).click(function (ev) {
+    $('.finish.button', $myDom).click(function (ev) {
       // Get total score.
       var finals = getScore();
       var totals = totalScore();
