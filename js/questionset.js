@@ -80,7 +80,7 @@ H5P.QuestionSet = function (options) {
     randomOrder: false,
     initialQuestion: 0,
     backgroundImage: "",
-    progressType: 'textual',
+    progressType: 'dots',
     passPercentage: 50,
     questions: [],
     introPage: {
@@ -210,7 +210,10 @@ H5P.QuestionSet = function (options) {
       var totals = totalScore();
       var scoreString = params.endGame.resultPage.scoreString.replace("@score", finals).replace("@total", totals);
       var success = ((100 * finals / totals) >= params.passPercentage);
-
+      var eventData = {
+        score: scoreString,
+        passed: success
+      };
       // Display result page.
       if (params.endGame.showResultPage) {
         // Render result page into.
@@ -228,14 +231,14 @@ H5P.QuestionSet = function (options) {
             // Init anims.
             console.log("Now we should have started some anims...");
             // On animation finished:
-              $(returnObject).trigger('h5pQuestionSetFinished');
+              $(returnObject).trigger('h5pQuestionSetFinished', eventData);
           } else {
             // Trigger finished event.
-            $(returnObject).trigger('h5pQuestionSetFinished');
+            $(returnObject).trigger('h5pQuestionSetFinished', eventData);
           }
         });
       } else {
-        $(returnObject).trigger('h5pQuestionSetFinished');
+        $(returnObject).trigger('h5pQuestionSetFinished', eventData);
       }
     });
 
