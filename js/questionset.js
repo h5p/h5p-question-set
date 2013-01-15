@@ -195,9 +195,16 @@ H5P.QuestionSet = function (options) {
         $('#qdot-' + currentQuestion, $myDom).removeClass('unanswered').addClass('answered');
         _updateFinishButton();
       });
+      if (quest.getAnswerGiven()) {
+        $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
+      }
     }
 
     // Set event listeners.
+    $('.progress-dot', $myDom).click(function (ev) {
+      var idx = parseInt($(this).attr('id').split('-')[1]);
+      _showQuestion(idx);
+    });
     $('.next.button', $myDom).click(function (ev) {
       _showQuestion(currentQuestion + 1);
     });
@@ -259,8 +266,6 @@ H5P.QuestionSet = function (options) {
 
   // Get total score possible for questionset.
   var totalScore = function () {
-    return questionInstances.length;
-    // FIXME: questions need to get totalScore function.
     var score = 0;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       score += questionInstances[i].totalScore();
