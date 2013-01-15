@@ -141,7 +141,6 @@ H5P.QuestionSet = function (options) {
     questionInstances.push(tmp);
   }
 
-
   var _updateFinishButton = function () {
     var answered = true;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
@@ -185,8 +184,7 @@ H5P.QuestionSet = function (options) {
     // Render own DOM into target.
     template.update(targetId, params);
     $myDom = $('#' + targetId);
-
-    $myDom.find(".questionset").css({backgroundImage: 'url(' + params.backgroundImage + ')'});
+    $myDom.css({backgroundImage: 'url(' + params.backgroundImage + ')'});
 
     // Attach questions
     for (var i=0; i<questionInstances.length; i++) {
