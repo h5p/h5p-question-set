@@ -19,35 +19,6 @@ H5P.QuestionSet = function (options) {
   var $ = H5P.jQuery;
 
   var texttemplate = '' +
-'<style type="text/css">' +
-'.dots-container {' +
-'  text-align: center;' +
-'}' +
-'.progress-dot {' +
-'  display: inline-block;' +
-'  width: 10px;' +
-'  height: 10px;' +
-'  border-radius: 50%;' +
-'}' +
-'.progress-dot.unanswered {' +
-'  background: darkred;' +
-'}' +
-'.progress-dot.answered {' +
-'  background: darkgreen;' +
-'}' +
-'.progress-dot.current {' +
-'  box-shadow: 0px 0px 6px firebrick;' +
-'}' +
-'.intro-page {' +
-'  background: white;' +
-'  position: absolute;' +
-'  z-index: 20;' +
-'  height: 100%;' +
-'  width: 100%;' +
-'  left: 0px;' +
-'  top: 0px;' +
-'}' +
-'</style>' +
 '<div class="questionset">' +
 '  <% if (introPage.showIntroPage) { %>' +
 '  <div class="intro-page">' +
@@ -197,10 +168,17 @@ H5P.QuestionSet = function (options) {
 
   // Function for attaching the multichoice to a DOM element.
   var attach = function (targetId) {
+    if (typeof(target) == "string") {
+      target = $("#" + target);
+    } else {
+      target = $(target);
+    }
+
     // Render own DOM into target.
-    template.update(targetId, params);
-    $myDom = $('#' + targetId);
-    $myDom.css({backgroundImage: 'url(' + params.backgroundImage + ')'});
+    $myDom = target;
+    $myDom.html(template.render(params)).css({
+      backgroundImage: 'url(' + params.backgroundImage + ')'
+    });
 
     // Attach questions
     for (var i=0; i<questionInstances.length; i++) {
