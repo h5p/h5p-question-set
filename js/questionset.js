@@ -167,7 +167,7 @@ H5P.QuestionSet = function (options) {
   };
 
   // Function for attaching the multichoice to a DOM element.
-  var attach = function (targetId) {
+  var attach = function (target) {
     if (typeof(target) == "string") {
       target = $("#" + target);
     } else {
