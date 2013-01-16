@@ -1,0 +1,168 @@
+{
+  "title": {
+    "label": "Title",
+    "description": "Question set title (optional)",
+    "type": "text",
+    "default": ""
+  },
+  "randomOrder": {
+    "label": "Randomize order",
+    "description": "Whether questions should be shown in random order",
+    "type": "boolean",
+    "default": false
+  },
+  "initialQuestion": {
+    "label": "Initial question",
+    "description": "Which question to start with. Count from 0",
+    "type": "integer",
+    "default": 0
+  },
+  "backgroundImage": {
+    "label": "Background image",
+    "description": "An optional background image for the Question set.",
+    "type": "image",
+    "default": ""
+  },
+  "progressType": {
+    "label": "Progress indicator",
+    "description": "Question set progress indicator style",
+    "type": "select",
+    "values": [{"text": "Textual", "value": "textual"}, {"text": "Dots", "value": "dots"}],
+    "default": "textual"
+  },
+  "passPercentage": {
+    "label": "Pass percentage",
+    "description": "Percentage of total score required for passing the quiz.",
+    "type": "integer",
+    "minValue": 0,
+    "maxValue": 100,
+    "default": 50
+  },
+  "questions": {
+    "label": "Questions",
+    "description": "List of questions in this set.",
+    "type": "h5p-library",
+    "validLibs": ["H5P.MultiChoice", "H5P.DragTextMatch", "H5PDragImageIntoPosition"],
+    "array": true,
+    "minEntries": 1,
+    "maxEntries": -1
+  },
+  "introPage": {
+    "label": "Intro page",
+    "description": "Data for the intro page",
+    "type": "combined",
+    "fields": {
+      "showIntroPage": {
+        "label": "Show intro page?",
+        "type": "boolean"
+      },
+      "title": {
+        "label": "Title",
+        "type": "text"
+      },
+      "introduction": {
+        "label": "Introduction text",
+        "type": "text"
+      },
+      "startButtonText": {
+        "label": "Start button text",
+        "type": "text"
+      }
+    }
+  },
+  "texts": {
+    "label": "Interface texts in quiz",
+    "type": "combined"
+    "fields": {
+      "prevButton": {
+        "label": "Back button",
+        "type": "text",
+        "default": "Previous"
+      },
+      "nextButton": {
+        "label": "Next button",
+        "type": "text",
+        "default": "Next"
+      },
+      "finishButton": {
+        "label": "Finish button",
+        "type": "text",
+        "default": "Finish"
+      },
+      "textualProgress": {
+        "label": "Progress text",
+        "description": "Text used if textual progress is selected.",
+        "type": "text",
+        "default": "Question: @current of @total questions"
+      }
+    }
+  },
+  "endGame": {
+    "label": "End game data",
+    "type": "combined",
+    "fields" {
+      "showResultPage": {
+        "label": "Show result page",
+        "type": "boolean",
+        "default": true
+      },
+      "resultPage": {
+        "label": "Result page",
+        "description": "Data and texts for the result page",
+        "type": "combined",
+        "fields": {
+          "successGreeting": {
+            "label": "Success greeting",
+            "description": "Title in result page on success",
+            "type": "text"
+          },
+          "successComment": {
+            "label": "Success comment",
+            "description": "Comment shown after the score",
+            "type": "text"
+          },
+          "failGreeting": {
+            "label": "Failed greeting",
+            "description": "Title in result page on failed quiz",
+            "type": "text"
+          },
+          "failComment": {
+            "label": "Failed comment",
+            "description": "Comment shown after the score on failed quiz",
+            "type": "text"
+          },
+          "finishButtonText": {
+            "label": "Finish button text",
+            "description": "Text for the finish button",
+            "type": "text"
+          }
+        }
+      },
+      "animations": {
+        "label": "Animations",
+        "type": "combined"
+        "fields": {
+          "showAnimations": {
+            "label": "Show animations",
+            "type": "boolean",
+            "default": false
+          }
+          "successResultAnimation": {
+            "label": "Result animation for success",
+            "description": "Add animation for successful completion of the quiz",
+            "optional": true,
+            "type": "h5p-library",
+            "validLibs": ["H5P.Animation", "H5P.Video", "H5P.Image"]
+          },
+          "failedResultAnimation": {
+            "label": "Result animation for failed quiz",
+            "description": "Add animation for failed completion of the quiz",
+            "optional": true,
+            "type": "h5p-library",
+            "validLibs": ["H5P.Animation", "H5P.Video", "H5P.Image"]
+          }
+        }
+      }
+    }
+  }
+}
