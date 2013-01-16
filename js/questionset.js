@@ -38,8 +38,24 @@ H5P.QuestionSet = function (options) {
 '.progress-dot.current {' +
 '  box-shadow: 0px 0px 6px firebrick;' +
 '}' +
+'.intro-page {' +
+'  background: white;' +
+'  position: absolute;' +
+'  z-index: 20;' +
+'  height: 100%;' +
+'  width: 100%;' +
+'  left: 0px;' +
+'  top: 0px;' +
+'}' +
 '</style>' +
 '<div class="questionset">' +
+'  <% if (introPage.showIntroPage) { %>' +
+'  <div class="intro-page">' +
+'    <div class="title"><%= introPage.title %></div>' +
+'    <div class="introduction"><%= introPage.introduction %></div>' +
+'    <div class="buttons"><button id="qs-startbutton"><%= introPage.startButtonText %></button></div>' +
+'  </div>' +
+'  <%} %>' +
 '  <div class="title"><%= title %></div>' +
 '  <% for (var i=0; i<questions.length; i++) { %>' +
 '    <div class="question-container" id="q-<%= i %>">' +
@@ -199,6 +215,10 @@ H5P.QuestionSet = function (options) {
         $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
       }
     }
+
+    $('#qs-startbutton').click(function (ev) {
+      $(this).parents('.intro-page').hide();
+    });
 
     // Set event listeners.
     $('.progress-dot', $myDom).click(function (ev) {
