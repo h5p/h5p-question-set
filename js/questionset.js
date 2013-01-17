@@ -12,11 +12,12 @@
 // - h5pQuestionSetFinished: Triggered when a question is finished. (User presses Finish-button)
 window.H5P = window.H5P || {};
 
-H5P.QuestionSet = function (options) {
+H5P.QuestionSet = function (options, contentId) {
   if ( !(this instanceof H5P.QuestionSet) )
-    return new H5P.QuestionSet(options);
+    return new H5P.QuestionSet(options, contentId);
 
   var $ = H5P.jQuery;
+  var cp = H5P.getContentPath(contentId);
 
   var texttemplate = '' +
 '<div class="questionset">' +
@@ -124,7 +125,7 @@ H5P.QuestionSet = function (options) {
   for (var i=0; i<params.questions.length; i++) {
     var quest = params.questions[i];
     // TODO: Render on init, inject in template.
-    var tmp = new (H5P.classFromName(quest.machineName))(quest.options);
+    var tmp = new (H5P.classFromName(quest.machineName))(quest.options, contentId);
     questionInstances.push(tmp);
   }
 
@@ -177,7 +178,7 @@ H5P.QuestionSet = function (options) {
     // Render own DOM into target.
     $myDom = target;
     $myDom.html(template.render(params)).css({
-      backgroundImage: 'url(' + params.backgroundImage + ')'
+      backgroundImage: 'url(' + cp + params.backgroundImage + ')'
     });
 
     // Attach questions
