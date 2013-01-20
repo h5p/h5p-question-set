@@ -230,7 +230,7 @@ H5P.QuestionSet = function (options, contentId) {
           resulttext: (success ? params.endGame.resultPage.successComment : params.endGame.resultPage.failComment),
           finishButtonText: params.endGame.resultPage.finishButtonText
         };
-        endTemplate.update(targetId, eparams);
+        endTemplate.update(target.attr('id'), eparams);
         $('.qs-finishbutton').click(function (ev) {
           // Display animation if present.
           if (params.endGame.animations.showAnimations) {
