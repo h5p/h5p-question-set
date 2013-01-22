@@ -12,42 +12,14 @@
 // - h5pQuestionSetFinished: Triggered when a question is finished. (User presses Finish-button)
 window.H5P = window.H5P || {};
 
-H5P.QuestionSet = function (options) {
+H5P.QuestionSet = function (options, contentId) {
   if ( !(this instanceof H5P.QuestionSet) )
-    return new H5P.QuestionSet(options);
+    return new H5P.QuestionSet(options, contentId);
 
   var $ = H5P.jQuery;
+  var cp = H5P.getContentPath(contentId);
 
   var texttemplate = '' +
-'<style type="text/css">' +
-'.dots-container {' +
-'  text-align: center;' +
-'}' +
-'.progress-dot {' +
-'  display: inline-block;' +
-'  width: 10px;' +
-'  height: 10px;' +
-'  border-radius: 50%;' +
-'}' +
-'.progress-dot.unanswered {' +
-'  background: darkred;' +
-'}' +
-'.progress-dot.answered {' +
-'  background: darkgreen;' +
-'}' +
-'.progress-dot.current {' +
-'  box-shadow: 0px 0px 6px firebrick;' +
-'}' +
-'.intro-page {' +
-'  background: white;' +
-'  position: absolute;' +
-'  z-index: 20;' +
-'  height: 100%;' +
-'  width: 100%;' +
-'  left: 0px;' +
-'  top: 0px;' +
-'}' +
-'</style>' +
 '<div class="questionset">' +
 '  <% if (introPage.showIntroPage) { %>' +
 '  <div class="intro-page">' +
@@ -153,7 +125,7 @@ H5P.QuestionSet = function (options) {
   for (var i=0; i<params.questions.length; i++) {
     var quest = params.questions[i];
     // TODO: Render on init, inject in template.
-    var tmp = new (H5P.classFromName(quest.machineName))(quest.options);
+    var tmp = new (H5P.classFromName(quest.machineName))(quest.options, contentId);
     questionInstances.push(tmp);
   }
 
@@ -196,11 +168,18 @@ H5P.QuestionSet = function (options) {
   };
 
   // Function for attaching the multichoice to a DOM element.
-  var attach = function (targetId) {
+  var attach = function (target) {
+    if (typeof(target) == "string") {
+      target = $("#" + target);
+    } else {
+      target = $(target);
+    }
+
     // Render own DOM into target.
-    template.update(targetId, params);
-    $myDom = $('#' + targetId);
-    $myDom.css({backgroundImage: 'url(' + params.backgroundImage + ')'});
+    $myDom = target;
+    $myDom.html(template.render(params)).css({
+      backgroundImage: 'url(' + cp + params.backgroundImage + ')'
+    });
 
     // Attach questions
     for (var i=0; i<questionInstances.length; i++) {
@@ -251,7 +230,7 @@ H5P.QuestionSet = function (options) {
           resulttext: (success ? params.endGame.resultPage.successComment : params.endGame.resultPage.failComment),
           finishButtonText: params.endGame.resultPage.finishButtonText
         };
-        endTemplate.update(targetId, eparams);
+        endTemplate.update(target.attr('id'), eparams);
         $('.qs-finishbutton').click(function (ev) {
           // Display animation if present.
           if (params.endGame.animations.showAnimations) {

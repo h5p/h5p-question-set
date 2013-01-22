@@ -1,0 +1,32 @@
+.dots-container {
+  text-align: center;
+}
+.progress-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.progress-dot.unanswered {
+  background: darkred;
+}
+.progress-dot.answered {
+  background: darkgreen;
+}
+.progress-dot.current {
+  box-shadow: 0px 0px 6px firebrick;
+}
+.intro-page {
+  background-color: rgba(255,255,255,0.9);
+  padding: 10px;
+  position: absolute;
+  z-index: 20;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+.questionset-results {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 10px;
+}
