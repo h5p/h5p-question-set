@@ -86,7 +86,7 @@ H5P.QuestionSet = function (options, contentId) {
     endGame: {
       showResultPage: true,
       resultPage: {
-        succesGreeting: "Congratulations!",
+        successGreeting: "Congratulations!",
         successComment: "You have enough correct answers to pass the test.",
         failGreeting: "Sorry!",
         failComment: "You don't have enough correct answers to pass this test.",
@@ -95,7 +95,9 @@ H5P.QuestionSet = function (options, contentId) {
       },
       animations: {
         showAnimations: false,
-        succesResultAnimation: {
+        successVideo: undefined,
+        failVideo: undefined,
+        successResultAnimation: {
           machineName: "H5P.Image",
           options: {image: ""}
         },
@@ -236,8 +238,27 @@ H5P.QuestionSet = function (options, contentId) {
           if (params.endGame.animations.showAnimations) {
             // Init anims.
             console.log("Now we should have started some anims...");
-            // On animation finished:
-              $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+            var sources = "";
+            var videoData = success ? params.endGame.animations.successVideo : params.endGame.animations.failVideo;
+
+            if (videoData) {
+              for (var key in videoData) {
+                sources += '<source src="' + cp + videoData[key] + '" type="' + key + '">';
+              }
+              // TODO: Width/height from somewhere.
+              var $video = $('<video width="635" height="500">' + sources + 'Stop using IE you fool</video>');
+
+              target.html($video);
+              $video.on('play', function(ev) {
+                console.log('Video started playing!!!');
+              }).on('ended', function(ev) {
+                console.log('Video is finished, quitting now!');
+                // On animation finished:
+                $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+              });
+              // Play vidoi!
+              $video[0].play();
+            }
           } else {
             // Trigger finished event.
             $(returnObject).trigger('h5pQuestionSetFinished', eventData);
