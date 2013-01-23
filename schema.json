@@ -72,7 +72,7 @@
   },
   "texts": {
     "label": "Interface texts in quiz",
-    "type": "combined"
+    "type": "combined",
     "fields": {
       "prevButton": {
         "label": "Back button",
@@ -100,7 +100,7 @@
   "endGame": {
     "label": "End game data",
     "type": "combined",
-    "fields" {
+    "fields": {
       "showResultPage": {
         "label": "Show result page",
         "type": "boolean",
@@ -140,13 +140,13 @@
       },
       "animations": {
         "label": "Animations",
-        "type": "combined"
+        "type": "combined",
         "fields": {
           "showAnimations": {
             "label": "Show animations",
             "type": "boolean",
             "default": false
-          }
+          },
           "successResultAnimation": {
             "label": "Result animation for success",
             "description": "Add animation for successful completion of the quiz",
