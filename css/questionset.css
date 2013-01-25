@@ -8,10 +8,16 @@
   left: 0;
 
   -webkit-transition: top 2s, left 2s, -webkit-transform 2s;
+  -moz-transition: top 2s, left 2s, -moz-transform 2s;
+  -o-transition: top 2s, left 2s, -o-transform 2s;
+  transition: top 2s, left 2s, transform 2s;
 }
 
 .questionset.hidden {
   -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
   top: 525px;
   left: 100px;
 }
@@ -36,11 +42,11 @@
 }
 .intro-page {
   /*background-color: rgba(255,255,255,0.9);*/
-  padding: 10px;
+  /*padding: 10px;*/
   position: absolute;
   z-index: 20;
   height: 100%;
-  /*width: 100%;*/
+  width: 100%;
   left: 0px;
   top: 0px;
 }
@@ -48,20 +54,25 @@
   font-size: 200%;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 1em;
+  margin: 1em;
 }
 .intro-page .introduction {
   font-size: 125%;
   margin: 1em 10%;
 }
 .intro-page .buttons {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+
   text-align: right;
 }
 
 #qs-startbutton {
-  position: absolute;
-  bottom: 25px;
-  right: -40px; /* TODO: this is probably not right */
+  /*width: 80px;*/
+  height: 40px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
 }
 
 .qs-footer {
