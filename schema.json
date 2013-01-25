@@ -147,6 +147,16 @@
             "type": "boolean",
             "default": false
           },
+          "successVideo": {
+            "label": "Success video",
+            "description": "Video displayed on successful quiz",
+            "type": "video"
+          },
+          "failVideo": {
+            "label": "Fail video",
+            "description": "Video displayed on failed quiz",
+            "type": "video"
+          },
           "successResultAnimation": {
             "label": "Result animation for success",
             "description": "Add animation for successful completion of the quiz",

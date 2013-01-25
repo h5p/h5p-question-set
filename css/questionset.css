@@ -1,3 +1,21 @@
+.questionset {
+  width: 535px;
+  height: 400px;
+  padding: 50px;
+  background: transparent url(img/Paper-clean.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-transition: top 2s, left 2s, -webkit-transform 2s;
+}
+
+.questionset.hidden {
+  -webkit-transform: rotate(-45deg);
+  top: 525px;
+  left: 100px;
+}
+
 .dots-container {
   text-align: center;
 }
@@ -17,16 +35,88 @@
   box-shadow: 0px 0px 6px firebrick;
 }
 .intro-page {
-  background-color: rgba(255,255,255,0.9);
+  /*background-color: rgba(255,255,255,0.9);*/
   padding: 10px;
   position: absolute;
   z-index: 20;
   height: 100%;
-  width: 100%;
+  /*width: 100%;*/
   left: 0px;
   top: 0px;
 }
+.intro-page .title {
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.intro-page .introduction {
+  font-size: 125%;
+  margin: 1em 10%;
+}
+.intro-page .buttons {
+  text-align: right;
+}
+
+#qs-startbutton {
+  position: absolute;
+  bottom: 25px;
+  right: -40px; /* TODO: this is probably not right */
+}
+
+.qs-footer {
+  position: absolute;
+  bottom: 50px;
+  height: 40px;
+  width: 535px;
+}
+.qs-progress {
+  line-height: 40px;
+  padding: 0;
+}
+.qs-footer .button {
+  width: 80px;
+  height: 40px;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+}
+.qs-footer .button.next {
+  right: 100px;
+}
+.qs-footer .button.finish {
+  right: 0px;
+}
+.qs-footer .button.prev {
+  left: 0px;
+}
+
 .questionset-results {
   background-color: rgba(255, 255, 255, 0.75);
   padding: 10px;
+  height: 480px;
+  text-align: center;
+}
+
+.questionset-results .resulttext {
+  font-size: 20px;
+  line-height: 25px;
+  margin: 40px 100px;
+  padding-left: 60px;
+  min-height: 60px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.questionset-results .resulttext.fail {
+  background-image: url(img/mark-fail.png);
+}
+
+.questionset-results .resulttext.success {
+  background-image: url(img/mark-pass.png);
+}
+
+.questionset-results .buttons {
+  text-align: right;
 }

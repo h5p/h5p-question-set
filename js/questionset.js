@@ -20,22 +20,22 @@ H5P.QuestionSet = function (options, contentId) {
   var cp = H5P.getContentPath(contentId);
 
   var texttemplate = '' +
-'<div class="questionset">' +
-'  <% if (introPage.showIntroPage) { %>' +
-'  <div class="intro-page">' +
-'    <div class="title"><%= introPage.title %></div>' +
-'    <div class="introduction"><%= introPage.introduction %></div>' +
-'    <div class="buttons"><button id="qs-startbutton"><%= introPage.startButtonText %></button></div>' +
-'  </div>' +
-'  <%} %>' +
+'<% if (introPage.showIntroPage) { %>' +
+'<div class="intro-page">' +
+'  <div class="title"><%= introPage.title %></div>' +
+'  <div class="introduction"><%= introPage.introduction %></div>' +
+'  <div class="buttons"><button id="qs-startbutton"><%= introPage.startButtonText %></button></div>' +
+'</div>' +
+'<%} %>' +
+'<div class="questionset hidden">' +
 '  <div class="title"><%= title %></div>' +
 '  <% for (var i=0; i<questions.length; i++) { %>' +
 '    <div class="question-container" id="q-<%= i %>">' +
 '      <div><%= questions[i].machineName %></div>' +
 '    </div>' +
 '  <% } %>' +
-'  <div class="question-footer">' +
-'    <div class="progress">' +
+'  <div class="qs-footer">' +
+'    <div class="qs-progress">' +
 '      <% if (progressType == "dots") { %>' +
 '        <div class="dots-container">' +
 '          <% for (var i=0; i<questions.length; i++) { %>' +
@@ -57,8 +57,8 @@ H5P.QuestionSet = function (options, contentId) {
 '<div class="questionset-results">' +
 '  <div class="greeting"><%= greeting %></div>' +
 '  <div class="score <%= scoreclass %>"><%= score %></div>' +
-'  <div class="resulttext"><%= resulttext %></div>' +
-'  <div><button class="qs-finishbutton"><%= finishButtonText %></button></div>' +
+'  <div class="resulttext <%= scoreclass %>"><%= resulttext %></div>' +
+'  <div class="buttons"><button class="qs-finishbutton"><%= finishButtonText %></button></div>' +
 '</div>' +
 '';
 
@@ -199,6 +199,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     $('#qs-startbutton').click(function (ev) {
       $(this).parents('.intro-page').hide();
+      $('.questionset', $myDom).removeClass('hidden');
     });
 
     // Set event listeners.
@@ -222,6 +223,7 @@ H5P.QuestionSet = function (options, contentId) {
         score: scoreString,
         passed: success
       };
+
       // Display result page.
       if (params.endGame.showResultPage) {
         // Render result page into.
