@@ -30,15 +30,13 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-}
-.progress-dot.unanswered {
-  background: darkred;
+  border: 1px solid #494949;
 }
 .progress-dot.answered {
-  background: darkgreen;
+  background: #494949;
 }
 .progress-dot.current {
-  box-shadow: 0px 0px 6px firebrick;
+  box-shadow: 0px 0px 6px #494949;
 }
 .intro-page {
   /*background-color: rgba(255,255,255,0.9);*/
