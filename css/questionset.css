@@ -70,6 +70,7 @@
   border-radius: 10px 10px 10px 10px;
   font-size: 50px;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 .qs-footer {
@@ -89,6 +90,7 @@
   border-radius: 4px;
   position: absolute;
   top: 0;
+  cursor: pointer;
 }
 .qs-footer .button.next {
   right: 100px;
@@ -127,4 +129,8 @@
 
 .questionset-results .buttons {
   text-align: right;
+}
+
+button {
+  cursor: pointer;
 }
