@@ -24,7 +24,7 @@ H5P.QuestionSet = function (options, contentId) {
 '<div class="intro-page">' +
 '  <div class="title"><%= introPage.title %></div>' +
 '  <div class="introduction"><%= introPage.introduction %></div>' +
-'  <div class="buttons"><button id="qs-startbutton"><%= introPage.startButtonText %></button></div>' +
+'  <div class="buttons"><a id="qs-startbutton" class="button"><%= introPage.startButtonText %></a></div>' +
 '</div>' +
 '<%} %>' +
 '<div class="questionset hidden">' +
@@ -46,9 +46,9 @@ H5P.QuestionSet = function (options, contentId) {
 '        <span class="progress-text"></span>' +
 '      <% } %>' +
 '    </div>' +
-'    <button class="prev button"><%= texts.prevButton %></button>' +
-'    <button class="next button"><%= texts.nextButton %></button>' +
-'    <button class="finish button"><%= texts.finishButton %></button>' +
+'    <a class="prev button"><%= texts.prevButton %></a>' +
+'    <a class="next button"><%= texts.nextButton %></a>' +
+'    <a class="finish button"><%= texts.finishButton %></a>' +
 '  </div>' +
 '</div>' +
   '';
@@ -58,7 +58,7 @@ H5P.QuestionSet = function (options, contentId) {
 '  <div class="greeting"><%= greeting %></div>' +
 '  <div class="score <%= scoreclass %>"><%= score %></div>' +
 '  <div class="resulttext <%= scoreclass %>"><%= resulttext %></div>' +
-'  <div class="buttons"><button class="qs-finishbutton"><%= finishButtonText %></button></div>' +
+'  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a></divbutton >' +
 '</div>' +
 '';
 

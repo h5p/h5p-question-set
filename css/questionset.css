@@ -31,12 +31,14 @@
   height: 10px;
   border-radius: 50%;
   border: 1px solid #494949;
+  margin: 0 3px;
 }
 .progress-dot.answered {
   background: #494949;
 }
 .progress-dot.current {
-  box-shadow: 0px 0px 6px #494949;
+  box-shadow: 1px 1px 4px #494949;
+  margin: -1px 4px 1px 2px;
 }
 .intro-page {
   /*background-color: rgba(255,255,255,0.9);*/
@@ -84,14 +86,10 @@
   padding: 0;
 }
 .qs-footer .button {
-  width: 80px;
-  height: 40px;
-  border: 1px solid #bababa;
-  border-radius: 4px;
   position: absolute;
   top: 0;
-  cursor: pointer;
 }
+
 .qs-footer .button.next {
   right: 100px;
 }
