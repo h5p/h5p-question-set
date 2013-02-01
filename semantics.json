@@ -3,35 +3,31 @@
     "name": "title",
     "type": "text",
     "label": "Title",
-    "description": "Question set title (optional)",
-    "default": ""
+    "description": "Question set title (optional)."
   },
   {
     "name": "randomOrder",
     "type": "boolean",
     "label": "Randomize order",
-    "description": "Whether questions should be shown in random order",
-    "default": false
+    "description": "Whether questions should be shown in random order."
   },
   {
     "name": "initialQuestion",
     "type": "number",
     "label": "Initial question",
-    "description": "Which question to start with. Count from 0",
-    "default": 0
+    "description": "Which question to start with. Count from 0."
   },
   {
     "name": "backgroundImage",
     "type": "image",
     "label": "Background image",
-    "description": "An optional background image for the Question set.",
-    "default": ""
+    "description": "An optional background image for the Question set."
   },
   {
     "name": "progressType",
     "type": "select",
     "label": "Progress indicator",
-    "description": "Question set progress indicator style",
+    "description": "Question set progress indicator style.",
     "values": [
       {
         "text": "Textual",
@@ -62,8 +58,8 @@
         "name": "library",
         "type": "library",
         "label": "Question library",
-        "description": "Library for this question",
-        "validLibs": [
+        "description": "Library for this question.",
+        "options": [
           "H5P.MultiChoice"
         ]
       }
@@ -73,7 +69,7 @@
     "name": "introPage",
     "type": "group",
     "label": "Intro page",
-    "description": "Data for the intro page",
+    "description": "Data for the intro page.",
     "fields": [
       {
         "name": "showIntroPage",
@@ -144,37 +140,37 @@
         "name": "resultPage",
         "type": "group",
         "label": "Result page",
-        "description": "Data and texts for the result page",
+        "description": "Data and texts for the result page.",
         "fields": [
           {
             "name": "successGreeting",
             "type": "text",
             "label": "Success greeting",
-            "description": "Title in result page on success"
+            "description": "Title in result page on success."
           },
           {
             "name": "successComment",
             "type": "text",
             "label": "Success comment",
-            "description": "Comment shown after the score"
+            "description": "Comment shown after the score."
           },
           {
             "name": "failGreeting",
             "type": "text",
             "label": "Failed greeting",
-            "description": "Title in result page on failed quiz"
+            "description": "Title in result page on failed quiz."
           },
           {
             "name": "failComment",
             "type": "text",
             "label": "Failed comment",
-            "description": "Comment shown after the score on failed quiz"
+            "description": "Comment shown after the score on failed quiz."
           },
           {
             "name": "finishButtonText",
             "type": "text",
             "label": "Finish button text",
-            "description": "Text for the finish button"
+            "description": "Text for the finish button."
           }
         ]
       },
@@ -186,20 +182,19 @@
           {
             "name": "showAnimations",
             "type": "boolean",
-            "label": "Show animations",
-            "default": false
+            "label": "Show animations"
           },
           {
             "name": "successVideo",
             "type": "video",
             "label": "Success video",
-            "description": "Video displayed on successful quiz"
+            "description": "Video displayed on successful quiz."
           },
           {
             "name": "failVideo",
             "type": "video",
             "label": "Fail video",
-            "description": "Video displayed on failed quiz"
+            "description": "Video displayed on failed quiz."
           }
         ]
       }
