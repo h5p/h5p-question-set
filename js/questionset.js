@@ -123,24 +123,36 @@ H5P.QuestionSet = function (options, contentId) {
     questionInstances.push(tmp);
   }
 
-  var _updateFinishButton = function () {
+  // Update button state.
+  var _updateButtons = function () {
     var answered = true;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
-    $('.finish.button', $myDom).attr({'disabled': !answered});
-  };
+
+    if (currentQuestion === 0) {
+      $('.prev.button', $myDom).hide();
+    } else {
+      $('.prev.button', $myDom).show();
+    }
+    if (currentQuestion == (params.questions.length - 1)) {
+      $('.next.button', $myDom).hide();
+      if (answered) {
+        $('.finish.button', $myDom).show();
+      }
+    } else {
+      $('.next.button', $myDom).show();
+      $('.finish.button', $myDom).hide();
+    }
+
+ };
 
   var _showQuestion = function (questionNumber) {
     // Sanitize input.
     if (questionNumber < 0) { questionNumber = 0; }
     if (questionNumber >= params.questions.length) { questionNumber = params.questions.length - 1; }
 
-    $('.prev.button', $myDom).attr({'disabled': (questionNumber === 0)});
-    $('.next.button', $myDom).attr({'disabled': (questionNumber == params.questions.length-1)});
-
-
-    // Hide all questions
+     // Hide all questions
     $('.question-container', $myDom).hide();
 
     // Reshow the requested question
@@ -158,6 +170,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Remember where we are
     currentQuestion = questionNumber;
+    _updateButtons();
     return currentQuestion;
   };
 
@@ -182,7 +195,7 @@ H5P.QuestionSet = function (options, contentId) {
       quest.attach('q-' + i);
       $(quest).on('h5pQuestionAnswered', function (ev) {
         $('#qdot-' + currentQuestion, $myDom).removeClass('unanswered').addClass('answered');
-        _updateFinishButton();
+        _updateButtons();
       });
       if (quest.getAnswerGiven()) {
         $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
@@ -270,7 +283,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Hide all but initial Question.
     _showQuestion(params.initialQuestion);
-    _updateFinishButton();
+    _updateButtons();
     return this;
   };
 

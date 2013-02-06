@@ -91,7 +91,7 @@
 }
 
 .qs-footer .button.next {
-  right: 100px;
+  right: 0px;
 }
 .qs-footer .button.finish {
   right: 0px;
@@ -101,10 +101,20 @@
 }
 
 .questionset-results {
-  background-color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.75) url(img/Paper-clean.png);
+
   padding: 10px;
   height: 480px;
   text-align: center;
+}
+
+.questionset-results .greeting {
+  margin-top: 180px;
+}
+
+.questionset-results .score {
+  font-size: 25px;
+  margin-top: 40px;
 }
 
 .questionset-results .resulttext {
@@ -120,13 +130,22 @@
 .questionset-results .resulttext.fail {
   background-image: url(img/mark-fail.png);
 }
+.questionset-results .resulttext.fail .em {
+  font-style: normal;
+  color: #b9272d;
+}
 
 .questionset-results .resulttext.success {
   background-image: url(img/mark-pass.png);
 }
-
+.questionset-results .resulttext.success .em {
+  font-style: normal;
+  color: #6aa81b;
+}
 .questionset-results .buttons {
-  text-align: right;
+  position: absolute;
+  bottom: 40px;
+  right: 25px;
 }
 
 button {
