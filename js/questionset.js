@@ -96,15 +96,7 @@ H5P.QuestionSet = function (options, contentId) {
       animations: {
         showAnimations: false,
         successVideo: undefined,
-        failVideo: undefined,
-        successResultAnimation: {
-          machineName: "H5P.Image",
-          options: {image: ""}
-        },
-        failedResultAnimation: {
-          machineName: "H5P.Image",
-          options: {image: ""}
-        }
+        failVideo: undefined
       }
     }
   };
@@ -180,7 +172,7 @@ H5P.QuestionSet = function (options, contentId) {
     // Render own DOM into target.
     $myDom = target;
     $myDom.html(template.render(params)).css({
-      backgroundImage: 'url(' + cp + params.backgroundImage + ')'
+      backgroundImage: 'url(' + cp + params.backgroundImage.path + ')'
     });
 
     // Attach questions
