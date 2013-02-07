@@ -32,6 +32,7 @@
   border-radius: 50%;
   border: 1px solid #494949;
   margin: 0 3px;
+  cursor: pointer;
 }
 .progress-dot.answered {
   background: #494949;
@@ -130,7 +131,7 @@
 .questionset-results .resulttext.fail {
   background-image: url(img/mark-fail.png);
 }
-.questionset-results .resulttext.fail .em {
+.questionset-results .resulttext.fail em {
   font-style: normal;
   color: #b9272d;
 }
@@ -138,7 +139,7 @@
 .questionset-results .resulttext.success {
   background-image: url(img/mark-pass.png);
 }
-.questionset-results .resulttext.success .em {
+.questionset-results .resulttext.success em {
   font-style: normal;
   color: #6aa81b;
 }

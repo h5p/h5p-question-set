@@ -52,15 +52,14 @@ H5P.QuestionSet = function (options, contentId) {
 '  </div>' +
 '</div>' +
   '';
-
   var resulttemplate = '' +
 '<div class="questionset-results">' +
 '  <div class="greeting"><%= greeting %></div>' +
 '  <div class="score <%= scoreclass %>"><%= score %></div>' +
 '  <div class="resulttext <%= scoreclass %>"><%= resulttext %></div>' +
-'  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a></divbutton >' +
+'  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a></div>' +
 '</div>' +
-'';
+  '';
 
   var that = this;
   var defaults = {
@@ -174,16 +173,85 @@ H5P.QuestionSet = function (options, contentId) {
     return currentQuestion;
   };
 
+  var _displayEndGame = function () {
+    // Get total score.
+    var finals = getScore();
+    var totals = totalScore();
+    var scoreString = params.endGame.resultPage.scoreString.replace("@score", finals).replace("@total", totals);
+    var success = ((100 * finals / totals) >= params.passPercentage);
+    var eventData = {
+      score: scoreString,
+      passed: success
+    };
+    var displayResults = function () {
+      if (!params.endGame.showResultPage) {
+        $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+        return;
+      }
+
+      var eparams = {
+        greeting: (success ? params.endGame.resultPage.succesGreeting : params.endGame.resultPage.failGreeting),
+        score: scoreString,
+        scoreclass: (success ? 'success' : 'fail'),
+        resulttext: (success ? params.endGame.resultPage.successComment : params.endGame.resultPage.failComment),
+        finishButtonText: params.endGame.resultPage.finishButtonText
+      };
+
+      // Show result page.
+      $myDom.children().hide();
+      $myDom.append(endTemplate.render(eparams));
+      $('.qs-finishbutton').click(function (ev) {
+        $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+      });
+    };
+
+    var $video;
+    if (params.endGame.animations.showAnimations) {
+      var sources = "";
+      var videoData = success ? params.endGame.animations.successVideo : params.endGame.animations.failVideo;
+
+      if (videoData) {
+        for (var key in videoData) {
+          sources += '<source src="' + cp + videoData[key] + '" type="' + key + '">';
+        }
+        // TODO: Width/height from somewhere.
+        // TODO: Embed media player fallback for IE.
+        $video = $('<video width="635" height="500">' + sources + '</video>');
+        if ($video[0].canPlayType === undefined) {
+          // Video is not supported. Skip to result page.
+          displayResults();
+          return;
+        }
+        $video[0].autoplay = false;
+        $video[0].load();
+      }
+
+      // Start video.
+      $myDom.html($video);
+      $video.on('play', function(ev) {
+        console.log('Video started playing!!!');
+      }).on('ended', function(ev) {
+        console.log('Video is finished, quitting now!');
+        // On animation finished:
+        displayResults();
+      });
+      // Press play on tape!
+      $video[0].play();
+    } else {
+      // Trigger finished event.
+      displayResults();
+    }
+  };
+
   // Function for attaching the multichoice to a DOM element.
   var attach = function (target) {
     if (typeof(target) == "string") {
-      target = $("#" + target);
+      $myDom = $("#" + target);
     } else {
-      target = $(target);
+      $myDom = $(target);
     }
 
     // Render own DOM into target.
-    $myDom = target;
     $myDom.html(template.render(params)).css({
       backgroundImage: 'url(' + cp + params.backgroundImage.path + ')'
     });
@@ -209,7 +277,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Set event listeners.
     $('.progress-dot', $myDom).click(function (ev) {
-      var idx = parseInt($(this).attr('id').split('-')[1]);
+      var idx = parseInt($(this).attr('id').split('-')[1], 10);
       _showQuestion(idx);
     });
     $('.next.button', $myDom).click(function (ev) {
@@ -219,66 +287,7 @@ H5P.QuestionSet = function (options, contentId) {
       _showQuestion(currentQuestion - 1);
     });
     $('.finish.button', $myDom).click(function (ev) {
-      // Get total score.
-      var finals = getScore();
-      var totals = totalScore();
-      var scoreString = params.endGame.resultPage.scoreString.replace("@score", finals).replace("@total", totals);
-      var success = ((100 * finals / totals) >= params.passPercentage);
-      var eventData = {
-        score: scoreString,
-        passed: success
-      };
-
-      // Display result page.
-      if (params.endGame.showResultPage) {
-        // Render result page into.
-        var eparams = {
-          greeting: (success ? params.endGame.resultPage.succesGreeting : params.endGame.resultPage.failGreeting),
-          score: scoreString,
-          scoreclass: (success ? 'success' : 'fail'),
-          resulttext: (success ? params.endGame.resultPage.successComment : params.endGame.resultPage.failComment),
-          finishButtonText: params.endGame.resultPage.finishButtonText
-        };
-        endTemplate.update(target.attr('id'), eparams);
-
-        var $video;
-        if (params.endGame.animations.showAnimations) {
-          var sources = "";
-          var videoData = success ? params.endGame.animations.successVideo : params.endGame.animations.failVideo;
-
-          if (videoData) {
-            for (var key in videoData) {
-              sources += '<source src="' + cp + videoData[key] + '" type="' + key + '">';
-            }
-            // TODO: Width/height from somewhere.
-            $video = $('<video width="635" height="500">' + sources + 'Stop using IE you fool</video>');
-            $video[0].autoplay = false;
-            $video[0].load();
-          }
-        }
-
-        $('.qs-finishbutton').click(function (ev) {
-          // Display animation if present.
-          if ($video) {
-            // Start video.
-            target.html($video);
-            $video.on('play', function(ev) {
-              console.log('Video started playing!!!');
-            }).on('ended', function(ev) {
-              console.log('Video is finished, quitting now!');
-              // On animation finished:
-              $(returnObject).trigger('h5pQuestionSetFinished', eventData);
-            });
-            // Press play on tape!
-            $video[0].play();
-          } else {
-            // Trigger finished event.
-            $(returnObject).trigger('h5pQuestionSetFinished', eventData);
-          }
-        });
-      } else {
-        $(returnObject).trigger('h5pQuestionSetFinished', eventData);
-      }
+      _displayEndGame();
     });
 
     // Hide all but initial Question.
