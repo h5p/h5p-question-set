@@ -31,7 +31,7 @@ H5P.QuestionSet = function (options, contentId) {
 '  <div class="title"><%= title %></div>' +
 '  <% for (var i=0; i<questions.length; i++) { %>' +
 '    <div class="question-container" id="q-<%= i %>">' +
-'      <div><%= questions[i].machineName %></div>' +
+'      <div><%= questions[i].library %></div>' +
 '    </div>' +
 '  <% } %>' +
 '  <div class="qs-footer">' +
@@ -119,7 +119,7 @@ H5P.QuestionSet = function (options, contentId) {
   for (var i=0; i<params.questions.length; i++) {
     var quest = params.questions[i];
     // TODO: Render on init, inject in template.
-    var tmp = new (H5P.classFromName(quest.machineName))(quest.options, contentId);
+    var tmp = new (H5P.classFromName(quest.library))(quest.params, contentId);
     questionInstances.push(tmp);
   }
 
