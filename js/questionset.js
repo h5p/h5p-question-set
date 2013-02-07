@@ -116,9 +116,9 @@ H5P.QuestionSet = function (options, contentId) {
 
   // Instantiate question instances
   for (var i=0; i<params.questions.length; i++) {
-    var quest = params.questions[i];
+    var question = params.questions[i];
     // TODO: Render on init, inject in template.
-    var tmp = new (H5P.classFromName(quest.library))(quest.params, contentId);
+    var tmp = new (H5P.classFromName(question.library.library))(question.library.params, contentId);
     questionInstances.push(tmp);
   }
 
@@ -233,14 +233,14 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Attach questions
     for (var i=0; i<questionInstances.length; i++) {
-      var quest = questionInstances[i];
+      var question = questionInstances[i];
       // TODO: Render on init, inject in template.
-      quest.attach('q-' + i);
-      $(quest).on('h5pQuestionAnswered', function (ev) {
+      question.attach('q-' + i);
+      $(question).on('h5pQuestionAnswered', function (ev) {
         $('#qdot-' + currentQuestion, $myDom).removeClass('unanswered').addClass('answered');
         _updateButtons();
       });
-      if (quest.getAnswerGiven()) {
+      if (question.getAnswerGiven()) {
         $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
       }
     }
