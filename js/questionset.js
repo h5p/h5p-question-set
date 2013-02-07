@@ -205,42 +205,17 @@ H5P.QuestionSet = function (options, contentId) {
       });
     };
 
-    var $video;
     if (params.endGame.animations.showAnimations) {
-      var sources = "";
       var videoData = success ? params.endGame.animations.successVideo : params.endGame.animations.failVideo;
-
       if (videoData) {
-        for (var key in videoData) {
-          sources += '<source src="' + cp + videoData[key] + '" type="' + key + '">';
-        }
-        // TODO: Width/height from somewhere.
-        // TODO: Embed media player fallback for IE.
-        $video = $('<video width="635" height="500">' + sources + '</video>');
-        if ($video[0].canPlayType === undefined) {
-          // Video is not supported. Skip to result page.
+        H5P.playVideo($myDom, videoData, cp, function () {
           displayResults();
-          return;
-        }
-        $video[0].autoplay = false;
-        $video[0].load();
+        });
+        return;
       }
-
-      // Start video.
-      $myDom.html($video);
-      $video.on('play', function(ev) {
-        console.log('Video started playing!!!');
-      }).on('ended', function(ev) {
-        console.log('Video is finished, quitting now!');
-        // On animation finished:
-        displayResults();
-      });
-      // Press play on tape!
-      $video[0].play();
-    } else {
-      // Trigger finished event.
-      displayResults();
     }
+    // Trigger finished event.
+    displayResults();
   };
 
   // Function for attaching the multichoice to a DOM element.
