@@ -102,7 +102,7 @@
 }
 
 .questionset-results {
-  background: rgba(255, 255, 255, 0.75) url(img/Paper-clean.png);
+  background: transparent url(img/Paper-clean.png);
 
   padding: 10px;
   height: 480px;
