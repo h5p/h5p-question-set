@@ -118,7 +118,7 @@ H5P.QuestionSet = function (options, contentId) {
   for (var i=0; i<params.questions.length; i++) {
     var question = params.questions[i];
     // TODO: Render on init, inject in template.
-    var tmp = new (H5P.classFromName(question.library.library))(question.library.params, contentId);
+    var tmp = new (H5P.classFromName(question.library))(question.params, contentId);
     questionInstances.push(tmp);
   }
 
