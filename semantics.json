@@ -102,6 +102,7 @@
     "name": "texts",
     "type": "group",
     "label": "Interface texts in quiz",
+    "common": true,
     "fields": [
       {
         "name": "prevButton",
