@@ -47,6 +47,7 @@
     "description": "Percentage of total score required for passing the quiz.",
     "min": 0,
     "max": 100,
+    "step": 1,
     "default": 50
   },
   {
