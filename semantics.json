@@ -192,6 +192,17 @@
             "label": "Show animations"
           },
           {
+            "name": "skippable",
+            "type": "boolean",
+            "label": "Skippable"
+          },
+          {
+            "name": "skipButtonText",
+            "type": "text",
+            "label": "Skip button text",
+            "common": true
+          },
+          {
             "name": "successVideo",
             "type": "video",
             "label": "Success video",

@@ -208,7 +208,7 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.endGame.animations.showAnimations) {
       var videoData = success ? params.endGame.animations.successVideo : params.endGame.animations.failVideo;
       if (videoData) {
-        H5P.playVideo($myDom, videoData, cp, function () {
+        H5P.playVideo($myDom, videoData, params.endGame.animations.skipButtonText, cp, function () {
           displayResults();
         });
         return;
