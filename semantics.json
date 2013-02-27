@@ -65,7 +65,12 @@
           "label": "Question library",
           "description": "Library for this question.",
           "options": [
-            "H5P.MultiChoice"
+            {
+              "machineName": "H5P.MultiChoice",
+              "majorVersion": 1,
+              "minorVersion": 0,
+              "defaultStyles": true,
+            }
           ]
         }
       ]
