@@ -5,7 +5,8 @@
   "minorVersion": 0,
   "patchVersion": 6,
   "runnable": 1,
-  "machineName": "H5P.QuestionSet",
+  "name": "h5p-question-set",
+  "class": "H5P.QuestionSet",
   "author": "Amendor AS",
   "license": "cc-by-sa",
   "preloadedJs": [
