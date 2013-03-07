@@ -14,5 +14,8 @@
   ],
   "preloadedCss": [
     {"path": "css/questionset.css"}
+  ],
+  "preloadedDependencies": [
+    {"machineName": "EmbeddedJS", "majorVersion": 1, "minorVersion": 0}
   ]
 }
