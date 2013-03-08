@@ -64,7 +64,7 @@
           "type": "library",
           "label": "Question library",
           "description": "Library for this question.",
-          "options": ["H5P.MultiChoice 1.0"]
+          "options": ["H5P.MultiChoice"]
         }
       ]
     }
