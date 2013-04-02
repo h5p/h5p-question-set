@@ -10,7 +10,7 @@
 //
 // Events provided:
 // - h5pQuestionSetFinished: Triggered when a question is finished. (User presses Finish-button)
-window.H5P = window.H5P || {};
+var H5P = H5P || {};
 
 H5P.QuestionSet = function (options, contentId) {
   if ( !(this instanceof H5P.QuestionSet) )
