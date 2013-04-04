@@ -1,0 +1,221 @@
+[
+  {
+    "name": "title",
+    "type": "text",
+    "label": "Title",
+    "description": "Question set title (optional)."
+  },
+  {
+    "name": "randomOrder",
+    "type": "boolean",
+    "label": "Randomize order",
+    "description": "Whether questions should be shown in random order."
+  },
+  {
+    "name": "initialQuestion",
+    "type": "number",
+    "label": "Initial question",
+    "description": "Which question to start with. Count from 0."
+  },
+  {
+    "name": "backgroundImage",
+    "type": "image",
+    "label": "Background image",
+    "description": "An optional background image for the Question set."
+  },
+  {
+    "name": "progressType",
+    "type": "select",
+    "label": "Progress indicator",
+    "description": "Question set progress indicator style.",
+    "values": [
+      {
+        "text": "Textual",
+        "value": "textual"
+      },
+      {
+        "text": "Dots",
+        "value": "dots"
+      }
+    ],
+    "default": "textual"
+  },
+  {
+    "name": "passPercentage",
+    "type": "number",
+    "label": "Pass percentage",
+    "description": "Percentage of total score required for passing the quiz.",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "default": 50
+  },
+  {
+    "name": "questions",
+    "type": "list",
+    "entity": "question",
+    "field": {
+      "name": "question",
+      "type": "group",
+      "label": "Question",
+      "fields": [
+        {
+          "name": "library",
+          "type": "library",
+          "label": "Question library",
+          "description": "Library for this question.",
+          "options": [
+            "H5P.MultiChoice 1.0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "introPage",
+    "type": "group",
+    "label": "Intro page",
+    "description": "Data for the intro page.",
+    "fields": [
+      {
+        "name": "showIntroPage",
+        "type": "boolean",
+        "label": "Show intro page?"
+      },
+      {
+        "name": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "name": "introduction",
+        "type": "text",
+        "label": "Introduction text"
+      },
+      {
+        "name": "startButtonText",
+        "type": "text",
+        "label": "Start button text"
+      }
+    ]
+  },
+  {
+    "name": "texts",
+    "type": "group",
+    "label": "Interface texts in quiz",
+    "common": true,
+    "fields": [
+      {
+        "name": "prevButton",
+        "type": "text",
+        "label": "Back button",
+        "default": "Previous"
+      },
+      {
+        "name": "nextButton",
+        "type": "text",
+        "label": "Next button",
+        "default": "Next"
+      },
+      {
+        "name": "finishButton",
+        "type": "text",
+        "label": "Finish button",
+        "default": "Finish"
+      },
+      {
+        "name": "textualProgress",
+        "type": "text",
+        "label": "Progress text",
+        "description": "Text used if textual progress is selected.",
+        "default": "Question: @current of @total questions"
+      }
+    ]
+  },
+  {
+    "name": "endGame",
+    "type": "group",
+    "label": "End game data",
+    "fields": [
+      {
+        "name": "showResultPage",
+        "type": "boolean",
+        "label": "Show result page",
+        "default": true
+      },
+      {
+        "name": "resultPage",
+        "type": "group",
+        "label": "Result page",
+        "description": "Data and texts for the result page.",
+        "fields": [
+          {
+            "name": "successGreeting",
+            "type": "text",
+            "label": "Success greeting",
+            "description": "Title in result page on success."
+          },
+          {
+            "name": "successComment",
+            "type": "text",
+            "label": "Success comment",
+            "description": "Comment shown after the score."
+          },
+          {
+            "name": "failGreeting",
+            "type": "text",
+            "label": "Failed greeting",
+            "description": "Title in result page on failed quiz."
+          },
+          {
+            "name": "failComment",
+            "type": "text",
+            "label": "Failed comment",
+            "description": "Comment shown after the score on failed quiz."
+          },
+          {
+            "name": "finishButtonText",
+            "type": "text",
+            "label": "Finish button text",
+            "description": "Text for the finish button."
+          }
+        ]
+      },
+      {
+        "name": "animations",
+        "type": "group",
+        "label": "Animations",
+        "fields": [
+          {
+            "name": "showAnimations",
+            "type": "boolean",
+            "label": "Show animations"
+          },
+          {
+            "name": "skippable",
+            "type": "boolean",
+            "label": "Skippable"
+          },
+          {
+            "name": "skipButtonText",
+            "type": "text",
+            "label": "Skip button text",
+            "common": true
+          },
+          {
+            "name": "successVideo",
+            "type": "video",
+            "label": "Success video",
+            "description": "Video displayed on successful quiz."
+          },
+          {
+            "name": "failVideo",
+            "type": "video",
+            "label": "Fail video",
+            "description": "Video displayed on failed quiz."
+          }
+        ]
+      }
+    ]
+  }
+]

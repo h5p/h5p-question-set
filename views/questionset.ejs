@@ -1,0 +1,31 @@
+<% if (introPage.showIntroPage) { %>
+<div class="intro-page">
+  <div class="title"><%= introPage.title %></div>
+  <div class="introduction"><%= introPage.introduction %></div>
+  <div class="buttons"><a id="qs-startbutton" class="button"><%= introPage.startButtonText %></a></div>
+</div>
+<%} %>
+<div class="questionset hidden">
+  <div class="title"><%= title %></div>
+  <% for (var i=0; i<questions.length; i++) { %>
+    <div class="question-container" id="q-<%= i %>">
+      <div><%= questions[i].name %></div>
+    </div>
+  <% } %>
+  <div class="qs-footer">
+    <div class="qs-progress">
+      <% if (progressType == "dots") { %>
+        <div class="dots-container">
+          <% for (var i=0; i<questions.length; i++) { %>
+          <span class="progress-dot unanswered" id="qdot-<%= i %>"></span>
+          <%} %>
+        </div>
+      <% } else if (progressType == "textual") { %>
+        <span class="progress-text"></span>
+      <% } %>
+    </div>
+    <a class="prev button"><%= texts.prevButton %></a>
+    <a class="next button"><%= texts.nextButton %></a>
+    <a class="finish button"><%= texts.finishButton %></a>
+  </div>
+</div>
