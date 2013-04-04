@@ -1,0 +1,24 @@
+{
+  "title": "Question set",
+  "contentType": "question",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 6,
+  "runnable": 1,
+  "machineName": "H5P.QuestionSet",
+  "author": "Amendor AS",
+  "license": "cc-by-sa",
+  "preloadedJs": [
+    {"path": "js/questionset.js"}
+  ],
+  "preloadedCss": [
+    {"path": "css/questionset.css"}
+  ],
+  "preloadedDependencies": [
+    {
+      "machineName": "EmbeddedJS",
+      "majorVersion": 1, 
+      "minorVersion": 0
+    }
+  ]
+}
