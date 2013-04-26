@@ -18,51 +18,38 @@
   margin: -1px 4px 1px 2px;
 }
 .intro-page {
-  /*background-color: rgba(255,255,255,0.9);*/
-  /*padding: 10px;*/
-  position: absolute;
-  z-index: 20;
-  height: 100%;
-  width: 100%;
-  left: 0px;
-  top: 0px;
+
 }
 .intro-page .title {
-  font-size: 200%;
+  font-size: 2em;
   font-weight: bold;
   text-align: center;
-  margin: 1em;
+  padding: 1em 1em 0.5em;
 }
 .intro-page .introduction {
-  font-size: 125%;
-  margin: 1em 10%;
+  font-size: 1.25em;
+  margin: 0 1em;
 }
 .intro-page .buttons {
-  position: absolute;
-  top: 200px;
-  left: 182px;
-  text-align: right;
+  margin: 3em auto;
+  text-align: center;
 }
 
 #qs-startbutton {
-  border: 4px solid #BABABA;
-  border-radius: 10px 10px 10px 10px;
-  font-size: 50px;
-  padding: 10px 20px;
+  font-size: 3em;
+  border: 0.083em solid #BABABA;
+  border-radius: 0.2083em;
+  padding: 0.2083em 0.4167em;
   cursor: pointer;
 }
 
 .qs-progress {
-  line-height: 40px;
+  line-height: 2em;
   padding: 0;
+  margin: 1em 1em 0;
 }
 
 .questionset-results {
-  background-image: url(img/Paper-clean.png);
-  background-color: rgba(255, 255, 255, 0.75);
-
-  padding: 10px;
-  height: 480px;
   text-align: center;
 }
 
@@ -76,6 +63,7 @@
 }
 
 .questionset-results .resulttext {
+  text-align: left;
   font-size: 20px;
   line-height: 25px;
   margin: 40px 100px;
