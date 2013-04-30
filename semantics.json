@@ -28,14 +28,14 @@
     "type": "select",
     "label": "Progress indicator",
     "description": "Question set progress indicator style.",
-    "values": [
+    "options": [
       {
-        "text": "Textual",
-        "value": "textual"
+        "value": "textual",
+        "label": "Textual"
       },
       {
-        "text": "Dots",
-        "value": "dots"
+        "value": "dots",
+        "label": "Dots"
       }
     ],
     "default": "textual"
