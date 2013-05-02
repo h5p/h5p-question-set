@@ -71,14 +71,14 @@ H5P.QuestionSet = function (options, contentId) {
     title: '',
     randomOrder: false,
     initialQuestion: 0,
-    backgroundImage: '',
+    backgroundImage: undefined,
     progressType: 'dots',
     passPercentage: 50,
     questions: [],
     introPage: {
       showIntroPage: true,
-      title: 'Welcome',
-      introduction: 'Click start to start.',
+      title: '',
+      introduction: '',
       startButtonText: 'Start'
     },
     texts: {
@@ -89,19 +89,15 @@ H5P.QuestionSet = function (options, contentId) {
     },
     endGame: {
       showResultPage: true,
-      resultPage: {
-        successGreeting: 'Congratulations!',
-        successComment: 'You have enough correct answers to pass the test.',
-        failGreeting: 'Sorry!',
-        failComment: "You don't have enough correct answers to pass this test.",
-        scoreString: '@score/@total',
-        finishButtonText: 'Finish'
-      },
-      animations: {
-        showAnimations: false,
-        successVideo: undefined,
-        failVideo: undefined
-      }
+      successGreeting: 'Congratulations!',
+      successComment: 'You have enough correct answers to pass the test.',
+      failGreeting: 'Sorry!',
+      failComment: "You don't have enough correct answers to pass this test.",
+      scoreString: '@score/@total',
+      finishButtonText: 'Finish',
+      showAnimations: false,
+      successVideo: undefined,
+      failVideo: undefined
     }
   };
 
@@ -186,7 +182,7 @@ H5P.QuestionSet = function (options, contentId) {
     // Get total score.
     var finals = getScore();
     var totals = totalScore();
-    var scoreString = params.endGame.resultPage.scoreString.replace("@score", finals).replace("@total", totals);
+    var scoreString = params.endGame.scoreString.replace("@score", finals).replace("@total", totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
     var eventData = {
       score: scoreString,
@@ -199,11 +195,11 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       var eparams = {
-        greeting: (success ? params.endGame.resultPage.succesGreeting : params.endGame.resultPage.failGreeting),
+        greeting: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
         score: scoreString,
         scoreclass: (success ? 'success' : 'fail'),
-        resulttext: (success ? params.endGame.resultPage.successComment : params.endGame.resultPage.failComment),
-        finishButtonText: params.endGame.resultPage.finishButtonText
+        resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
+        finishButtonText: params.endGame.finishButtonText
       };
 
       // Show result page.
@@ -214,8 +210,8 @@ H5P.QuestionSet = function (options, contentId) {
       });
     };
 
-    if (params.endGame.animations.showAnimations) {
-      var videoData = success ? params.endGame.animations.successVideo : params.endGame.animations.failVideo;
+    if (params.endGame.showAnimations) {
+      var videoData = success ? params.endGame.successVideo : params.endGame.failVideo;
       if (videoData) {
         var $videoContainer = $('<div class="video-container"></div>').appendTo($myDom);
 
@@ -231,8 +227,8 @@ H5P.QuestionSet = function (options, contentId) {
         };
         video.attach($videoContainer);
 
-        if (params.endGame.animations.skipButtonText) {
-          $('<a class="button skip">' + params.endGame.animations.skipButtonText + '</a>').click(function () {
+        if (params.endGame.skipButtonText) {
+          $('<a class="button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
             video.stop();
             $videoContainer.hide();
             displayResults();
@@ -256,9 +252,12 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
     // Render own DOM into target.
-    $myDom.html(template.render(params)).css({
-      backgroundImage: 'url(' + cp + params.backgroundImage.path + ')'
-    });
+    $myDom.html(template.render(params));
+    if (params.backgroundImage !== undefined) {
+      $myDom.css({
+        background: 'url(' + cp + params.backgroundImage.path + ')'
+      });
+    }
 
     // Attach questions
     for (var i = 0; i < questionInstances.length; i++) {
