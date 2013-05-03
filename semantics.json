@@ -6,19 +6,6 @@
     "description": "Question set title (optional)."
   },
   {
-    "name": "randomOrder",
-    "type": "boolean",
-    "label": "Randomize order",
-    "description": "Whether questions should be shown in random order."
-  },
-  {
-    "name": "initialQuestion",
-    "type": "number",
-    "label": "Initial question",
-    "description": "Which question to start with. Count from 0.",
-    "default": 0
-  },
-  {
     "name": "backgroundImage",
     "type": "image",
     "label": "Background image",
@@ -184,6 +171,13 @@
         "label": "Failed comment",
         "default": "This didn't go so well.",
         "description": "This comment will be displayed after the score if the user has failed the quiz."
+      },
+      {
+        "name": "solutionButtonText",
+        "type": "text",
+        "label": "Solution button label",
+        "default": "Show solution",
+        "description": "Text for the solution button."
       },
       {
         "name": "finishButtonText",

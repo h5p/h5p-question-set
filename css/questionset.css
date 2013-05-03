@@ -1,3 +1,6 @@
+.questionset, .intro-page, .questionset-results {
+  overflow: hidden;
+}
 .questionset.hidden {
   display: none;
 }
@@ -49,7 +52,7 @@
   overflow: hidden;
 }
 
-.qs-footer .button, .qs-startbutton, .qs-finishbutton, .questionset-results .button {
+.qs-footer .button, .qs-startbutton, .qs-finishbutton, .questionset-results .button, .video-container > .button {
   display: block;
   line-height: 1.25em;
   padding: 0.25em 1em;
@@ -66,7 +69,7 @@
   background-image: -ms-linear-gradient(top, #3999ea, #267ec9);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3999ea', endColorstr='#267ec9',GradientType=0);
 }
-.qs-footer .button:hover, .qs-startbutton:hover, .questionset-results .button:hover {
+.qs-footer .button:hover, .qs-startbutton:hover, .questionset-results .button:hover, .video-container > .button:hover {
   text-decoration: none;
   color: #fff;
   box-shadow: 0 0 0.5em #267ec9;
@@ -83,6 +86,17 @@
 }
 .questionset-results .qs-finishbutton {
   display: none;
+}
+.video-container {
+  position: relative;
+}
+.video-container > video {
+  background-color: #000;
+}
+.video-container > .button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
 }
 
 .qs-progress {
