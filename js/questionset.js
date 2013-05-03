@@ -76,7 +76,7 @@ H5P.QuestionSet = function (options, contentId) {
     passPercentage: 50,
     questions: [],
     introPage: {
-      showIntroPage: true,
+      showIntroPage: false,
       title: '',
       introduction: '',
       startButtonText: 'Start'
@@ -239,6 +239,7 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.endGame.showAnimations) {
       var videoData = success ? params.endGame.successVideo : params.endGame.failVideo;
       if (videoData) {
+        $myDom.children().hide();
         var $videoContainer = $('<div class="video-container"></div>').appendTo($myDom);
 
         var video = new H5P.Video({
