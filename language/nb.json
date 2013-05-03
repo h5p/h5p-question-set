@@ -18,7 +18,7 @@
         {
           "label": "Angi fremdrift med prikker"
         }
-      ],
+      ]
     },
     {
       "label": "Krav for å bestå",
@@ -83,7 +83,7 @@
       "label": "Spørsmålssett avslutning",
       "fields": [
         {
-          "label": "Vis resultater",
+          "label": "Vis resultater"
         },
         {
           "label": "Tittel ved bestått",
