@@ -52,7 +52,7 @@
         {
           "name": "library",
           "type": "library",
-          "label": "Question library",
+          "label": "Question type",
           "description": "Library for this question.",
           "options": [
             "H5P.MultiChoice 1.0"
@@ -91,7 +91,6 @@
         "type": "text",
         "label": "Start button text",
         "optional": true,
-        "placeholder": "Start Quiz",
         "default": "Start Quiz"
       }
     ]
@@ -160,7 +159,6 @@
         "name": "failGreeting",
         "type": "text",
         "label": "Quiz failed title",
-        "placeholder": "Oh, no!",
         "default": "Oh, no!",
         "description": "This title will be displayed above the results if the user has failed the quiz."
       },
@@ -183,8 +181,7 @@
         "name": "finishButtonText",
         "type": "text",
         "label": "Finish button text",
-        "default": "Finish",
-        "description": "Text for the finish button."
+        "default": "Finish"
       },
       {
         "name": "showAnimations",
@@ -201,7 +198,6 @@
         "type": "text",
         "label": "Skip video button label",
         "default": "Skip video",
-        "description": "This is the label for the button which allows users to skip videos after a quiz.",
         "common": true
       },
       {
