@@ -1,3 +1,13 @@
+.questionset.hidden {
+  display: none;
+}
+.questionset .h5p-multichoice > .h5p-show-solution {
+  display: none;
+}
+.questionset > .title {
+  font-size: 2em;
+  margin: 0.5em 0.16em 0.16em;
+}
 .dots-container {
   text-align: center;
 }
@@ -22,9 +32,9 @@
 }
 .intro-page .title {
   font-size: 2em;
+  line-height: 2em;
   font-weight: bold;
   text-align: center;
-  padding: 1em 1em 0.5em;
 }
 .intro-page .introduction {
   font-size: 1.25em;
@@ -35,18 +45,49 @@
   text-align: center;
 }
 
-#qs-startbutton {
-  font-size: 3em;
-  border: 0.083em solid #BABABA;
-  border-radius: 0.2083em;
-  padding: 0.2083em 0.4167em;
+.qs-footer {
+  overflow: hidden;
+}
+
+.qs-footer .button, .qs-startbutton, .qs-finishbutton, .questionset-results .button {
+  display: block;
+  line-height: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 0.75em;
   cursor: pointer;
+  color: #fff;
+  box-shadow: 0 0 0.5em #aebdc9;
+  margin: 0.5em;
+
+  background: #267ec9;
+  background-image: -webkit-linear-gradient(top, #3999ea, #267ec9);
+  background-image: -moz-linear-gradient(top, #3999ea, #267ec9);
+  background-image: -o-linear-gradient(top, #3999ea, #267ec9);
+  background-image: -ms-linear-gradient(top, #3999ea, #267ec9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3999ea', endColorstr='#267ec9',GradientType=0);
+}
+.qs-footer .button:hover, .qs-startbutton:hover, .questionset-results .button:hover {
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 0 0.5em #267ec9;
+}
+.qs-startbutton {
+  display: inline-block;
+  font-size: 2.5em;
+}
+.qs-footer > .prev, .qs-solutionbutton {
+  float: left;
+}
+.qs-footer > .next, .qs-footer > .finish, .qs-finishbutton {
+  float: right;
+}
+.questionset-results .qs-finishbutton {
+  display: none;
 }
 
 .qs-progress {
-  line-height: 2em;
-  padding: 0;
-  margin: 1em 1em 0;
+  text-align: center;
+  line-height: 1.5em;
 }
 
 .questionset-results {
@@ -58,17 +99,17 @@
 }
 
 .questionset-results .score {
-  font-size: 25px;
-  margin-top: 40px;
+  font-size: 1.5em;
+  margin: 1em;
 }
 
 .questionset-results .resulttext {
   text-align: left;
-  font-size: 20px;
-  line-height: 25px;
-  margin: 40px 100px;
-  padding-left: 60px;
-  min-height: 60px;
+  font-size: 1.25em;
+  line-height: 1.25em;
+  margin: 1em 4em;
+  padding-left: 3em;
+  min-height: 3em;
   background-repeat: no-repeat;
   background-position: left center;
 }
@@ -87,13 +128,4 @@
 .questionset-results .resulttext.success em {
   font-style: normal;
   color: #6aa81b;
-}
-.questionset-results .buttons {
-  position: absolute;
-  bottom: 40px;
-  right: 25px;
-}
-
-button, .button {
-  cursor: pointer;
 }

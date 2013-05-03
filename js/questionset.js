@@ -31,10 +31,10 @@ H5P.QuestionSet = function (options, contentId) {
           '<div class="intro-page">' +
           '  <div class="title"><%= introPage.title %></div>' +
           '  <div class="introduction"><%= introPage.introduction %></div>' +
-          '  <div class="buttons"><a id="qs-startbutton" class="button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><a class="qs-startbutton button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
-          '<%} %>' +
-          '<div class="questionset hidden">' +
+          '<% } %>' +
+          '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
           '  <div class="title"><%= title %></div>' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
           '    <div class="question-container" id="q-<%= i %>">' +
@@ -64,7 +64,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="greeting"><%= greeting %></div>' +
           '  <div class="score <%= scoreclass %>"><%= score %></div>' +
           '  <div class="resulttext <%= scoreclass %>"><%= resulttext %></div>' +
-          '  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a></div>' +
+          '  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a><a class="button qs-solutionbutton"><%= solutionButtonText %></a></div>' +
           '</div>';
 
   var defaults = {
@@ -95,6 +95,7 @@ H5P.QuestionSet = function (options, contentId) {
       failComment: "You don't have enough correct answers to pass this test.",
       scoreString: '@score/@total',
       finishButtonText: 'Finish',
+      solutionButtonText: 'Show solution',
       showAnimations: false,
       successVideo: undefined,
       failVideo: undefined
@@ -108,6 +109,7 @@ H5P.QuestionSet = function (options, contentId) {
   var currentQuestion = 0;
   var questionInstances = new Array();
   var $myDom;
+  renderSolutions = false;
 
 //  if (params.randomOrder) {
 //    // TODO: Randomize order of questions
@@ -178,7 +180,25 @@ H5P.QuestionSet = function (options, contentId) {
     return currentQuestion;
   };
 
+  var showSolutions = function () {
+    for (var i = 0; i < questionInstances.length; i++) {
+      questionInstances[i].showSolutions();
+    }
+  };
+
+  var rendered = false;
+
+  var reRender = function () {
+    rendered = false;
+  };
+
   var _displayEndGame = function () {
+    if (rendered) {
+      $myDom.children().hide().filter('.questionset-results').show();
+      return;
+    }
+    rendered = true;
+
     // Get total score.
     var finals = getScore();
     var totals = totalScore();
@@ -199,7 +219,8 @@ H5P.QuestionSet = function (options, contentId) {
         score: scoreString,
         scoreclass: (success ? 'success' : 'fail'),
         resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
-        finishButtonText: params.endGame.finishButtonText
+        finishButtonText: params.endGame.finishButtonText,
+        solutionButtonText: params.endGame.solutionButtonText
       };
 
       // Show result page.
@@ -207,6 +228,11 @@ H5P.QuestionSet = function (options, contentId) {
       $myDom.append(endTemplate.render(eparams));
       $('.qs-finishbutton').click(function () {
         $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+      });
+      $('.qs-solutionbutton', $myDom).click(function () {
+        showSolutions();
+        $myDom.children().hide().filter('.questionset').show();
+        _showQuestion(params.initialQuestion);
       });
     };
 
@@ -273,7 +299,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
     }
 
-    $('#qs-startbutton').click(function () {
+    $('.qs-startbutton', $myDom).click(function () {
       $(this).parents('.intro-page').hide();
       $('.questionset', $myDom).removeClass('hidden');
     });
@@ -296,6 +322,10 @@ H5P.QuestionSet = function (options, contentId) {
     // Hide all but initial Question.
     _showQuestion(params.initialQuestion);
     _updateButtons();
+
+    if (renderSolutions) {
+      showSolutions();
+    }
     return this;
   };
 
@@ -322,7 +352,11 @@ H5P.QuestionSet = function (options, contentId) {
     attach: attach, // Attach to DOM object
     getQuestions: function () {return questionInstances;},
     getScore: getScore,
+    showSolutions: function () {
+      renderSolutions = true;
+    },
     totalScore: totalScore,
+    reRender: reRender,
     defaults: defaults // Provide defaults for inspection
   };
   return returnObject;
