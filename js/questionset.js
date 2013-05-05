@@ -299,10 +299,13 @@ H5P.QuestionSet = function (options, contentId) {
         $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
       }
     }
+    
+    // Allow other libraries to add transitions after the questions have been inited
+    $('.questionset', $myDom).addClass('started');
 
     $('.qs-startbutton', $myDom).click(function () {
       $(this).parents('.intro-page').hide();
-      $('.questionset', $myDom).addClass('started').removeClass('hidden');
+      $('.questionset', $myDom).removeClass('hidden');
     });
 
     // Set event listeners.
