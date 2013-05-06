@@ -3,14 +3,6 @@ var H5P = H5P || {};
 /**
  * Will render a Question with multiple choices for answers.
  *
- * Options format:
- * {
- *   title: "Optional title for question box",
- *   question: "Question text",
- *   answers: [{text: "Answer text", correct: false}, ...],
- *   singleAnswer: true, // or false, will change rendered output slightly.
- * }
- *
  * Events provided:
  * - h5pQuestionSetFinished: Triggered when a question is finished. (User presses Finish-button)
  *
@@ -35,7 +27,6 @@ H5P.QuestionSet = function (options, contentId) {
           '</div>' +
           '<% } %>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
-          '  <% if (title !== "") { %><div class="title"><%= title %></div><% } %>' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
           '    <div class="question-container" id="q-<%= i %>">' +
           '      <div><%= questions[i].library %></div>' +
@@ -68,7 +59,6 @@ H5P.QuestionSet = function (options, contentId) {
           '</div>';
 
   var defaults = {
-    title: '',
     randomOrder: false,
     initialQuestion: 0,
     backgroundImage: undefined,
@@ -299,7 +289,7 @@ H5P.QuestionSet = function (options, contentId) {
         $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
       }
     }
-    
+
     // Allow other libraries to add transitions after the questions have been inited
     $('.questionset', $myDom).addClass('started');
 

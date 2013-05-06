@@ -1,11 +1,5 @@
 [
   {
-    "name": "title",
-    "type": "text",
-    "label": "Title",
-    "description": "Question set title (optional)."
-  },
-  {
     "name": "backgroundImage",
     "type": "image",
     "label": "Background image",

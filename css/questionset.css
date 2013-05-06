@@ -7,31 +7,38 @@
 .questionset .h5p-multichoice > .h5p-show-solution {
   display: none;
 }
-.questionset > .title {
-  font-size: 2em;
-  margin: 0.5em 0.16em 0.16em;
-}
 .dots-container {
   text-align: center;
+  line-height: 2em;
 }
 .progress-dot {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 0.75em;
+  height: 0.75em;
   border-radius: 50%;
-  border: 1px solid #494949;
-  margin: 0 3px;
+  margin: 0 0.25em;
   cursor: pointer;
+  background: #fff;
+  border: 0.0625em solid #c7c7c7;
+}
+.progress-dot:hover {
+  box-shadow: 0 0 0.5em #c7c7c7;
 }
 .progress-dot.answered {
-  background: #494949;
+  border: 0.0625em solid #fff;
+  background: #bccade;
 }
 .progress-dot.current {
-  box-shadow: 1px 1px 4px #494949;
-  margin: -1px 4px 1px 2px;
-}
-.intro-page {
-
+  width: 1em;
+  height: 1em;
+  border: 0.0625em solid #fff;
+  margin-bottom: -0.125em;
+  background: #267ec9;
+  background-image: -webkit-linear-gradient(top, #3999ea, #267ec9);
+  background-image: -moz-linear-gradient(top, #3999ea, #267ec9);
+  background-image: -o-linear-gradient(top, #3999ea, #267ec9);
+  background-image: -ms-linear-gradient(top, #3999ea, #267ec9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3999ea', endColorstr='#267ec9',GradientType=0);
 }
 .intro-page .title {
   font-size: 2em;

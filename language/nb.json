@@ -1,10 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Tittel",
-      "description": "Spørsmålssettets tittel (valgfri)."
-    },
-    {
       "label": "Bakgrunnsbilde",
       "description": "Bakgrunnsbilde for spørsmålssettet(ikke obligatorisk)."
     },
@@ -61,8 +57,8 @@
       "label": "Ledetekster",
       "fields": [
         {
-          "label": "Tilbake-knappen",
-          "default": "Tilbake"
+          "label": "Forrige-knappen",
+          "default": "Forrige"
         },
         {
           "label": "Neste-knappen",
