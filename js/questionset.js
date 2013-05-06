@@ -28,7 +28,7 @@ H5P.QuestionSet = function (options, contentId) {
           '<% } %>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
-          '    <div class="question-container" id="q-<%= i %>">' +
+          '    <div class="question-container">' +
           '      <div><%= questions[i].library %></div>' +
           '    </div>' +
           '  <% } %>' +
@@ -37,7 +37,7 @@ H5P.QuestionSet = function (options, contentId) {
           '      <% if (progressType == "dots") { %>' +
           '        <div class="dots-container">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '          <span class="progress-dot unanswered" id="qdot-<%= i %>"></span>' +
+          '          <span class="progress-dot unanswered"></span>' +
           '          <%} %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -148,10 +148,7 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
      // Hide all questions
-    $('.question-container', $myDom).hide();
-
-    // Reshow the requested question
-    $('#q-' + questionNumber, $myDom).show();
+    $('.question-container', $myDom).hide().eq(questionNumber).show();
 
     // Update progress indicator
     // Test if current has been answered.
@@ -161,7 +158,7 @@ H5P.QuestionSet = function (options, contentId) {
     else {
       // Set currentNess
       $('.progress-dot.current', $myDom).removeClass('current');
-      $('#qdot-' + questionNumber, $myDom).addClass('current');
+      $('.progress-dot:eq(' + questionNumber +')', $myDom).addClass('current');
     }
 
     // Remember where we are
@@ -279,14 +276,15 @@ H5P.QuestionSet = function (options, contentId) {
     // Attach questions
     for (var i = 0; i < questionInstances.length; i++) {
       var question = questionInstances[i];
-      // TODO: Render on init, inject in template.
-      question.attach('q-' + i);
+
+      question.attach($('.question-container:eq(' + i + ')', $myDom));
       $(question).on('h5pQuestionAnswered', function () {
-        $('#qdot-' + currentQuestion, $myDom).removeClass('unanswered').addClass('answered');
+        $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
         _updateButtons();
       });
       if (question.getAnswerGiven()) {
-        $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
+        $('.progress-dot:eq(' + i +')'
+        , $myDom).removeClass('unanswered').addClass('answered');
       }
     }
 
@@ -300,8 +298,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Set event listeners.
     $('.progress-dot', $myDom).click(function () {
-      var idx = parseInt($(this).attr('id').split('-')[1], 10);
-      _showQuestion(idx);
+      _showQuestion($(this).index());
     });
     $('.next.button', $myDom).click(function () {
       _showQuestion(currentQuestion + 1);

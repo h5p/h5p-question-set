@@ -4,7 +4,7 @@
 .questionset.hidden {
   display: none;
 }
-.questionset .h5p-multichoice > .h5p-show-solution {
+.questionset .h5p-multichoice > .h5p-show-solution, .h5p-blanks .h5p-button {
   display: none;
 }
 .dots-container {
