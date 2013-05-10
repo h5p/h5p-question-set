@@ -71,7 +71,7 @@
         {
           "label": "Fremdriftstekst",
           "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total",
-          "default": " Deloppgåve @current av @total"
+          "default": "Deloppgave @current av @total"
         }
       ]
     },
@@ -89,24 +89,24 @@
         {
           "label": "Kommentar ved bestått",
           "default": "Du presterte meget godt!",
-          "description": "Denne kommentaren vises dersom brukeren har bestått spørsmålssettet."
+          "description": "Denne kommentaren vises dersom brukaren har bestått spørsmålssettet."
         },
         {
-          "label": "Tittel ved ikke bestått",
-          "default": "Ikke bestått",
-          "description": "Denne tittelen vises dersom brukeren ikke har bestått spørsmålssettet."
+          "label": "Tittel ved ikkje bestått",
+          "default": "Ikkje bestått",
+          "description": "Denne tittelen visast dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {
-          "label": "Kommentar ved ikke bestått",
-          "default": "Dette gikk ikke så bra. Prøv igjen!",
-          "description": "Denne kommentaren vises dersom brukeren ikke har bestått spørsmålssettet."
+          "label": "Kommentar ved ikkje bestått",
+          "default": "Dette gikk ikkje så bra. Prøv igjen!",
+          "description": "Denne kommentaren vises dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {
           "label": "Tekst til \"Avslutt\" knapp",
           "default": "Avslutt"
         },
         {
-          "label": "Vis video før resultatene"
+          "label": "Vis video før resultata"
         },
         {
           "label": "Tillat å hoppe over video"
@@ -117,11 +117,11 @@
         },
         {
           "label": "Video ved bestått",
-          "description": "Denne videoen vil bli vist dersom brukeren består spørsmålssettet."
+          "description": "Denne videoen vil bli vist dersom brukaren består spørsmålssettet."
         },
         {
           "label": "Video ved ikke bestått",
-          "description": "Denne videoen vil bli vist dersom brukeren ikke består spørsmålssettet."
+          "description": "Denne videoen vil bli vist dersom brukaren ikkje består spørsmålssettet."
         }
       ]
     }
