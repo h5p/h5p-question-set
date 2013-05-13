@@ -269,7 +269,9 @@ H5P.QuestionSet = function (options, contentId) {
     $myDom.html(template.render(params));
     if (params.backgroundImage !== undefined) {
       $myDom.css({
-        background: 'url(' + cp + params.backgroundImage.path + ')'
+        overflow: 'hidden',
+        background: '#000 url(' + cp + params.backgroundImage.path + ') no-repeat 50% 50%',
+        backgroundSize: '100% auto'
       });
     }
 

@@ -7,6 +7,14 @@
 .questionset .h5p-multichoice > .h5p-show-solution, .h5p-blanks .h5p-button {
   display: none;
 }
+.questionset, .intro-page, .questionset-results {
+  position: relative;
+  margin: 1.5em;
+  box-shadow: 0 0 0.625em 0 #515151;
+  background-color: rgba(255,255,255,.75);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BFFFFFFF,endColorstr=#BFFFFFFF);
+  zoom: 1;
+}
 .dots-container {
   text-align: center;
   line-height: 2em;
