@@ -9,10 +9,14 @@
 }
 .questionset, .intro-page, .questionset-results {
   position: relative;
-  margin: 1.5em;
-  box-shadow: 0 0 0.625em 0 #515151;
-  background-color: rgba(255,255,255,.75);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BFFFFFFF,endColorstr=#BFFFFFFF);
+}
+.h5p-multichoice > .h5p-question {
+  margin: 1em 0.5em 0;
+  padding: 0.5em 0.75em;
+  box-shadow: 0 0 0.5em #e3e3e3;
+  border-radius: 0.5em;
+  background: rgba(255, 255, 255, 0.9);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
   zoom: 1;
 }
 .dots-container {
