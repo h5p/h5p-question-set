@@ -102,6 +102,11 @@
           "description": "Denne kommentaren vises dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {
+          "label": "Tekst til \"Fasit\" knapp",
+          "default": "Vis fasit",
+          "description": ""
+        },
+        {
           "label": "Tekst til \"Avslutt\" knapp",
           "default": "Avslutt"
         },
