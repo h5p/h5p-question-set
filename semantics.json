@@ -37,6 +37,7 @@
     "name": "questions",
     "label": "Questions",
     "type": "list",
+    "min": 1,
     "entity": "question",
     "field": {
       "name": "question",
