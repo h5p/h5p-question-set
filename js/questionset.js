@@ -16,7 +16,6 @@ H5P.QuestionSet = function (options, contentId) {
   }
 
   var $ = H5P.jQuery;
-  var cp = H5P.getContentPath(contentId);
 
   var texttemplate =
           '<% if (introPage.showIntroPage) { %>' +
@@ -234,7 +233,7 @@ H5P.QuestionSet = function (options, contentId) {
           fitToWrapper: true,
           controls: false,
           autoplay: true
-        }, cp);
+        }, contentId);
         video.endedCallback = function () {
           displayResults();
           $videoContainer.hide();
@@ -270,7 +269,7 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
-        background: '#000 url(' + cp + params.backgroundImage.path + ') no-repeat 50% 50%',
+        background: '#000 url(' + H5P.getPath(contentId, params.backgroundImage.path) + ') no-repeat 50% 50%',
         backgroundSize: '100% auto'
       });
     }
