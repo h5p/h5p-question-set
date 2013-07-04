@@ -16,6 +16,11 @@
   ],
   "preloadedDependencies": [
     {
+      "machineName": "H5P.API",
+      "majorVersion": 1,
+      "minorVersion": 0
+    },
+    {
       "machineName": "EmbeddedJS",
       "majorVersion": 1,
       "minorVersion": 0
