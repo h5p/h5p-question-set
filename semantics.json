@@ -72,10 +72,19 @@
       {
         "name": "introduction",
         "type": "text",
-        "widget": "textarea",
+        "widget": "html",
         "label": "Introduction text",
         "optional": true,
-        "description": "This text will be displayed before the quiz starts."
+        "description": "This text will be displayed before the quiz starts.",
+        "enterMode": "p",
+        "tags": [
+          "sub",
+          "sup",
+          "math",
+          "strong",
+          "em",
+          "p"
+        ]
       },
       {
         "name": "startButtonText",
