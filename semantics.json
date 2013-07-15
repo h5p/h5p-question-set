@@ -67,7 +67,13 @@
         "type": "text",
         "label": "Title",
         "optional": true,
-        "description": "This title will be displayed above the introduction text."
+        "description": "This title will be displayed above the introduction text.",
+        "tags": [
+          "sub",
+          "sup",
+          "strong",
+          "em"
+        ]
       },
       {
         "name": "introduction",
@@ -80,7 +86,6 @@
         "tags": [
           "sub",
           "sup",
-          "math",
           "strong",
           "em",
           "p"
@@ -124,7 +129,11 @@
         "type": "text",
         "label": "Progress text",
         "description": "Text used if textual progress is selected.",
-        "default": "Question: @current of @total questions"
+        "default": "Question: @current of @total questions",
+        "tags": [
+          "strong",
+          "em"
+        ]
       }
     ]
   },
@@ -146,7 +155,11 @@
         "placeholder": "Congratulations!",
         "default": "Congratulations!",
         "optional": true,
-        "description": "This title will be displayed above results if the user has successfully passed the quiz."
+        "description": "This title will be displayed above results if the user has successfully passed the quiz.",
+        "tags": [
+          "strong",
+          "em"
+        ]
       },
       {
         "name": "successComment",
@@ -155,7 +168,14 @@
         "label": "Passed comment",
         "default": "You did very well!",
         "optional": true,
-        "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+        "description": "This comment will be displayed after the score if the user has successfully passed the quiz.",
+        "tags": [
+          "sub",
+          "sup",
+          "strong",
+          "em",
+          "p"
+        ]
       },
       {
         "name": "failGreeting",
@@ -163,7 +183,11 @@
         "label": "Quiz failed title",
         "default": "Oh, no!",
         "optional": true,
-        "description": "This title will be displayed above the results if the user has failed the quiz."
+        "description": "This title will be displayed above the results if the user has failed the quiz.",
+        "tags": [
+          "strong",
+          "em"
+        ]
       },
       {
         "name": "failComment",
@@ -172,7 +196,14 @@
         "label": "Failed comment",
         "default": "This didn't go so well.",
         "optional": true,
-        "description": "This comment will be displayed after the score if the user has failed the quiz."
+        "description": "This comment will be displayed after the score if the user has failed the quiz.",
+        "tags": [
+          "sub",
+          "sup",
+          "strong",
+          "em",
+          "p"
+        ]
       },
       {
         "name": "solutionButtonText",
