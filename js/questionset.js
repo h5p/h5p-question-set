@@ -46,9 +46,7 @@ H5P.QuestionSet = function (options, contentId) {
           '<% } %>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
-          '    <div class="question-container">' +
-          '      <div><%= questions[i].library %></div>' +
-          '    </div>' +
+          '    <div class="question-container"></div>' +
           '  <% } %>' +
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
