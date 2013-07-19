@@ -249,13 +249,14 @@ H5P.QuestionSet = function (options, contentId) {
           files: videoData,
           fitToWrapper: true,
           controls: false,
-          autoplay: true
+          autoplay: false
         }, contentId);
         video.endedCallback = function () {
           displayResults();
           $videoContainer.hide();
         };
         video.attach($videoContainer);
+        video.play();
 
         if (params.endGame.skipButtonText) {
           $('<a class="button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
