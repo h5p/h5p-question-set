@@ -166,6 +166,11 @@ H5P.QuestionSet = function (options, contentId) {
      // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
+    // Trigger resize on question in case the size of the QS has changed.
+    if (questionInstances[questionNumber].resize) {
+      questionInstances[questionNumber].resize();
+    }
+
     // Update progress indicator
     // Test if current has been answered.
     if (params.progressType === 'textual') {
