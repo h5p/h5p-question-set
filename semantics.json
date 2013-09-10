@@ -21,7 +21,7 @@
         "label": "Dots"
       }
     ],
-    "default": "textual"
+    "default": "dots"
   },
   {
     "name": "passPercentage",
