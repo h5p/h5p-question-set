@@ -319,6 +319,7 @@ H5P.QuestionSet = function (options, contentId) {
     $('.qs-startbutton', $myDom).click(function () {
       $(this).parents('.intro-page').hide();
       $('.questionset', $myDom).removeClass('hidden');
+      _showQuestion(currentQuestion);
     });
 
     // Set event listeners.
