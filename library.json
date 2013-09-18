@@ -5,7 +5,7 @@
   "minorVersion": 0,
   "patchVersion": 26,
   "runnable": 1,
-  "fullscreen": 1,
+  "fullscreen": 0,
   "machineName": "H5P.QuestionSet",
   "author": "Amendor AS",
   "license": "cc-by-sa",
