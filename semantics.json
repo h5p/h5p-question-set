@@ -37,7 +37,6 @@
     "name": "questions",
     "label": "Questions",
     "type": "list",
-    "widget": "verticalTabs",
     "min": 1,
     "entity": "question",
     "field": {
