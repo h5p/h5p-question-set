@@ -82,6 +82,11 @@
           "label": "Vis resultater"
         },
         {
+          "label": "Overskrift over tilbakemeldinger",
+          "default": "Ditt resultat:",
+          "description": "Denne overskriften vises over tilbakemeldingene på slutten av spørsmålssettet."
+        },
+        {
           "label": "Tittel ved bestått",
           "default": "Gratulerer!",
           "description": "Denne tittelen vises dersom brukeren har bestått spørsmålssettet."

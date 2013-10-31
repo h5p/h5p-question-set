@@ -79,7 +79,12 @@
       "label": "Spørsmålssett avslutning",
       "fields": [
         {
-          "label": "Vis resultater"
+          "label": "Vis resultat"
+        },
+        {
+          "label": "Overskrift over tilbakemeldingar",
+          "default": "Ditt resultat:",
+          "description": "Denne overskriften vises over tilbakemeldingane på slutten av spørsmålssettet."
         },
         {
           "label": "Tittel ved bestått",

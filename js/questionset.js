@@ -69,8 +69,10 @@ H5P.QuestionSet = function (options, contentId) {
   var resulttemplate =
           '<div class="questionset-results">' +
           '  <div class="greeting"><%= greeting %></div>' +
-          '  <div class="score <%= scoreclass %>"><%= score %></div>' +
-          '  <div class="resulttext <%= scoreclass %>"><%= resulttext %></div>' +
+          '  <div class="score <%= scoreclass %>">' +
+          '     <div class="emoticon"></div>' +
+          '     <div class="resulttext <%= scoreclass %>"><h2><%= comment %></h2><%= score %><br><%= resulttext %></div>' +
+          '  </div>' +
           '  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a><a class="button qs-solutionbutton"><%= solutionButtonText %></a></div>' +
           '</div>';
 
@@ -95,18 +97,18 @@ H5P.QuestionSet = function (options, contentId) {
     },
     endGame: {
       showResultPage: true,
+      greeting: 'Your result:',
       successGreeting: 'Congratulations!',
       successComment: 'You have enough correct answers to pass the test.',
       failGreeting: 'Sorry!',
       failComment: "You don't have enough correct answers to pass this test.",
-      scoreString: '@score/@total',
+      scoreString: 'You got @score of @total questions correct.',
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
       showAnimations: false,
       successVideo: undefined,
       failVideo: undefined
-    },
-    postUserStatistics: (H5P.postUserStatistics === true)
+    }
   };
 
   var template = new EJS({text: texttemplate});
@@ -128,10 +130,6 @@ H5P.QuestionSet = function (options, contentId) {
     // TODO: Render on init, inject in template.
 
     var libraryObject = H5P.libraryFromString(question.library);
-    $.extend(question.params, {
-      displaySolutionsButton: false,
-      postUserStatistics: false
-    });
     var tmp = new (H5P.classFromName(libraryObject.machineName))(question.params, contentId);
     questionInstances.push(tmp);
   }
@@ -172,7 +170,7 @@ H5P.QuestionSet = function (options, contentId) {
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
     // Trigger resize on question in case the size of the QS has changed.
-    if (questionInstances[questionNumber].resize !== undefined) {
+    if (questionInstances[questionNumber].resize) {
       questionInstances[questionNumber].resize();
     }
 
@@ -222,17 +220,14 @@ H5P.QuestionSet = function (options, contentId) {
       passed: success
     };
     var displayResults = function () {
-      if (params.postUserStatistics === true) {
-        H5P.setFinished(contentId, getScore(), totalScore());
-      }
-
       if (!params.endGame.showResultPage) {
         $(returnObject).trigger('h5pQuestionSetFinished', eventData);
         return;
       }
 
       var eparams = {
-        greeting: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
+        greeting: params.endGame.greeting,
+        comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
         score: scoreString,
         scoreclass: (success ? 'success' : 'fail'),
         resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
@@ -311,6 +306,7 @@ H5P.QuestionSet = function (options, contentId) {
       var question = questionInstances[i];
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
+      question.$solutionButton.hide();
       $(question).on('h5pQuestionAnswered', function () {
         $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
         _updateButtons();

@@ -37,6 +37,7 @@
     "name": "questions",
     "label": "Questions",
     "type": "list",
+    "widget": "verticalTabs",
     "min": 1,
     "entity": "question",
     "field": {
@@ -148,13 +149,25 @@
         "default": true
       },
       {
+        "name": "message",
+        "type": "text",
+        "label": "Feedback heading",
+        "default": "Your result:",
+        "optional": true,
+        "description": "This heading will be displayed at the end of the quiz when the user has answered all questions.",
+        "tags": [
+          "strong",
+          "em"
+        ]
+      },
+      {
         "name": "successGreeting",
         "type": "text",
-        "label": "Quiz passed title",
+        "label": "Quiz passed greeting",
         "placeholder": "Congratulations!",
         "default": "Congratulations!",
         "optional": true,
-        "description": "This title will be displayed above results if the user has successfully passed the quiz.",
+        "description": "This text will be displayed above the score if the user has successfully passed the quiz.",
         "tags": [
           "strong",
           "em"
@@ -182,7 +195,7 @@
         "label": "Quiz failed title",
         "default": "Oh, no!",
         "optional": true,
-        "description": "This title will be displayed above the results if the user has failed the quiz.",
+        "description": "This text will be displayed above the score if the user has failed the quiz.",
         "tags": [
           "strong",
           "em"
