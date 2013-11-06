@@ -125,13 +125,13 @@
 }
 
 .qs-footer a.next.button:after {
-  font-family: FontAwesome;
-  content: " \f054";  
+  font-family: H5PFontAwesome;
+  content: " \f054";
 }
 
 .qs-footer a.prev.button:before {
-  font-family: FontAwesome;
-  content: "\f053  ";  
+  font-family: H5PFontAwesome;
+  content: "\f053  ";
 }
 
 .questionset-results .qs-finishbutton {
@@ -139,12 +139,12 @@
 }
 
 .qs-footer a.finish.button:before {
-  font-family: FontAwesome;
+  font-family: H5PFontAwesome;
   content: "\f00c   ";
 }
 
 .questionset-results a.button.qs-solutionbutton:before {
-  font-family: FontAwesome;
+  font-family: H5PFontAwesome;
   content: "\f06e   ";
 }
 
