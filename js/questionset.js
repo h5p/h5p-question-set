@@ -315,7 +315,6 @@ H5P.QuestionSet = function (options, contentId) {
       var question = questionInstances[i];
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
-      question.$solutionButton.hide();
       $(question).on('h5pQuestionAnswered', function () {
         $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
         _updateButtons();
