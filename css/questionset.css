@@ -1,6 +1,6 @@
 /* IcoMoon font licensed under the GNU General Public License: http://www.gnu.org/licenses/gpl.html */
 @font-face {
-  font-family: 'icomoon';
+  font-family: 'icomoon-questionset';
   src:url('../fonts/icomoon.eot');
   src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
     url('../fonts/icomoon.woff') format('woff'),
@@ -199,7 +199,7 @@
 }
 
 .questionset-results .score.success .emoticon:before {
-  font-family: IcoMoon;
+  font-family: icomoon-questionset;
   font-size: 5em;
   content: "\e606";
   top: 0.5em;
@@ -208,7 +208,7 @@
 }
 
 .questionset-results .score.fail .emoticon:before {
-  font-family: IcoMoon;
+  font-family: icomoon-questionset;
   font-size: 5em;
   content: "\e607";
   top: 0.5em;
@@ -232,7 +232,7 @@
 .questionset-results .resulttext.success:before, 
 .resulttext.fail:before
 {
-  font-family: IcoMoon;
+  font-family: icomoon-questionset;
   content: "";  
   font-size: 5em;
   position: absolute;
