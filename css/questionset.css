@@ -198,16 +198,16 @@
 .questionset-results .score.success .emoticon:before {
   font-family: icomoon-questionset;
   font-size: 5em;
+  line-height: 100%;
   content: "\e606";
-  position: relative;
   float: left;
 }
 
 .questionset-results .score.fail .emoticon:before {
   font-family: icomoon-questionset;
   font-size: 5em;
+  line-height: 100%;
   content: "\e607";
-  position: relative;
   float: left;
 }
 
@@ -232,7 +232,7 @@
   font-size: 5em;
   position: absolute;
   left: -15px;
-  top: 22px;
+  top: 36px;
   height: 0;
   width: 0;
   border-top: 15px solid transparent;
