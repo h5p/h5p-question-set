@@ -161,6 +161,14 @@
         ]
       },
       {
+        "name": "scoreString",
+        "type": "text",
+        "label": "Score display text",
+        "description": "Text used to display total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
+        "default": "You got @score points of @total possible.",
+        "optional": true
+      },
+      {
         "name": "successGreeting",
         "type": "text",
         "label": "Quiz passed greeting",

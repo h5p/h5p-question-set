@@ -87,6 +87,11 @@
           "description": "Denne overskriften vises over tilbakemeldingane på slutten av spørsmålssettet."
         },
         {
+          "label": "Poengvisningstekst",
+          "default": "Du fikk @score poeng av @total mulige.",
+          "description": "Tekst som viser brukerens oppnådde poeng. \"@score\" blir erstatta med utregna resultat, \"@total\" blir erstatta med høgest mulig resultat."
+        },
+        {
           "label": "Tittel ved bestått",
           "default": "Gratulerer!",
           "description": "Denne tittelen vises dersom brukeren har bestått spørsmålssettet."
