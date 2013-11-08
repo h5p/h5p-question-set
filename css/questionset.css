@@ -14,7 +14,7 @@
   font-size: 1.2em;
   font-weight: bold;
   padding-bottom: 0.5em;
-} 
+}
 
 .questionset, .intro-page, .questionset-results {
   overflow: hidden;
@@ -85,7 +85,7 @@
   border-radius: 0.4em;
   margin: 0 0.5em 1em;
   cursor: pointer;
-  color: #fff;
+  color: #ffffff;
   box-shadow: 0 0 0.5em #999;
 
   background: rgb(100,152,254); /* Old browsers */
@@ -99,6 +99,7 @@
 .qs-footer .button:hover, .qs-startbutton:hover, .questionset-results .button:hover, .video-container > .button:hover {
   text-decoration: none;
   box-shadow: 0 0 0.5em #999;
+  color: #ffffff;
 
   background: rgb(4,104,206); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(4,104,206,1) 0%, rgba(100,152,254,1) 100%); /* FF3.6+ */
@@ -107,10 +108,6 @@
   background: -o-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0468ce', endColorstr='#6498fe',GradientType=0 ); /* IE6-9 */
-}
-.qs-startbutton {
-  display: inline-block;
-  font-size: 2.5em;
 }
 .qs-footer > .prev {
   float: left;
@@ -202,7 +199,6 @@
   font-family: icomoon-questionset;
   font-size: 5em;
   content: "\e606";
-  top: 0.5em;
   position: relative;
   float: left;
 }
@@ -211,14 +207,13 @@
   font-family: icomoon-questionset;
   font-size: 5em;
   content: "\e607";
-  top: 0.5em;
   position: relative;
   float: left;
 }
 
-.questionset-results .resulttext.success, 
-.resulttext.almost, 
-.resulttext.fail
+.questionset-results .resulttext.success,
+.questionset-results .resulttext.almost,
+.questionset-results .resulttext.fail
 {
   display: block;
   background: #eee;
@@ -229,21 +224,21 @@
   font-size: 1em;
 }
 
-.questionset-results .resulttext.success:before, 
-.resulttext.fail:before
+.questionset-results .resulttext.success:before,
+.questionset-results .resulttext.fail:before
 {
   font-family: icomoon-questionset;
-  content: "";  
+  content: "";
   font-size: 5em;
   position: absolute;
   left: -15px;
-  top: 36px;
+  top: 22px;
   height: 0;
   width: 0;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   border-right: 15px solid #eee;
-  display: inline-block;  
+  display: inline-block;
 }
 
 .questionset-results .resulttext.success em {

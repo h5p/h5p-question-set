@@ -71,7 +71,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="greeting"><%= greeting %></div>' +
           '  <div class="score <%= scoreclass %>">' +
           '     <div class="emoticon"></div>' +
-          '     <div class="resulttext <%= scoreclass %>"><h2><%= comment %></h2><%= score %><br><%= resulttext %></div>' +
+          '     <div class="resulttext <%= scoreclass %>"><% if (comment) { %><h2><%= comment %></h2><% } %><%= score %><br><%= resulttext %></div>' +
           '  </div>' +
           '  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a><a class="button qs-solutionbutton"><%= solutionButtonText %></a></div>' +
           '</div>';
