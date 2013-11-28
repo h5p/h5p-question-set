@@ -30,8 +30,8 @@
 }
 .h5p-multichoice > .h5p-question {
   text-align: left;
-  padding: 1em 0 0.2em;
-  margin: 0 0.5em 0.7em;
+  padding: 0.5em 0.5em 0.4em;
+  margin: 0.5em 0.5em 0.7em;
   background: rgba(255, 255, 255, 0.9);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
   zoom: 1;
@@ -59,6 +59,12 @@
 .progress-dot.current {
   background: #267ec9;
 }
+
+.intro-page {
+  background: rgba(255, 255, 255, 0.9);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
+}
+
 .intro-page .title {
   font-size: 2em;
   line-height: 2em;
@@ -73,11 +79,9 @@
   margin: 3em auto;
   text-align: center;
 }
-
 .qs-footer {
   overflow: hidden;
 }
-
 .qs-footer .button, .qs-startbutton, .qs-finishbutton, .questionset-results .button, .video-container > .button {
   display: inline-block;
   padding: 0.2em 1em;
@@ -167,8 +171,6 @@
   background: rgba(255, 255, 255, 0.9);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6FFFFFF,endColorstr=#E6FFFFFF);
   padding: 0.625em;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .questionset-results .greeting {
