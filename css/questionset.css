@@ -60,11 +60,6 @@
   background: #267ec9;
 }
 
-.intro-page {
-  background: rgba(255, 255, 255, 0.9);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
-}
-
 .intro-page .title {
   font-size: 2em;
   line-height: 2em;
