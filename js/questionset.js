@@ -68,7 +68,7 @@ H5P.QuestionSet = function (options, contentId) {
 
   var resulttemplate =
           '<div class="questionset-results">' +
-          '  <div class="greeting"><%= greeting %></div>' +
+          '  <div class="greeting"><%= message %></div>' +
           '  <div class="score <%= scoreclass %>">' +
           '     <div class="emoticon"></div>' +
           '     <div class="resulttext <%= scoreclass %>"><% if (comment) { %><h2><%= comment %></h2><% } %><%= score %><br><%= resulttext %></div>' +
@@ -97,7 +97,7 @@ H5P.QuestionSet = function (options, contentId) {
     },
     endGame: {
       showResultPage: true,
-      greeting: 'Your result:',
+      message: 'Your result:',
       successGreeting: 'Congratulations!',
       successComment: 'You have enough correct answers to pass the test.',
       failGreeting: 'Sorry!',
@@ -235,7 +235,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       var eparams = {
-        greeting: params.endGame.greeting,
+        message: params.endGame.message,
         comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
         score: scoreString,
         scoreclass: (success ? 'success' : 'fail'),
