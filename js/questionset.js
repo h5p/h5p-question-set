@@ -155,8 +155,8 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Trigger resize on question in case the size of the QS has changed.
     var instance = questionInstances[questionNumber];
-    if (instance.$ !== undefined) {
-      instance.$.trigger('h5pResize');
+    if (instance.resize !== undefined) {
+      instance.resize();
     }
 
     // Update progress indicator
