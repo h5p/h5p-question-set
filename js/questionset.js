@@ -355,6 +355,47 @@ H5P.QuestionSet = function (options, contentId) {
     }
     return score;
   };
+  
+  /**
+   * Gather copyright information for the current content.
+   *
+   * @returns {H5P.ContentCopyrights}
+   */
+  var getCopyrights = function () {
+    var info = new H5P.ContentCopyrights();
+  
+    // Background
+    if (params.backgroundImage.copyright !== undefined) {
+      var background = new H5P.MediaCopyright(params.backgroundImage.copyright);
+      background.setThumbnail(new H5P.Thumbnail(H5P.getPath(params.backgroundImage.path, contentId), params.backgroundImage.width, params.backgroundImage.height));
+      info.addMedia(background);
+    }
+    
+    // Questions
+    for (var i = 0; i < questionInstances.length; i++) {
+      var questionInstance = questionInstances[i];
+      if (questionInstance.getCopyrights !== undefined) {
+        var rights = questionInstance.getCopyrights();
+        if (rights !== undefined) {
+          info.addContent(rights);
+        }
+      }
+    }
+    
+    // Success video
+    var video = params.endGame.successVideo[0];
+    if (video.copyright !== undefined) {
+      info.addMedia(new H5P.MediaCopyright(video.copyright));
+    }
+    
+    // Fail video
+    video = params.endGame.failVideo[0];
+    if (video.copyright !== undefined) {
+      info.addMedia(new H5P.MediaCopyright(video.copyright));
+    }
+  
+    return info;
+  }
 
   // Masquerade the main object to hide inner properties and functions.
   var returnObject = {
@@ -366,7 +407,8 @@ H5P.QuestionSet = function (options, contentId) {
     },
     totalScore: totalScore,
     reRender: reRender,
-    defaults: defaults // Provide defaults for inspection
+    defaults: defaults, // Provide defaults for inspection
+    getCopyrights: getCopyrights
   };
   return returnObject;
 };
