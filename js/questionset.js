@@ -377,6 +377,7 @@ H5P.QuestionSet = function (options, contentId) {
       if (questionInstance.getCopyrights !== undefined) {
         var rights = questionInstance.getCopyrights();
         if (rights !== undefined) {
+          rights.setLabel('Question '+(i+1));
           info.addContent(rights);
         }
       }
