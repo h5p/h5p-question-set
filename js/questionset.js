@@ -1,125 +1,140 @@
-// Will render a Question with multiple choices for answers.
-
-// Options format:
-// {
-//   title: "Optional title for question box",
-//   question: "Question text",
-//   answers: [{text: "Answer text", correct: false}, ...],
-//   singleAnswer: true, // or false, will change rendered output slightly.
-// }
-//
-// Events provided:
-// - h5pQuestionSetFinished: Triggered when a question is finished. (User presses Finish-button)
 var H5P = H5P || {};
 
+if (H5P.getPath === undefined) {
+  /**
+   * Find the path to the content files based on the id of the content
+   *
+   * Also identifies and returns absolute paths
+   *
+   * @param {String} path Absolute path to a file, or relative path to a file in the content folder
+   * @param {Number} contentId Identifier of the content requesting the path
+   * @returns {String} The path to use.
+   */
+  H5P.getPath = function (path, contentId) {
+    if (path.substr(0, 7) === 'http://' || path.substr(0, 8) === 'https://') {
+      return path;
+    }
+
+    return H5PIntegration.getContentPath(contentId) + path;
+  };
+}
+
+/**
+ * Will render a Question with multiple choices for answers.
+ *
+ * Events provided:
+ * - h5pQuestionSetFinished: Triggered when a question is finished. (User presses Finish-button)
+ *
+ * @param {Array} options
+ * @param {int} contentId
+ * @returns {H5P.QuestionSet} Instance
+ */
 H5P.QuestionSet = function (options, contentId) {
-  if ( !(this instanceof H5P.QuestionSet) )
+  if (!(this instanceof H5P.QuestionSet)) {
     return new H5P.QuestionSet(options, contentId);
+  }
 
   var $ = H5P.jQuery;
-  var cp = H5P.getContentPath(contentId);
 
-  var texttemplate = '' +
-'<% if (introPage.showIntroPage) { %>' +
-'<div class="intro-page">' +
-'  <div class="title"><%= introPage.title %></div>' +
-'  <div class="introduction"><%= introPage.introduction %></div>' +
-'  <div class="buttons"><a id="qs-startbutton" class="button"><%= introPage.startButtonText %></a></div>' +
-'</div>' +
-'<%} %>' +
-'<div class="questionset hidden">' +
-'  <div class="title"><%= title %></div>' +
-'  <% for (var i=0; i<questions.length; i++) { %>' +
-'    <div class="question-container" id="q-<%= i %>">' +
-'      <div><%= questions[i].library %></div>' +
-'    </div>' +
-'  <% } %>' +
-'  <div class="qs-footer">' +
-'    <div class="qs-progress">' +
-'      <% if (progressType == "dots") { %>' +
-'        <div class="dots-container">' +
-'          <% for (var i=0; i<questions.length; i++) { %>' +
-'          <span class="progress-dot unanswered" id="qdot-<%= i %>"></span>' +
-'          <%} %>' +
-'        </div>' +
-'      <% } else if (progressType == "textual") { %>' +
-'        <span class="progress-text"></span>' +
-'      <% } %>' +
-'    </div>' +
-'    <a class="prev button"><%= texts.prevButton %></a>' +
-'    <a class="next button"><%= texts.nextButton %></a>' +
-'    <a class="finish button"><%= texts.finishButton %></a>' +
-'  </div>' +
-'</div>' +
-  '';
-  var resulttemplate = '' +
-'<div class="questionset-results">' +
-'  <div class="greeting"><%= greeting %></div>' +
-'  <div class="score <%= scoreclass %>"><%= score %></div>' +
-'  <div class="resulttext <%= scoreclass %>"><%= resulttext %></div>' +
-'  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a></div>' +
-'</div>' +
-  '';
+  var texttemplate =
+          '<% if (introPage.showIntroPage) { %>' +
+          '<div class="intro-page">' +
+          '  <div class="title"><%= introPage.title %></div>' +
+          '  <div class="introduction"><%= introPage.introduction %></div>' +
+          '  <div class="buttons"><a class="qs-startbutton button"><%= introPage.startButtonText %></a></div>' +
+          '</div>' +
+          '<% } %>' +
+          '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
+          '  <% for (var i=0; i<questions.length; i++) { %>' +
+          '    <div class="question-container"></div>' +
+          '  <% } %>' +
+          '  <div class="qs-footer">' +
+          '    <div class="qs-progress">' +
+          '      <% if (progressType == "dots") { %>' +
+          '        <div class="dots-container">' +
+          '          <% for (var i=0; i<questions.length; i++) { %>' +
+          '          <span class="progress-dot unanswered"></span>' +
+          '          <%} %>' +
+          '        </div>' +
+          '      <% } else if (progressType == "textual") { %>' +
+          '        <span class="progress-text"></span>' +
+          '      <% } %>' +
+          '    </div>' +
+          '    <a class="prev button"><%= texts.prevButton %></a>' +
+          '    <a class="next button"><%= texts.nextButton %></a>' +
+          '    <a class="finish button"><%= texts.finishButton %></a>' +
+          '  </div>' +
+          '</div>';
 
-  var that = this;
+  var resulttemplate =
+          '<div class="questionset-results">' +
+          '  <div class="greeting"><%= message %></div>' +
+          '  <div class="score <%= scoreclass %>">' +
+          '     <div class="emoticon"></div>' +
+          '     <div class="resulttext <%= scoreclass %>"><% if (comment) { %><h2><%= comment %></h2><% } %><%= score %><br><%= resulttext %></div>' +
+          '  </div>' +
+          '  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a><a class="button qs-solutionbutton"><%= solutionButtonText %></a></div>' +
+          '</div>';
+
   var defaults = {
-    title: "",
     randomOrder: false,
     initialQuestion: 0,
-    backgroundImage: "",
+    backgroundImage: undefined,
     progressType: 'dots',
     passPercentage: 50,
     questions: [],
     introPage: {
-      showIntroPage: true,
-      title: "Welcome",
-      introduction: "Click start to start.",
-      startButtonText: "Start"
+      showIntroPage: false,
+      title: '',
+      introduction: '',
+      startButtonText: 'Start'
     },
     texts: {
-      prevButton: "Previous",
-      nextButton: "Next",
-      finishButton: "Finish",
-      textualProgress: "Question: @current of @total questions"
+      prevButton: 'Previous',
+      nextButton: 'Next',
+      finishButton: 'Finish',
+      textualProgress: 'Question: @current of @total questions'
     },
     endGame: {
       showResultPage: true,
-      resultPage: {
-        successGreeting: "Congratulations!",
-        successComment: "You have enough correct answers to pass the test.",
-        failGreeting: "Sorry!",
-        failComment: "You don't have enough correct answers to pass this test.",
-        scoreString: "@score/@total",
-        finishButtonText: "Finish"
-      },
-      animations: {
-        showAnimations: false,
-        successVideo: undefined,
-        failVideo: undefined
-      }
-    }
+      message: 'Your result:',
+      successGreeting: 'Congratulations!',
+      successComment: 'You have enough correct answers to pass the test.',
+      failGreeting: 'Sorry!',
+      failComment: "You don't have enough correct answers to pass this test.",
+      scoreString: 'You got @score points of @total possible.',
+      finishButtonText: 'Finish',
+      solutionButtonText: 'Show solution',
+      showAnimations: false,
+      successVideo: undefined,
+      failVideo: undefined
+    },
+    postUserStatistics: (H5P.postUserStatistics === true)
   };
 
   var template = new EJS({text: texttemplate});
   var endTemplate = new EJS({text: resulttemplate});
-  var params = $.extend({}, defaults, options);
+  var params = $.extend(true, {}, defaults, options);
 
   var currentQuestion = 0;
   var questionInstances = new Array();
-  var allQuestionsAnswered = false;
   var $myDom;
+  renderSolutions = false;
 
-  if (params.randomOrder) {
-    // TODO: Randomize order of questions
-    console.log("TODO: Randomize order of questions");
-  }
+//  if (params.randomOrder) {
+//    // TODO: Randomize order of questions
+//  }
 
   // Instantiate question instances
-  for (var i=0; i<params.questions.length; i++) {
+  for (var i = 0; i < params.questions.length; i++) {
     var question = params.questions[i];
     // TODO: Render on init, inject in template.
 
     var libraryObject = H5P.libraryFromString(question.library);
+    $.extend(question.params, {
+      displaySolutionsButton: false,
+      postUserStatistics: false
+    });
     var tmp = new (H5P.classFromName(libraryObject.machineName))(question.params, contentId);
     questionInstances.push(tmp);
   }
@@ -136,7 +151,7 @@ H5P.QuestionSet = function (options, contentId) {
     } else {
       $('.prev.button', $myDom).show();
     }
-    if (currentQuestion == (params.questions.length - 1)) {
+    if (currentQuestion === (params.questions.length - 1)) {
       $('.next.button', $myDom).hide();
       if (answered) {
         $('.finish.button', $myDom).show();
@@ -145,28 +160,34 @@ H5P.QuestionSet = function (options, contentId) {
       $('.next.button', $myDom).show();
       $('.finish.button', $myDom).hide();
     }
-
  };
 
   var _showQuestion = function (questionNumber) {
     // Sanitize input.
-    if (questionNumber < 0) { questionNumber = 0; }
-    if (questionNumber >= params.questions.length) { questionNumber = params.questions.length - 1; }
+    if (questionNumber < 0) {
+      questionNumber = 0;
+    }
+    if (questionNumber >= params.questions.length) {
+      questionNumber = params.questions.length - 1;
+    }
 
      // Hide all questions
-    $('.question-container', $myDom).hide();
+    $('.question-container', $myDom).hide().eq(questionNumber).show();
 
-    // Reshow the requested question
-    $('#q-' + questionNumber, $myDom).show();
+    // Trigger resize on question in case the size of the QS has changed.
+    if (questionInstances[questionNumber].resize !== undefined) {
+      questionInstances[questionNumber].resize();
+    }
 
     // Update progress indicator
     // Test if current has been answered.
-    if (params.progressType == 'textual') {
+    if (params.progressType === 'textual') {
       $('.progress-text', $myDom).text(params.texts.textualProgress.replace("@current", questionNumber+1).replace("@total", params.questions.length));
-    } else {
+    }
+    else {
       // Set currentNess
       $('.progress-dot.current', $myDom).removeClass('current');
-      $('#qdot-' + questionNumber, $myDom).addClass('current');
+      $('.progress-dot:eq(' + questionNumber +')', $myDom).addClass('current');
     }
 
     // Remember where we are
@@ -175,44 +196,94 @@ H5P.QuestionSet = function (options, contentId) {
     return currentQuestion;
   };
 
+  var showSolutions = function () {
+    for (var i = 0; i < questionInstances.length; i++) {
+      questionInstances[i].showSolutions();
+    }
+  };
+
+  var rendered = false;
+
+  var reRender = function () {
+    rendered = false;
+  };
+
   var _displayEndGame = function () {
+    if (rendered) {
+      $myDom.children().hide().filter('.questionset-results').show();
+      return;
+    }
+    rendered = true;
+
     // Get total score.
     var finals = getScore();
     var totals = totalScore();
-    var scoreString = params.endGame.resultPage.scoreString.replace("@score", finals).replace("@total", totals);
+    var scoreString = params.endGame.scoreString.replace("@score", finals).replace("@total", totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
     var eventData = {
       score: scoreString,
       passed: success
     };
     var displayResults = function () {
+      if (params.postUserStatistics === true) {
+        H5P.setFinished(contentId, getScore(), totalScore());
+      }
+
       if (!params.endGame.showResultPage) {
         $(returnObject).trigger('h5pQuestionSetFinished', eventData);
         return;
       }
 
       var eparams = {
-        greeting: (success ? params.endGame.resultPage.succesGreeting : params.endGame.resultPage.failGreeting),
+        message: params.endGame.message,
+        comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
         score: scoreString,
         scoreclass: (success ? 'success' : 'fail'),
-        resulttext: (success ? params.endGame.resultPage.successComment : params.endGame.resultPage.failComment),
-        finishButtonText: params.endGame.resultPage.finishButtonText
+        resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
+        finishButtonText: params.endGame.finishButtonText,
+        solutionButtonText: params.endGame.solutionButtonText
       };
 
       // Show result page.
       $myDom.children().hide();
       $myDom.append(endTemplate.render(eparams));
-      $('.qs-finishbutton').click(function (ev) {
+      $('.qs-finishbutton').click(function () {
         $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+      });
+      $('.qs-solutionbutton', $myDom).click(function () {
+        showSolutions();
+        $myDom.children().hide().filter('.questionset').show();
+        _showQuestion(params.initialQuestion);
       });
     };
 
-    if (params.endGame.animations.showAnimations) {
-      var videoData = success ? params.endGame.animations.successVideo : params.endGame.animations.failVideo;
+    if (params.endGame.showAnimations) {
+      var videoData = success ? params.endGame.successVideo : params.endGame.failVideo;
       if (videoData) {
-        H5P.playVideo($myDom, videoData, params.endGame.animations.skipButtonText, cp, function () {
+        $myDom.children().hide();
+        var $videoContainer = $('<div class="video-container"></div>').appendTo($myDom);
+
+        var video = new H5P.Video({
+          files: videoData,
+          fitToWrapper: true,
+          controls: false,
+          autoplay: false
+        }, contentId);
+        video.endedCallback = function () {
           displayResults();
-        });
+          $videoContainer.hide();
+        };
+        video.attach($videoContainer);
+        video.play();
+
+        if (params.endGame.skipButtonText) {
+          $('<a class="button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
+            video.stop();
+            $videoContainer.hide();
+            displayResults();
+          }).appendTo($videoContainer);
+        }
+
         return;
       }
     }
@@ -222,54 +293,68 @@ H5P.QuestionSet = function (options, contentId) {
 
   // Function for attaching the multichoice to a DOM element.
   var attach = function (target) {
-    if (typeof(target) == "string") {
-      $myDom = $("#" + target);
-    } else {
+    if (typeof(target) === "string") {
+      $myDom = $('#' + target);
+    }
+    else {
       $myDom = $(target);
     }
 
     // Render own DOM into target.
-    $myDom.html(template.render(params)).css({
-      backgroundImage: 'url(' + cp + params.backgroundImage.path + ')'
-    });
+    $myDom.html(template.render(params));
+    if (params.backgroundImage !== undefined) {
+      $myDom.css({
+        overflow: 'hidden',
+        background: '#000 url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+        backgroundSize: '100% auto'
+      });
+    }
 
     // Attach questions
-    for (var i=0; i<questionInstances.length; i++) {
+    for (var i = 0; i < questionInstances.length; i++) {
       var question = questionInstances[i];
-      // TODO: Render on init, inject in template.
-      question.attach('q-' + i);
-      $(question).on('h5pQuestionAnswered', function (ev) {
-        $('#qdot-' + currentQuestion, $myDom).removeClass('unanswered').addClass('answered');
+
+      question.attach($('.question-container:eq(' + i + ')', $myDom));
+      $(question).on('h5pQuestionAnswered', function () {
+        $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
         _updateButtons();
       });
       if (question.getAnswerGiven()) {
-        $('#qdot-'+i, $myDom).removeClass('unanswered').addClass('answered');
+        $('.progress-dot:eq(' + i +')'
+        , $myDom).removeClass('unanswered').addClass('answered');
       }
     }
 
-    $('#qs-startbutton').click(function (ev) {
+    // Allow other libraries to add transitions after the questions have been inited
+    $('.questionset', $myDom).addClass('started');
+
+    $('.qs-startbutton', $myDom).click(function () {
       $(this).parents('.intro-page').hide();
       $('.questionset', $myDom).removeClass('hidden');
+      _showQuestion(currentQuestion);
     });
 
     // Set event listeners.
-    $('.progress-dot', $myDom).click(function (ev) {
-      var idx = parseInt($(this).attr('id').split('-')[1], 10);
-      _showQuestion(idx);
+    $('.progress-dot', $myDom).click(function () {
+      _showQuestion($(this).index());
     });
-    $('.next.button', $myDom).click(function (ev) {
+    $('.next.button', $myDom).click(function () {
       _showQuestion(currentQuestion + 1);
     });
-    $('.prev.button', $myDom).click(function (ev) {
+    $('.prev.button', $myDom).click(function () {
       _showQuestion(currentQuestion - 1);
     });
-    $('.finish.button', $myDom).click(function (ev) {
+    $('.finish.button', $myDom).click(function () {
       _displayEndGame();
     });
 
     // Hide all but initial Question.
     _showQuestion(params.initialQuestion);
     _updateButtons();
+
+    if (renderSolutions) {
+      showSolutions();
+    }
     return this;
   };
 
@@ -286,18 +371,65 @@ H5P.QuestionSet = function (options, contentId) {
   var totalScore = function () {
     var score = 0;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
-      score += questionInstances[i].totalScore();
+      score += questionInstances[i].getMaxScore();
     }
     return score;
   };
+  
+  /**
+   * Gather copyright information for the current content.
+   *
+   * @returns {H5P.ContentCopyrights}
+   */
+  var getCopyrights = function () {
+    var info = new H5P.ContentCopyrights();
+  
+    // Background
+    if (params.backgroundImage.copyright !== undefined) {
+      var background = new H5P.MediaCopyright(params.backgroundImage.copyright);
+      background.setThumbnail(new H5P.Thumbnail(H5P.getPath(params.backgroundImage.path, contentId), params.backgroundImage.width, params.backgroundImage.height));
+      info.addMedia(background);
+    }
+    
+    // Questions
+    for (var i = 0; i < questionInstances.length; i++) {
+      var questionInstance = questionInstances[i];
+      if (questionInstance.getCopyrights !== undefined) {
+        var rights = questionInstance.getCopyrights();
+        if (rights !== undefined) {
+          rights.setLabel('Question '+(i+1));
+          info.addContent(rights);
+        }
+      }
+    }
+    
+    // Success video
+    var video = params.endGame.successVideo[0];
+    if (video.copyright !== undefined) {
+      info.addMedia(new H5P.MediaCopyright(video.copyright));
+    }
+    
+    // Fail video
+    video = params.endGame.failVideo[0];
+    if (video.copyright !== undefined) {
+      info.addMedia(new H5P.MediaCopyright(video.copyright));
+    }
+  
+    return info;
+  }
 
   // Masquerade the main object to hide inner properties and functions.
   var returnObject = {
     attach: attach, // Attach to DOM object
     getQuestions: function () {return questionInstances;},
     getScore: getScore,
+    showSolutions: function () {
+      renderSolutions = true;
+    },
     totalScore: totalScore,
-    defaults: defaults // Provide defaults for inspection
+    reRender: reRender,
+    defaults: defaults, // Provide defaults for inspection
+    getCopyrights: getCopyrights
   };
   return returnObject;
 };

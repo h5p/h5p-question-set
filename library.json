@@ -3,8 +3,9 @@
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 6,
+  "patchVersion": 43,
   "runnable": 1,
+  "fullscreen": 0,
   "machineName": "H5P.QuestionSet",
   "author": "Amendor AS",
   "license": "cc-by-sa",
@@ -16,8 +17,30 @@
   ],
   "preloadedDependencies": [
     {
+      "machineName": "H5P.API",
+      "majorVersion": 1,
+      "minorVersion": 0
+    },
+    {
       "machineName": "EmbeddedJS",
-      "majorVersion": 1, 
+      "majorVersion": 1,
+      "minorVersion": 0
+    },
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 3,
+      "minorVersion": 1
+    },
+    {
+      "machineName": "H5P.Video",
+      "majorVersion": 1,
+      "minorVersion": 0
+    }
+  ],
+  "editorDependencies": [
+    {
+      "machineName": "H5PEditor.VerticalTabs",
+      "majorVersion": 1,
       "minorVersion": 0
     }
   ]
