@@ -65,9 +65,25 @@
   font-weight: bold;
   text-align: center;
 }
+.intro-page .title > span { 
+  padding: 0 0.2em;
+  background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
+  background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
+}
 .intro-page .introduction {
   font-size: 1.25em;
   margin: 0 1em;
+  background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
+  background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
+  padding: 0.2em;
+}
+/* Overrides whatever margins have been set in site-CSS, to avoid too much spacing
+   on description field, aswell as getting same padding on top and bottom of field */
+.intro-page .introduction > p {
+  margin: 0 0 0.5em 0;
+}
+.intro-page .introduction > p:last-child {
+  margin: 0;
 }
 .intro-page .buttons {
   margin: 3em auto;
