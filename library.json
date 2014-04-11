@@ -3,7 +3,7 @@
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 45,
+  "patchVersion": 46,
   "runnable": 1,
   "fullscreen": 0,
   "machineName": "H5P.QuestionSet",
@@ -14,10 +14,14 @@
   },
   "license": "cc-by-sa",
   "preloadedJs": [
-    {"path": "js/questionset.js"}
+    {
+      "path": "js/questionset.js"
+    }
   ],
   "preloadedCss": [
-    {"path": "css/questionset.css"}
+    {
+      "path": "css/questionset.css"
+    }
   ],
   "preloadedDependencies": [
     {
