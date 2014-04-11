@@ -424,6 +424,7 @@ H5P.QuestionSet = function (options, contentId) {
 
   // Masquerade the main object to hide inner properties and functions.
   var returnObject = {
+    $: $(this),
     attach: attach, // Attach to DOM object
     getQuestions: function () {return questionInstances;},
     getScore: getScore,
