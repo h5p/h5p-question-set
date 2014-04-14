@@ -108,7 +108,7 @@
         },
         {
           "label": "Kommentar ved ikkje bestått",
-          "default": "Dette gikk ikkje så bra. Prøv igjen!",
+          "default": "Dette er litt mange feil her. Prøv igjen!",
           "description": "Denne kommentaren vises dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {

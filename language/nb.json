@@ -98,7 +98,7 @@
         },
         {
           "label": "Kommentar ved bestått",
-          "default": "Du presterte meget godt!",
+          "default": "Du presterte godt!",
           "description": "Denne kommentaren vises dersom brukeren har bestått spørsmålssettet."
         },
         {
@@ -108,7 +108,7 @@
         },
         {
           "label": "Kommentar ved ikke bestått",
-          "default": "Dette gikk ikke så bra. Prøv igjen!",
+          "default": "Ikke bestått. Prøv igjen!",
           "description": "Denne kommentaren vises dersom brukeren ikke har bestått spørsmålssettet."
         },
         {
