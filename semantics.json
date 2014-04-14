@@ -27,7 +27,7 @@
     "name": "passPercentage",
     "type": "number",
     "label": "Pass percentage",
-    "description": "Percentage of total score required for passing the quiz.",
+    "description": "Percentage of Total score required for passing the quiz.",
     "min": 0,
     "max": 100,
     "step": 1,
@@ -164,7 +164,7 @@
         "name": "scoreString",
         "type": "text",
         "label": "Score display text",
-        "description": "Text used to display total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
+        "description": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
         "default": "You got @score points of @total possible.",
         "optional": true
       },
@@ -201,7 +201,7 @@
         "name": "failGreeting",
         "type": "text",
         "label": "Quiz failed title",
-        "default": "Oh, no!",
+        "default": "You did not pass this time.",
         "optional": true,
         "description": "This text will be displayed above the score if the user has failed the quiz.",
         "tags": [
@@ -214,7 +214,7 @@
         "type": "text",
         "widget": "html",
         "label": "Failed comment",
-        "default": "This didn't go so well.",
+        "default": "Have another try!",
         "optional": true,
         "description": "This comment will be displayed after the score if the user has failed the quiz.",
         "tags": [
