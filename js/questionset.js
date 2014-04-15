@@ -40,7 +40,9 @@ H5P.QuestionSet = function (options, contentId) {
           '<% if (introPage.showIntroPage) { %>' +
           '<div class="intro-page">' +
           '  <div class="title"><span><%= introPage.title %></span></div>' +
-          '  <div class="introduction"><%= introPage.introduction %></div>' +
+          '  <% if (introPage.introduction) { %>' +
+          '    <div class="introduction"><%= introPage.introduction %></div>' +
+          '  <% } %>' +
           '  <div class="buttons"><a class="qs-startbutton button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
