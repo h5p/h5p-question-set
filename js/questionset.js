@@ -39,7 +39,9 @@ H5P.QuestionSet = function (options, contentId) {
   var texttemplate =
           '<% if (introPage.showIntroPage) { %>' +
           '<div class="intro-page">' +
-          '  <div class="title"><span><%= introPage.title %></span></div>' +
+          '  <% if (introPage.title) { %>' +
+          '    <div class="title"><span><%= introPage.title %></span></div>' +
+          '  <% } %>' +
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
