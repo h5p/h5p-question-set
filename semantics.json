@@ -97,6 +97,13 @@
         "label": "Start button text",
         "optional": true,
         "default": "Start Quiz"
+      },
+      {
+        "name": "backgroundImage",
+        "type": "image",
+        "label": "Background image",
+        "optional": true,
+        "description": "An optional background image for the introduction."
       }
     ]
   },
