@@ -83,7 +83,6 @@ H5P.QuestionSet = function (options, contentId) {
   var defaults = {
     randomOrder: false,
     initialQuestion: 0,
-    backgroundImage: undefined,
     progressType: 'dots',
     passPercentage: 50,
     questions: [],
@@ -109,9 +108,7 @@ H5P.QuestionSet = function (options, contentId) {
       scoreString: 'You got @score points of @total possible.',
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
-      showAnimations: false,
-      successVideo: undefined,
-      failVideo: undefined
+      showAnimations: false
     },
     postUserStatistics: (H5P.postUserStatistics === true)
   };
@@ -124,10 +121,6 @@ H5P.QuestionSet = function (options, contentId) {
   var questionInstances = new Array();
   var $myDom;
   renderSolutions = false;
-
-//  if (params.randomOrder) {
-//    // TODO: Randomize order of questions
-//  }
 
   // Instantiate question instances
   for (var i = 0; i < params.questions.length; i++) {
@@ -312,6 +305,16 @@ H5P.QuestionSet = function (options, contentId) {
         background: '#000 url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
         backgroundSize: '100% auto'
       });
+    }
+    
+    if (params.introPage.backgroundImage !== undefined) {
+      var $intro = $myDom.find('.intro-page');
+      if ($intro.length) {
+        $intro.css({
+          background: '#000 url("' + H5P.getPath(params.introPage.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+          backgroundSize: '100% auto'
+        });
+      }
     }
 
     // Attach questions
