@@ -50,6 +50,10 @@
         {
           "label": "Tekst til \"Start\" knappen",
           "default": "Start"
+        },
+        {
+          "label": "Bakgrunnsbilde",
+          "description": "Bakgrunnsbilde for introduksjonssiden"
         }
       ]
     },
