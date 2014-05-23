@@ -138,12 +138,12 @@
 }
 
 .qs-footer a.next.button:after {
-  font-family: H5PFontAwesome4;
-  content: " \f054";
+  font-family: 'H5PFontAwesome4';
+  content: " \f054"; /* TODO: Use margin not whitespace, spacing is not content! */
 }
 
 .qs-footer a.prev.button:before {
-  font-family: H5PFontAwesome4;
+  font-family: 'H5PFontAwesome4';
   content: "\f053  ";
 }
 
@@ -152,12 +152,12 @@
 }
 
 .qs-footer a.finish.button:before {
-  font-family: H5PFontAwesome4;
+  font-family: 'H5PFontAwesome4';
   content: "\f00c   ";
 }
 
 .questionset-results a.button.qs-solutionbutton:before {
-  font-family: H5PFontAwesome4;
+  font-family: 'H5PFontAwesome4';
   content: "\f06e   ";
 }
 

@@ -3,7 +3,7 @@
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 52,
+  "patchVersion": 53,
   "runnable": 1,
   "fullscreen": 0,
   "machineName": "H5P.QuestionSet",
@@ -28,6 +28,11 @@
       "machineName": "EmbeddedJS",
       "majorVersion": 1,
       "minorVersion": 0
+    },
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 4,
+      "minorVersion": 1
     },
     {
       "machineName": "H5P.Video",
