@@ -45,9 +45,9 @@ H5P.QuestionSet = function (options, contentId) {
           '        <span class="progress-text"></span>' +
           '      <% } %>' +
           '    </div>' +
-          '    <a class="prev button"><%= texts.prevButton %></a>' +
-          '    <a class="next button"><%= texts.nextButton %></a>' +
-          '    <a class="finish button"><%= texts.finishButton %></a>' +
+          '    <a class="prev button" title="<%= texts.prevButton %>"></a>' +
+          '    <a class="next button" title="<%= texts.nextButton %>"></a>' +
+          '    <a class="finish button" title="<%= texts.finishButton %>"></a>' +
           '  </div>' +
           '</div>';
 
@@ -407,7 +407,7 @@ H5P.QuestionSet = function (options, contentId) {
     }
   
     return info;
-  }
+  };
 
   // Masquerade the main object to hide inner properties and functions.
   var returnObject = {
