@@ -47,7 +47,7 @@ H5P.QuestionSet = function (options, contentId) {
           '    </div>' +
           '    <a class="prev button" title="<%= texts.prevButton %>"></a>' +
           '    <a class="next button" title="<%= texts.nextButton %>"></a>' +
-          '    <a class="finish button" title="<%= texts.finishButton %>"></a>' +
+          '    <a class="finish button"><%= texts.finishButton %></a>' +
           '  </div>' +
           '</div>';
 
