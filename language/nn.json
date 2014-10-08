@@ -1,6 +1,30 @@
 {
   "semantics": [
     {
+      "label": "Introduksjon",
+      "fields": [
+        {
+          "label": "Vis introduksjon"
+        },
+        {
+          "label": "Tittel",
+          "description": "Tittel for intoduksjonssiden."
+        },
+        {
+          "label": "Introduksjonstekst",
+          "description": "Denne teksten vises før spørsmålssettet starter."
+        },
+        {
+          "label": "Tekst til \"Start\" knappen",
+          "default": "Start"
+        },
+        {
+          "label": "Bakgrunnsbilde",
+          "description": "Bakgrunnsbilde for introduksjonssiden"
+        }
+      ]
+    },
+    {
       "label": "Bakgrunnsbilde",
       "description": "Bakgrunnsbilde for spørsmålssettet(ikke obligatorisk)."
     },
@@ -32,30 +56,6 @@
           }
         ]
       }
-    },
-    {
-      "label": "Introduksjon",
-      "fields": [
-        {
-          "label": "Vis introduksjon"
-        },
-        {
-          "label": "Tittel",
-          "description": "Tittel for intoduksjonssiden."
-        },
-        {
-          "label": "Introduksjonstekst",
-          "description": "Denne teksten vises før spørsmålssettet starter."
-        },
-        {
-          "label": "Tekst til \"Start\" knappen",
-          "default": "Start"
-        },
-        {
-          "label": "Bakgrunnsbilde",
-          "description": "Bakgrunnsbilde for introduksjonssiden"
-        }
-      ]
     },
     {
       "label": "Ledetekster",
