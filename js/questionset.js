@@ -16,6 +16,7 @@ H5P.QuestionSet = function (options, contentId) {
   }
 
   var $ = H5P.jQuery;
+  var self = this;
 
   var texttemplate =
           '<% if (introPage.showIntroPage) { %>' +
@@ -90,8 +91,7 @@ H5P.QuestionSet = function (options, contentId) {
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
       showAnimations: false
-    },
-    postUserStatistics: (H5P.postUserStatistics === true)
+    }
   };
 
   var template = new EJS({text: texttemplate});
@@ -109,8 +109,7 @@ H5P.QuestionSet = function (options, contentId) {
     // TODO: Render on init, inject in template.
 
     $.extend(question.params, {
-      displaySolutionsButton: false,
-      postUserStatistics: false
+      displaySolutionsButton: false
     });
     questionInstances.push(H5P.newRunnable(question, contentId));
   }
@@ -153,7 +152,7 @@ H5P.QuestionSet = function (options, contentId) {
     // Trigger resize on question in case the size of the QS has changed.
     var instance = questionInstances[questionNumber];
     if (instance.$ !== undefined) {
-      instance.$.trigger('resize');
+      instance.triggerH5PEvent('resize');
     }
 
     // Update progress indicator
@@ -202,9 +201,7 @@ H5P.QuestionSet = function (options, contentId) {
       passed: success
     };
     var displayResults = function () {
-      if (params.postUserStatistics === true) {
-        H5P.setFinished(contentId, getScore(), totalScore());
-      }
+      self.triggerH5PxAPIEvent('completed', H5P.getxAPIScoredResult(getScore(), totalScore()));
 
       if (!params.endGame.showResultPage) {
         $(returnObject).trigger('h5pQuestionSetFinished', eventData);
@@ -302,9 +299,11 @@ H5P.QuestionSet = function (options, contentId) {
       var question = questionInstances[i];
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
-      $(question).on('h5pQuestionAnswered', function () {
-        $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
-        _updateButtons();
+      question.registerH5PEventListener('xAPI', function (event) {
+        if (event.verb === 'attempted') {
+          $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
+          _updateButtons();
+        }
       });
       if (question.getAnswerGiven()) {
         $('.progress-dot:eq(' + i +')'
@@ -343,7 +342,7 @@ H5P.QuestionSet = function (options, contentId) {
       showSolutions();
     }
     
-    this.$.trigger('resize');
+    this.triggerH5PEvent('resize');
     return this;
   };
 
