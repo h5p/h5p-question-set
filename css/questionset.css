@@ -96,14 +96,14 @@
 }
 .qs-footer .button, .qs-startbutton, .qs-finishbutton, .questionset-results .button, .video-container > .button {
   display: inline-block;
-  padding: 0.2em 1em;
+  padding: 0 0.7em;
   border: 0.2em solid #fff;
   border-radius: 0.4em;
   margin: 0 0.5em 1em;
   cursor: pointer;
   color: #ffffff;
   box-shadow: 0 0 0.5em #999;
-
+  line-height: 1.9em;
   background: rgb(100,152,254); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(100,152,254,1) 0%, rgba(4,104,206,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,152,254,1)), color-stop(100%,rgba(4,104,206,1))); /* Chrome,Safari4+ */
@@ -116,7 +116,7 @@
   text-decoration: none;
   box-shadow: 0 0 0.5em #999;
   color: #ffffff;
-
+  border-color: #fff;
   background: rgb(4,104,206); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(4,104,206,1) 0%, rgba(100,152,254,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(4,104,206,1)), color-stop(100%,rgba(100,152,254,1))); /* Chrome,Safari4+ */
@@ -139,12 +139,12 @@
 
 .qs-footer a.next.button:after {
   font-family: 'H5PFontAwesome4';
-  content: " \f054"; /* TODO: Use margin not whitespace, spacing is not content! */
+  content: "\f054"; /* TODO: Use margin not whitespace, spacing is not content! */
 }
 
 .qs-footer a.prev.button:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f053  ";
+  content: "\f053";
 }
 
 .questionset-results .qs-finishbutton {
