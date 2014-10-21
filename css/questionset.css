@@ -53,10 +53,10 @@
   box-shadow: 0 0 0.5em #c7c7c7;
 }
 .progress-dot.answered {
-  background: #bccade;
+  background: #73a2d5;
 }
 .progress-dot.current {
-  background: #267ec9;
+  background: #285585;
 }
 
 .intro-page .title {
