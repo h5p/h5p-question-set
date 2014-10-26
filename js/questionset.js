@@ -152,7 +152,7 @@ H5P.QuestionSet = function (options, contentId) {
     // Trigger resize on question in case the size of the QS has changed.
     var instance = questionInstances[questionNumber];
     if (instance.$ !== undefined) {
-      instance.triggerH5PEvent('resize');
+      instance.trigger('resize');
     }
 
     // Update progress indicator
@@ -201,7 +201,7 @@ H5P.QuestionSet = function (options, contentId) {
       passed: success
     };
     var displayResults = function () {
-      self.triggerH5PxAPIEvent('completed', H5P.getxAPIScoredResult(getScore(), totalScore()));
+      self.triggerXAPI('completed', {result: H5P.getxAPIScoredResult(getScore(), totalScore())});
 
       if (!params.endGame.showResultPage) {
         $(returnObject).trigger('h5pQuestionSetFinished', eventData);
@@ -342,7 +342,7 @@ H5P.QuestionSet = function (options, contentId) {
       showSolutions();
     }
     
-    this.triggerH5PEvent('resize');
+    this.trigger('resize');
     return this;
   };
 
