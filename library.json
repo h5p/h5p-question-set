@@ -8,6 +8,10 @@
   "fullscreen": 0,
   "machineName": "H5P.QuestionSet",
   "author": "Amendor AS",
+  "coreApi": {
+    "majorVersion": 1,
+    "minorVersion": 1
+  },
   "license": "cc-by-sa",
   "preloadedJs": [
     {
@@ -20,11 +24,6 @@
     }
   ],
   "preloadedDependencies": [
-    {
-      "machineName": "H5P.API",
-      "majorVersion": 1,
-      "minorVersion": 0
-    },
     {
       "machineName": "EmbeddedJS",
       "majorVersion": 1,
