@@ -1,58 +1,5 @@
 [
   {
-    "name": "backgroundImage",
-    "type": "image",
-    "label": "Background image",
-    "optional": true,
-    "description": "An optional background image for the Question set."
-  },
-  {
-    "name": "progressType",
-    "type": "select",
-    "label": "Progress indicator",
-    "description": "Question set progress indicator style.",
-    "options": [
-      {
-        "value": "textual",
-        "label": "Textual"
-      },
-      {
-        "value": "dots",
-        "label": "Dots"
-      }
-    ],
-    "default": "dots"
-  },
-  {
-    "name": "passPercentage",
-    "type": "number",
-    "label": "Pass percentage",
-    "description": "Percentage of Total score required for passing the quiz.",
-    "min": 0,
-    "max": 100,
-    "step": 1,
-    "default": 50
-  },
-  {
-    "name": "questions",
-    "label": "Questions",
-    "type": "list",
-    "widget": "verticalTabs",
-    "min": 1,
-    "entity": "question",
-    "field": {
-      "name": "question",
-      "type": "library",
-      "label": "Question type",
-      "description": "Library for this question.",
-      "options": [
-        "H5P.MultiChoice 1.0",
-        "H5P.DragQuestion 1.0",
-        "H5P.Blanks 1.0"
-      ]
-    }
-  },
-  {
     "name": "introPage",
     "type": "group",
     "label": "Quiz introduction",
@@ -106,6 +53,59 @@
         "description": "An optional background image for the introduction."
       }
     ]
+  },
+  {
+    "name": "backgroundImage",
+    "type": "image",
+    "label": "Background image",
+    "optional": true,
+    "description": "An optional background image for the Question set."
+  },
+  {
+    "name": "progressType",
+    "type": "select",
+    "label": "Progress indicator",
+    "description": "Question set progress indicator style.",
+    "options": [
+      {
+        "value": "textual",
+        "label": "Textual"
+      },
+      {
+        "value": "dots",
+        "label": "Dots"
+      }
+    ],
+    "default": "dots"
+  },
+  {
+    "name": "passPercentage",
+    "type": "number",
+    "label": "Pass percentage",
+    "description": "Percentage of Total score required for passing the quiz.",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "default": 50
+  },
+  {
+    "name": "questions",
+    "label": "Questions",
+    "type": "list",
+    "widget": "verticalTabs",
+    "min": 1,
+    "entity": "question",
+    "field": {
+      "name": "question",
+      "type": "library",
+      "label": "Question type",
+      "description": "Library for this question.",
+      "options": [
+        "H5P.MultiChoice 1.0",
+        "H5P.DragQuestion 1.0",
+        "H5P.Blanks 1.0"
+      ]
+    }
   },
   {
     "name": "texts",
