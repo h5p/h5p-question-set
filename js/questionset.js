@@ -1,24 +1,5 @@
 var H5P = H5P || {};
 
-if (H5P.getPath === undefined) {
-  /**
-   * Find the path to the content files based on the id of the content
-   *
-   * Also identifies and returns absolute paths
-   *
-   * @param {String} path Absolute path to a file, or relative path to a file in the content folder
-   * @param {Number} contentId Identifier of the content requesting the path
-   * @returns {String} The path to use.
-   */
-  H5P.getPath = function (path, contentId) {
-    if (path.substr(0, 7) === 'http://' || path.substr(0, 8) === 'https://') {
-      return path;
-    }
-
-    return H5PIntegration.getContentPath(contentId) + path;
-  };
-}
-
 /**
  * Will render a Question with multiple choices for answers.
  *
@@ -127,13 +108,11 @@ H5P.QuestionSet = function (options, contentId) {
     var question = params.questions[i];
     // TODO: Render on init, inject in template.
 
-    var libraryObject = H5P.libraryFromString(question.library);
     $.extend(question.params, {
       displaySolutionsButton: false,
       postUserStatistics: false
     });
-    var tmp = new (H5P.classFromName(libraryObject.machineName))(question.params, contentId);
-    questionInstances.push(tmp);
+    questionInstances.push(H5P.newRunnable(question, contentId));
   }
 
   // Update button state.
@@ -172,8 +151,9 @@ H5P.QuestionSet = function (options, contentId) {
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
     // Trigger resize on question in case the size of the QS has changed.
-    if (questionInstances[questionNumber].resize !== undefined) {
-      questionInstances[questionNumber].resize();
+    var instance = questionInstances[questionNumber];
+    if (instance.$ !== undefined) {
+      instance.$.trigger('resize');
     }
 
     // Update progress indicator
@@ -362,6 +342,8 @@ H5P.QuestionSet = function (options, contentId) {
     if (renderSolutions) {
       showSolutions();
     }
+    
+    this.$.trigger('resize');
     return this;
   };
 
