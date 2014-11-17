@@ -282,16 +282,16 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
-        background: '#000 url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+        background: '#fff url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
         backgroundSize: '100% auto'
       });
     }
-    
+
     if (params.introPage.backgroundImage !== undefined) {
       var $intro = $myDom.find('.intro-page');
       if ($intro.length) {
         $intro.css({
-          background: '#000 url("' + H5P.getPath(params.introPage.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+          background: '#fff url("' + H5P.getPath(params.introPage.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
           backgroundSize: '100% auto'
         });
       }
@@ -342,7 +342,7 @@ H5P.QuestionSet = function (options, contentId) {
     if (renderSolutions) {
       showSolutions();
     }
-    
+
     this.$.trigger('resize');
     return this;
   };
@@ -364,7 +364,7 @@ H5P.QuestionSet = function (options, contentId) {
     }
     return score;
   };
-  
+
   /**
    * Gather copyright information for the current content.
    *
@@ -372,14 +372,14 @@ H5P.QuestionSet = function (options, contentId) {
    */
   var getCopyrights = function () {
     var info = new H5P.ContentCopyrights();
-  
+
     // Background
     if (params.backgroundImage !== undefined && params.backgroundImage.copyright !== undefined) {
       var background = new H5P.MediaCopyright(params.backgroundImage.copyright);
       background.setThumbnail(new H5P.Thumbnail(H5P.getPath(params.backgroundImage.path, contentId), params.backgroundImage.width, params.backgroundImage.height));
       info.addMedia(background);
     }
-    
+
     // Questions
     for (var i = 0; i < questionInstances.length; i++) {
       var questionInstance = questionInstances[i];
@@ -391,7 +391,7 @@ H5P.QuestionSet = function (options, contentId) {
         }
       }
     }
-    
+
     // Success video
     if (params.endGame.successVideo !== undefined && params.endGame.successVideo.length > 0) {
       var video = params.endGame.successVideo[0];
@@ -399,7 +399,7 @@ H5P.QuestionSet = function (options, contentId) {
         info.addMedia(new H5P.MediaCopyright(video.copyright));
       }
     }
-    
+
     // Fail video
     if (params.endGame.failVideo !== undefined && params.endGame.failVideo.length > 0) {
       video = params.endGame.failVideo[0];
@@ -407,7 +407,7 @@ H5P.QuestionSet = function (options, contentId) {
         info.addMedia(new H5P.MediaCopyright(video.copyright));
       }
     }
-  
+
     return info;
   };
 
