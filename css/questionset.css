@@ -22,9 +22,15 @@
 .questionset.hidden {
   display: none;
 }
+
+/* Quick fix for hiding check buttons in integrated h5p content: */
+.questionset .h5p-word button.h5p-button.h5p-check-button {
+  display: none;
+}
 .questionset .h5p-multichoice > .h5p-show-solution, .questionset .dragndrop > .h5p-show-solution, .h5p-blanks .h5p-button {
   display: none;
 }
+
 .questionset, .intro-page, .questionset-results {
   position: relative;
 }
