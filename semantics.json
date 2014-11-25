@@ -103,7 +103,8 @@
       "options": [
         "H5P.MultiChoice 1.0",
         "H5P.DragQuestion 1.0",
-        "H5P.Blanks 1.0"
+        "H5P.Blanks 1.0",
+        "H5P.MarkTheWords 1.0"
       ]
     }
   },
