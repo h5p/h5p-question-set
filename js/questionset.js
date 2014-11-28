@@ -95,7 +95,7 @@ H5P.QuestionSet = function (options, contentId) {
     override: {
       overrideButtons: false,
       overrideShowSolutionButton: false,
-      overrideRetryButton: false
+      overrideRetry: false
     },
     postUserStatistics: (H5P.postUserStatistics === true)
   };
@@ -120,7 +120,7 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.override.overrideButtons) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params, {
-        enableRetry: params.override.overrideRetryButton,
+        enableRetry: params.override.overrideRetry,
         enableSolutionsButton: params.override.overrideShowSolutionButton
       });
     }
