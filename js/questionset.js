@@ -120,7 +120,7 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.override.overrideButtons) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params, {
-        enableRetryButton: params.override.overrideRetryButton,
+        enableRetry: params.override.overrideRetryButton,
         enableSolutionsButton: params.override.overrideShowSolutionButton
       });
     }
