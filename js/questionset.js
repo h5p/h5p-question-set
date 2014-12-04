@@ -109,8 +109,6 @@ H5P.QuestionSet = function (options, contentId) {
   var $myDom;
   renderSolutions = false;
 
-
-
   // Instantiate question instances
   for (var i = 0; i < params.questions.length; i++) {
     var question = params.questions[i];
@@ -120,8 +118,10 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.override.overrideButtons) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params, {
-        enableRetry: params.override.overrideRetry,
-        enableSolutionsButton: params.override.overrideShowSolutionButton
+        behaviour: {
+          enableRetry: params.override.overrideRetry,
+          enableSolutionsButton: params.override.overrideShowSolutionButton
+        }
       });
     }
 
