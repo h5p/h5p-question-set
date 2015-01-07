@@ -1,3 +1,25 @@
+/* Chart testing */
+
+.questionset .node {
+  cursor: pointer;
+}
+
+.questionset .node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.questionset .node text {
+  font: 10px sans-serif;
+}
+
+.questionset .link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
 /* IcoMoon font licensed under the GNU General Public License: http://www.gnu.org/licenses/gpl.html */
 @font-face {
   font-family: 'icomoon-questionset';

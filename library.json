@@ -16,6 +16,9 @@
   "preloadedJs": [
     {
       "path": "js/questionset.js"
+    },
+    {
+      "path": "d3.js"
     }
   ],
   "preloadedCss": [
