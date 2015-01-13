@@ -101,9 +101,11 @@
       "label": "Question type",
       "description": "Library for this question.",
       "options": [
-        "H5P.MultiChoice 1.0",
-        "H5P.DragQuestion 1.0",
-        "H5P.Blanks 1.0"
+        "H5P.MultiChoice 1.1",
+        "H5P.DragQuestion 1.1",
+        "H5P.Blanks 1.1",
+        "H5P.MarkTheWords 1.1",
+        "H5P.DragText 1.1"
       ]
     }
   },
@@ -240,6 +242,13 @@
         "description": "Text for the solution button."
       },
       {
+        "name": "retryButtonText",
+        "type": "text",
+        "label": "Retry button label",
+        "default": "Retry",
+        "description": "Text for the retry button."
+      },
+      {
         "name": "finishButtonText",
         "type": "text",
         "label": "Finish button text",
@@ -259,8 +268,7 @@
         "name": "skipButtonText",
         "type": "text",
         "label": "Skip video button label",
-        "default": "Skip video",
-        "common": true
+        "default": "Skip video"
       },
       {
         "name": "successVideo",
@@ -275,6 +283,36 @@
         "label": "Fail video",
         "optional": true,
         "description": "This video will be played if the user failes the quiz."
+      }
+    ]
+  },
+  {
+    "name": "override",
+    "type": "group",
+    "label": "Settings for \"Show solution\" button and \"Retry\".",
+    "description": "These options will let you override when to display \"Show solution\" button and \"Retry\" in integrated h5p content.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "overrideButtons",
+        "type": "boolean",
+        "label": "Enable override for \"Show solution\" and \"Retry\" settings.",
+        "description": "If this is enabled the questions own settings will be ignored and the below settings will be used instead.",
+        "default": false
+      },
+      {
+        "name": "overrideShowSolutionButton",
+        "type": "boolean",
+        "label": "Enable \"Show solution\" buttons.",
+        "description": "Enabling this option will make questions show the \"Show solution\" button.",
+        "default": false
+      },
+      {
+        "name": "overrideRetry",
+        "type": "boolean",
+        "label": "Enable \"Retry\".",
+        "description": "Enabling this option will make the user able to \"Retry\" .",
+        "default": false
       }
     ]
   }
