@@ -22,9 +22,6 @@
 .questionset.hidden {
   display: none;
 }
-.questionset .h5p-multichoice > .h5p-show-solution, .questionset .dragndrop > .h5p-show-solution, .h5p-blanks .h5p-button {
-  display: none;
-}
 .questionset, .intro-page, .questionset-results {
   position: relative;
 }
@@ -94,7 +91,7 @@
 .qs-footer {
   overflow: hidden;
 }
-.qs-footer .button, .qs-startbutton, .qs-finishbutton, .questionset-results .button, .video-container > .button {
+.qs-footer .h5p-button, .qs-startbutton, .qs-finishbutton, .questionset-results .h5p-button, .video-container > .h5p-button {
   display: inline-block;
   padding: 0 0.7em;
   border: 0.2em solid #fff;
@@ -112,7 +109,7 @@
   background: -ms-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6498fe', endColorstr='#0468ce',GradientType=0 ); /* IE6-9 */
 }
-.qs-footer .button:hover, .qs-startbutton:hover, .questionset-results .button:hover, .video-container > .button:hover {
+.qs-footer .h5p-button:hover, .qs-startbutton:hover, .questionset-results .h5p-button:hover, .video-container > .h5p-button:hover {
   text-decoration: none;
   box-shadow: 0 0 0.5em #999;
   color: #ffffff;
@@ -133,16 +130,26 @@
   float: none;
 }
 
+.qs-footer > .qs-retrybutton {
+  float: none;
+}
+
+.questionset-results a.h5p-button.qs-retrybutton:before {
+  font-family: 'H5PFontAwesome4';
+  padding-right: 0.5em;
+  content: "\f021";
+}
+
 .qs-footer > .next, .qs-footer > .finish, .qs-finishbutton {
   float: right;
 }
 
-.qs-footer a.next.button:after {
+.qs-footer a.next.h5p-button:after {
   font-family: 'H5PFontAwesome4';
   content: "\f054"; /* TODO: Use margin not whitespace, spacing is not content! */
 }
 
-.qs-footer a.prev.button:before {
+.qs-footer a.prev.h5p-button:before {
   font-family: 'H5PFontAwesome4';
   content: "\f053";
 }
@@ -151,12 +158,12 @@
   display: none;
 }
 
-.qs-footer a.finish.button:before {
+.qs-footer a.finish.h5p-button:before {
   font-family: 'H5PFontAwesome4';
   content: "\f00c   ";
 }
 
-.questionset-results a.button.qs-solutionbutton:before {
+.questionset-results a.h5p-button.qs-solutionbutton:before {
   font-family: 'H5PFontAwesome4';
   content: "\f06e   ";
 }
@@ -167,7 +174,7 @@
 .video-container > video {
   background-color: #000;
 }
-.video-container > .button {
+.video-container > .h5p-button {
   position: absolute;
   top: 0.5em;
   right: 0.5em;

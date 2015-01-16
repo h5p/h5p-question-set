@@ -26,7 +26,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a class="qs-startbutton button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><a class="qs-startbutton h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
@@ -45,9 +45,9 @@ H5P.QuestionSet = function (options, contentId) {
           '        <span class="progress-text"></span>' +
           '      <% } %>' +
           '    </div>' +
-          '    <a class="prev button" title="<%= texts.prevButton %>"></a>' +
-          '    <a class="next button" title="<%= texts.nextButton %>"></a>' +
-          '    <a class="finish button"><%= texts.finishButton %></a>' +
+          '    <a class="prev h5p-button" title="<%= texts.prevButton %>"></a>' +
+          '    <a class="next h5p-button" title="<%= texts.nextButton %>"></a>' +
+          '    <a class="finish h5p-button"><%= texts.finishButton %></a>' +
           '  </div>' +
           '</div>';
 
@@ -58,7 +58,7 @@ H5P.QuestionSet = function (options, contentId) {
           '     <div class="emoticon"></div>' +
           '     <div class="resulttext <%= scoreclass %>"><% if (comment) { %><h2><%= comment %></h2><% } %><%= score %><br><%= resulttext %></div>' +
           '  </div>' +
-          '  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a><a class="button qs-solutionbutton"><%= solutionButtonText %></a></div>' +
+          '  <div class="buttons"><a class="h5p-button qs-finishbutton"><%= finishButtonText %></a><a class="h5p-button qs-solutionbutton"><%= solutionButtonText %></a><a class="h5p-button qs-retrybutton"></a></div>' +
           '</div>';
 
   var defaults = {
@@ -89,7 +89,13 @@ H5P.QuestionSet = function (options, contentId) {
       scoreString: 'You got @score points of @total possible.',
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
+      retryButtonText: 'Retry',
       showAnimations: false
+    },
+    override: {
+      overrideButtons: false,
+      overrideShowSolutionButton: false,
+      overrideRetry: false
     },
     postUserStatistics: (H5P.postUserStatistics === true)
   };
@@ -108,8 +114,16 @@ H5P.QuestionSet = function (options, contentId) {
     var question = params.questions[i];
     // TODO: Render on init, inject in template.
 
+    // override content parameters.
+    if (params.override.overrideButtons) {
+      // Extend subcontent with the overrided settings.
+      $.extend(question.params.behaviour, {
+        enableRetry: params.override.overrideRetry,
+        enableSolutionsButton: params.override.overrideShowSolutionButton
+      });
+    }
+
     $.extend(question.params, {
-      displaySolutionsButton: false,
       postUserStatistics: false
     });
     questionInstances.push(H5P.newRunnable(question, contentId));
@@ -123,18 +137,18 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
     if (currentQuestion === 0) {
-      $('.prev.button', $myDom).hide();
+      $('.prev.h5p-button', $myDom).hide();
     } else {
-      $('.prev.button', $myDom).show();
+      $('.prev.h5p-button', $myDom).show();
     }
     if (currentQuestion === (params.questions.length - 1)) {
-      $('.next.button', $myDom).hide();
+      $('.next.h5p-button', $myDom).hide();
       if (answered) {
-        $('.finish.button', $myDom).show();
+        $('.finish.h5p-button', $myDom).show();
       }
     } else {
-      $('.next.button', $myDom).show();
-      $('.finish.button', $myDom).hide();
+      $('.next.h5p-button', $myDom).show();
+      $('.finish.h5p-button', $myDom).hide();
     }
  };
 
@@ -173,10 +187,40 @@ H5P.QuestionSet = function (options, contentId) {
     return currentQuestion;
   };
 
+  /**
+   * Show solutions for subcontent, and hide subcontent buttons.
+   * Used for contracts with integrated content.
+   * @public
+   */
   var showSolutions = function () {
     for (var i = 0; i < questionInstances.length; i++) {
-      questionInstances[i].showSolutions();
+      try {
+        questionInstances[i].showSolutions();
+      }
+      catch(error) {
+        console.log(error);
+        console.log("subcontent does not contain a valid showSolutions() function");
+      }
     }
+  };
+
+  /**
+   * Resets the task and every subcontent task.
+   * Used for contracts with integrated content.
+   * @public
+   */
+  var resetTask = function () {
+    for (var i = 0; i < questionInstances.length; i++) {
+      try {
+        questionInstances[i].resetTask();
+      }
+      catch(error) {
+        console.log(error);
+        console.log("subcontent does not contain a valid resetTask() function");
+      }
+    }
+    //Force the last page to be reRendered
+    rendered = false;
   };
 
   var rendered = false;
@@ -190,6 +234,8 @@ H5P.QuestionSet = function (options, contentId) {
       $myDom.children().hide().filter('.questionset-results').show();
       return;
     }
+    //Remove old score screen.
+    $myDom.children().hide().filter('.questionset-results').remove();
     rendered = true;
 
     // Get total score.
@@ -232,6 +278,12 @@ H5P.QuestionSet = function (options, contentId) {
         $myDom.children().hide().filter('.questionset').show();
         _showQuestion(params.initialQuestion);
       });
+      $('.qs-retrybutton', $myDom)
+        .html(params.endGame.retryButtonText)
+        .click(function () {
+          resetTask();
+          $myDom.children().hide().filter('.questionset').show();
+          _showQuestion(params.initialQuestion);});
     };
 
     if (params.endGame.showAnimations) {
@@ -254,7 +306,7 @@ H5P.QuestionSet = function (options, contentId) {
         video.play();
 
         if (params.endGame.skipButtonText) {
-          $('<a class="button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
+          $('<a class="h5p-button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
             video.stop();
             $videoContainer.hide();
             displayResults();
@@ -325,13 +377,13 @@ H5P.QuestionSet = function (options, contentId) {
     $('.progress-dot', $myDom).click(function () {
       _showQuestion($(this).index());
     });
-    $('.next.button', $myDom).click(function () {
+    $('.next.h5p-button', $myDom).click(function () {
       _showQuestion(currentQuestion + 1);
     });
-    $('.prev.button', $myDom).click(function () {
+    $('.prev.h5p-button', $myDom).click(function () {
       _showQuestion(currentQuestion - 1);
     });
-    $('.finish.button', $myDom).click(function () {
+    $('.finish.h5p-button', $myDom).click(function () {
       _displayEndGame();
     });
 
