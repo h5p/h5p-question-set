@@ -14,9 +14,10 @@ H5P.QuestionSet = function (options, contentId) {
   if (!(this instanceof H5P.QuestionSet)) {
     return new H5P.QuestionSet(options, contentId);
   }
-
+  H5P.EventDispatcher.call(this);
   var $ = H5P.jQuery;
   var self = this;
+  this.contentId = contentId;
 
   var texttemplate =
           '<% if (introPage.showIntroPage) { %>' +
@@ -27,7 +28,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a class="qs-startbutton button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><a class="qs-startbutton h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
@@ -46,9 +47,9 @@ H5P.QuestionSet = function (options, contentId) {
           '        <span class="progress-text"></span>' +
           '      <% } %>' +
           '    </div>' +
-          '    <a class="prev button" title="<%= texts.prevButton %>"></a>' +
-          '    <a class="next button" title="<%= texts.nextButton %>"></a>' +
-          '    <a class="finish button"><%= texts.finishButton %></a>' +
+          '    <a class="prev h5p-button" title="<%= texts.prevButton %>"></a>' +
+          '    <a class="next h5p-button" title="<%= texts.nextButton %>"></a>' +
+          '    <a class="finish h5p-button"><%= texts.finishButton %></a>' +
           '  </div>' +
           '</div>';
 
@@ -59,7 +60,7 @@ H5P.QuestionSet = function (options, contentId) {
           '     <div class="emoticon"></div>' +
           '     <div class="resulttext <%= scoreclass %>"><% if (comment) { %><h2><%= comment %></h2><% } %><%= score %><br><%= resulttext %></div>' +
           '  </div>' +
-          '  <div class="buttons"><a class="button qs-finishbutton"><%= finishButtonText %></a><a class="button qs-solutionbutton"><%= solutionButtonText %></a></div>' +
+          '  <div class="buttons"><a class="h5p-button qs-finishbutton"><%= finishButtonText %></a><a class="h5p-button qs-solutionbutton"><%= solutionButtonText %></a><a class="h5p-button qs-retrybutton"></a></div>' +
           '</div>';
 
   var defaults = {
@@ -90,7 +91,13 @@ H5P.QuestionSet = function (options, contentId) {
       scoreString: 'You got @score points of @total possible.',
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
+      retryButtonText: 'Retry',
       showAnimations: false
+    },
+    override: {
+      overrideButtons: false,
+      overrideShowSolutionButton: false,
+      overrideRetry: false
     }
   };
 
@@ -108,10 +115,19 @@ H5P.QuestionSet = function (options, contentId) {
     var question = params.questions[i];
     // TODO: Render on init, inject in template.
 
-    $.extend(question.params, {
-      displaySolutionsButton: false
+    // override content parameters.
+    if (params.override.overrideButtons) {
+      // Extend subcontent with the overrided settings.
+      $.extend(question.params.behaviour, {
+        enableRetry: params.override.overrideRetry,
+        enableSolutionsButton: params.override.overrideShowSolutionButton
+      });
+    }
+    var questionInstance = H5P.newRunnable(question, contentId);
+    questionInstances.push(questionInstance);
+    questionInstance.on('resize', function() {
+      self.trigger('resize');
     });
-    questionInstances.push(H5P.newRunnable(question, contentId));
   }
 
   // Update button state.
@@ -122,18 +138,18 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
     if (currentQuestion === 0) {
-      $('.prev.button', $myDom).hide();
+      $('.prev.h5p-button', $myDom).hide();
     } else {
-      $('.prev.button', $myDom).show();
+      $('.prev.h5p-button', $myDom).show();
     }
     if (currentQuestion === (params.questions.length - 1)) {
-      $('.next.button', $myDom).hide();
+      $('.next.h5p-button', $myDom).hide();
       if (answered) {
-        $('.finish.button', $myDom).show();
+        $('.finish.h5p-button', $myDom).show();
       }
     } else {
-      $('.next.button', $myDom).show();
-      $('.finish.button', $myDom).hide();
+      $('.next.h5p-button', $myDom).show();
+      $('.finish.h5p-button', $myDom).hide();
     }
  };
 
@@ -169,18 +185,49 @@ H5P.QuestionSet = function (options, contentId) {
     // Remember where we are
     currentQuestion = questionNumber;
     _updateButtons();
+    self.trigger('resize');
     return currentQuestion;
   };
 
+  /**
+   * Show solutions for subcontent, and hide subcontent buttons.
+   * Used for contracts with integrated content.
+   * @public
+   */
   var showSolutions = function () {
     for (var i = 0; i < questionInstances.length; i++) {
-      questionInstances[i].showSolutions();
+      try {
+        questionInstances[i].showSolutions();
+      }
+      catch(error) {
+        console.log(error);
+        console.log("subcontent does not contain a valid showSolutions() function");
+      }
     }
+  };
+
+  /**
+   * Resets the task and every subcontent task.
+   * Used for contracts with integrated content.
+   * @public
+   */
+  var resetTask = function () {
+    for (var i = 0; i < questionInstances.length; i++) {
+      try {
+        questionInstances[i].resetTask();
+      }
+      catch(error) {
+        console.log(error);
+        console.log("subcontent does not contain a valid resetTask() function");
+      }
+    }
+    //Force the last page to be reRendered
+    rendered = false;
   };
 
   var rendered = false;
 
-  var reRender = function () {
+  this.reRender = function () {
     rendered = false;
   };
 
@@ -189,11 +236,13 @@ H5P.QuestionSet = function (options, contentId) {
       $myDom.children().hide().filter('.questionset-results').show();
       return;
     }
+    //Remove old score screen.
+    $myDom.children().hide().filter('.questionset-results').remove();
     rendered = true;
 
     // Get total score.
-    var finals = getScore();
-    var totals = totalScore();
+    var finals = self.getScore();
+    var totals = self.totalScore();
     var scoreString = params.endGame.scoreString.replace("@score", finals).replace("@total", totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
     var eventData = {
@@ -201,10 +250,10 @@ H5P.QuestionSet = function (options, contentId) {
       passed: success
     };
     var displayResults = function () {
-      self.triggerXAPI('completed', {result: H5P.getxAPIScoredResult(getScore(), totalScore())});
+      self.triggerXAPICompleted(self.getScore(), self.totalScore());
 
       if (!params.endGame.showResultPage) {
-        $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+        self.trigger('h5pQuestionSetFinished', eventData);
         return;
       }
 
@@ -222,13 +271,19 @@ H5P.QuestionSet = function (options, contentId) {
       $myDom.children().hide();
       $myDom.append(endTemplate.render(eparams));
       $('.qs-finishbutton').click(function () {
-        $(returnObject).trigger('h5pQuestionSetFinished', eventData);
+        self.trigger('h5pQuestionSetFinished', eventData);
       });
       $('.qs-solutionbutton', $myDom).click(function () {
         showSolutions();
         $myDom.children().hide().filter('.questionset').show();
         _showQuestion(params.initialQuestion);
       });
+      $('.qs-retrybutton', $myDom)
+        .html(params.endGame.retryButtonText)
+        .click(function () {
+          resetTask();
+          $myDom.children().hide().filter('.questionset').show();
+          _showQuestion(params.initialQuestion);});
     };
 
     if (params.endGame.showAnimations) {
@@ -251,7 +306,7 @@ H5P.QuestionSet = function (options, contentId) {
         video.play();
 
         if (params.endGame.skipButtonText) {
-          $('<a class="button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
+          $('<a class="h5p-button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
             video.stop();
             $videoContainer.hide();
             displayResults();
@@ -266,7 +321,7 @@ H5P.QuestionSet = function (options, contentId) {
   };
 
   // Function for attaching the multichoice to a DOM element.
-  var attach = function (target) {
+  this.attach = function (target) {
     if (typeof(target) === "string") {
       $myDom = $('#' + target);
     }
@@ -279,16 +334,16 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
-        background: '#000 url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+        background: '#fff url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
         backgroundSize: '100% auto'
       });
     }
-    
+
     if (params.introPage.backgroundImage !== undefined) {
       var $intro = $myDom.find('.intro-page');
       if ($intro.length) {
         $intro.css({
-          background: '#000 url("' + H5P.getPath(params.introPage.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+          background: '#fff url("' + H5P.getPath(params.introPage.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
           backgroundSize: '100% auto'
         });
       }
@@ -299,7 +354,7 @@ H5P.QuestionSet = function (options, contentId) {
       var question = questionInstances[i];
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
-      question.registerH5PEventListener('xAPI', function (event) {
+      question.on('xAPI', function (event) {
         if (event.verb === 'attempted') {
           $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
           _updateButtons();
@@ -324,13 +379,13 @@ H5P.QuestionSet = function (options, contentId) {
     $('.progress-dot', $myDom).click(function () {
       _showQuestion($(this).index());
     });
-    $('.next.button', $myDom).click(function () {
+    $('.next.h5p-button', $myDom).click(function () {
       _showQuestion(currentQuestion + 1);
     });
-    $('.prev.button', $myDom).click(function () {
+    $('.prev.h5p-button', $myDom).click(function () {
       _showQuestion(currentQuestion - 1);
     });
-    $('.finish.button', $myDom).click(function () {
+    $('.finish.h5p-button', $myDom).click(function () {
       _displayEndGame();
     });
 
@@ -343,11 +398,12 @@ H5P.QuestionSet = function (options, contentId) {
     }
     
     this.trigger('resize');
+
     return this;
   };
 
   // Get current score for questionset.
-  var getScore = function () {
+  this.getScore = function () {
     var score = 0;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       score += questionInstances[i].getScore();
@@ -356,29 +412,29 @@ H5P.QuestionSet = function (options, contentId) {
   };
 
   // Get total score possible for questionset.
-  var totalScore = function () {
+  this.totalScore = function () {
     var score = 0;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       score += questionInstances[i].getMaxScore();
     }
     return score;
   };
-  
+
   /**
    * Gather copyright information for the current content.
    *
    * @returns {H5P.ContentCopyrights}
    */
-  var getCopyrights = function () {
+  this.getCopyrights = function () {
     var info = new H5P.ContentCopyrights();
-  
+
     // Background
     if (params.backgroundImage !== undefined && params.backgroundImage.copyright !== undefined) {
       var background = new H5P.MediaCopyright(params.backgroundImage.copyright);
       background.setThumbnail(new H5P.Thumbnail(H5P.getPath(params.backgroundImage.path, contentId), params.backgroundImage.width, params.backgroundImage.height));
       info.addMedia(background);
     }
-    
+
     // Questions
     for (var i = 0; i < questionInstances.length; i++) {
       var questionInstance = questionInstances[i];
@@ -390,7 +446,7 @@ H5P.QuestionSet = function (options, contentId) {
         }
       }
     }
-    
+
     // Success video
     if (params.endGame.successVideo !== undefined && params.endGame.successVideo.length > 0) {
       var video = params.endGame.successVideo[0];
@@ -398,7 +454,7 @@ H5P.QuestionSet = function (options, contentId) {
         info.addMedia(new H5P.MediaCopyright(video.copyright));
       }
     }
-    
+
     // Fail video
     if (params.endGame.failVideo !== undefined && params.endGame.failVideo.length > 0) {
       video = params.endGame.failVideo[0];
@@ -406,23 +462,15 @@ H5P.QuestionSet = function (options, contentId) {
         info.addMedia(new H5P.MediaCopyright(video.copyright));
       }
     }
-  
+
     return info;
   };
-
-  // Masquerade the main object to hide inner properties and functions.
-  var returnObject = {
-    $: $(this),
-    attach: attach, // Attach to DOM object
-    getQuestions: function () {return questionInstances;},
-    getScore: getScore,
-    showSolutions: function () {
-      renderSolutions = true;
-    },
-    totalScore: totalScore,
-    reRender: reRender,
-    defaults: defaults, // Provide defaults for inspection
-    getCopyrights: getCopyrights
+  this.getQuestions = function() {
+    return questionInstances;
   };
-  return returnObject;
+  this.showSolutions = function() {
+    renderSolutions = true;
+  }
 };
+H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
+H5P.QuestionSet.prototype.constructor = H5P.QuestionSet;
