@@ -92,7 +92,16 @@
     "name": "questions",
     "label": "Questions",
     "type": "list",
-    "widget": "verticalTabs",
+    "widgets": [
+      {
+        "name": "VerticalTabs",
+        "label": "Default"
+      },
+      {
+        "name": "QuestionSetTextualEditor",
+        "label": "Textual"
+      }
+    ],
     "min": 1,
     "entity": "question",
     "field": {
