@@ -355,7 +355,7 @@ H5P.QuestionSet = function (options, contentId) {
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
       question.on('xAPI', function (event) {
-        if (event.verb === 'attempted') {
+        if (event.getVerb() === 'attempted') {
           $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
           _updateButtons();
         }
