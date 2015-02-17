@@ -293,21 +293,23 @@ H5P.QuestionSet = function (options, contentId) {
         var $videoContainer = $('<div class="video-container"></div>').appendTo($myDom);
 
         var video = new H5P.Video({
-          files: videoData,
+          sources: videoData,
           fitToWrapper: true,
           controls: false,
           autoplay: false
         }, contentId);
-        video.endedCallback = function () {
-          displayResults();
-          $videoContainer.hide();
-        };
+        video.on('stateChange', function (event) {
+          if (event.data === H5P.Video.ENDED) {
+            displayResults();
+            $videoContainer.hide();
+          }
+        });
         video.attach($videoContainer);
         video.play();
 
         if (params.endGame.skipButtonText) {
           $('<a class="h5p-button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
-            video.stop();
+            video.pause();
             $videoContainer.hide();
             displayResults();
           }).appendTo($videoContainer);
