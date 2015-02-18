@@ -320,6 +320,7 @@ H5P.QuestionSet = function (options, contentId) {
     }
     // Trigger finished event.
     displayResults();
+    self.trigger('resize');
   };
 
   // Function for attaching the multichoice to a DOM element.
