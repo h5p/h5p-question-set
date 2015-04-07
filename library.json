@@ -2,8 +2,8 @@
   "title": "Question set",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 3,
-  "patchVersion": 1,
+  "minorVersion": 4,
+  "patchVersion": 0,
   "embedTypes": [
     "iframe"
   ],
@@ -13,7 +13,7 @@
   "author": "Joubel AS",
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 4
+    "minorVersion": 5
   },
   "license": "cc-by-sa",
   "preloadedJs": [
