@@ -123,7 +123,7 @@ H5P.QuestionSet = function (options, contentId) {
         enableSolutionsButton: params.override.overrideShowSolutionButton
       });
     }
-    var questionInstance = H5P.newRunnable(question, contentId);
+    var questionInstance = H5P.newRunnable(question, contentId, null, null, self);
     questionInstances.push(questionInstance);
     questionInstance.on('resize', function() {
       self.trigger('resize');

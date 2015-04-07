@@ -2,8 +2,8 @@
   "title": "Question set",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 2,
-  "patchVersion": 0,
+  "minorVersion": 3,
+  "patchVersion": 1,
   "embedTypes": [
     "iframe"
   ],
