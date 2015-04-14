@@ -3,7 +3,7 @@ var H5PUpgrades = H5PUpgrades || {};
 H5PUpgrades['H5P.QuestionSet'] = (function ($) {
   return {
     1: {
-      4: function (parameters, finished) {
+      3: function (parameters, finished) {
         for (var i = 0; i < parameters.questions.length; i++) {
           if (parameters.questions[i].subContentId === undefined) {
             // NOTE: We avoid using H5P.createUUID since this is an upgrade script and H5P function may change in the
