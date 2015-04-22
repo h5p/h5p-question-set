@@ -110,11 +110,11 @@
       "label": "Question type",
       "description": "Library for this question.",
       "options": [
-        "H5P.MultiChoice 1.2",
-        "H5P.DragQuestion 1.2",
-        "H5P.Blanks 1.2",
-        "H5P.MarkTheWords 1.2",
-        "H5P.DragText 1.2"
+        "H5P.MultiChoice 1.3",
+        "H5P.DragQuestion 1.3",
+        "H5P.Blanks 1.3",
+        "H5P.MarkTheWords 1.3",
+        "H5P.DragText 1.3"
       ]
     }
   },
