@@ -324,5 +324,11 @@
         "default": false
       }
     ]
+  },
+  {
+    "name": "questionLabel",
+    "type": "text",
+    "label": "Question label text",
+    "default": "Question"
   }
 ]
