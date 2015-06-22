@@ -3,7 +3,7 @@
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 4,
-  "patchVersion": 0,
+  "patchVersion": 1,
   "embedTypes": [
     "iframe"
   ],
