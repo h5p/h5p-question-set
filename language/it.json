@@ -154,6 +154,10 @@
           "description": "L'attivazione di questa opzione far� in modo che per l'utente sia abilitata l'opzione \"Riprova\"."
         }
       ]
+    },
+    {
+      "label": "Question label text",
+      "default": "Question"
     }
   ]
 }

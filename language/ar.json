@@ -154,6 +154,10 @@
           "description": "تفعيل هذا الخيار يجعل المستخدم قادرا على \"إعادة المحاولة\""
         }
       ]
+    },
+    {
+      "label": "Question label text",
+      "default": "Question"
     }
   ]
 }
