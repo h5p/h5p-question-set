@@ -121,6 +121,11 @@
           "description": ""
         },
         {
+          "label": "Tekst til \"Prøv igjen\" knapp",
+          "default": "Prøv igjen",
+          "description": ""
+        },
+        {
           "label": "Tekst til \"Avslutt\" knapp",
           "default": "Avslutt"
         },
