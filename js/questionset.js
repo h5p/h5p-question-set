@@ -98,7 +98,8 @@ H5P.QuestionSet = function (options, contentId) {
       overrideButtons: false,
       overrideShowSolutionButton: false,
       overrideRetry: false
-    }
+    },
+    questionLabel: 'Question'
   };
 
   var template = new EJS({text: texttemplate});
@@ -106,7 +107,7 @@ H5P.QuestionSet = function (options, contentId) {
   var params = $.extend(true, {}, defaults, options);
 
   var currentQuestion = 0;
-  var questionInstances = new Array();
+  var questionInstances = [];
   var $myDom;
   renderSolutions = false;
 
@@ -369,8 +370,7 @@ H5P.QuestionSet = function (options, contentId) {
         }
       });
       if (question.getAnswerGiven()) {
-        $('.progress-dot:eq(' + i +')'
-        , $myDom).removeClass('unanswered').addClass('answered');
+        $('.progress-dot:eq(' + i +')', $myDom).removeClass('unanswered').addClass('answered');
       }
     }
 
@@ -444,20 +444,40 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
     // Questions
+    var questionCopyrights;
     for (var i = 0; i < questionInstances.length; i++) {
-      var questionInstance = questionInstances[i];
-      if (questionInstance.getCopyrights !== undefined) {
-        var rights = questionInstance.getCopyrights();
-        if (rights !== undefined) {
-          rights.setLabel('Question '+(i+1));
-          info.addContent(rights);
-        }
+      var instance = questionInstances[i];
+      var qParams = params.questions[i].params;
+      questionCopyrights = undefined;
+
+      if (instance.getCopyrights !== undefined) {
+        // Use the instance's own copyright generator
+        questionCopyrights = instance.getCopyrights();
       }
+      if (questionCopyrights === undefined) {
+        // Create a generic flat copyright list
+        questionCopyrights = new H5P.ContentCopyrights();
+        H5P.findCopyrights(questionCopyrights, qParams, contentId);
+      }
+
+      // Determine label
+      var label = (params.questionLabel + ' ' + (i + 1));
+      if (qParams.contentName !== undefined) {
+        label += ': ' + qParams.contentName;
+      }
+      else if (instance.getTitle !== undefined) {
+        label += ': ' + instance.getTitle();
+      }
+      questionCopyrights.setLabel(label);
+
+      // Add info
+      info.addContent(questionCopyrights);
     }
 
     // Success video
+    var video;
     if (params.endGame.successVideo !== undefined && params.endGame.successVideo.length > 0) {
-      var video = params.endGame.successVideo[0];
+      video = params.endGame.successVideo[0];
       if (video.copyright !== undefined) {
         info.addMedia(new H5P.MediaCopyright(video.copyright));
       }
@@ -478,7 +498,7 @@ H5P.QuestionSet = function (options, contentId) {
   };
   this.showSolutions = function() {
     renderSolutions = true;
-  }
+  };
 };
 H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
 H5P.QuestionSet.prototype.constructor = H5P.QuestionSet;
