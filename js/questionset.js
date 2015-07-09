@@ -235,6 +235,7 @@ H5P.QuestionSet = function (options, contentId) {
   var _displayEndGame = function () {
     if (rendered) {
       $myDom.children().hide().filter('.questionset-results').show();
+      self.trigger('resize');
       return;
     }
     //Remove old score screen.
@@ -306,6 +307,10 @@ H5P.QuestionSet = function (options, contentId) {
           }
         });
         video.attach($videoContainer);
+        // Resize on video loaded
+        video.on('loaded', function () {
+          self.trigger('resize');
+        });
         video.play();
 
         if (params.endGame.skipButtonText) {
