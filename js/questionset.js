@@ -364,9 +364,14 @@ H5P.QuestionSet = function (options, contentId) {
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
       question.on('xAPI', function (event) {
-        if (event.getVerb() === 'interacted') {
+        var shortVerb = event.getVerb();
+        if (shortVerb === 'interacted') {
           $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
           _updateButtons();
+        }
+        if (shortVerb === 'completed') {
+          // An activity within this activity is not allowed to send completed events
+          event.setVerb('answered');
         }
       });
       if (question.getAnswerGiven()) {
