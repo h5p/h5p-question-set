@@ -331,6 +331,7 @@ H5P.QuestionSet = function (options, contentId) {
 
   // Function for attaching the multichoice to a DOM element.
   this.attach = function (target) {
+    this.setActivityStarted();
     if (typeof(target) === "string") {
       $myDom = $('#' + target);
     }
