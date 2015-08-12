@@ -264,3 +264,17 @@
   color: #6aa81b;
   text-align: left;
 }
+
+/* No margin for questions when no frame */
+.h5p-no-frame .questionset .h5p-question > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.h5p-no-frame .questionset .h5p-question > *:first-child {
+  margin-top: 0;
+}
+
+.h5p-no-frame .questionset .h5p-question > *:last-child {
+  margin-bottom: 0;
+}
