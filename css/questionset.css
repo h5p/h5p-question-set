@@ -62,7 +62,7 @@
   font-weight: bold;
   text-align: center;
 }
-.intro-page .title > span { 
+.intro-page .title > span {
   padding: 0.125em 0.5em;
   border-radius: 0.125em;
   background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
@@ -91,37 +91,7 @@
 .qs-footer {
   overflow: hidden;
 }
-.qs-footer .h5p-button, .qs-startbutton, .qs-finishbutton, .questionset-results .h5p-button, .video-container > .h5p-button {
-  display: inline-block;
-  padding: 0 0.7em;
-  border: 0.2em solid #fff;
-  border-radius: 0.4em;
-  margin: 0 0.5em 1em;
-  cursor: pointer;
-  color: #ffffff;
-  box-shadow: 0 0 0.5em #999;
-  line-height: 1.9em;
-  background: rgb(100,152,254); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(100,152,254,1) 0%, rgba(4,104,206,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,152,254,1)), color-stop(100%,rgba(4,104,206,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* IE10+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6498fe', endColorstr='#0468ce',GradientType=0 ); /* IE6-9 */
-}
-.qs-footer .h5p-button:hover, .qs-startbutton:hover, .questionset-results .h5p-button:hover, .video-container > .h5p-button:hover {
-  text-decoration: none;
-  box-shadow: 0 0 0.5em #999;
-  color: #ffffff;
-  border-color: #fff;
-  background: rgb(4,104,206); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(4,104,206,1) 0%, rgba(100,152,254,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(4,104,206,1)), color-stop(100%,rgba(100,152,254,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* IE10+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0468ce', endColorstr='#6498fe',GradientType=0 ); /* IE6-9 */
-}
+
 .qs-footer > .prev {
   float: left;
 }
@@ -144,28 +114,53 @@
   float: right;
 }
 
-.qs-footer a.next.h5p-button:after {
-  font-family: 'H5PFontAwesome4';
-  content: "\f054"; /* TODO: Use margin not whitespace, spacing is not content! */
+.h5p-question .h5p-question-prev,
+.h5p-question .h5p-question-finish,
+.h5p-question .h5p-question-next {
+  float: right;
 }
 
-.qs-footer a.prev.h5p-button:before {
-  font-family: 'H5PFontAwesome4';
+.h5p-question .h5p-question-prev,
+.h5p-question .h5p-question-next {
+  padding: 0;
+  height: 2.1875em;
+  width: 2.1875em;
+}
+
+.h5p-question .h5p-question-next,
+.h5p-question .h5p-question-finish {
+  margin: 0 0 1.5em 0.5em;
+}
+
+.h5p-question .h5p-question-prev {
+  margin: 0 0.5em 1.5em 0.5em;
+}
+
+.h5p-question .h5p-question-next:before {
+  content: "\f054";
+  padding-right: 0;
+  position: relative;
+  left: 2px;
+}
+
+.h5p-question .h5p-question-prev:before {
   content: "\f053";
+  padding-right: 0;
+  position: relative;
+  left: -2px;
 }
 
 .questionset-results .qs-finishbutton {
   display: none;
 }
 
-.qs-footer a.finish.h5p-button:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f00c   ";
+.h5p-question .h5p-question-finish:before {
+  content: "\f00c";
 }
 
 .questionset-results a.h5p-button.qs-solutionbutton:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f06e   ";
+  content: "\f06e   "; /* TODO: Use margin not whitespace, spacing is not content! */
 }
 
 .video-container {
