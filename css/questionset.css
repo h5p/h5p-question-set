@@ -107,7 +107,7 @@
 .questionset-results a.h5p-button.qs-retrybutton:before {
   font-family: 'H5PFontAwesome4';
   padding-right: 0.5em;
-  content: "\f021";
+  content: "\f01e";
 }
 
 .qs-footer > .next, .qs-footer > .finish, .qs-finishbutton {

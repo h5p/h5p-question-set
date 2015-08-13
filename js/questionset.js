@@ -391,7 +391,9 @@ H5P.QuestionSet = function (options, contentId) {
 
       question.on('xAPI', function (event) {
         var shortVerb = event.getVerb();
-        if (shortVerb === 'interacted') {
+        if (shortVerb === 'interacted' ||
+            shortVerb === 'answered' ||
+            shortVerb === 'attempted') {
           $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
           _updateButtons();
         }
