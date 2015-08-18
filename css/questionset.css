@@ -194,10 +194,10 @@
 .questionset-results .feedback-section .feedback-text {
   font-weight: bold;
   color: #1a73d9;
-  display: inline-block;
-  position: relative;
-  top: -1em;
-  margin-top: .8em;
+}
+
+.questionset-results .buttons {
+  margin-bottom: 1.5em;
 }
 
 /* No margin for questions when no frame */
@@ -206,14 +206,12 @@
   margin-right: 0;
 }
 
+.h5p-no-frame .questionset-results .feedback-section,
 .h5p-no-frame .questionset .h5p-question > *:first-child {
   margin-top: 0;
 }
 
+.h5p-no-frame .questionset-results .buttons,
 .h5p-no-frame .questionset .h5p-question > *:last-child {
   margin-bottom: 0;
-}
-
-.h5p-no-frame .questionset-results .feedback-section {
-  margin-top: 0;
 }
