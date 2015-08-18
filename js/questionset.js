@@ -284,11 +284,8 @@ H5P.QuestionSet = function (options, contentId) {
       if (scoreBar === undefined) {
         scoreBar = H5P.JoubelUI.createScoreBar(totals);
       }
-      console.log($myDom);
-      console.log($('.feedback-scorebar', $myDom));
       scoreBar.appendTo($('.feedback-scorebar', $myDom));
       scoreBar.setScore(finals);
-      console.log($('.feedback-text', $myDom));
       $('.feedback-text', $myDom).html(scoreString);
     };
 
