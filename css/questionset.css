@@ -187,82 +187,17 @@
   padding: 0.625em;
 }
 
-.questionset-results .greeting {
-  text-align: left;
-  border-bottom: 0.1em solid #ddd;
-  width: 100%;
+.questionset-results .feedback-section {
+  margin: 1.5em;
 }
 
-.questionset-results .score {
-  margin: 0;
-  display: block;
-  margin-bottom: 2em;
-}
-
-.questionset-results .resulttext {
-  text-align: left;
-  font-size: 1.25em;
-  line-height: 1.25em;
-  margin: 1em 0em;
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-
-.questionset-results .resulttext.fail em {
-  font-style: normal;
-  color: #b9272d;
-}
-
-.questionset-results .score.success .emoticon:before {
-  font-family: icomoon-questionset;
-  font-size: 5em;
-  line-height: 100%;
-  content: "\e606";
-  float: left;
-}
-
-.questionset-results .score.fail .emoticon:before {
-  font-family: icomoon-questionset;
-  font-size: 5em;
-  line-height: 100%;
-  content: "\e607";
-  float: left;
-}
-
-.questionset-results .resulttext.success,
-.questionset-results .resulttext.almost,
-.questionset-results .resulttext.fail
-{
-  display: block;
-  background: #eee;
-  padding: 1em;
-  border-radius: 1em;
-  margin-left: 6.5em;
-  position: relative;
-  font-size: 1em;
-}
-
-.questionset-results .resulttext.success:before,
-.questionset-results .resulttext.fail:before
-{
-  font-family: icomoon-questionset;
-  content: "";
-  font-size: 5em;
-  position: absolute;
-  left: -14px;
-  top: 36px;
-  height: 0;
-  width: 0;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-right: 15px solid #eee;
+.questionset-results .feedback-section .feedback-text {
+  font-weight: bold;
+  color: #1a73d9;
   display: inline-block;
-}
-
-.questionset-results .resulttext.success em {
-  font-style: normal;
-  color: #6aa81b;
-  text-align: left;
+  position: relative;
+  top: -1em;
+  margin-top: .8em;
 }
 
 /* No margin for questions when no frame */
@@ -277,4 +212,8 @@
 
 .h5p-no-frame .questionset .h5p-question > *:last-child {
   margin-bottom: 0;
+}
+
+.h5p-no-frame .questionset-results .feedback-section {
+  margin-top: 0;
 }

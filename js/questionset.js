@@ -52,10 +52,9 @@ H5P.QuestionSet = function (options, contentId) {
 
   var resulttemplate =
           '<div class="questionset-results">' +
-          '  <div class="greeting"><%= message %></div>' +
-          '  <div class="score <%= scoreclass %>">' +
-          '     <div class="emoticon"></div>' +
-          '     <div class="resulttext <%= scoreclass %>"><% if (comment) { %><h2><%= comment %></h2><% } %><%= score %><br><%= resulttext %></div>' +
+          '  <div class="feedback-section">' +
+          '    <div class="feedback-scorebar"></div>' +
+          '    <div class="feedback-text"></div>' +
           '  </div>' +
           '  <div class="buttons">' +
           '    <a class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></a>' +
@@ -110,6 +109,7 @@ H5P.QuestionSet = function (options, contentId) {
   var currentQuestion = 0;
   var questionInstances = [];
   var $myDom;
+  var scoreBar;
   renderSolutions = false;
 
   // Instantiate question instances
@@ -258,11 +258,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       var eparams = {
-        message: params.endGame.message,
         comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
-        score: scoreString,
-        scoreclass: (success ? 'success' : 'fail'),
-        resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
         finishButtonText: params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText
       };
@@ -270,7 +266,7 @@ H5P.QuestionSet = function (options, contentId) {
       // Show result page.
       $myDom.children().hide();
       $myDom.append(endTemplate.render(eparams));
-      $('.qs-finishbutton').click(function () {
+      $('.qs-finishbutton', $myDom).click(function () {
         self.trigger('h5pQuestionSetFinished', eventData);
       });
       $('.qs-solutionbutton', $myDom).click(function () {
@@ -284,6 +280,16 @@ H5P.QuestionSet = function (options, contentId) {
           resetTask();
           $myDom.children().hide().filter('.questionset').show();
           _showQuestion(params.initialQuestion);});
+
+      if (scoreBar === undefined) {
+        scoreBar = H5P.JoubelUI.createScoreBar(totals);
+      }
+      console.log($myDom);
+      console.log($('.feedback-scorebar', $myDom));
+      scoreBar.appendTo($('.feedback-scorebar', $myDom));
+      scoreBar.setScore(finals);
+      console.log($('.feedback-text', $myDom));
+      $('.feedback-text', $myDom).html(scoreString);
     };
 
     if (params.endGame.showAnimations) {
