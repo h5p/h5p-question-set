@@ -195,8 +195,7 @@ H5P.QuestionSet = function (options, contentId) {
         questionInstances[i].showSolutions();
       }
       catch(error) {
-        console.log(error);
-        console.log("subcontent does not contain a valid showSolutions() function");
+        H5P.error("subcontent does not contain a valid showSolutions function");
       }
     }
   };
@@ -212,8 +211,7 @@ H5P.QuestionSet = function (options, contentId) {
         questionInstances[i].resetTask();
       }
       catch(error) {
-        console.log(error);
-        console.log("subcontent does not contain a valid resetTask() function");
+        H5P.error("subcontent does not contain a valid resetTask function");
       }
     }
 
