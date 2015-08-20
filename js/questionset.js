@@ -196,6 +196,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
       catch(error) {
         H5P.error("subcontent does not contain a valid showSolutions function");
+        H5P.error(error);
       }
     }
   };
@@ -212,6 +213,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
       catch(error) {
         H5P.error("subcontent does not contain a valid resetTask function");
+        H5P.error(error);
       }
     }
 
