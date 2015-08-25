@@ -28,7 +28,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a class="qs-startbutton h5p-button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><a class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
@@ -47,20 +47,20 @@ H5P.QuestionSet = function (options, contentId) {
           '        <span class="progress-text"></span>' +
           '      <% } %>' +
           '    </div>' +
-          '    <a class="prev h5p-button" title="<%= texts.prevButton %>"></a>' +
-          '    <a class="next h5p-button" title="<%= texts.nextButton %>"></a>' +
-          '    <a class="finish h5p-button"><%= texts.finishButton %></a>' +
           '  </div>' +
           '</div>';
 
   var resulttemplate =
           '<div class="questionset-results">' +
-          '  <div class="greeting"><%= message %></div>' +
-          '  <div class="score <%= scoreclass %>">' +
-          '     <div class="emoticon"></div>' +
-          '     <div class="resulttext <%= scoreclass %>"><% if (comment) { %><h2><%= comment %></h2><% } %><%= score %><br><%= resulttext %></div>' +
+          '  <div class="feedback-section">' +
+          '    <div class="feedback-scorebar"></div>' +
+          '    <div class="feedback-text"></div>' +
           '  </div>' +
-          '  <div class="buttons"><a class="h5p-button qs-finishbutton"><%= finishButtonText %></a><a class="h5p-button qs-solutionbutton"><%= solutionButtonText %></a><a class="h5p-button qs-retrybutton"></a></div>' +
+          '  <div class="buttons">' +
+          '    <a class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></a>' +
+          '    <a class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></a>' +
+          '    <a class="h5p-joubelui-button h5p-button qs-retrybutton"></a>' +
+          '  </div>' +
           '</div>';
 
   var defaults = {
@@ -109,6 +109,7 @@ H5P.QuestionSet = function (options, contentId) {
   var currentQuestion = 0;
   var questionInstances = [];
   var $myDom;
+  var scoreBar;
   renderSolutions = false;
 
   // Instantiate question instances
@@ -126,10 +127,14 @@ H5P.QuestionSet = function (options, contentId) {
     }
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
     questionInstances.push(questionInstance);
-    questionInstance.on('resize', function() {
-      self.trigger('resize');
-    });
   }
+
+  // Resize all interactions on resize
+  self.on('resize', function () {
+    for (var i = 0; i < questionInstances.length; i++) {
+      questionInstances[i].trigger('resize');
+    }
+  });
 
   // Update button state.
   var _updateButtons = function () {
@@ -138,19 +143,8 @@ H5P.QuestionSet = function (options, contentId) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
 
-    if (currentQuestion === 0) {
-      $('.prev.h5p-button', $myDom).hide();
-    } else {
-      $('.prev.h5p-button', $myDom).show();
-    }
-    if (currentQuestion === (params.questions.length - 1)) {
-      $('.next.h5p-button', $myDom).hide();
-      if (answered) {
-        $('.finish.h5p-button', $myDom).show();
-      }
-    } else {
-      $('.next.h5p-button', $myDom).show();
-      $('.finish.h5p-button', $myDom).hide();
+    if (currentQuestion === (params.questions.length - 1) && answered) {
+      questionInstances[currentQuestion].showButton('finish');
     }
  };
 
@@ -201,8 +195,8 @@ H5P.QuestionSet = function (options, contentId) {
         questionInstances[i].showSolutions();
       }
       catch(error) {
-        console.log(error);
-        console.log("subcontent does not contain a valid showSolutions() function");
+        H5P.error("subcontent does not contain a valid showSolutions function");
+        H5P.error(error);
       }
     }
   };
@@ -218,10 +212,14 @@ H5P.QuestionSet = function (options, contentId) {
         questionInstances[i].resetTask();
       }
       catch(error) {
-        console.log(error);
-        console.log("subcontent does not contain a valid resetTask() function");
+        H5P.error("subcontent does not contain a valid resetTask function");
+        H5P.error(error);
       }
     }
+
+    // Hide finish button
+    questionInstances[questionInstances.length - 1].hideButton('finish');
+
     //Force the last page to be reRendered
     rendered = false;
   };
@@ -260,11 +258,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       var eparams = {
-        message: params.endGame.message,
         comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
-        score: scoreString,
-        scoreclass: (success ? 'success' : 'fail'),
-        resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
         finishButtonText: params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText
       };
@@ -272,7 +266,7 @@ H5P.QuestionSet = function (options, contentId) {
       // Show result page.
       $myDom.children().hide();
       $myDom.append(endTemplate.render(eparams));
-      $('.qs-finishbutton').click(function () {
+      $('.qs-finishbutton', $myDom).click(function () {
         self.trigger('h5pQuestionSetFinished', eventData);
       });
       $('.qs-solutionbutton', $myDom).click(function () {
@@ -286,6 +280,13 @@ H5P.QuestionSet = function (options, contentId) {
           resetTask();
           $myDom.children().hide().filter('.questionset').show();
           _showQuestion(params.initialQuestion);});
+
+      if (scoreBar === undefined) {
+        scoreBar = H5P.JoubelUI.createScoreBar(totals);
+      }
+      scoreBar.appendTo($('.feedback-scorebar', $myDom));
+      scoreBar.setScore(finals);
+      $('.feedback-text', $myDom).html(scoreString);
     };
 
     if (params.endGame.showAnimations) {
@@ -314,7 +315,7 @@ H5P.QuestionSet = function (options, contentId) {
         video.play();
 
         if (params.endGame.skipButtonText) {
-          $('<a class="h5p-button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
+          $('<a class="h5p-joubelui-button h5p-button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
             video.pause();
             $videoContainer.hide();
             displayResults();
@@ -364,9 +365,38 @@ H5P.QuestionSet = function (options, contentId) {
       var question = questionInstances[i];
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
+
+      // Disable feedback for question
+      question.setBehaviour({disableFeedback: true});
+
+      // Add next/finish button
+      if (questionInstances[questionInstances.length -1] === question) {
+
+        // Add finish question set button
+        question.addButton('finish', params.texts.finishButton, function () {
+          _displayEndGame();
+        });
+
+      } else {
+
+        // Add next question button
+        question.addButton('next', '', function () {
+          _showQuestion(currentQuestion + 1);
+        });
+      }
+
+      // Add previous question button
+      if (questionInstances[0] !== question) {
+        question.addButton('prev', '', function () {
+            _showQuestion(currentQuestion - 1);
+        });
+      }
+
       question.on('xAPI', function (event) {
         var shortVerb = event.getVerb();
-        if (shortVerb === 'interacted') {
+        if (shortVerb === 'interacted' ||
+            shortVerb === 'answered' ||
+            shortVerb === 'attempted') {
           $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
           _updateButtons();
         }
@@ -392,15 +422,6 @@ H5P.QuestionSet = function (options, contentId) {
     // Set event listeners.
     $('.progress-dot', $myDom).click(function () {
       _showQuestion($(this).index());
-    });
-    $('.next.h5p-button', $myDom).click(function () {
-      _showQuestion(currentQuestion + 1);
-    });
-    $('.prev.h5p-button', $myDom).click(function () {
-      _showQuestion(currentQuestion - 1);
-    });
-    $('.finish.h5p-button', $myDom).click(function () {
-      _displayEndGame();
     });
 
     // Hide all but initial Question.

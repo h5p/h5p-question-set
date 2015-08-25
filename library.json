@@ -41,6 +41,11 @@
       "machineName": "H5P.Video",
       "majorVersion": 1,
       "minorVersion": 1
+    },
+    {
+      "machineName": "H5P.JoubelUI",
+      "majorVersion": 1,
+      "minorVersion": 1
     }
   ],
   "editorDependencies": [
