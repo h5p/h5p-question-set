@@ -1,5 +1,6 @@
 {
-  "title": "Question set",
+  "title": "Question Set",
+  "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 4,
@@ -15,7 +16,7 @@
     "majorVersion": 1,
     "minorVersion": 6
   },
-  "license": "cc-by-sa",
+  "license": "MIT",
   "preloadedJs": [
     {
       "path": "js/questionset.js"
