@@ -1,5 +1,6 @@
 {
-  "title": "Question set",
+  "title": "Question Set",
+  "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 4,
@@ -13,9 +14,9 @@
   "author": "Joubel AS",
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 5
+    "minorVersion": 6
   },
-  "license": "cc-by-sa",
+  "license": "MIT",
   "preloadedJs": [
     {
       "path": "js/questionset.js"
@@ -39,6 +40,11 @@
     },
     {
       "machineName": "H5P.Video",
+      "majorVersion": 1,
+      "minorVersion": 1
+    },
+    {
+      "machineName": "H5P.JoubelUI",
       "majorVersion": 1,
       "minorVersion": 1
     }
