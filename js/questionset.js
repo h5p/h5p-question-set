@@ -360,11 +360,20 @@ H5P.QuestionSet = function (options, contentId) {
       }
     }
 
+    var registerImageLoadedListener = function (question) {
+      H5P.on(question, 'imageLoaded', function () {
+        self.trigger('resize');
+      });
+    };
+
     // Attach questions
     for (var i = 0; i < questionInstances.length; i++) {
       var question = questionInstances[i];
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
+
+      // Listen for image resize
+      registerImageLoadedListener(question);
 
       // Disable feedback for question
       question.setBehaviour({disableFeedback: true});
