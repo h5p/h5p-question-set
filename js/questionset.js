@@ -143,7 +143,8 @@ H5P.QuestionSet = function (options, contentId) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
 
-    if (currentQuestion === (params.questions.length - 1) && answered) {
+    if (currentQuestion === (params.questions.length - 1) && answered &&
+        questionInstances[currentQuestion]) {
       questionInstances[currentQuestion].showButton('finish');
     }
  };
@@ -157,13 +158,15 @@ H5P.QuestionSet = function (options, contentId) {
       questionNumber = params.questions.length - 1;
     }
 
-     // Hide all questions
+    // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
-    // Trigger resize on question in case the size of the QS has changed.
-    var instance = questionInstances[questionNumber];
-    if (instance.$ !== undefined) {
-      instance.trigger('resize');
+    if (questionInstances[questionNumber]) {
+      // Trigger resize on question in case the size of the QS has changed.
+      var instance = questionInstances[questionNumber];
+      if (instance.$ !== undefined) {
+        instance.trigger('resize');
+      }
     }
 
     // Update progress indicator
