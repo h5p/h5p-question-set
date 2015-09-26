@@ -384,7 +384,7 @@ H5P.QuestionSet = function (options, contentId) {
         // Add finish question set button
         question.addButton('finish', params.texts.finishButton, function () {
           _displayEndGame();
-        });
+        }, false);
 
       } else {
 
