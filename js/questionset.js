@@ -110,6 +110,7 @@ H5P.QuestionSet = function (options, contentId) {
   var questionInstances = [];
   var $myDom;
   var scoreBar;
+  var up;
   renderSolutions = false;
 
   // Instantiate question instances
@@ -126,11 +127,21 @@ H5P.QuestionSet = function (options, contentId) {
       });
     }
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
+    questionInstance.on('resize', function () {
+      up = true;
+      self.trigger('resize');
+    });
     questionInstances.push(questionInstance);
   }
 
   // Resize all interactions on resize
   self.on('resize', function () {
+    if (up) {
+      // Prevent resizing the question again.
+      up = false;
+      return;
+    }
+
     for (var i = 0; i < questionInstances.length; i++) {
       questionInstances[i].trigger('resize');
     }
