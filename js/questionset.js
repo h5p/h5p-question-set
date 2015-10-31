@@ -264,7 +264,7 @@ H5P.QuestionSet = function (options, contentId) {
       passed: success
     };
     var displayResults = function () {
-      self.triggerXAPICompleted(self.getScore(), self.totalScore());
+      self.triggerXAPICompleted(self.getScore(), self.totalScore(), success);
 
       if (!params.endGame.showResultPage) {
         self.trigger('h5pQuestionSetFinished', eventData);
