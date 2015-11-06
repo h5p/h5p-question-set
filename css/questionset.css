@@ -61,21 +61,16 @@
   line-height: 2em;
   font-weight: bold;
   text-align: center;
-  margin-top: 0.5em;
 }
-.intro-page .title > div {
-  display: inline-block;
+.intro-page .title > span {
   padding: 0.125em 0.5em;
   border-radius: 0.125em;
   background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
   background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
 }
-.intro-page .title > div p {
-  margin: 0;
-}
 .intro-page .introduction {
   font-size: 1.25em;
-  margin: 0.5em 1em 0;
+  margin: 0 1em;
   border-radius: 0.25em;
   background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
   background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */

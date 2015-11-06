@@ -12,11 +12,15 @@
       {
         "name": "title",
         "type": "text",
-        "widget": "html",
-        "tags": ["p", "br", "strong", "em"],
         "label": "Title",
         "optional": true,
-        "description": "This title will be displayed above the introduction text."
+        "description": "This title will be displayed above the introduction text.",
+        "tags": [
+          "sub",
+          "sup",
+          "strong",
+          "em"
+        ]
       },
       {
         "name": "introduction",
