@@ -114,6 +114,12 @@
   float: right;
 }
 
+/* Need to disable max-height animation stuff, since this will
+   make resizing of iframe in Safari not work! */
+.questionset .h5p-question-buttons.h5p-question-visible {
+  transition: none;
+}
+
 .h5p-question .h5p-question-prev,
 .h5p-question .h5p-question-finish,
 .h5p-question .h5p-question-next {
