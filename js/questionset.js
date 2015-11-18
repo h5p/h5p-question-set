@@ -572,17 +572,6 @@ H5P.QuestionSet = function (options, contentId) {
         typeof instance.pause === 'function')) {
         instance.pause();
       }
-      else if (instance.video !== undefined &&
-        instance.video.pause !== undefined &&
-        (instance.video.pause instanceof Function ||
-        typeof instance.video.pause === 'function')) {
-        instance.video.pause();
-      }
-      else if (instance.stop !== undefined &&
-        (instance.stop instanceof Function ||
-        typeof instance.stop === 'function')) {
-        instance.stop();
-      }
     }
     catch (err) {
       // Prevent crashing, log error.
@@ -590,5 +579,6 @@ H5P.QuestionSet = function (options, contentId) {
     }
   };
 };
+
 H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
 H5P.QuestionSet.prototype.constructor = H5P.QuestionSet;
