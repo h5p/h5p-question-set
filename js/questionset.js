@@ -162,7 +162,7 @@ H5P.QuestionSet = function (options, contentId) {
 
   var _stopQuestion = function (questionNumber) {
     if (questionInstances[questionNumber]) {
-      pauseMedia(questionInstances[questionNumber])
+      pauseMedia(questionInstances[questionNumber]);
     }
   };
 
