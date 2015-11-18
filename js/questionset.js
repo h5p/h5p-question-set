@@ -160,6 +160,12 @@ H5P.QuestionSet = function (options, contentId) {
     }
  };
 
+  var _stopQuestion = function (questionNumber) {
+    if (questionInstances[questionNumber]) {
+      pauseMedia(questionInstances[questionNumber])
+    }
+  };
+
   var _showQuestion = function (questionNumber) {
     // Sanitize input.
     if (questionNumber < 0) {
@@ -404,6 +410,7 @@ H5P.QuestionSet = function (options, contentId) {
 
         // Add next question button
         question.addButton('next', '', function () {
+          _stopQuestion(currentQuestion);
           _showQuestion(currentQuestion + 1);
         });
       }
@@ -411,6 +418,7 @@ H5P.QuestionSet = function (options, contentId) {
       // Add previous question button
       if (questionInstances[0] !== question) {
         question.addButton('prev', '', function () {
+          _stopQuestion(currentQuestion);
             _showQuestion(currentQuestion - 1);
         });
       }
@@ -444,6 +452,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Set event listeners.
     $('.progress-dot', $myDom).click(function () {
+      _stopQuestion(currentQuestion);
       _showQuestion($(this).index());
     });
 
@@ -548,6 +557,36 @@ H5P.QuestionSet = function (options, contentId) {
   };
   this.showSolutions = function() {
     renderSolutions = true;
+  };
+
+  /**
+   * Stop the given element's playback if any.
+   *
+   * @param {object} instance
+   */
+  var pauseMedia = function (instance) {
+    try {
+      if (instance.pause !== undefined &&
+        (instance.pause instanceof Function ||
+        typeof instance.pause === 'function')) {
+        instance.pause();
+      }
+      else if (instance.video !== undefined &&
+        instance.video.pause !== undefined &&
+        (instance.video.pause instanceof Function ||
+        typeof instance.video.pause === 'function')) {
+        instance.video.pause();
+      }
+      else if (instance.stop !== undefined &&
+        (instance.stop instanceof Function ||
+        typeof instance.stop === 'function')) {
+        instance.stop();
+      }
+    }
+    catch (err) {
+      // Prevent crashing, log error.
+      H5P.error(err);
+    }
   };
 };
 H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
