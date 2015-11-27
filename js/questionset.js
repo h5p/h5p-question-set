@@ -181,6 +181,7 @@ H5P.QuestionSet = function (options, contentId) {
     if (questionInstances[questionNumber]) {
       // Trigger resize on question in case the size of the QS has changed.
       var instance = questionInstances[questionNumber];
+      instance.setActivityStarted();
       if (instance.$ !== undefined) {
         instance.trigger('resize');
       }
@@ -352,7 +353,9 @@ H5P.QuestionSet = function (options, contentId) {
 
   // Function for attaching the multichoice to a DOM element.
   this.attach = function (target) {
-    this.setActivityStarted();
+    if (this.isRoot()) {
+      this.setActivityStarted();
+    }
     if (typeof(target) === "string") {
       $myDom = $('#' + target);
     }
