@@ -439,6 +439,10 @@ H5P.QuestionSet = function (options, contentId) {
           // An activity within this activity is not allowed to send completed events
           event.setVerb('answered');
         }
+        if (event.data.statement.context.extensions === undefined) {
+          event.data.statement.context.extensions = [];
+        }
+        event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
       });
       if (question.getAnswerGiven()) {
         $('.progress-dot:eq(' + i +')', $myDom).removeClass('unanswered').addClass('answered');
