@@ -175,6 +175,8 @@ H5P.QuestionSet = function (options, contentId) {
       questionNumber = params.questions.length - 1;
     }
 
+    currentQuestion = questionNumber;
+
     // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
@@ -199,7 +201,6 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
     // Remember where we are
-    currentQuestion = questionNumber;
     _updateButtons();
     self.trigger('resize');
     return currentQuestion;
