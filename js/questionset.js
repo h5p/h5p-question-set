@@ -110,6 +110,7 @@ H5P.QuestionSet = function (options, contentId) {
   var questionInstances = [];
   var $myDom;
   var scoreBar;
+  var up;
   renderSolutions = false;
 
   // Instantiate question instances
@@ -126,11 +127,21 @@ H5P.QuestionSet = function (options, contentId) {
       });
     }
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
+    questionInstance.on('resize', function () {
+      up = true;
+      self.trigger('resize');
+    });
     questionInstances.push(questionInstance);
   }
 
   // Resize all interactions on resize
   self.on('resize', function () {
+    if (up) {
+      // Prevent resizing the question again.
+      up = false;
+      return;
+    }
+
     for (var i = 0; i < questionInstances.length; i++) {
       questionInstances[i].trigger('resize');
     }
@@ -143,10 +154,17 @@ H5P.QuestionSet = function (options, contentId) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
 
-    if (currentQuestion === (params.questions.length - 1) && answered) {
+    if (currentQuestion === (params.questions.length - 1) && answered &&
+        questionInstances[currentQuestion]) {
       questionInstances[currentQuestion].showButton('finish');
     }
  };
+
+  var _stopQuestion = function (questionNumber) {
+    if (questionInstances[questionNumber]) {
+      pauseMedia(questionInstances[questionNumber]);
+    }
+  };
 
   var _showQuestion = function (questionNumber) {
     // Sanitize input.
@@ -157,13 +175,18 @@ H5P.QuestionSet = function (options, contentId) {
       questionNumber = params.questions.length - 1;
     }
 
-     // Hide all questions
+    currentQuestion = questionNumber;
+
+    // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
-    // Trigger resize on question in case the size of the QS has changed.
-    var instance = questionInstances[questionNumber];
-    if (instance.$ !== undefined) {
-      instance.trigger('resize');
+    if (questionInstances[questionNumber]) {
+      // Trigger resize on question in case the size of the QS has changed.
+      var instance = questionInstances[questionNumber];
+      instance.setActivityStarted();
+      if (instance.$ !== undefined) {
+        instance.trigger('resize');
+      }
     }
 
     // Update progress indicator
@@ -178,7 +201,6 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
     // Remember where we are
-    currentQuestion = questionNumber;
     _updateButtons();
     self.trigger('resize');
     return currentQuestion;
@@ -250,7 +272,7 @@ H5P.QuestionSet = function (options, contentId) {
       passed: success
     };
     var displayResults = function () {
-      self.triggerXAPICompleted(self.getScore(), self.totalScore());
+      self.triggerXAPICompleted(self.getScore(), self.totalScore(), success);
 
       if (!params.endGame.showResultPage) {
         self.trigger('h5pQuestionSetFinished', eventData);
@@ -332,7 +354,9 @@ H5P.QuestionSet = function (options, contentId) {
 
   // Function for attaching the multichoice to a DOM element.
   this.attach = function (target) {
-    this.setActivityStarted();
+    if (this.isRoot()) {
+      this.setActivityStarted();
+    }
     if (typeof(target) === "string") {
       $myDom = $('#' + target);
     }
@@ -383,6 +407,7 @@ H5P.QuestionSet = function (options, contentId) {
 
         // Add finish question set button
         question.addButton('finish', params.texts.finishButton, function () {
+          _stopQuestion(currentQuestion);
           _displayEndGame();
         }, false);
 
@@ -390,6 +415,7 @@ H5P.QuestionSet = function (options, contentId) {
 
         // Add next question button
         question.addButton('next', '', function () {
+          _stopQuestion(currentQuestion);
           _showQuestion(currentQuestion + 1);
         });
       }
@@ -397,6 +423,7 @@ H5P.QuestionSet = function (options, contentId) {
       // Add previous question button
       if (questionInstances[0] !== question) {
         question.addButton('prev', '', function () {
+          _stopQuestion(currentQuestion);
             _showQuestion(currentQuestion - 1);
         });
       }
@@ -413,6 +440,10 @@ H5P.QuestionSet = function (options, contentId) {
           // An activity within this activity is not allowed to send completed events
           event.setVerb('answered');
         }
+        if (event.data.statement.context.extensions === undefined) {
+          event.data.statement.context.extensions = [];
+        }
+        event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
       });
       if (question.getAnswerGiven()) {
         $('.progress-dot:eq(' + i +')', $myDom).removeClass('unanswered').addClass('answered');
@@ -430,6 +461,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Set event listeners.
     $('.progress-dot', $myDom).click(function () {
+      _stopQuestion(currentQuestion);
       _showQuestion($(this).index());
     });
 
@@ -535,6 +567,26 @@ H5P.QuestionSet = function (options, contentId) {
   this.showSolutions = function() {
     renderSolutions = true;
   };
+
+  /**
+   * Stop the given element's playback if any.
+   *
+   * @param {object} instance
+   */
+  var pauseMedia = function (instance) {
+    try {
+      if (instance.pause !== undefined &&
+        (instance.pause instanceof Function ||
+        typeof instance.pause === 'function')) {
+        instance.pause();
+      }
+    }
+    catch (err) {
+      // Prevent crashing, log error.
+      H5P.error(err);
+    }
+  };
 };
+
 H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
 H5P.QuestionSet.prototype.constructor = H5P.QuestionSet;
