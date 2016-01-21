@@ -221,9 +221,3 @@
 .h5p-no-frame .questionset .h5p-question > *:last-child {
   margin-bottom: 0;
 }
-
-/* Hide retry and show solution buttons */
-.questionset .h5p-question .h5p-question-try-again,
-.questionset .h5p-question .h5p-question-show-solution {
-  display: none;
-}
