@@ -2,7 +2,7 @@
   "semantics": [
     {
       "label": "Quiz Einführung",
-      "Felder": [
+      "fields": [
         {
           "label": "Zeige Einführung"
         },
