@@ -79,7 +79,8 @@ H5P.QuestionSet = function (options, contentId) {
       prevButton: 'Previous',
       nextButton: 'Next',
       finishButton: 'Finish',
-      textualProgress: 'Question: @current of @total questions'
+      textualProgress: 'Question: @current of @total questions',
+      questionLabel: 'Question'
     },
     endGame: {
       showResultPage: true,
@@ -92,14 +93,14 @@ H5P.QuestionSet = function (options, contentId) {
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
       retryButtonText: 'Retry',
-      showAnimations: false
+      showAnimations: false,
+      skipButtonText: 'Skip video'
     },
     override: {
       overrideButtons: false,
       overrideShowSolutionButton: false,
       overrideRetry: false
-    },
-    questionLabel: 'Question'
+    }
   };
 
   var template = new EJS({text: texttemplate});
@@ -250,6 +251,17 @@ H5P.QuestionSet = function (options, contentId) {
 
   this.reRender = function () {
     rendered = false;
+  };
+
+  var moveQuestion = function (direction) {
+    _stopQuestion(currentQuestion);
+    if (currentQuestion + direction >= questionInstances.length) {
+      _displayEndGame();
+
+    }
+    else {
+      _showQuestion(currentQuestion + direction);
+    }
   };
 
   var _displayEndGame = function () {
@@ -406,26 +418,22 @@ H5P.QuestionSet = function (options, contentId) {
       if (questionInstances[questionInstances.length -1] === question) {
 
         // Add finish question set button
-        question.addButton('finish', params.texts.finishButton, function () {
-          _stopQuestion(currentQuestion);
-          _displayEndGame();
-        }, false);
+        question.addButton('finish', params.texts.finishButton,
+          moveQuestion.bind(this, 1), false);
 
       } else {
 
         // Add next question button
-        question.addButton('next', '', function () {
-          _stopQuestion(currentQuestion);
-          _showQuestion(currentQuestion + 1);
-        });
+        question.addButton('next', '', moveQuestion.bind(this, 1), true,
+          {title: params.texts.nextButton});
       }
 
       // Add previous question button
       if (questionInstances[0] !== question) {
-        question.addButton('prev', '', function () {
-          _stopQuestion(currentQuestion);
-            _showQuestion(currentQuestion - 1);
-        });
+
+        question.addButton('prev', '', moveQuestion.bind(this, -1), true,
+          {title: params.texts.prevButton}
+        );
       }
 
       question.on('xAPI', function (event) {
@@ -529,7 +537,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       // Determine label
-      var label = (params.questionLabel + ' ' + (i + 1));
+      var label = (params.texts.questionLabel + ' ' + (i + 1));
       if (qParams.contentName !== undefined) {
         label += ': ' + qParams.contentName;
       }

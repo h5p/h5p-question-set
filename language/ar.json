@@ -74,6 +74,10 @@
         {
           "label": "نص التقدم",
           "description": "النص المستخدم إذا تم تحديد التقدم نصيا"
+        },
+        {
+          "label": "Question label text",
+          "default": "Question"
         }
       ]
     },
@@ -154,10 +158,6 @@
           "description": "تفعيل هذا الخيار يجعل المستخدم قادرا على \"إعادة المحاولة\""
         }
       ]
-    },
-    {
-      "label": "Question label text",
-      "default": "Question"
     }
   ]
 }

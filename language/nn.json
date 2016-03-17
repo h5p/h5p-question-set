@@ -76,6 +76,10 @@
           "label": "Fremdriftstekst",
           "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total",
           "default": "Deloppgave @current av @total"
+        },
+        {
+          "label": "Spørsmål-etikett",
+          "default": "Spørsmål"
         }
       ]
     },
@@ -166,10 +170,6 @@
           "description": "Aktivering vil slå på \"Prøv igjen\" ."
         }
       ]
-    },
-    {
-      "label": "Spørsmål-etikett",
-      "default": "Spørsmål"
     }
   ]
 }

@@ -74,6 +74,10 @@
         {
           "label": "Testo Avanzamento",
           "description": "esto utilizzato se il testo Avanzamento è selezionato."
+        },
+        {
+          "label": "Question label text",
+          "default": "Question"
         }
       ]
     },
@@ -154,10 +158,6 @@
           "description": "L'attivazione di questa opzione farà in modo che per l'utente sia abilitata l'opzione \"Riprova\"."
         }
       ]
-    },
-    {
-      "label": "Question label text",
-      "default": "Question"
     }
   ]
 }

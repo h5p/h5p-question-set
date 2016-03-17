@@ -152,6 +152,12 @@
           "strong",
           "em"
         ]
+      },
+      {
+        "name": "questionLabel",
+        "type": "text",
+        "label": "Copyright dialog question label",
+        "default": "Question"
       }
     ]
   },
@@ -326,11 +332,5 @@
         "default": false
       }
     ]
-  },
-  {
-    "name": "questionLabel",
-    "type": "text",
-    "label": "Question label text",
-    "default": "Question"
   }
 ]

@@ -15,6 +15,16 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
           }
         }
         finished(null, parameters);
+      },
+      8: function (parameters, finished) {
+        parameters.texts = parameters.texts || {};
+
+        if (parameters.questionLabel) {
+          parameters.texts.questionLabel = parameters.questionLabel;
+          delete parameters.questionLabel;
+        }
+
+        finished(null, parameters);
       }
     }
   };
