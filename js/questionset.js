@@ -94,11 +94,6 @@ H5P.QuestionSet = function (options, contentId) {
       retryButtonText: 'Retry',
       showAnimations: false
     },
-    override: {
-      overrideButtons: false,
-      overrideShowSolutionButton: false,
-      overrideRetry: false
-    },
     questionLabel: 'Question'
   };
 
@@ -113,18 +108,30 @@ H5P.QuestionSet = function (options, contentId) {
   var up;
   renderSolutions = false;
 
+  // Set overrides for questions
+  var override;
+  if (params.override.showSolutionButton || params.override.retryButton) {
+    override = {};
+    if (params.override.showSolutionButton) {
+      // Force "Show solution" button to be on or off for all interactions
+      override.enableSolutionsButton =
+          (params.override.showSolutionButton === 'on' ? true : false);
+    }
+
+    if (params.override.retryButton) {
+      // Force "Retry" button to be on or off for all interactions
+      override.enableRetry =
+          (params.override.retryButton === 'on' ? true : false);
+    }
+  }
+
   // Instantiate question instances
   for (var i = 0; i < params.questions.length; i++) {
     var question = params.questions[i];
-    // TODO: Render on init, inject in template.
 
-    // override content parameters.
-    if (params.override.overrideButtons) {
+    if (override) {
       // Extend subcontent with the overrided settings.
-      $.extend(question.params.behaviour, {
-        enableRetry: params.override.overrideRetry,
-        enableSolutionsButton: params.override.overrideShowSolutionButton
-      });
+      $.extend(question.params.behaviour, override);
     }
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
     questionInstance.on('resize', function () {
