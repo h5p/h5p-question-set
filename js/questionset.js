@@ -406,9 +406,6 @@ H5P.QuestionSet = function (options, contentId) {
       // Listen for image resize
       registerImageLoadedListener(question);
 
-      // Disable feedback for question
-      question.setBehaviour({disableFeedback: true});
-
       // Add next/finish button
       if (questionInstances[questionInstances.length -1] === question) {
 
