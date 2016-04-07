@@ -52,13 +52,22 @@ H5P.QuestionSet = function (options, contentId) {
 
   var resulttemplate =
           '<div class="questionset-results">' +
+          '  <div class="greeting"><%= message %></div>' +
           '  <div class="feedback-section">' +
           '    <div class="feedback-scorebar"></div>' +
           '    <div class="feedback-text"></div>' +
           '  </div>' +
+          '  <% if (comment) { %>' +
+          '  <div class="result-header"><%= comment %></div>' +
+          '  <% } %>' +
+          '  <div class="result-text"><%= resulttext %></div>' +
           '  <div class="buttons">' +
-          '    <a class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></a>' +
-          '    <a class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></a>' +
+          '    <a class="h5p-joubelui-button h5p-button qs-finishbutton">' +
+          '      <%= finishButtonText %>' +
+          '    </a>' +
+          '    <a class="h5p-joubelui-button h5p-button qs-solutionbutton">' +
+          '      <%= solutionButtonText %>' +
+          '    </a>' +
           '    <a class="h5p-joubelui-button h5p-button qs-retrybutton"></a>' +
           '  </div>' +
           '</div>';
@@ -292,7 +301,9 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       var eparams = {
+        message: params.endGame.message,
         comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
+        resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
         finishButtonText: params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText
       };

@@ -190,20 +190,42 @@
   text-align: center;
   background: rgba(255, 255, 255, 0.9);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6FFFFFF,endColorstr=#E6FFFFFF);
-  padding: 0.625em;
 }
 
 .questionset-results .feedback-section {
-  margin: 1em;
+  margin: 0.75em;
+}
+
+.questionset-results .greeting {
+  margin-top: 1em;
+  color: #777;
+  font-size: 1.25em;
 }
 
 .questionset-results .feedback-section .feedback-text {
-  font-weight: bold;
-  color: #1a73d9;
+  font-weight: normal;
+  color: #777;
 }
 
 .questionset-results .buttons {
   margin-bottom: 1.5em;
+}
+
+.questionset-results .result-header,
+.questionset-results .result-text {
+  color: #1a73d9;
+  font-weight: bold;
+}
+
+.questionset-results .result-header {
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+.questionset-results .result-text {
+  font-size: 1.25em;
+  line-height: 1.25em;
+  margin: 1em 1em 2.25em;
 }
 
 /* No margin for questions when no frame */
