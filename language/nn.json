@@ -79,6 +79,7 @@
         },
         {
           "label": "Merkelapp ved hopping til spørsmål",
+          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålstalet.",
           "default": "Hopp til spørsmål %d"
         }
       ]
