@@ -130,7 +130,7 @@ H5P.QuestionSet = function (options, contentId) {
   for (var i = 0; i < params.questions.length; i++) {
     var question = params.questions[i];
 
-    question.jumpAriaLabel = params.text.jumpToQuestion.replace(':num', i + 1);
+    question.jumpAriaLabel = params.texts.jumpToQuestion.replace('%d', i + 1);
     if (override) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params.behaviour, override);
