@@ -444,7 +444,7 @@ H5P.QuestionSet = function (options, contentId) {
           _showQuestion(currentQuestion + 1);
         }, true, {
           href: '#', // Use href since this is a navigation button
-          'aria-label': 'Next Question' // TODO: Translate
+          'aria-label': params.texts.nextButton
         });
       }
 
@@ -455,7 +455,7 @@ H5P.QuestionSet = function (options, contentId) {
           _showQuestion(currentQuestion - 1);
         }, true, {
           href: '#', // Use href since this is a navigation button
-          'aria-label': 'Previous Question' // TODO: Translate
+          'aria-label': params.texts.prevButton
         });
       }
 
