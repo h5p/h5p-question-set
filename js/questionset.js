@@ -421,6 +421,9 @@ H5P.QuestionSet = function (options, contentId) {
         question.addButton('next', '', function () {
           _stopQuestion(currentQuestion);
           _showQuestion(currentQuestion + 1);
+        }, true, {
+          href: '#', // Use href since this is a navigation button
+          'aria-label': 'Next Question' // TODO: Translate
         });
       }
 
@@ -428,7 +431,10 @@ H5P.QuestionSet = function (options, contentId) {
       if (questionInstances[0] !== question) {
         question.addButton('prev', '', function () {
           _stopQuestion(currentQuestion);
-            _showQuestion(currentQuestion - 1);
+          _showQuestion(currentQuestion - 1);
+        }, true, {
+          href: '#', // Use href since this is a navigation button
+          'aria-label': 'Previous Question' // TODO: Translate
         });
       }
 

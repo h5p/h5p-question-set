@@ -128,8 +128,7 @@
 
 .h5p-question .h5p-question-prev,
 .h5p-question .h5p-question-next {
-  padding: 0;
-  height: 2.1875em;
+  padding: 0.5em 0;
   width: 2.1875em;
 }
 
