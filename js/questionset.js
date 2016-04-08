@@ -57,9 +57,9 @@ H5P.QuestionSet = function (options, contentId) {
           '    <div class="feedback-text"></div>' +
           '  </div>' +
           '  <div class="buttons">' +
-          '    <a class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></a>' +
-          '    <a class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></a>' +
-          '    <a class="h5p-joubelui-button h5p-button qs-retrybutton"></a>' +
+          '    <button type="button" class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></button>' +
+          '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>' +
+          '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>' +
           '  </div>' +
           '</div>';
 
@@ -280,6 +280,23 @@ H5P.QuestionSet = function (options, contentId) {
       score: scoreString,
       passed: success
     };
+
+    /**
+     * Makes our buttons behave like other buttons.
+     *
+     * @private
+     * @param {string} classSelector
+     * @param {function} handler
+     */
+    var hookUpButton = function (classSelector, handler) {
+      $(classSelector, $myDom).click(handler).keypress(function (e) {
+        if (e.which === 32) {
+          handler();
+          e.preventDefault();
+        }
+      });
+    };
+
     var displayResults = function () {
       self.triggerXAPICompleted(self.getScore(), self.totalScore(), success);
 
@@ -291,26 +308,28 @@ H5P.QuestionSet = function (options, contentId) {
       var eparams = {
         comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
         finishButtonText: params.endGame.finishButtonText,
-        solutionButtonText: params.endGame.solutionButtonText
+        solutionButtonText: params.endGame.solutionButtonText,
+        retryButtonText: params.endGame.retryButtonText
       };
 
       // Show result page.
       $myDom.children().hide();
       $myDom.append(endTemplate.render(eparams));
-      $('.qs-finishbutton', $myDom).click(function () {
+
+      // Add event handlers to summary buttons
+      hookUpButton('.qs-finishbutton', function () {
         self.trigger('h5pQuestionSetFinished', eventData);
       });
-      $('.qs-solutionbutton', $myDom).click(function () {
+      hookUpButton('.qs-solutionbutton', function () {
         showSolutions();
         $myDom.children().hide().filter('.questionset').show();
         _showQuestion(params.initialQuestion);
       });
-      $('.qs-retrybutton', $myDom)
-        .html(params.endGame.retryButtonText)
-        .click(function () {
-          resetTask();
-          $myDom.children().hide().filter('.questionset').show();
-          _showQuestion(params.initialQuestion);});
+      hookUpButton('.qs-retrybutton', function () {
+        resetTask();
+        $myDom.children().hide().filter('.questionset').show();
+        _showQuestion(params.initialQuestion);
+      });
 
       if (scoreBar === undefined) {
         scoreBar = H5P.JoubelUI.createScoreBar(totals);
