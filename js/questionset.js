@@ -76,8 +76,8 @@ H5P.QuestionSet = function (options, contentId) {
       startButtonText: 'Start'
     },
     texts: {
-      prevButton: 'Previous',
-      nextButton: 'Next',
+      prevButton: 'Previous question',
+      nextButton: 'Next question',
       finishButton: 'Finish',
       textualProgress: 'Question: @current of @total questions',
       jumpToQuestion: 'Jump to question %d'

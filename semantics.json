@@ -128,13 +128,13 @@
         "name": "prevButton",
         "type": "text",
         "label": "Back button",
-        "default": "Previous"
+        "default": "Previous question"
       },
       {
         "name": "nextButton",
         "type": "text",
         "label": "Next button",
-        "default": "Next"
+        "default": "Next question"
       },
       {
         "name": "finishButton",
