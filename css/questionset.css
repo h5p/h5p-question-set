@@ -55,6 +55,11 @@
 .progress-dot.current {
   background: #285585;
 }
+.progress-dot:focus {
+  outline-color: rgb(40, 130, 211);
+  outline-width: thin;
+  outline-style: solid;
+}
 
 .intro-page .title {
   font-size: 2em;
