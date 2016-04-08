@@ -40,7 +40,7 @@ H5P.QuestionSet = function (options, contentId) {
           '      <% if (progressType == "dots") { %>' +
           '        <div class="dots-container">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '          <span class="progress-dot unanswered"></span>' +
+          '            <a href="#" class="progress-dot unanswered" aria-label="<%= questions[i].jumpAriaLabel %>"></a>' +
           '          <%} %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -79,7 +79,8 @@ H5P.QuestionSet = function (options, contentId) {
       prevButton: 'Previous',
       nextButton: 'Next',
       finishButton: 'Finish',
-      textualProgress: 'Question: @current of @total questions'
+      textualProgress: 'Question: @current of @total questions',
+      jumpToQuestion: 'Jump to question %d'
     },
     endGame: {
       showResultPage: true,
@@ -129,6 +130,7 @@ H5P.QuestionSet = function (options, contentId) {
   for (var i = 0; i < params.questions.length; i++) {
     var question = params.questions[i];
 
+    question.jumpAriaLabel = params.text.jumpToQuestion.replace(':num', i + 1);
     if (override) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params.behaviour, override);
@@ -473,6 +475,7 @@ H5P.QuestionSet = function (options, contentId) {
     $('.progress-dot', $myDom).click(function () {
       _stopQuestion(currentQuestion);
       _showQuestion($(this).index());
+      return false;
     });
 
     // Hide all but initial Question.

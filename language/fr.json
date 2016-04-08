@@ -74,6 +74,10 @@
         {
           "label": "Texte de progression",
           "description": "Texte utilisé si la progression textuelle est utilisée."
+        },
+        {
+          "label": "Label for jumping to a certain question",
+          "default": "Jump to question %d"
         }
       ]
     },

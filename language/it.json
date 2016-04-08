@@ -74,6 +74,10 @@
         {
           "label": "Testo Avanzamento",
           "description": "esto utilizzato se il testo Avanzamento è selezionato."
+        },
+        {
+          "label": "Label for jumping to a certain question",
+          "default": "Jump to question %d"
         }
       ]
     },

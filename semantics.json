@@ -152,6 +152,12 @@
           "strong",
           "em"
         ]
+      },
+      {
+        "name": "jumpToQuestion",
+        "type": "text",
+        "label": "Label for jumping to a certain question",
+        "default": "Jump to question %d"
       }
     ]
   },

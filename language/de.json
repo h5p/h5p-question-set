@@ -79,6 +79,10 @@
           "label": "Fortschrittstext",
           "description": "Verwendeter Text wenn Text Fortschrittsanzeige gewählt wurde.",
           "default": "Aktuelle Frage: @current von @total Fragen"
+        },
+        {
+          "label": "Label for jumping to a certain question",
+          "default": "Jump to question %d"
         }
       ]
     },

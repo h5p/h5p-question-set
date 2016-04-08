@@ -74,6 +74,10 @@
         {
           "label": "نص التقدم",
           "description": "النص المستخدم إذا تم تحديد التقدم نصيا"
+        },
+        {
+          "label": "Label for jumping to a certain question",
+          "default": "Jump to question %d"
         }
       ]
     },
