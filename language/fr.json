@@ -172,7 +172,7 @@
       ]
     },
     {
-      "label": "Texte de la question",
+      "label": "Copyright dialog question label",
       "default": "Question"
     }
   ]
