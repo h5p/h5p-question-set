@@ -41,6 +41,16 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
         delete parameters.override.overrideShowSolutionButton;
         delete parameters.override.overrideRetry;
 
+        // Move copyright dialog question label
+        if (parameters.questionLabel) {
+          parameters.texts = parameters.texts || {};
+          parameters.texts.questionLabel = parameters.questionLabel;
+        }
+        
+        // Remove old copyright dialog question label
+        delete parameters.questionLabel;
+
+
         finished(null, parameters);
       }
     }

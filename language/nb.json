@@ -81,6 +81,10 @@
           "label": "Merkelapp ved hopping til spørsmål",
           "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret.",
           "default": "Hopp til spørsmål %d"
+        },
+        {
+          "label": "Opphavsrett spørsmål-etikett",
+          "default": "Spørsmål"
         }
       ]
     },
@@ -182,10 +186,6 @@
           ]
         }
       ]
-    },
-    {
-      "label": "Opphavsrett spørsmål-etikett",
-      "default": "Spørsmål"
     }
   ]
 }

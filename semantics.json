@@ -159,6 +159,12 @@
         "label": "Label for jumping to a certain question",
         "description": "You must use the placeholder '%d' instead of the question number.",
         "default": "Jump to question %d"
+      },
+      {
+        "name": "questionLabel",
+        "type": "text",
+        "label": "Copyright dialog question label",
+        "default": "Question"
       }
     ]
   },
@@ -345,11 +351,5 @@
         ]
       }
     ]
-  },
-  {
-    "name": "questionLabel",
-    "type": "text",
-    "label": "Copyright dialog question label",
-    "default": "Question"
   }
 ]

@@ -80,7 +80,8 @@ H5P.QuestionSet = function (options, contentId) {
       nextButton: 'Next question',
       finishButton: 'Finish',
       textualProgress: 'Question: @current of @total questions',
-      jumpToQuestion: 'Jump to question %d'
+      jumpToQuestion: 'Jump to question %d',
+      questionLabel: 'Question'
     },
     endGame: {
       showResultPage: true,
@@ -94,8 +95,7 @@ H5P.QuestionSet = function (options, contentId) {
       solutionButtonText: 'Show solution',
       retryButtonText: 'Retry',
       showAnimations: false
-    },
-    questionLabel: 'Question'
+    }
   };
 
   var template = new EJS({text: texttemplate});
@@ -574,7 +574,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       // Determine label
-      var label = (params.questionLabel + ' ' + (i + 1));
+      var label = (params.texts.questionLabel + ' ' + (i + 1));
       if (qParams.contentName !== undefined) {
         label += ': ' + qParams.contentName;
       }
