@@ -327,8 +327,19 @@ H5P.QuestionSet = function (options, contentId) {
       });
       hookUpButton('.qs-retrybutton', function () {
         resetTask();
-        $myDom.children().hide().filter('.questionset').show();
-        _showQuestion(params.initialQuestion);
+        $myDom.children().hide();
+
+        var $intro = $('.intro-page', $myDom);
+        if ($intro.length) {
+          // Show intro
+          $('.intro-page', $myDom).show();
+          //$('.questionset', $myDom).show();
+        }
+        else {
+          // Show first question
+          $('.questionset', $myDom).show();
+          _showQuestion(params.initialQuestion);
+        }
       });
 
       if (scoreBar === undefined) {
@@ -488,8 +499,8 @@ H5P.QuestionSet = function (options, contentId) {
 
     $('.qs-startbutton', $myDom).click(function () {
       $(this).parents('.intro-page').hide();
-      $('.questionset', $myDom).removeClass('hidden');
-      _showQuestion(currentQuestion);
+      $('.questionset', $myDom).show();
+      _showQuestion(params.initialQuestion);
     });
 
     // Set event listeners.
