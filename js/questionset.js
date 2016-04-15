@@ -405,13 +405,15 @@ H5P.QuestionSet = function (options, contentId) {
     if (params.introPage.backgroundImage !== undefined) {
       var $intro = $myDom.find('.intro-page');
       if ($intro.length) {
+        var bgImg = params.introPage.backgroundImage;
+        var bgImgRatio = (bgImg.height / bgImg.width);
         $intro.css({
-          background: '#fff url("' + H5P.getPath(params.introPage.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
-          backgroundSize: '100% auto'
+          background: '#fff url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
+          backgroundSize: 'auto 100%',
+          minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
         });
       }
     }
-
     var registerImageLoadedListener = function (question) {
       H5P.on(question, 'imageLoaded', function () {
         self.trigger('resize');
