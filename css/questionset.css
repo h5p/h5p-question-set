@@ -55,6 +55,11 @@
 .progress-dot.current {
   background: #285585;
 }
+.progress-dot:focus {
+  outline-color: rgb(40, 130, 211);
+  outline-width: thin;
+  outline-style: solid;
+}
 
 .intro-page .title {
   font-size: 2em;
@@ -104,7 +109,7 @@
   float: none;
 }
 
-.questionset-results a.h5p-button.qs-retrybutton:before {
+.questionset-results button.h5p-button.qs-retrybutton:before {
   font-family: 'H5PFontAwesome4';
   padding-right: 0.5em;
   content: "\f01e";
@@ -128,8 +133,7 @@
 
 .h5p-question .h5p-question-prev,
 .h5p-question .h5p-question-next {
-  padding: 0;
-  height: 2.1875em;
+  padding: 0.5em 0;
   width: 2.1875em;
 }
 
@@ -164,7 +168,7 @@
   content: "\f00c";
 }
 
-.questionset-results a.h5p-button.qs-solutionbutton:before {
+.questionset-results button.h5p-button.qs-solutionbutton:before {
   font-family: 'H5PFontAwesome4';
   content: "\f06e   "; /* TODO: Use margin not whitespace, spacing is not content! */
 }

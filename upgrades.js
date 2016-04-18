@@ -16,13 +16,39 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
         }
         finished(null, parameters);
       },
-      8: function (parameters, finished) {
-        parameters.texts = parameters.texts || {};
 
-        if (parameters.questionLabel) {
-          parameters.texts.questionLabel = parameters.questionLabel;
-          delete parameters.questionLabel;
+      /**
+       * Asynchronous content upgrade hook.
+       * Upgrades content parameters to support IV 1.7.
+       *
+       * Groups all UI text strings to make them eaiser to translate and handle.
+       *
+       * @params {Object} parameters
+       * @params {function} finished
+       */
+      8: function (parameters, finished) {
+
+        if (parameters.override.overrideButtons) {
+          // Set new variables
+          parameters.override.showSolutionButton =
+              (parameters.override.overrideShowSolutionButton ? 'on' : 'off');
+          parameters.override.retryButton =
+              (parameters.override.overrideRetry ? 'on' : 'off');
         }
+
+        // Remove old field variables
+        delete parameters.override.overrideButtons;
+        delete parameters.override.overrideShowSolutionButton;
+        delete parameters.override.overrideRetry;
+
+        // Move copyright dialog question label
+        if (parameters.questionLabel) {
+          parameters.texts = parameters.texts || {};
+          parameters.texts.questionLabel = parameters.questionLabel;
+        }
+
+        // Remove old copyright dialog question label
+        delete parameters.questionLabel;
 
         finished(null, parameters);
       }
