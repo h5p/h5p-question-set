@@ -475,7 +475,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       // Add previous question button
-      if (questionInstances[0] !== question)
+      if (questionInstances[0] !== question) {
         question.addButton('prev', '', moveQuestion.bind(this, -1), true, {
           href: '#', // Use href since this is a navigation button
           'aria-label': params.texts.prevButton
