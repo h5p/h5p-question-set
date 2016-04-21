@@ -196,7 +196,7 @@
         "type": "text",
         "label": "Score display text",
         "description": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
-        "default": "You got @score points of @total possible.",
+        "default": "@score of @total points",
         "optional": true
       },
       {
@@ -262,7 +262,7 @@
         "name": "solutionButtonText",
         "type": "text",
         "label": "Solution button label",
-        "default": "Show solution",
+        "default": "Solution",
         "description": "Text for the solution button."
       },
       {

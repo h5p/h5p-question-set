@@ -61,8 +61,8 @@
       "label": "Ledetekster",
       "fields": [
         {
-          "label": "Forrige-knappen",
-          "default": "Forrige"
+          "label": "Førre-knappen",
+          "default": "Førre"
         },
         {
           "label": "Neste-knappen",
@@ -75,7 +75,7 @@
         {
           "label": "Fremdriftstekst",
           "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total",
-          "default": "Deloppgave @current av @total"
+          "default": "Deloppgåve @current av @total"
         },
         {
           "label": "Merkelapp ved hopping til spørsmål",
@@ -96,12 +96,12 @@
         },
         {
           "label": "Overskrift over tilbakemeldingar",
-          "default": "Ditt resultat:",
+          "default": "Resultat:",
           "description": "Denne overskriften vises over tilbakemeldingane på slutten av spørsmålssettet."
         },
         {
           "label": "Poengvisningstekst",
-          "default": "Du fikk @score poeng av @total mulige.",
+          "default": "@score av @total poeng",
           "description": "Tekst som viser brukerens oppnådde poeng. \"@score\" blir erstatta med utregna resultat, \"@total\" blir erstatta med høgest mulig resultat."
         },
         {
@@ -111,17 +111,17 @@
         },
         {
           "label": "Kommentar ved bestått",
-          "default": "Du presterte meget godt!",
+          "default": "Dette gjekk bra.",
           "description": "Denne kommentaren vises dersom brukaren har bestått spørsmålssettet."
         },
         {
           "label": "Tittel ved ikkje bestått",
-          "default": "Ikkje bestått",
+          "default": "Dette gjekk ikkje så bra!",
           "description": "Denne tittelen visast dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {
           "label": "Kommentar ved ikkje bestått",
-          "default": "Dette er litt mange feil her. Prøv igjen!",
+          "default": "Det er litt mange feil her. Prøv igjen!",
           "description": "Denne kommentaren vises dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {
@@ -159,11 +159,11 @@
       ]
     },
     {
-      "label": "Innstillinger for «Vis svar»- og «Prøv igjen»-knapp",
+      "label": "Innstillinger for «Fasit»- og «Prøv igjen»-knapp",
       "fields": [
         {
-          "label": "Overstyr «Vis svar»-knapp",
-          "description": "Dette valget avgjør om «Vis svar»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "label": "Overstyr «Fasit»-knapp",
+          "description": "Dette valget avgjør om «Fasit»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
           "options": [
             {
               "label": "Aktivert"
