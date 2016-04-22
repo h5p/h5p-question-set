@@ -95,9 +95,9 @@ H5P.QuestionSet = function (options, contentId) {
       successComment: 'You have enough correct answers to pass the test.',
       failGreeting: 'Sorry!',
       failComment: "You don't have enough correct answers to pass this test.",
-      scoreString: 'You got @score points of @total possible.',
+      scoreString: '@score of @total points',
       finishButtonText: 'Finish',
-      solutionButtonText: 'Show solution',
+      solutionButtonText: 'Solution',
       retryButtonText: 'Retry',
       showAnimations: false,
       skipButtonText: 'Skip video'
