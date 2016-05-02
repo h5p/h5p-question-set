@@ -79,6 +79,15 @@
           "label": "Fortschrittstext",
           "description": "Verwendeter Text wenn Text Fortschrittsanzeige gewählt wurde.",
           "default": "Aktuelle Frage: @current von @total Fragen"
+        },
+        {
+          "label": "Label for jumping to a certain question",
+          "description": "You must use the placeholder '%d' instead of the question number.",
+          "default": "Jump to question %d"
+        },
+        {
+          "label": "Copyright dialog question label",
+          "default": "Question"
         }
       ]
     },
@@ -154,19 +163,30 @@
     },
     {
       "label": "Einstellungen für \"Zeige die Lösung\" Button und \"Nochmal\".",
-      "description": "Diese Möglichkeiten überschreiben die Anzeige von \"Zeige die Lösung\" Button und \"Nochmal\" bei integrierten h5p Inhalten.",
       "fields": [
         {
-          "label": "Aktiviert das Überschreiben für \"Zeige die Lösung\" Button und \"Wiederholen\" Einstellungen.",
-          "description": "Wenn dies ausgewählt wurde, werden die Einstellungen der Frage ignoriert und stattdessen werden die nachfolgenden Einstellungen verwendet."
+          "label": "Override \"Show Solution\" button",
+          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "options": [
+            {
+              "label": "Enabled"
+            },
+            {
+              "label": "Disabled"
+            }
+          ]
         },
         {
-          "label": "Aktiviert \"Zeige die Lösung\" Buttons.",
-          "description": "Wenn dies ausgewählt wurde, werden die Fragen den \"Zeige die Lösung\" Button haben."
-        },
-        {
-          "label": "Aktiviert \"Wiederholen\".",
-          "description": "Wenn diese Option gewählt wurde, ermöglicht es den Benutzern zu \"Wiederholen\" ."
+          "label": "Override \"Retry\" button",
+          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "options": [
+            {
+              "label": "Enabled"
+            },
+            {
+              "label": "Disabled"
+            }
+          ]
         }
       ]
     }
