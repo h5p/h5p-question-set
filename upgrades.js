@@ -28,18 +28,20 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
        */
       8: function (parameters, finished) {
 
-        if (parameters.override.overrideButtons) {
-          // Set new variables
-          parameters.override.showSolutionButton =
-              (parameters.override.overrideShowSolutionButton ? 'on' : 'off');
-          parameters.override.retryButton =
-              (parameters.override.overrideRetry ? 'on' : 'off');
-        }
+        if (parameters.override) {
+          if (parameters.override.overrideButtons) {
+            // Set new variables
+            parameters.override.showSolutionButton =
+                (parameters.override.overrideShowSolutionButton ? 'on' : 'off');
+            parameters.override.retryButton =
+                (parameters.override.overrideRetry ? 'on' : 'off');
+          }
 
-        // Remove old field variables
-        delete parameters.override.overrideButtons;
-        delete parameters.override.overrideShowSolutionButton;
-        delete parameters.override.overrideRetry;
+          // Remove old field variables
+          delete parameters.override.overrideButtons;
+          delete parameters.override.overrideShowSolutionButton;
+          delete parameters.override.overrideRetry;
+        }
 
         // Move copyright dialog question label
         if (parameters.questionLabel) {

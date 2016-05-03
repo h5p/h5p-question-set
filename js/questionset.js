@@ -115,6 +115,7 @@ H5P.QuestionSet = function (options, contentId) {
   var up;
   renderSolutions = false;
 
+  var $template = $(template.render(params));
   // Set overrides for questions
   var override;
   if (params.override.showSolutionButton || params.override.retryButton) {
@@ -141,6 +142,12 @@ H5P.QuestionSet = function (options, contentId) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params.behaviour, override);
     }
+
+    question.params = question.params || {};
+    question.params.overrideSettings = question.params.overrideSettings || {};
+    question.params.overrideSettings.$confirmationDialogParent = $template;
+    question.params.overrideSettings.instance = this;
+
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
     questionInstance.on('resize', function () {
       up = true;
@@ -422,7 +429,8 @@ H5P.QuestionSet = function (options, contentId) {
     }
 
     // Render own DOM into target.
-    $myDom.html(template.render(params));
+    $myDom.children().remove();
+    $myDom.append($template);
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
