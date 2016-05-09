@@ -507,9 +507,6 @@ H5P.QuestionSet = function (options, contentId) {
         }
         event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
       });
-      if (question.getAnswerGiven()) {
-        $('.progress-dot:eq(' + i +')', $myDom).removeClass('unanswered').addClass('answered');
-      }
     }
 
     // Allow other libraries to add transitions after the questions have been inited
@@ -530,7 +527,6 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Hide all but initial Question.
     _showQuestion(params.initialQuestion);
-    _updateButtons();
 
     if (renderSolutions) {
       showSolutions();
