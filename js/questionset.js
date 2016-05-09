@@ -373,6 +373,8 @@ H5P.QuestionSet = function (options, contentId) {
       scoreBar.appendTo($('.feedback-scorebar', $myDom));
       scoreBar.setScore(finals);
       $('.feedback-text', $myDom).html(scoreString);
+
+      self.trigger('resize');
     };
 
     if (params.endGame.showAnimations) {

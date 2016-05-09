@@ -178,6 +178,7 @@
 }
 .video-container > video {
   background-color: #000;
+  width: 100%;
 }
 .video-container > .h5p-button {
   position: absolute;
