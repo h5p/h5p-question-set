@@ -93,6 +93,11 @@
           "label": "عرض النتائج"
         },
         {
+          "label": "No results message",
+          "description": "Text displayed on end page when \"Display results\" is disabled",
+          "default": "Finished"
+        },
+        {
           "label": "نص راس الملاحظات",
           "description": "سيتم عرض هذا العنوان في نهاية هذه المسابقة حيثما أجاب المستخدم على جميع الأسئلة المستعملة"
         },

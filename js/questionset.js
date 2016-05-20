@@ -60,7 +60,9 @@ H5P.QuestionSet = function (options, contentId) {
           '  <% if (comment) { %>' +
           '  <div class="result-header"><%= comment %></div>' +
           '  <% } %>' +
+          '  <% if (resulttext) { %>' +
           '  <div class="result-text"><%= resulttext %></div>' +
+          '  <% } %>' +
           '  <div class="buttons">' +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></button>' +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>' +
@@ -90,6 +92,7 @@ H5P.QuestionSet = function (options, contentId) {
     },
     endGame: {
       showResultPage: true,
+      noResultMessage: 'Finished',
       message: 'Your result:',
       successGreeting: 'Congratulations!',
       successComment: 'You have enough correct answers to pass the test.',
@@ -324,15 +327,10 @@ H5P.QuestionSet = function (options, contentId) {
     var displayResults = function () {
       self.triggerXAPICompleted(self.getScore(), self.totalScore(), success);
 
-      if (!params.endGame.showResultPage) {
-        self.trigger('h5pQuestionSetFinished', eventData);
-        return;
-      }
-
       var eparams = {
-        message: params.endGame.message,
-        comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
-        resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
+        message: params.endGame.showResultPage ? params.endGame.message : params.endGame.noResultMessage,
+        comment: params.endGame.showResultPage ? (success ? params.endGame.successGreeting : params.endGame.failGreeting) : undefined,
+        resulttext: params.endGame.showResultPage ? (success ? params.endGame.successComment : params.endGame.failComment) : undefined,
         finishButtonText: params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText,
         retryButtonText: params.endGame.retryButtonText
@@ -367,12 +365,14 @@ H5P.QuestionSet = function (options, contentId) {
         }
       });
 
-      if (scoreBar === undefined) {
-        scoreBar = H5P.JoubelUI.createScoreBar(totals);
+      if (params.endGame.showResultPage) {
+        if (scoreBar === undefined) {
+          scoreBar = H5P.JoubelUI.createScoreBar(totals);
+        }
+        scoreBar.appendTo($('.feedback-scorebar', $myDom));
+        scoreBar.setScore(finals);
+        $('.feedback-text', $myDom).html(scoreString);
       }
-      scoreBar.appendTo($('.feedback-scorebar', $myDom));
-      scoreBar.setScore(finals);
-      $('.feedback-text', $myDom).html(scoreString);
 
       self.trigger('resize');
     };

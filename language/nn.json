@@ -95,6 +95,11 @@
           "label": "Vis resultat"
         },
         {
+          "label": "Melding når resultater ikke vises",
+          "description": "Teksten vises på avslutnings-siden når resultater ikke vises",
+          "default": "Ferdig"
+        },
+        {
           "label": "Overskrift over tilbakemeldingar",
           "default": "Resultat:",
           "description": "Denne overskriften vises over tilbakemeldingane på slutten av spørsmålssettet."

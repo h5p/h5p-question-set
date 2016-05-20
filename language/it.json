@@ -93,6 +93,11 @@
           "label": "Visualizza risultati"
         },
         {
+          "label": "No results message",
+          "description": "Text displayed on end page when \"Display results\" is disabled",
+          "default": "Finished"
+        },
+        {
           "label": "Intestazione Feedback",
           "description": "Questa intestazione verrà visualizzata alla fine del quiz, dopo che l'utente avrà risposto a tutte le domande."
         },

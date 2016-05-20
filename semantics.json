@@ -180,6 +180,14 @@
         "default": true
       },
       {
+        "name": "noResultMessage",
+        "type": "text",
+        "label": "No results message",
+        "description": "Text displayed on end page when \"Display results\" is disabled",
+        "default": "Finished",
+        "optional": true
+      },
+      {
         "name": "message",
         "type": "text",
         "label": "Feedback heading",
