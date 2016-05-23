@@ -148,7 +148,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     question.params = question.params || {};
     question.params.overrideSettings = question.params.overrideSettings || {};
-    question.params.overrideSettings.$confirmationDialogParent = $template;
+    question.params.overrideSettings.$confirmationDialogParent = $template.last();
     question.params.overrideSettings.instance = this;
 
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
