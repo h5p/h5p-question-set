@@ -340,38 +340,42 @@ H5P.QuestionSet = function (options, contentId) {
       $myDom.children().hide();
       $myDom.append(endTemplate.render(eparams));
 
-      // Add event handlers to summary buttons
-      hookUpButton('.qs-finishbutton', function () {
-        self.trigger('h5pQuestionSetFinished', eventData);
-      });
-      hookUpButton('.qs-solutionbutton', function () {
-        showSolutions();
-        $myDom.children().hide().filter('.questionset').show();
-        _showQuestion(params.initialQuestion);
-      });
-      hookUpButton('.qs-retrybutton', function () {
-        resetTask();
-        $myDom.children().hide();
-
-        var $intro = $('.intro-page', $myDom);
-        if ($intro.length) {
-          // Show intro
-          $('.intro-page', $myDom).show();
-        }
-        else {
-          // Show first question
-          $('.questionset', $myDom).show();
-          _showQuestion(params.initialQuestion);
-        }
-      });
-
       if (params.endGame.showResultPage) {
+        // Add event handlers to summary buttons
+        hookUpButton('.qs-finishbutton', function () {
+          self.trigger('h5pQuestionSetFinished', eventData);
+        });
+        hookUpButton('.qs-solutionbutton', function () {
+          showSolutions();
+          $myDom.children().hide().filter('.questionset').show();
+          _showQuestion(params.initialQuestion);
+        });
+        hookUpButton('.qs-retrybutton', function () {
+          resetTask();
+          $myDom.children().hide();
+
+          var $intro = $('.intro-page', $myDom);
+          if ($intro.length) {
+            // Show intro
+            $('.intro-page', $myDom).show();
+          }
+          else {
+            // Show first question
+            $('.questionset', $myDom).show();
+            _showQuestion(params.initialQuestion);
+          }
+        });
+
         if (scoreBar === undefined) {
           scoreBar = H5P.JoubelUI.createScoreBar(totals);
         }
         scoreBar.appendTo($('.feedback-scorebar', $myDom));
         scoreBar.setScore(finals);
         $('.feedback-text', $myDom).html(scoreString);
+      }
+      else {
+        // Remove buttons and feedback section
+        $('.qs-finishbutton, .qs-solutionbutton, .qs-retrybutton, .feedback-section', $myDom).remove();
       }
 
       self.trigger('resize');
