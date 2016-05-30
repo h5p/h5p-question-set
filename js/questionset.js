@@ -267,6 +267,9 @@ H5P.QuestionSet = function (options, contentId) {
     // Hide finish button
     questionInstances[questionInstances.length - 1].hideButton('finish');
 
+    // Mark all tasks as unanswered:
+    $('.progress-dot').removeClass('answered').addClass('unanswered');
+
     //Force the last page to be reRendered
     rendered = false;
   };
@@ -501,7 +504,9 @@ H5P.QuestionSet = function (options, contentId) {
         if (shortVerb === 'interacted' ||
             shortVerb === 'answered' ||
             shortVerb === 'attempted') {
-          $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
+          if (questionInstances[currentQuestion].getAnswerGiven()) {
+            $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
+          }
           _updateButtons();
         }
         if (shortVerb === 'completed') {
