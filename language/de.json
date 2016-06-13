@@ -42,7 +42,7 @@
     },
     {
       "label": "Prozent bearbeitet",
-      "description": "Prozent der Gesamtpunkte sind notwendig um das Quiz zu bestehen."
+      "description": "Prozent der Gesamtpunkte sind notwendig, um das Quiz zu bestehen."
     },
     {
       "label": "Fragen",
@@ -77,17 +77,17 @@
         },
         {
           "label": "Fortschrittstext",
-          "description": "Verwendeter Text wenn Text Fortschrittsanzeige gewählt wurde.",
+          "description": "Verwendeter Text, wenn Text Fortschrittsanzeige gewählt wurde.",
           "default": "Aktuelle Frage: @current von @total Fragen"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number.",
-          "default": "Jump to question %d"
+          "label": "Label, um zu einer bestimmten Frage zu springen",
+          "description": "Platzhalter '%d' anstatt der Fragenummer verwenden.",
+          "default": "Zu Frage %d springen"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Copyright Frage",
+          "default": "Frage"
         }
       ]
     },
@@ -100,11 +100,11 @@
         {
           "label": "Kopfzeile Feedback",
           "default": "Dein Ergebnis:",
-          "description": "diese Kopfzeile wird am Ende des Quiz angezeigt, wenn der Benutzer alle Fragen beantwortet hat."
+          "description": "Diese Kopfzeile wird am Ende des Quiz angezeigt, wenn der Benutzer alle Fragen beantwortet hat."
         },
         {
           "label": "Punkt Anzeige Text",
-          "description": "Dieser Text wird verwendet um die Gesamtpunkte des Benutzers anzuzeigen. \"@score\" wird durch die errechneten Punkte ersetzt, \"@total\" wird durch die maximal erreichbaren Punkte ersetzt.",
+          "description": "Dieser Text wird verwendet, um die Gesamtpunkte des Benutzers anzuzeigen. \"@score\" wird durch die errechneten Punkte ersetzt, \"@total\" wird durch die maximal erreichbaren Punkte ersetzt.",
           "default": "Du hast @score Punkte von @total möglichen."
         },
         {
@@ -115,16 +115,16 @@
         {
           "label": "Bestanden Kommentar",
           "default": "Gut gemacht!",
-          "description": "dieser Kommentar wird nach den Punkten angezeigt, wenn der Benutzer das Quiz erfolgreich bestanden hat."
+          "description": "Dieser Kommentar wird nach den Punkten angezeigt, wenn der Benutzer das Quiz erfolgreich bestanden hat."
         },
         {
           "label": "Quiz nicht bestanden Titel",
-          "default": "Diese Mal hast du nicht bestanden.",
-          "description": "dieser Text wird oberhalb der Punkte angezeigt, wenn der Benutzer das Quiz nicht bestanden hat."
+          "default": "Dieses Mal leider nicht bestanden.",
+          "description": "Dieser Text wird oberhalb der Punkte angezeigt, wenn der Benutzer das Quiz nicht bestanden hat."
         },
         {
           "label": "Nicht bestanden Kommentar",
-          "default": "Versuche es noch einmal!",
+          "default": "Noch einmal versuchen!",
           "description": "Dieser Kommentar wird nach den Punkten angezeigt, wenn der Benutzer das Quiz nicht bestanden hat."
         },
         {
@@ -134,7 +134,7 @@
         },
         {
           "label": "Wiederholen Button Beschriftung",
-          "default": "Versuch es nochmal",
+          "default": "Noch einmal versuchen",
           "description": "Text für den Wiederholen Button."
         },
         {
@@ -145,10 +145,10 @@
           "label": "Zeige Video vor den Quizergebnissen"
         },
         {
-          "label": "Aktiviere Skip Video Button"
+          "label": "Aktiviere Video überspringen Button"
         },
         {
-          "label": "Skip Video Button Beschriftung",
+          "label": "Video überspringen Button Beschriftung",
           "default": "Überspringe Video"
         },
         {
@@ -165,26 +165,26 @@
       "label": "Einstellungen für \"Zeige die Lösung\" Button und \"Nochmal\".",
       "fields": [
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Überschreiben des \"Lösung anzeigen\" Buttons",
+          "description": "Diese Option legt fest, ob der \"Lösung anzeigen\" Button für alle Fragen angezeigt, deaktiviert oder für jede Frage individuell konfiguriert wird.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Aktiviert"
             },
             {
-              "label": "Disabled"
+              "label": "Deaktiviert"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Überschreiben des \"Wiederholen\" Buttons",
+          "description": "Diese Option legt fest, ob der \"Wiederholen\" Button für alle Fragen angezeigt, deaktiviert oder für jede Frage individuell konfiguriert wird.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Aktiviert"
             },
             {
-              "label": "Disabled"
+              "label": "Deaktiviert"
             }
           ]
         }
