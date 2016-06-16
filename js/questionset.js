@@ -514,7 +514,7 @@ H5P.QuestionSet = function (options, contentId) {
           event.setVerb('answered');
         }
         if (event.data.statement.context.extensions === undefined) {
-          event.data.statement.context.extensions = [];
+          event.data.statement.context.extensions = {};
         }
         event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
       });
