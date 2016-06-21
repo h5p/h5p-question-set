@@ -60,7 +60,9 @@ H5P.QuestionSet = function (options, contentId) {
           '  <% if (comment) { %>' +
           '  <div class="result-header"><%= comment %></div>' +
           '  <% } %>' +
+          '  <% if (resulttext) { %>' +
           '  <div class="result-text"><%= resulttext %></div>' +
+          '  <% } %>' +
           '  <div class="buttons">' +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></button>' +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>' +
@@ -90,14 +92,15 @@ H5P.QuestionSet = function (options, contentId) {
     },
     endGame: {
       showResultPage: true,
+      noResultMessage: 'Finished',
       message: 'Your result:',
       successGreeting: 'Congratulations!',
       successComment: 'You have enough correct answers to pass the test.',
       failGreeting: 'Sorry!',
       failComment: "You don't have enough correct answers to pass this test.",
-      scoreString: '@score of @total points',
+      scoreString: 'You got @score of @total points',
       finishButtonText: 'Finish',
-      solutionButtonText: 'Solution',
+      solutionButtonText: 'Show solution',
       retryButtonText: 'Retry',
       showAnimations: false,
       skipButtonText: 'Skip video'
@@ -145,7 +148,7 @@ H5P.QuestionSet = function (options, contentId) {
 
     question.params = question.params || {};
     question.params.overrideSettings = question.params.overrideSettings || {};
-    question.params.overrideSettings.$confirmationDialogParent = $template;
+    question.params.overrideSettings.$confirmationDialogParent = $template.last();
     question.params.overrideSettings.instance = this;
 
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
@@ -264,6 +267,9 @@ H5P.QuestionSet = function (options, contentId) {
     // Hide finish button
     questionInstances[questionInstances.length - 1].hideButton('finish');
 
+    // Mark all tasks as unanswered:
+    $('.progress-dot').removeClass('answered').addClass('unanswered');
+
     //Force the last page to be reRendered
     rendered = false;
   };
@@ -324,15 +330,10 @@ H5P.QuestionSet = function (options, contentId) {
     var displayResults = function () {
       self.triggerXAPICompleted(self.getScore(), self.totalScore(), success);
 
-      if (!params.endGame.showResultPage) {
-        self.trigger('h5pQuestionSetFinished', eventData);
-        return;
-      }
-
       var eparams = {
-        message: params.endGame.message,
-        comment: (success ? params.endGame.successGreeting : params.endGame.failGreeting),
-        resulttext: (success ? params.endGame.successComment : params.endGame.failComment),
+        message: params.endGame.showResultPage ? params.endGame.message : params.endGame.noResultMessage,
+        comment: params.endGame.showResultPage ? (success ? params.endGame.successGreeting : params.endGame.failGreeting) : undefined,
+        resulttext: params.endGame.showResultPage ? (success ? params.endGame.successComment : params.endGame.failComment) : undefined,
         finishButtonText: params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText,
         retryButtonText: params.endGame.retryButtonText
@@ -342,37 +343,45 @@ H5P.QuestionSet = function (options, contentId) {
       $myDom.children().hide();
       $myDom.append(endTemplate.render(eparams));
 
-      // Add event handlers to summary buttons
-      hookUpButton('.qs-finishbutton', function () {
-        self.trigger('h5pQuestionSetFinished', eventData);
-      });
-      hookUpButton('.qs-solutionbutton', function () {
-        showSolutions();
-        $myDom.children().hide().filter('.questionset').show();
-        _showQuestion(params.initialQuestion);
-      });
-      hookUpButton('.qs-retrybutton', function () {
-        resetTask();
-        $myDom.children().hide();
-
-        var $intro = $('.intro-page', $myDom);
-        if ($intro.length) {
-          // Show intro
-          $('.intro-page', $myDom).show();
-        }
-        else {
-          // Show first question
-          $('.questionset', $myDom).show();
+      if (params.endGame.showResultPage) {
+        // Add event handlers to summary buttons
+        hookUpButton('.qs-finishbutton', function () {
+          self.trigger('h5pQuestionSetFinished', eventData);
+        });
+        hookUpButton('.qs-solutionbutton', function () {
+          showSolutions();
+          $myDom.children().hide().filter('.questionset').show();
           _showQuestion(params.initialQuestion);
-        }
-      });
+        });
+        hookUpButton('.qs-retrybutton', function () {
+          resetTask();
+          $myDom.children().hide();
 
-      if (scoreBar === undefined) {
-        scoreBar = H5P.JoubelUI.createScoreBar(totals);
+          var $intro = $('.intro-page', $myDom);
+          if ($intro.length) {
+            // Show intro
+            $('.intro-page', $myDom).show();
+          }
+          else {
+            // Show first question
+            $('.questionset', $myDom).show();
+            _showQuestion(params.initialQuestion);
+          }
+        });
+
+        if (scoreBar === undefined) {
+          scoreBar = H5P.JoubelUI.createScoreBar(totals);
+        }
+        scoreBar.appendTo($('.feedback-scorebar', $myDom));
+        scoreBar.setScore(finals);
+        $('.feedback-text', $myDom).html(scoreString);
       }
-      scoreBar.appendTo($('.feedback-scorebar', $myDom));
-      scoreBar.setScore(finals);
-      $('.feedback-text', $myDom).html(scoreString);
+      else {
+        // Remove buttons and feedback section
+        $('.qs-finishbutton, .qs-solutionbutton, .qs-retrybutton, .feedback-section', $myDom).remove();
+      }
+
+      self.trigger('resize');
     };
 
     if (params.endGame.showAnimations) {
@@ -495,7 +504,9 @@ H5P.QuestionSet = function (options, contentId) {
         if (shortVerb === 'interacted' ||
             shortVerb === 'answered' ||
             shortVerb === 'attempted') {
-          $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
+          if (questionInstances[currentQuestion].getAnswerGiven()) {
+            $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
+          }
           _updateButtons();
         }
         if (shortVerb === 'completed') {
@@ -503,13 +514,10 @@ H5P.QuestionSet = function (options, contentId) {
           event.setVerb('answered');
         }
         if (event.data.statement.context.extensions === undefined) {
-          event.data.statement.context.extensions = [];
+          event.data.statement.context.extensions = {};
         }
         event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
       });
-      if (question.getAnswerGiven()) {
-        $('.progress-dot:eq(' + i +')', $myDom).removeClass('unanswered').addClass('answered');
-      }
     }
 
     // Allow other libraries to add transitions after the questions have been inited
@@ -530,7 +538,6 @@ H5P.QuestionSet = function (options, contentId) {
 
     // Hide all but initial Question.
     _showQuestion(params.initialQuestion);
-    _updateButtons();
 
     if (renderSolutions) {
       showSolutions();

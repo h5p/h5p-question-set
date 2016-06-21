@@ -95,6 +95,11 @@
           "label": "Vis resultater"
         },
         {
+          "label": "Melding når resultater ikke vises",
+          "description": "Teksten vises på avslutnings-siden når resultater ikke vises",
+          "default": "Ferdig"
+        },
+        {
           "label": "Overskrift over tilbakemeldinger",
           "default": "Resultat:",
           "description": "Denne overskriften vises over tilbakemeldingene på slutten av spørsmålssettet."
@@ -126,7 +131,7 @@
         },
         {
           "label": "Tekst til \"Fasit\" knapp",
-          "default": "Gå gjennom fasit.",
+          "default": "Gå gjennom fasit",
           "description": ""
         },
         {

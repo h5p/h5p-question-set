@@ -98,6 +98,11 @@
           "label": "Ergebnisanzeige"
         },
         {
+          "label": "No results message",
+          "description": "Text displayed on end page when \"Display results\" is disabled",
+          "default": "Finished"
+        },
+        {
           "label": "Kopfzeile Feedback",
           "default": "Dein Ergebnis:",
           "description": "diese Kopfzeile wird am Ende des Quiz angezeigt, wenn der Benutzer alle Fragen beantwortet hat."

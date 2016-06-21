@@ -93,6 +93,11 @@
           "label": "Montrer les résultats"
         },
         {
+          "label": "No results message",
+          "description": "Text displayed on end page when \"Display results\" is disabled",
+          "default": "Finished"
+        },
+        {
           "label": "Feedback de fin",
           "description": "Ce texte sera affiché quand l'utilisateur aura totalement terminé le quiz."
         },
