@@ -110,11 +110,11 @@
       "label": "Question type",
       "description": "Library for this question.",
       "options": [
-        "H5P.MultiChoice 1.6",
-        "H5P.DragQuestion 1.5",
-        "H5P.Blanks 1.4",
-        "H5P.MarkTheWords 1.5",
-        "H5P.DragText 1.4"
+        "H5P.MultiChoice 1.7",
+        "H5P.DragQuestion 1.6",
+        "H5P.Blanks 1.6",
+        "H5P.MarkTheWords 1.6",
+        "H5P.DragText 1.5"
       ]
     }
   },
@@ -128,13 +128,13 @@
         "name": "prevButton",
         "type": "text",
         "label": "Back button",
-        "default": "Previous"
+        "default": "Previous question"
       },
       {
         "name": "nextButton",
         "type": "text",
         "label": "Next button",
-        "default": "Next"
+        "default": "Next question"
       },
       {
         "name": "finishButton",
@@ -152,6 +152,19 @@
           "strong",
           "em"
         ]
+      },
+      {
+        "name": "jumpToQuestion",
+        "type": "text",
+        "label": "Label for jumping to a certain question",
+        "description": "You must use the placeholder '%d' instead of the question number.",
+        "default": "Jump to question %d"
+      },
+      {
+        "name": "questionLabel",
+        "type": "text",
+        "label": "Copyright dialog question label",
+        "default": "Question"
       }
     ]
   },
@@ -165,6 +178,14 @@
         "type": "boolean",
         "label": "Display results",
         "default": true
+      },
+      {
+        "name": "noResultMessage",
+        "type": "text",
+        "label": "No results message",
+        "description": "Text displayed on end page when \"Display results\" is disabled",
+        "default": "Finished",
+        "optional": true
       },
       {
         "name": "message",
@@ -183,7 +204,7 @@
         "type": "text",
         "label": "Score display text",
         "description": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
-        "default": "You got @score points of @total possible.",
+        "default": "You got @score of @total points",
         "optional": true
       },
       {
@@ -300,37 +321,43 @@
   {
     "name": "override",
     "type": "group",
-    "label": "Settings for \"Show solution\" button and \"Retry\".",
-    "description": "These options will let you override when to display \"Show solution\" button and \"Retry\" in integrated h5p content.",
+    "label": "Settings for \"Show solution\" and \"Retry\" buttons",
     "optional": true,
     "fields": [
       {
-        "name": "overrideButtons",
-        "type": "boolean",
-        "label": "Enable override for \"Show solution\" and \"Retry\" settings.",
-        "description": "If this is enabled the questions own settings will be ignored and the below settings will be used instead.",
-        "default": false
+        "name": "showSolutionButton",
+        "type": "select",
+        "label": "Override \"Show Solution\" button",
+        "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+        "optional": true,
+        "options": [
+          {
+            "value": "on",
+            "label": "Enabled"
+          },
+          {
+            "value": "off",
+            "label": "Disabled"
+          }
+        ]
       },
       {
-        "name": "overrideShowSolutionButton",
-        "type": "boolean",
-        "label": "Enable \"Show solution\" buttons.",
-        "description": "Enabling this option will make questions show the \"Show solution\" button.",
-        "default": false
-      },
-      {
-        "name": "overrideRetry",
-        "type": "boolean",
-        "label": "Enable \"Retry\".",
-        "description": "Enabling this option will make the user able to \"Retry\" .",
-        "default": false
+        "name": "retryButton",
+        "type": "select",
+        "label": "Override \"Retry\" button",
+        "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+        "optional": true,
+        "options": [
+          {
+            "value": "on",
+            "label": "Enabled"
+          },
+          {
+            "value": "off",
+            "label": "Disabled"
+          }
+        ]
       }
     ]
-  },
-  {
-    "name": "questionLabel",
-    "type": "text",
-    "label": "Question label text",
-    "default": "Question"
   }
 ]

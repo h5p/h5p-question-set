@@ -61,8 +61,8 @@
       "label": "Ledetekster",
       "fields": [
         {
-          "label": "Forrige-knappen",
-          "default": "Forrige"
+          "label": "Førre-knappen",
+          "default": "Førre"
         },
         {
           "label": "Neste-knappen",
@@ -75,7 +75,16 @@
         {
           "label": "Fremdriftstekst",
           "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total",
-          "default": "Deloppgave @current av @total"
+          "default": "Deloppgåve @current av @total"
+        },
+        {
+          "label": "Merkelapp ved hopping til spørsmål",
+          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålstalet.",
+          "default": "Hopp til spørsmål %d"
+        },
+        {
+          "label": "Opphavsrett spørsmål-etikett",
+          "default": "Spørsmål"
         }
       ]
     },
@@ -86,13 +95,18 @@
           "label": "Vis resultat"
         },
         {
+          "label": "Melding når resultater ikke vises",
+          "description": "Teksten vises på avslutnings-siden når resultater ikke vises",
+          "default": "Ferdig"
+        },
+        {
           "label": "Overskrift over tilbakemeldingar",
-          "default": "Ditt resultat:",
+          "default": "Resultat:",
           "description": "Denne overskriften vises over tilbakemeldingane på slutten av spørsmålssettet."
         },
         {
           "label": "Poengvisningstekst",
-          "default": "Du fikk @score poeng av @total mulige.",
+          "default": "@score av @total poeng",
           "description": "Tekst som viser brukerens oppnådde poeng. \"@score\" blir erstatta med utregna resultat, \"@total\" blir erstatta med høgest mulig resultat."
         },
         {
@@ -102,17 +116,17 @@
         },
         {
           "label": "Kommentar ved bestått",
-          "default": "Du presterte meget godt!",
+          "default": "Dette gjekk bra.",
           "description": "Denne kommentaren vises dersom brukaren har bestått spørsmålssettet."
         },
         {
           "label": "Tittel ved ikkje bestått",
-          "default": "Ikkje bestått",
+          "default": "Dette gjekk ikkje så bra!",
           "description": "Denne tittelen visast dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {
           "label": "Kommentar ved ikkje bestått",
-          "default": "Dette er litt mange feil her. Prøv igjen!",
+          "default": "Det er litt mange feil her. Prøv igjen!",
           "description": "Denne kommentaren vises dersom brukaren ikkje har bestått spørsmålssettet."
         },
         {
@@ -150,26 +164,33 @@
       ]
     },
     {
-      "label": "Innstillinger for \"Vis svar\" knapp og \"Prøv igjen\".",
-      "description": "Disse instillingene lar deg overstyre når \"Vis svar\" knapp og \"Prøv igjen\" er slått på i integrert h5p innhald.",
+      "label": "Innstillinger for «Fasit»- og «Prøv igjen»-knapp",
       "fields": [
         {
-          "label": "Slå på overstyring for \"Vis svar\" og \"Prøv igjen\".",
-          "description": "Aktivering vil overstyre dei følgjande innstillingene for integrert innhald."
+          "label": "Overstyr «Fasit»-knapp",
+          "description": "Dette valget avgjør om «Fasit»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "options": [
+            {
+              "label": "Aktivert"
+            },
+            {
+              "label": "Deaktivert"
+            }
+          ]
         },
         {
-          "label": "Slå på \"Vis svar\" knapp.",
-          "description": "Aktivering vil slå på \"Vis svar\" knappen."
-        },
-        {
-          "label": "Slå på \"Prøv igjen\".",
-          "description": "Aktivering vil slå på \"Prøv igjen\" ."
+          "label": "Overstyr «Prøv igjen»-knapp",
+          "description": "Dette valget avgjør om «Prøv igjen»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "options": [
+            {
+              "label": "Aktivert"
+            },
+            {
+              "label": "Deaktivert"
+            }
+          ]
         }
       ]
-    },
-    {
-      "label": "Spørsmål-etikett",
-      "default": "Spørsmål"
     }
   ]
 }
