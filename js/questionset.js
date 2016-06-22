@@ -40,7 +40,7 @@ H5P.QuestionSet = function (options, contentId) {
           '      <% if (progressType == "dots") { %>' +
           '        <div class="dots-container">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '            <a href="#" class="progress-dot unanswered" aria-label="<%= questions[i].jumpAriaLabel %>"></a>' +
+          '            <a href="#" class="progress-dot unanswered" aria-label="<%= texts.jumpToQuestion.replace("%d", i + 1) %>"></a>' +
           '          <%} %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -140,7 +140,6 @@ H5P.QuestionSet = function (options, contentId) {
   for (var i = 0; i < params.questions.length; i++) {
     var question = params.questions[i];
 
-    question.jumpAriaLabel = params.texts.jumpToQuestion.replace('%d', i + 1);
     if (override) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params.behaviour, override);
