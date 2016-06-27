@@ -236,6 +236,10 @@ H5P.QuestionSet = function (options, contentId) {
         .show()
         .html(humanizedProgress)
         .focus();
+
+      if (instance && instance.readFeedback) {
+        instance.readFeedback();
+      }
     }, 0);
 
     // Remember where we are
@@ -252,7 +256,10 @@ H5P.QuestionSet = function (options, contentId) {
   var showSolutions = function () {
     for (var i = 0; i < questionInstances.length; i++) {
       try {
+        // Do not read answers
+        questionInstances[i].toggleReadSpeaker(true);
         questionInstances[i].showSolutions();
+        questionInstances[i].toggleReadSpeaker(false);
       }
       catch(error) {
         H5P.error("subcontent does not contain a valid showSolutions function");
