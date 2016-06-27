@@ -233,6 +233,7 @@ H5P.QuestionSet = function (options, contentId) {
         .replace('@total', questionInstances.length.toString());
 
       $('.qs-progress-announcer', $myDom)
+        .show()
         .html(humanizedProgress)
         .focus();
     }, 0);
