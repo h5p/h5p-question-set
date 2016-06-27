@@ -31,6 +31,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="buttons"><a class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
+          '<div tabindex="-1" class="qs-progress-announcer"></div>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
           '    <div class="question-container"></div>' +
@@ -88,7 +89,8 @@ H5P.QuestionSet = function (options, contentId) {
       finishButton: 'Finish',
       textualProgress: 'Question: @current of @total questions',
       jumpToQuestion: 'Jump to question %d',
-      questionLabel: 'Question'
+      questionLabel: 'Question',
+      readSpeakerProgress: 'Question @current of @total'
     },
     endGame: {
       showResultPage: true,
@@ -223,6 +225,17 @@ H5P.QuestionSet = function (options, contentId) {
       $('.progress-dot.current', $myDom).removeClass('current');
       $('.progress-dot:eq(' + questionNumber +')', $myDom).addClass('current');
     }
+
+    // Announce question number of total, must use timeout because of buttons logic
+    setTimeout(function () {
+      var humanizedProgress = params.texts.readSpeakerProgress
+        .replace('@current', (currentQuestion + 1).toString())
+        .replace('@total', questionInstances.length.toString());
+
+      $('.qs-progress-announcer', $myDom)
+        .html(humanizedProgress)
+        .focus();
+    }, 0);
 
     // Remember where we are
     _updateButtons();

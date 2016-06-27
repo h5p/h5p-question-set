@@ -85,6 +85,11 @@
         {
           "label": "Opphavsrett spørsmål-etikett",
           "default": "Spørsmål"
+        },
+        {
+          "label": "Fremdriftstekst for hjelpemiddelteknologi",
+          "description": "Kan bruke @current og @total variabler",
+          "default": "Deloppgave @current av @total"
         }
       ]
     },

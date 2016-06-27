@@ -125,6 +125,13 @@
   transition: none;
 }
 
+.qs-progress-announcer {
+  height: 0;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
 .h5p-question .h5p-question-prev,
 .h5p-question .h5p-question-finish,
 .h5p-question .h5p-question-next {

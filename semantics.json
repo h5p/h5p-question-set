@@ -165,6 +165,13 @@
         "type": "text",
         "label": "Copyright dialog question label",
         "default": "Question"
+      },
+      {
+        "name": "readSpeakerProgress",
+        "type": "text",
+        "label": "Readspeaker progress",
+        "description": "May use @current and @total question variables",
+        "default": "Question @current of @total"
       }
     ]
   },

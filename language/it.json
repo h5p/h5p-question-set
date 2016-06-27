@@ -83,6 +83,11 @@
         {
           "label": "Copyright dialog question label",
           "default": "Question"
+        },
+        {
+          "label": "Readspeaker progress",
+          "description": "May use @current and @total question variables",
+          "default": "Question @current of @total"
         }
       ]
     },
