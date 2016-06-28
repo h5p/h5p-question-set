@@ -180,9 +180,14 @@ H5P.QuestionSet = function (options, contentId) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
 
-    if (currentQuestion === (params.questions.length - 1) && answered &&
+    if (currentQuestion === (params.questions.length - 1) &&
         questionInstances[currentQuestion]) {
-      questionInstances[currentQuestion].showButton('finish');
+      if (answered) {
+        questionInstances[currentQuestion].showButton('finish');
+      }
+      else {
+        questionInstances[currentQuestion].hideButton('finish');
+      }
     }
  };
 
@@ -222,7 +227,14 @@ H5P.QuestionSet = function (options, contentId) {
     }
     else {
       // Set currentNess
-      $('.progress-dot.current', $myDom).removeClass('current');
+      var $currentQuestion = $('.progress-dot.current', $myDom);
+      var previousQuestion = $currentQuestion.index();
+      $currentQuestion.removeClass('current');
+      if (previousQuestion >= 0 && !questionInstances[previousQuestion].getAnswerGiven()) {
+        $currentQuestion
+          .removeClass('answered')
+          .addClass('unanswered');
+      }
       $('.progress-dot:eq(' + questionNumber +')', $myDom).addClass('current');
     }
 
