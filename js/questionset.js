@@ -41,7 +41,7 @@ H5P.QuestionSet = function (options, contentId) {
           '      <% if (progressType == "dots") { %>' +
           '        <div class="dots-container">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '            <a href="#" class="progress-dot unanswered" aria-label="<%= texts.jumpToQuestion.replace("%d", i + 1) %>"></a>' +
+          '            <a href="#" class="progress-dot unanswered" aria-label="<%= texts.unansweredText + ", " +  texts.jumpToQuestion.replace("%d", i + 1) %>"></a>' +
           '          <%} %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -90,7 +90,10 @@ H5P.QuestionSet = function (options, contentId) {
       textualProgress: 'Question: @current of @total questions',
       jumpToQuestion: 'Jump to question %d',
       questionLabel: 'Question',
-      readSpeakerProgress: 'Question @current of @total'
+      readSpeakerProgress: 'Question @current of @total',
+      unansweredText: 'Unanswered',
+      answeredText: 'Answered',
+      currentQuestionText: 'Current question'
     },
     endGame: {
       showResultPage: true,
@@ -227,15 +230,12 @@ H5P.QuestionSet = function (options, contentId) {
     }
     else {
       // Set currentNess
-      var $currentQuestion = $('.progress-dot.current', $myDom);
-      var previousQuestion = $currentQuestion.index();
-      $currentQuestion.removeClass('current');
-      if (previousQuestion >= 0 && !questionInstances[previousQuestion].getAnswerGiven()) {
-        $currentQuestion
-          .removeClass('answered')
-          .addClass('unanswered');
+      var previousQuestion = $('.progress-dot.current', $myDom).index();
+      if (previousQuestion >= 0) {
+        toggleCurrentDot(previousQuestion, false);
+        toggleAnsweredDot(previousQuestion, questionInstances[previousQuestion].getAnswerGiven());
       }
-      $('.progress-dot:eq(' + questionNumber +')', $myDom).addClass('current');
+      toggleCurrentDot(questionNumber, true);
     }
 
     // Announce question number of total, must use timeout because of buttons logic
@@ -300,7 +300,9 @@ H5P.QuestionSet = function (options, contentId) {
     questionInstances[questionInstances.length - 1].hideButton('finish');
 
     // Mark all tasks as unanswered:
-    $('.progress-dot').removeClass('answered').addClass('unanswered');
+    $('.progress-dot').each(function (idx) {
+      toggleAnsweredDot(idx, false);
+    });
 
     //Force the last page to be reRendered
     rendered = false;
@@ -321,6 +323,48 @@ H5P.QuestionSet = function (options, contentId) {
     else {
       _showQuestion(currentQuestion + direction);
     }
+  };
+
+  /**
+   * Toggle answered state of dot at given index
+   * @param {number} dotIndex Index of dot
+   * @param {boolean} isAnswered True if is answered, False if not answered
+   */
+  var toggleAnsweredDot = function(dotIndex, isAnswered) {
+    var $el = $('.progress-dot:eq(' + dotIndex +')', $myDom);
+
+    // Skip current button
+    if ($el.hasClass('current')) {
+      return;
+    }
+
+    var label = (isAnswered ? params.texts.answeredText : params.texts.unansweredText) +
+      ', ' +
+      params.texts.jumpToQuestion.replace('%d', (dotIndex + 1).toString());
+
+    $el.toggleClass('unanswered', !isAnswered)
+      .toggleClass('answered', isAnswered)
+      .attr('aria-label', label);
+  };
+
+  /**
+   * Toggle current state of dot at given index
+   * @param dotIndex
+   * @param isCurrent
+   */
+  var toggleCurrentDot = function (dotIndex, isCurrent) {
+    var $el = $('.progress-dot:eq(' + dotIndex +')', $myDom);
+    var texts = params.texts;
+    var label = texts.currentQuestionText + ', ';
+
+    if (!isCurrent) {
+      var isAnswered = $el.hasClass('answered');
+      label = (isAnswered ? texts.answeredText : texts.unansweredText) + ', ';
+    }
+
+    label += texts.jumpToQuestion.replace('%d', (dotIndex + 1).toString());
+    $el.toggleClass('current', isCurrent)
+      .attr('aria-label', label);
   };
 
   var _displayEndGame = function () {
@@ -536,9 +580,8 @@ H5P.QuestionSet = function (options, contentId) {
         if (shortVerb === 'interacted' ||
             shortVerb === 'answered' ||
             shortVerb === 'attempted') {
-          if (questionInstances[currentQuestion].getAnswerGiven()) {
-            $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
-          }
+          toggleAnsweredDot(currentQuestion,
+            questionInstances[currentQuestion].getAnswerGiven());
           _updateButtons();
         }
         if (shortVerb === 'completed') {

@@ -172,6 +172,24 @@
         "label": "Readspeaker progress",
         "description": "May use @current and @total question variables",
         "default": "Question @current of @total"
+      },
+      {
+        "name": "unansweredText",
+        "type": "text",
+        "label": "Unanswered question text",
+        "default": "Unanswered"
+      },
+      {
+        "name": "answeredText",
+        "type": "text",
+        "label": "Answered question text",
+        "default": "Answered"
+      },
+      {
+        "name": "currentQuestionText",
+        "type": "text",
+        "label": "Current question text",
+        "default": "Current question"
       }
     ]
   },

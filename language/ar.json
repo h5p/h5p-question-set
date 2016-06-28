@@ -88,6 +88,18 @@
           "label": "Readspeaker progress",
           "description": "May use @current and @total question variables",
           "default": "Question @current of @total"
+        },
+        {
+          "label": "Unanswered question text",
+          "default": "Unanswered"
+        },
+        {
+          "label": "Answered question text",
+          "default": "Answered"
+        },
+        {
+          "label": "Current question text",
+          "default": "Current question"
         }
       ]
     },
