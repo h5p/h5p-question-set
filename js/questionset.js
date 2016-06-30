@@ -39,9 +39,13 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
           '      <% if (progressType == "dots") { %>' +
-          '        <div class="dots-container">' +
+          '        <div class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '            <a href="#" class="progress-dot unanswered" aria-label="<%= texts.unansweredText + ", " +  texts.jumpToQuestion.replace("%d", i + 1) %>"></a>' +
+          '            <a href="#" class="progress-dot unanswered" ' +
+          '                   aria-label="<%=' +
+          '                   texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
+          '                   + ", " + texts.unansweredText' +
+          '            %>"></a>' +
           '          <%} %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -88,7 +92,7 @@ H5P.QuestionSet = function (options, contentId) {
       nextButton: 'Next question',
       finishButton: 'Finish',
       textualProgress: 'Question: @current of @total questions',
-      jumpToQuestion: 'Jump to question %d',
+      jumpToQuestion: 'Question %d of %total',
       questionLabel: 'Question',
       readSpeakerProgress: 'Question @current of @total',
       unansweredText: 'Unanswered',
@@ -338,9 +342,11 @@ H5P.QuestionSet = function (options, contentId) {
       return;
     }
 
-    var label = (isAnswered ? params.texts.answeredText : params.texts.unansweredText) +
+    var label = params.texts.jumpToQuestion
+      .replace('%d', (dotIndex + 1).toString())
+      .replace('%total', $('.progress-dot', $myDom).length) +
       ', ' +
-      params.texts.jumpToQuestion.replace('%d', (dotIndex + 1).toString());
+      (isAnswered ? params.texts.answeredText : params.texts.unansweredText);
 
     $el.toggleClass('unanswered', !isAnswered)
       .toggleClass('answered', isAnswered)
@@ -355,14 +361,18 @@ H5P.QuestionSet = function (options, contentId) {
   var toggleCurrentDot = function (dotIndex, isCurrent) {
     var $el = $('.progress-dot:eq(' + dotIndex +')', $myDom);
     var texts = params.texts;
-    var label = texts.currentQuestionText + ', ';
+    var label = texts.jumpToQuestion
+      .replace('%d', (dotIndex + 1).toString())
+      .replace('%total', $('.progress-dot', $myDom).length);
 
     if (!isCurrent) {
       var isAnswered = $el.hasClass('answered');
-      label = (isAnswered ? texts.answeredText : texts.unansweredText) + ', ';
+      label += (isAnswered ? texts.answeredText : texts.unansweredText) + ', ';
+    }
+    else {
+      label += texts.currentQuestionText + ', ';
     }
 
-    label += texts.jumpToQuestion.replace('%d', (dotIndex + 1).toString());
     $el.toggleClass('current', isCurrent)
       .attr('aria-label', label);
   };

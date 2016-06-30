@@ -79,8 +79,8 @@
         },
         {
           "label": "Merkelapp ved hopping til spørsmål",
-          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret.",
-          "default": "Hopp til spørsmål %d"
+          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret, og '%total' istedet for totalt antall spørsmål.",
+          "default": "Spørsmål %d av %total"
         },
         {
           "label": "Opphavsrett spørsmål-etikett",
