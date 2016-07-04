@@ -156,9 +156,9 @@
           "description": "Texte pour le bouton de solution."
         },
         {
-          "label": "Texte du bouton \"Réessayer\"",
-          "default": "Réessayer",
-          "description": "Texte pour le bouton Réessayer."
+          "label": "Texte du bouton \"Recommencer\"",
+          "default": "Recommencer",
+          "description": "Texte pour le bouton Recommencer."
         },
         {
           "label": "Texte pour le bouton de fin",
@@ -185,11 +185,11 @@
       ]
     },
     {
-      "label": "Options pour les boutons \"Montrer la solution\" et \"Réessayer\".",
+      "label": "Options pour les boutons \"Montrer la solution\" et \"Recommencer\".",
       "fields": [
         {
           "label": "Ecraser le bouton \"Voir la solution\"",
-          "description": "Cette option détermine si le bouton \"Voir la réponse\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
+          "description": "Cette option détermine si le bouton \"Voir la solution\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
           "options": [
             {
               "label": "Activé"
@@ -200,8 +200,8 @@
           ]
         },
         {
-          "label": "Ecraser le bouton \"Réessayer\"",
-          "description": "Cette option détermine si le bouton \"Réessayer\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
+          "label": "Ecraser le bouton \"Recommencer\"",
+          "description": "Cette option détermine si le bouton \"Recommencer\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
           "options": [
             {
               "label": "Activé"
