@@ -39,7 +39,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
           '      <% if (progressType == "dots") { %>' +
-          '        <ul class="dots-container" role="menu">' +
+          '        <ul class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
           '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
           '                   aria-label="<%=' +
