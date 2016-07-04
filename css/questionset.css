@@ -35,6 +35,12 @@
 .dots-container {
   text-align: center;
   line-height: 2em;
+  padding: 0;
+  margin: 0;
+}
+.progress-item {
+  list-style: none;
+  display: inline-block;
 }
 .progress-dot {
   display: inline-block;
@@ -95,6 +101,7 @@
 }
 .qs-footer {
   overflow: hidden;
+  clear: both;
 }
 
 .qs-footer > .prev {
