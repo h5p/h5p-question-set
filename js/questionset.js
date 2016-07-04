@@ -39,14 +39,14 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
           '      <% if (progressType == "dots") { %>' +
-          '        <div class="dots-container" role="navigation">' +
+          '        <ul class="dots-container" role="menu">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '            <a href="#" class="progress-dot unanswered" ' +
+          '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
           '                   aria-label="<%=' +
           '                   texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
           '                   + ", " + texts.unansweredText' +
-          '            %>"></a>' +
-          '          <%} %>' +
+          '            %>" tabindex="-1"></a></li>' +
+          '          <% } %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
           '        <span class="progress-text"></span>' +
@@ -234,7 +234,7 @@ H5P.QuestionSet = function (options, contentId) {
     }
     else {
       // Set currentNess
-      var previousQuestion = $('.progress-dot.current', $myDom).index();
+      var previousQuestion = $('.progress-dot.current', $myDom).parent().index();
       if (previousQuestion >= 0) {
         toggleCurrentDot(previousQuestion, false);
         toggleAnsweredDot(previousQuestion, questionInstances[previousQuestion].getAnswerGiven());
@@ -367,14 +367,15 @@ H5P.QuestionSet = function (options, contentId) {
 
     if (!isCurrent) {
       var isAnswered = $el.hasClass('answered');
-      label += (isAnswered ? texts.answeredText : texts.unansweredText) + ', ';
+      label += ', ' + (isAnswered ? texts.answeredText : texts.unansweredText);
     }
     else {
-      label += texts.currentQuestionText + ', ';
+      label += ', ' + texts.currentQuestionText;
     }
 
     $el.toggleClass('current', isCurrent)
-      .attr('aria-label', label);
+      .attr('aria-label', label)
+      .attr('tabindex', isCurrent ? 0 : -1);
   };
 
   var _displayEndGame = function () {
@@ -614,12 +615,50 @@ H5P.QuestionSet = function (options, contentId) {
       _showQuestion(params.initialQuestion);
     });
 
-    // Set event listeners.
-    $('.progress-dot', $myDom).click(function () {
+    /**
+     * Triggers changing the current question.
+     *
+     * @private
+     * @param {Object} [event]
+     */
+    var handleProgressDotClick = function (event) {
       _stopQuestion(currentQuestion);
-      _showQuestion($(this).index());
-      return false;
+      _showQuestion($(this).parent().index());
+      event.preventDefault();
+    };
+
+    // Set event listeners.
+    $('.progress-dot', $myDom).click(handleProgressDotClick).keydown(function (event) {
+      var $this = $(this);
+      switch (event.which) {
+        case 13: // Enter
+        case 32: // Space
+          handleProgressDotClick.call(this, event);
+          break;
+
+        case 37: // Left Arrow
+        case 38: // Up Arrow
+          // Go to previous dot
+          var $prev = $this.parent().prev();
+          if ($prev.length) {
+            $prev.children('a').attr('tabindex', '0').focus();
+            $this.attr('tabindex', '-1');
+          }
+          break;
+
+        case 39: // Right Arrow
+        case 40: // Down Arrow
+          // Go to next dot
+          var $next = $this.parent().next();
+          if ($next.length) {
+            $next.children('a').attr('tabindex', '0').focus();
+            $this.attr('tabindex', '-1');
+          }
+          break;
+      }
     });
+
+
 
     // Hide all but initial Question.
     _showQuestion(params.initialQuestion);
