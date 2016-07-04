@@ -344,6 +344,9 @@ H5P.QuestionSet = function (options, contentId) {
       return;
     }
 
+    // Ensure boolean
+    isAnswered = !!isAnswered;
+
     var label = params.texts.jumpToQuestion
       .replace('%d', (dotIndex + 1).toString())
       .replace('%total', $('.progress-dot', $myDom).length) +
