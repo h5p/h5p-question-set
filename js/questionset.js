@@ -204,7 +204,7 @@ H5P.QuestionSet = function (options, contentId) {
     }
   };
 
-  var _showQuestion = function (questionNumber) {
+  var _showQuestion = function (questionNumber, preventAnnouncement) {
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
@@ -242,21 +242,23 @@ H5P.QuestionSet = function (options, contentId) {
       toggleCurrentDot(questionNumber, true);
     }
 
-    // Announce question number of total, must use timeout because of buttons logic
-    setTimeout(function () {
-      var humanizedProgress = params.texts.readSpeakerProgress
-        .replace('@current', (currentQuestion + 1).toString())
-        .replace('@total', questionInstances.length.toString());
+    if (!preventAnnouncement) {
+      // Announce question number of total, must use timeout because of buttons logic
+      setTimeout(function () {
+        var humanizedProgress = params.texts.readSpeakerProgress
+          .replace('@current', (currentQuestion + 1).toString())
+          .replace('@total', questionInstances.length.toString());
 
-      $('.qs-progress-announcer', $myDom)
-        .show()
-        .html(humanizedProgress)
-        .focus();
+        $('.qs-progress-announcer', $myDom)
+          .show()
+          .html(humanizedProgress)
+          .focus();
 
-      if (instance && instance.readFeedback) {
-        instance.readFeedback();
-      }
-    }, 0);
+        if (instance && instance.readFeedback) {
+          instance.readFeedback();
+        }
+      }, 0);
+    }
 
     // Remember where we are
     _updateButtons();
@@ -661,7 +663,7 @@ H5P.QuestionSet = function (options, contentId) {
 
 
     // Hide all but initial Question.
-    _showQuestion(params.initialQuestion);
+    _showQuestion(params.initialQuestion, true);
 
     if (renderSolutions) {
       showSolutions();
