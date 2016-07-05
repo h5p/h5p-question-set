@@ -78,7 +78,7 @@
         {
           "label": "Texte de progression",
           "description": "Texte utilisé si la progression textuelle a été sélectionnée.",
-          "default": "Question @current sur @total",
+          "default": "Question @current sur @total"
         },
         {
           "label": "Texte pour aller directement à une question",
@@ -121,13 +121,13 @@
         },
         {
           "label": "Titre des commentaires",
-           "default": "Vos résultats :",
+          "default": "Vos résultats :",
           "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
           "label": "Texte d'affichage du score",
           "description": "Texte utilisé pour afficher le score total de l'utilisateur. \"@score\" sera remplacé par le score de l'utilisateur, \"@total\" sera remplacé par le score maximum possible.",
-           "default": "Vous avez obtenu @score point(s) sur @total",
+          "default": "Vous avez obtenu @score point(s) sur @total"
         },
         {
           "label": "Commentaire de félicitation",
@@ -137,12 +137,12 @@
         },
         {
           "label": "Commentaire en cas de succès",
-           "default": "Vous avez obtenu un très bon score !",
+          "default": "Vous avez obtenu un très bon score !",
           "description": "Commentaire affiché lors du passage du quiz avec succès."
         },
         {
           "label": "Commentaire en cas d'échec",
-           "default": "Vous n'avez pas réussi ce questionnaire.",
+          "default": "Vous n'avez pas réussi ce questionnaire.",
           "description": "Ce commentaire sera affiché au-dessus du score de l'utilisateur si celui-ci échoue au quiz."
         },
         {
@@ -152,7 +152,7 @@
         },
         {
           "label": "Texte du bouton \"Solution\"",
-           "default": "Voir la solution",
+          "default": "Voir la solution",
           "description": "Texte pour le bouton de solution."
         },
         {
@@ -162,7 +162,7 @@
         },
         {
           "label": "Texte pour le bouton de fin",
-           "default": "Terminer"
+          "default": "Terminer"
         },
         {
           "label": "Afficher une vidéo avant l'affichage des résultats du quiz"
@@ -172,7 +172,7 @@
         },
         {
           "label": "Texte du bouton \"Passer la vidéo\"",
-           "default": "Passer la vidéo"
+          "default": "Passer la vidéo"
         },
         {
           "label": "Vidéo en cas de succès",
