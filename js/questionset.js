@@ -250,9 +250,8 @@ H5P.QuestionSet = function (options, contentId) {
           .replace('@total', questionInstances.length.toString());
 
         $('.qs-progress-announcer', $myDom)
-          .show()
           .html(humanizedProgress)
-          .focus();
+          .show().focus();
 
         if (instance && instance.readFeedback) {
           instance.readFeedback();
@@ -467,6 +466,16 @@ H5P.QuestionSet = function (options, contentId) {
         scoreBar.appendTo($('.feedback-scorebar', $myDom));
         scoreBar.setScore(finals);
         $('.feedback-text', $myDom).html(scoreString);
+
+        // Announce that the question set is complete
+        setTimeout(function () {
+          $('.qs-progress-announcer', $myDom)
+            .html(eparams.message + '.' +
+                  scoreString + '.' +
+                  eparams.comment + '.' +
+                  eparams.resulttext)
+            .show().focus();
+        }, 0);
       }
       else {
         // Remove buttons and feedback section
