@@ -383,6 +383,7 @@ H5P.QuestionSet = function (options, contentId) {
   };
 
   var _displayEndGame = function () {
+    $('.progress-dot.current', $myDom).removeClass('current');
     if (rendered) {
       $myDom.children().hide().filter('.questionset-results').show();
       self.trigger('resize');
