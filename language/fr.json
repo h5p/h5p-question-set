@@ -4,7 +4,7 @@
       "label": "Introduction du Quiz ",
       "fields": [
         {
-          "label": "Montrer l'introduction"
+          "label": "Afficher l'introduction"
         },
         {
           "label": "Titre",
@@ -15,7 +15,8 @@
           "description": "Ce texte sera affiché avant le démarrage du quiz."
         },
         {
-          "label": "Texte du bouton de démarrage"
+          "label": "Texte du bouton de démarrage",
+          "default": "Commencer"
         },
         {
           "label": "Image d'arrière-plan",
@@ -29,7 +30,7 @@
     },
     {
       "label": "Indicateur de progression",
-      "description": "Style de l'indicateur de progression de la série de questions",
+      "description": "Style de l'indicateur de progression de la série de questions.",
       "options": [
         {
           "label": "Texte"
@@ -41,7 +42,7 @@
     },
     {
       "label": "Pourcentage de réussite",
-      "description": "Pourcentage exigé pour la réussite du quiz."
+      "description": "Pourcentage exigé pour considérer que le quiz est réussi."
     },
     {
       "label": "Questions",
@@ -60,121 +61,153 @@
       }
     },
     {
-      "label": "Interface des Textes dans le quiz",
+      "label": "Textes de l'interface du quiz",
       "fields": [
         {
-          "label": "Bouton précédent"
+          "label": "Bouton précédent",
+          "default": "Retour"
         },
         {
-          "label": "Bouton suivant"
+          "label": "Bouton suivant",
+          "default": "Suite"
         },
         {
-          "label": "Bouton fin"
+          "label": "Bouton fin",
+          "default": "Terminer"
         },
         {
           "label": "Texte de progression",
-          "description": "Texte utilisé si la progression textuelle est utilisée."
+          "description": "Texte utilisé si la progression textuelle a été sélectionnée.",
+          "default": "Question @current sur @total"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number.",
-          "default": "Jump to question %d"
+          "label": "Texte pour aller directement à une question",
+          "description": "Vous devez utiliser la variable '%d' à la place du numéro de la question et %total à la place du nombre total de questions.",
+          "default": "Question %d sur %total"
         },
         {
-          "label": "Copyright dialog question label",
+          "label": "Texte de la question de la boîte de dialogue de copyright",
           "default": "Question"
+        },
+        {
+          "label": "Progression pour la synthèse vocale",
+          "description": "Vous pouvez utiliser les variables @current et @total",
+          "default": "Question @current sur @total"
+        },
+        {
+          "label": "Texte d'une question sans réponse",
+          "default": "Pas de réponse donnée"
+        },
+        {
+          "label": "Texte d'une question ayant reçu une réponse",
+          "default": "Réponse donnée"
+        },
+        {
+          "label": "Texte de la question en cours",
+          "default": "Question en cours"
         }
       ]
     },
     {
-      "label": "Quiz fini",
+      "label": "Quiz terminé",
       "fields": [
         {
-          "label": "Montrer les résultats"
+          "label": "Afficher les résultats"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Message si pas de résultats",
+          "description": "Texte affiché sur la page finale si l'option \"Afficher les résultats\" est désactivée.",
+          "default": "Terminé"
         },
         {
-          "label": "Feedback de fin",
-          "description": "Ce texte sera affiché quand l'utilisateur aura totalement terminé le quiz."
+          "label": "Titre des commentaires",
+          "default": "Vos résultats :",
+          "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
           "label": "Texte d'affichage du score",
-          "description": "Texte utilisé pour afficher le score total de l'utilisateur. \"@score\" sera remplacé par le score de l'utilisateur, \"@total\" sera remplacé par le score maximum possible."
+          "description": "Texte utilisé pour afficher le score total de l'utilisateur. \"@score\" sera remplacé par le score de l'utilisateur, \"@total\" sera remplacé par le score maximum possible.",
+          "default": "Vous avez obtenu @score point(s) sur @total"
         },
         {
-          "label": "Texte de félicitation",
-          "description": "Texte affiché lors du passage du quiz avec succès."
+          "label": "Commentaire de félicitation",
+          "placeholder": "Bravo !",
+          "default": "Bravo !",
+          "description": "Ce commentaire sera affiché au-dessus du score de l'utilisateur si celui-ci réussit le quiz."
         },
         {
-          "label": "Commentaire de fin de quiz réussi",
+          "label": "Commentaire en cas de succès",
+          "default": "Vous avez obtenu un très bon score !",
           "description": "Commentaire affiché lors du passage du quiz avec succès."
         },
         {
-          "label": "Texte d'échec",
-          "description": "Texte affiché lors de l'échec au quiz."
+          "label": "Commentaire en cas d'échec",
+          "default": "Vous n'avez pas réussi ce questionnaire.",
+          "description": "Ce commentaire sera affiché au-dessus du score de l'utilisateur si celui-ci échoue au quiz."
         },
         {
-          "label": "Commentaire de fin de quiz échoué",
-          "description": "Commentaire affiché lors de l'échec au quiz."
+          "label": "Commentaire additionnel en cas d'échec",
+          "default": "Refaites un essai !",
+          "description": "Commentaire additionnel affiché lors de l'échec au quiz."
         },
         {
-          "label": "Texte du bouton Solution",
+          "label": "Texte du bouton \"Solution\"",
+          "default": "Voir la solution",
           "description": "Texte pour le bouton de solution."
         },
         {
-          "label": "Texte du bouton Réessayer",
-          "description": "Texte pour le bouton Réessayer."
+          "label": "Texte du bouton \"Recommencer\"",
+          "default": "Recommencer",
+          "description": "Texte pour le bouton Recommencer."
         },
         {
-          "label": "Texte pour le bouton de fin"
+          "label": "Texte pour le bouton de fin",
+          "default": "Terminer"
         },
         {
-          "label": "Montrer une vidéo avant l'affichage des résultats du quiz"
+          "label": "Afficher une vidéo avant l'affichage des résultats du quiz"
         },
         {
-          "label": "Activer le bouton passer la vidéo"
+          "label": "Activer le bouton \"Passer la vidéo\""
         },
         {
-          "label": "Texte du bouton passer la vidéo"
+          "label": "Texte du bouton \"Passer la vidéo\"",
+          "default": "Passer la vidéo"
         },
         {
-          "label": "Video en cas de succès",
-          "description": "Vidéo affichée lors du passage du quiz avec succès."
+          "label": "Vidéo en cas de succès",
+          "description": "Vidéo affichée si l'utilisateur réussit le quiz."
         },
         {
-          "label": "Video en cas d'échec",
-          "description": "Vidéo affichée lors de l'échec au quiz."
+          "label": "Vidéo en cas d'échec",
+          "description": "Vidéo affichée si l'utilisateur échoue au quiz."
         }
       ]
     },
     {
-      "label": "Options pour les boutons \"Montrer la solution\" et \"Réessayer\".",
+      "label": "Options pour les boutons \"Montrer la solution\" et \"Recommencer\".",
       "fields": [
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Ecraser le bouton \"Voir la solution\"",
+          "description": "Cette option détermine si le bouton \"Voir la solution\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Activé"
             },
             {
-              "label": "Disabled"
+              "label": "Désactivé"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Ecraser le bouton \"Recommencer\"",
+          "description": "Cette option détermine si le bouton \"Recommencer\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Activé"
             },
             {
-              "label": "Disabled"
+              "label": "Désactivé"
             }
           ]
         }

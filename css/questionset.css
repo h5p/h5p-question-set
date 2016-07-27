@@ -35,6 +35,12 @@
 .dots-container {
   text-align: center;
   line-height: 2em;
+  padding: 0;
+  margin: 0;
+}
+.progress-item {
+  list-style: none;
+  display: inline-block;
 }
 .progress-dot {
   display: inline-block;
@@ -95,6 +101,7 @@
 }
 .qs-footer {
   overflow: hidden;
+  clear: both;
 }
 
 .qs-footer > .prev {
@@ -123,6 +130,13 @@
    make resizing of iframe in Safari not work! */
 .questionset .h5p-question-buttons.h5p-question-visible {
   transition: none;
+}
+
+.qs-progress-announcer {
+  height: 0;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
 }
 
 .h5p-question .h5p-question-prev,
