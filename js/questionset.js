@@ -130,7 +130,11 @@ H5P.QuestionSet = function (options, contentId) {
   var $template = $(template.render(params));
   // Set overrides for questions
   var override;
-  if (params.override.showSolutionButton || params.override.retryButton) {
+  //Modified by SUPRIYA RAJGOPAL on 28Jul16 to prevent 'Cannot read property showSolutionButton of undefined' error when used in Course Presentation
+  /*----------------------------------------------------------------------*/
+  //if (params.override.showSolutionButton || params.override.retryButton) {
+  if (params.override !== undefined && (params.override.showSolutionButton || params.override.retryButton)) {
+  /*----------------------------------------------------------------------*/
     override = {};
     if (params.override.showSolutionButton) {
       // Force "Show solution" button to be on or off for all interactions
