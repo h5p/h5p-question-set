@@ -31,6 +31,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="buttons"><a class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
+          '<div tabindex="-1" class="qs-progress-announcer"></div>' +
           '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
           '    <div class="question-container"></div>' +
@@ -38,10 +39,14 @@ H5P.QuestionSet = function (options, contentId) {
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
           '      <% if (progressType == "dots") { %>' +
-          '        <div class="dots-container">' +
+          '        <ul class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '            <a href="#" class="progress-dot unanswered" aria-label="<%= questions[i].jumpAriaLabel %>"></a>' +
-          '          <%} %>' +
+          '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
+          '                   aria-label="<%=' +
+          '                   texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
+          '                   + ", " + texts.unansweredText' +
+          '            %>" tabindex="-1"></a></li>' +
+          '          <% } %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
           '        <span class="progress-text"></span>' +
@@ -87,8 +92,12 @@ H5P.QuestionSet = function (options, contentId) {
       nextButton: 'Next question',
       finishButton: 'Finish',
       textualProgress: 'Question: @current of @total questions',
-      jumpToQuestion: 'Jump to question %d',
-      questionLabel: 'Question'
+      jumpToQuestion: 'Question %d of %total',
+      questionLabel: 'Question',
+      readSpeakerProgress: 'Question @current of @total',
+      unansweredText: 'Unanswered',
+      answeredText: 'Answered',
+      currentQuestionText: 'Current question'
     },
     endGame: {
       showResultPage: true,
@@ -140,7 +149,6 @@ H5P.QuestionSet = function (options, contentId) {
   for (var i = 0; i < params.questions.length; i++) {
     var question = params.questions[i];
 
-    question.jumpAriaLabel = params.texts.jumpToQuestion.replace('%d', i + 1);
     if (override) {
       // Extend subcontent with the overrided settings.
       $.extend(question.params.behaviour, override);
@@ -179,9 +187,14 @@ H5P.QuestionSet = function (options, contentId) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
     }
 
-    if (currentQuestion === (params.questions.length - 1) && answered &&
+    if (currentQuestion === (params.questions.length - 1) &&
         questionInstances[currentQuestion]) {
-      questionInstances[currentQuestion].showButton('finish');
+      if (answered) {
+        questionInstances[currentQuestion].showButton('finish');
+      }
+      else {
+        questionInstances[currentQuestion].hideButton('finish');
+      }
     }
  };
 
@@ -191,7 +204,7 @@ H5P.QuestionSet = function (options, contentId) {
     }
   };
 
-  var _showQuestion = function (questionNumber) {
+  var _showQuestion = function (questionNumber, preventAnnouncement) {
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
@@ -221,8 +234,29 @@ H5P.QuestionSet = function (options, contentId) {
     }
     else {
       // Set currentNess
-      $('.progress-dot.current', $myDom).removeClass('current');
-      $('.progress-dot:eq(' + questionNumber +')', $myDom).addClass('current');
+      var previousQuestion = $('.progress-dot.current', $myDom).parent().index();
+      if (previousQuestion >= 0) {
+        toggleCurrentDot(previousQuestion, false);
+        toggleAnsweredDot(previousQuestion, questionInstances[previousQuestion].getAnswerGiven());
+      }
+      toggleCurrentDot(questionNumber, true);
+    }
+
+    if (!preventAnnouncement) {
+      // Announce question number of total, must use timeout because of buttons logic
+      setTimeout(function () {
+        var humanizedProgress = params.texts.readSpeakerProgress
+          .replace('@current', (currentQuestion + 1).toString())
+          .replace('@total', questionInstances.length.toString());
+
+        $('.qs-progress-announcer', $myDom)
+          .html(humanizedProgress)
+          .show().focus();
+
+        if (instance && instance.readFeedback) {
+          instance.readFeedback();
+        }
+      }, 0);
     }
 
     // Remember where we are
@@ -239,7 +273,10 @@ H5P.QuestionSet = function (options, contentId) {
   var showSolutions = function () {
     for (var i = 0; i < questionInstances.length; i++) {
       try {
+        // Do not read answers
+        questionInstances[i].toggleReadSpeaker(true);
         questionInstances[i].showSolutions();
+        questionInstances[i].toggleReadSpeaker(false);
       }
       catch(error) {
         H5P.error("subcontent does not contain a valid showSolutions function");
@@ -268,7 +305,9 @@ H5P.QuestionSet = function (options, contentId) {
     questionInstances[questionInstances.length - 1].hideButton('finish');
 
     // Mark all tasks as unanswered:
-    $('.progress-dot').removeClass('answered').addClass('unanswered');
+    $('.progress-dot').each(function (idx) {
+      toggleAnsweredDot(idx, false);
+    });
 
     //Force the last page to be reRendered
     rendered = false;
@@ -291,7 +330,60 @@ H5P.QuestionSet = function (options, contentId) {
     }
   };
 
+  /**
+   * Toggle answered state of dot at given index
+   * @param {number} dotIndex Index of dot
+   * @param {boolean} isAnswered True if is answered, False if not answered
+   */
+  var toggleAnsweredDot = function(dotIndex, isAnswered) {
+    var $el = $('.progress-dot:eq(' + dotIndex +')', $myDom);
+
+    // Skip current button
+    if ($el.hasClass('current')) {
+      return;
+    }
+
+    // Ensure boolean
+    isAnswered = !!isAnswered;
+
+    var label = params.texts.jumpToQuestion
+      .replace('%d', (dotIndex + 1).toString())
+      .replace('%total', $('.progress-dot', $myDom).length) +
+      ', ' +
+      (isAnswered ? params.texts.answeredText : params.texts.unansweredText);
+
+    $el.toggleClass('unanswered', !isAnswered)
+      .toggleClass('answered', isAnswered)
+      .attr('aria-label', label);
+  };
+
+  /**
+   * Toggle current state of dot at given index
+   * @param dotIndex
+   * @param isCurrent
+   */
+  var toggleCurrentDot = function (dotIndex, isCurrent) {
+    var $el = $('.progress-dot:eq(' + dotIndex +')', $myDom);
+    var texts = params.texts;
+    var label = texts.jumpToQuestion
+      .replace('%d', (dotIndex + 1).toString())
+      .replace('%total', $('.progress-dot', $myDom).length);
+
+    if (!isCurrent) {
+      var isAnswered = $el.hasClass('answered');
+      label += ', ' + (isAnswered ? texts.answeredText : texts.unansweredText);
+    }
+    else {
+      label += ', ' + texts.currentQuestionText;
+    }
+
+    $el.toggleClass('current', isCurrent)
+      .attr('aria-label', label)
+      .attr('tabindex', isCurrent ? 0 : -1);
+  };
+
   var _displayEndGame = function () {
+    $('.progress-dot.current', $myDom).removeClass('current');
     if (rendered) {
       $myDom.children().hide().filter('.questionset-results').show();
       self.trigger('resize');
@@ -375,6 +467,16 @@ H5P.QuestionSet = function (options, contentId) {
         scoreBar.appendTo($('.feedback-scorebar', $myDom));
         scoreBar.setScore(finals);
         $('.feedback-text', $myDom).html(scoreString);
+
+        // Announce that the question set is complete
+        setTimeout(function () {
+          $('.qs-progress-announcer', $myDom)
+            .html(eparams.message + '.' +
+                  scoreString + '.' +
+                  eparams.comment + '.' +
+                  eparams.resulttext)
+            .show().focus();
+        }, 0);
       }
       else {
         // Remove buttons and feedback section
@@ -504,9 +606,8 @@ H5P.QuestionSet = function (options, contentId) {
         if (shortVerb === 'interacted' ||
             shortVerb === 'answered' ||
             shortVerb === 'attempted') {
-          if (questionInstances[currentQuestion].getAnswerGiven()) {
-            $('.progress-dot:eq(' + currentQuestion +')', $myDom).removeClass('unanswered').addClass('answered');
-          }
+          toggleAnsweredDot(currentQuestion,
+            questionInstances[currentQuestion].getAnswerGiven());
           _updateButtons();
         }
         if (shortVerb === 'completed') {
@@ -529,15 +630,53 @@ H5P.QuestionSet = function (options, contentId) {
       _showQuestion(params.initialQuestion);
     });
 
-    // Set event listeners.
-    $('.progress-dot', $myDom).click(function () {
+    /**
+     * Triggers changing the current question.
+     *
+     * @private
+     * @param {Object} [event]
+     */
+    var handleProgressDotClick = function (event) {
       _stopQuestion(currentQuestion);
-      _showQuestion($(this).index());
-      return false;
+      _showQuestion($(this).parent().index());
+      event.preventDefault();
+    };
+
+    // Set event listeners.
+    $('.progress-dot', $myDom).click(handleProgressDotClick).keydown(function (event) {
+      var $this = $(this);
+      switch (event.which) {
+        case 13: // Enter
+        case 32: // Space
+          handleProgressDotClick.call(this, event);
+          break;
+
+        case 37: // Left Arrow
+        case 38: // Up Arrow
+          // Go to previous dot
+          var $prev = $this.parent().prev();
+          if ($prev.length) {
+            $prev.children('a').attr('tabindex', '0').focus();
+            $this.attr('tabindex', '-1');
+          }
+          break;
+
+        case 39: // Right Arrow
+        case 40: // Down Arrow
+          // Go to next dot
+          var $next = $this.parent().next();
+          if ($next.length) {
+            $next.children('a').attr('tabindex', '0').focus();
+            $this.attr('tabindex', '-1');
+          }
+          break;
+      }
     });
 
+
+
     // Hide all but initial Question.
-    _showQuestion(params.initialQuestion);
+    _showQuestion(params.initialQuestion, true);
 
     if (renderSolutions) {
       showSolutions();
