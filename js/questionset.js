@@ -8,11 +8,12 @@ var H5P = H5P || {};
  *
  * @param {Array} options
  * @param {int} contentId
+ * @param {Object} contentData
  * @returns {H5P.QuestionSet} Instance
  */
-H5P.QuestionSet = function (options, contentId) {
+H5P.QuestionSet = function (options, contentId, contentData) {
   if (!(this instanceof H5P.QuestionSet)) {
-    return new H5P.QuestionSet(options, contentId);
+    return new H5P.QuestionSet(options, contentId, contentData);
   }
   H5P.EventDispatcher.call(this);
   var $ = H5P.jQuery;
@@ -127,6 +128,10 @@ H5P.QuestionSet = function (options, contentId) {
   var scoreBar;
   var up;
   var renderSolutions = false;
+  contentData = contentData || {};
+  if (contentData.previousState) {
+    currentQuestion = contentData.previousState.progress;
+  }
 
   var $template = $(template.render(params));
   // Set overrides for questions
@@ -159,8 +164,11 @@ H5P.QuestionSet = function (options, contentId) {
     question.params.overrideSettings = question.params.overrideSettings || {};
     question.params.overrideSettings.$confirmationDialogParent = $template.last();
     question.params.overrideSettings.instance = this;
-
-    var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
+    var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
+      {
+        previousState: contentData.previousState ? contentData.previousState.answers[i] : undefined,
+        parent: self
+      });
     questionInstance.on('resize', function () {
       up = true;
       self.trigger('resize');
@@ -624,6 +632,9 @@ H5P.QuestionSet = function (options, contentId) {
         }
         event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
       });
+
+      // Mark question if answered
+      toggleAnsweredDot(i, question.getAnswerGiven());
     }
 
     // Allow other libraries to add transitions after the questions have been inited
@@ -680,12 +691,14 @@ H5P.QuestionSet = function (options, contentId) {
 
 
 
-    // Hide all but initial Question.
-    _showQuestion(params.initialQuestion, true);
+    // Hide all but current question
+    _showQuestion(currentQuestion, true);
 
     if (renderSolutions) {
       showSolutions();
     }
+    // Update buttons in case they have changed (restored user state)
+    _updateButtons();
 
     this.trigger('resize');
 
@@ -799,6 +812,22 @@ H5P.QuestionSet = function (options, contentId) {
       // Prevent crashing, log error.
       H5P.error(err);
     }
+  };
+
+  /**
+   * Returns the complete state of question set and sub-content
+   *
+   * @returns {Object}
+   */
+  this.getCurrentState = function () {
+    var state = {
+      progress: currentQuestion,
+      answers: questionInstances.map(function (qi) {
+        return qi.getCurrentState();
+      })
+    };
+
+    return state;
   };
 };
 
