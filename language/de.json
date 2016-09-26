@@ -109,6 +109,10 @@
       ]
     },
     {
+      "label": "Disable backwards navigation",
+      "description": "This option will only allow you to move forward in Question Set"
+    },
+    {
       "label": "Quiz beendet",
       "fields": [
         {
