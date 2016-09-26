@@ -194,6 +194,14 @@
     ]
   },
   {
+    "name": "disableBackwardsNavigation",
+    "type": "boolean",
+    "label": "Disable backwards navigation",
+    "description": "This option will only allow you to move forward in Question Set",
+    "optional": true,
+    "default": false
+  },
+  {
     "name": "endGame",
     "type": "group",
     "label": "Quiz finished",

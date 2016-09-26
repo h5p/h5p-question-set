@@ -38,7 +38,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <% } %>' +
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
-          '      <% if (progressType == "dots") { %>' +
+          '      <% if (progressType == "dots" && !disableBackwardsNavigation) { %>' +
           '        <ul class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
           '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
@@ -113,7 +113,8 @@ H5P.QuestionSet = function (options, contentId) {
       retryButtonText: 'Retry',
       showAnimations: false,
       skipButtonText: 'Skip video'
-    }
+    },
+    disableBackwardsNavigation: false
   };
 
   var template = new EJS({text: texttemplate});
@@ -125,7 +126,7 @@ H5P.QuestionSet = function (options, contentId) {
   var $myDom;
   var scoreBar;
   var up;
-  renderSolutions = false;
+  var renderSolutions = false;
 
   var $template = $(template.render(params));
   // Set overrides for questions
@@ -325,8 +326,12 @@ H5P.QuestionSet = function (options, contentId) {
       _displayEndGame();
 
     }
-    else {
+    else if (!params.disableBackwardsNavigation || questionInstances[currentQuestion].getAnswerGiven()) {
+      // Allow movement if backward navigation enabled or answer given
       _showQuestion(currentQuestion + direction);
+    }
+    else {
+      //TODO: Give an error message ? or disable/grey out previous button when not allowed
     }
   };
 
@@ -594,7 +599,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       // Add previous question button
-      if (questionInstances[0] !== question) {
+      if (questionInstances[0] !== question && !params.disableBackwardsNavigation) {
         question.addButton('prev', '', moveQuestion.bind(this, -1), true, {
           href: '#', // Use href since this is a navigation button
           'aria-label': params.texts.prevButton
