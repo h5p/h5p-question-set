@@ -524,7 +524,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         });
         video.play();
 
-        if (params.endGame.skipButtonText) {
+        if (params.endGame.skippable) {
           $('<a class="h5p-joubelui-button h5p-button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
             video.pause();
             $videoContainer.hide();
