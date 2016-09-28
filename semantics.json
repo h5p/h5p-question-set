@@ -213,6 +213,12 @@
         "default": true
       },
       {
+        "name": "showSolutionButton",
+        "type": "boolean",
+        "label": "Display solution button",
+        "default": true
+      },
+      {
         "name": "noResultMessage",
         "type": "text",
         "label": "No results message",

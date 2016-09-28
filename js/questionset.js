@@ -56,6 +56,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  </div>' +
           '</div>';
 
+  var solutionButtonTemplate = options.endGame.showSolutionButton ?
+          '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
+          '';
+
   var resulttemplate =
           '<div class="questionset-results">' +
           '  <div class="greeting"><%= message %></div>' +
@@ -71,7 +75,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% } %>' +
           '  <div class="buttons">' +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></button>' +
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>' +
+          solutionButtonTemplate +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>' +
           '  </div>' +
           '</div>';
