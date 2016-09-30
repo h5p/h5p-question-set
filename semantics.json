@@ -110,9 +110,9 @@
       "label": "Question type",
       "description": "Library for this question.",
       "options": [
-        "H5P.MultiChoice 1.7",
+        "H5P.MultiChoice 1.8",
         "H5P.DragQuestion 1.7",
-        "H5P.Blanks 1.6",
+        "H5P.Blanks 1.7",
         "H5P.MarkTheWords 1.6",
         "H5P.DragText 1.5"
       ]
@@ -192,6 +192,14 @@
         "default": "Current question"
       }
     ]
+  },
+  {
+    "name": "disableBackwardsNavigation",
+    "type": "boolean",
+    "label": "Disable backwards navigation",
+    "description": "This option will only allow you to move forward in Question Set",
+    "optional": true,
+    "default": false
   },
   {
     "name": "endGame",

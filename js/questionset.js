@@ -8,11 +8,12 @@ var H5P = H5P || {};
  *
  * @param {Array} options
  * @param {int} contentId
+ * @param {Object} contentData
  * @returns {H5P.QuestionSet} Instance
  */
-H5P.QuestionSet = function (options, contentId) {
+H5P.QuestionSet = function (options, contentId, contentData) {
   if (!(this instanceof H5P.QuestionSet)) {
-    return new H5P.QuestionSet(options, contentId);
+    return new H5P.QuestionSet(options, contentId, contentData);
   }
   H5P.EventDispatcher.call(this);
   var $ = H5P.jQuery;
@@ -38,7 +39,7 @@ H5P.QuestionSet = function (options, contentId) {
           '  <% } %>' +
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
-          '      <% if (progressType == "dots") { %>' +
+          '      <% if (progressType == "dots" && !disableBackwardsNavigation) { %>' +
           '        <ul class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
           '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
@@ -113,7 +114,8 @@ H5P.QuestionSet = function (options, contentId) {
       retryButtonText: 'Retry',
       showAnimations: false,
       skipButtonText: 'Skip video'
-    }
+    },
+    disableBackwardsNavigation: false
   };
 
   var template = new EJS({text: texttemplate});
@@ -125,7 +127,11 @@ H5P.QuestionSet = function (options, contentId) {
   var $myDom;
   var scoreBar;
   var up;
-  renderSolutions = false;
+  var renderSolutions = false;
+  contentData = contentData || {};
+  if (contentData.previousState) {
+    currentQuestion = contentData.previousState.progress;
+  }
 
   var $template = $(template.render(params));
   // Set overrides for questions
@@ -158,8 +164,11 @@ H5P.QuestionSet = function (options, contentId) {
     question.params.overrideSettings = question.params.overrideSettings || {};
     question.params.overrideSettings.$confirmationDialogParent = $template.last();
     question.params.overrideSettings.instance = this;
-
-    var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined, {parent: self});
+    var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
+      {
+        previousState: contentData.previousState ? contentData.previousState.answers[i] : undefined,
+        parent: self
+      });
     questionInstance.on('resize', function () {
       up = true;
       self.trigger('resize');
@@ -325,8 +334,12 @@ H5P.QuestionSet = function (options, contentId) {
       _displayEndGame();
 
     }
-    else {
+    else if (!params.disableBackwardsNavigation || questionInstances[currentQuestion].getAnswerGiven()) {
+      // Allow movement if backward navigation enabled or answer given
       _showQuestion(currentQuestion + direction);
+    }
+    else {
+      //TODO: Give an error message ? or disable/grey out previous button when not allowed
     }
   };
 
@@ -511,7 +524,7 @@ H5P.QuestionSet = function (options, contentId) {
         });
         video.play();
 
-        if (params.endGame.skipButtonText) {
+        if (params.endGame.skippable) {
           $('<a class="h5p-joubelui-button h5p-button skip">' + params.endGame.skipButtonText + '</a>').click(function () {
             video.pause();
             $videoContainer.hide();
@@ -594,7 +607,7 @@ H5P.QuestionSet = function (options, contentId) {
       }
 
       // Add previous question button
-      if (questionInstances[0] !== question) {
+      if (questionInstances[0] !== question && !params.disableBackwardsNavigation) {
         question.addButton('prev', '', moveQuestion.bind(this, -1), true, {
           href: '#', // Use href since this is a navigation button
           'aria-label': params.texts.prevButton
@@ -619,6 +632,9 @@ H5P.QuestionSet = function (options, contentId) {
         }
         event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
       });
+
+      // Mark question if answered
+      toggleAnsweredDot(i, question.getAnswerGiven());
     }
 
     // Allow other libraries to add transitions after the questions have been inited
@@ -675,12 +691,14 @@ H5P.QuestionSet = function (options, contentId) {
 
 
 
-    // Hide all but initial Question.
-    _showQuestion(params.initialQuestion, true);
+    // Hide all but current question
+    _showQuestion(currentQuestion, true);
 
     if (renderSolutions) {
       showSolutions();
     }
+    // Update buttons in case they have changed (restored user state)
+    _updateButtons();
 
     this.trigger('resize');
 
@@ -794,6 +812,22 @@ H5P.QuestionSet = function (options, contentId) {
       // Prevent crashing, log error.
       H5P.error(err);
     }
+  };
+
+  /**
+   * Returns the complete state of question set and sub-content
+   *
+   * @returns {Object}
+   */
+  this.getCurrentState = function () {
+    var state = {
+      progress: currentQuestion,
+      answers: questionInstances.map(function (qi) {
+        return qi.getCurrentState();
+      })
+    };
+
+    return state;
   };
 };
 
