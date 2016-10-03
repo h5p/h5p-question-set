@@ -165,9 +165,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     question.params.overrideSettings = question.params.overrideSettings || {};
     question.params.overrideSettings.$confirmationDialogParent = $template.last();
     question.params.overrideSettings.instance = this;
+    var hasAnswers = contentData.previousState && contentData.previousState.answers;
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
       {
-        previousState: contentData.previousState ? contentData.previousState.answers[i] : undefined,
+        previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
         parent: self
       });
     questionInstance.on('resize', function () {
