@@ -39,7 +39,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% } %>' +
           '  <div class="qs-footer">' +
           '    <div class="qs-progress">' +
-          '      <% if (progressType == "dots" && !disableBackwardsNavigation) { %>' +
+          '      <% if (progressType == "dots") { %>' +
           '        <ul class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
           '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
@@ -128,6 +128,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var scoreBar;
   var up;
   var renderSolutions = false;
+  var showingSolutions = false;
   contentData = contentData || {};
   if (contentData.previousState) {
     currentQuestion = contentData.previousState.progress;
@@ -191,6 +192,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Update button state.
   var _updateButtons = function () {
+    // Verify that current question is answered when backward nav is disabled
+    if (params.disableBackwardsNavigation) {
+      if (questionInstances[currentQuestion].getAnswerGiven()) {
+        questionInstances[currentQuestion].showButton('next');
+      }
+      else {
+        questionInstances[currentQuestion].hideButton('next');
+      }
+    }
+
     var answered = true;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       answered = answered && (questionInstances[i]).getAnswerGiven();
@@ -280,7 +291,17 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @public
    */
   var showSolutions = function () {
+    showingSolutions = true;
     for (var i = 0; i < questionInstances.length; i++) {
+
+      // Enable back and forth navigation in solution mode
+      if (i < questionInstances.length - 1) {
+        questionInstances[i].showButton('next');
+      }
+      if (i > 0) {
+        questionInstances[i].showButton('prev');
+      }
+
       try {
         // Do not read answers
         questionInstances[i].toggleReadSpeaker(true);
@@ -300,9 +321,23 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @public
    */
   var resetTask = function () {
+    showingSolutions = false;
     for (var i = 0; i < questionInstances.length; i++) {
       try {
         questionInstances[i].resetTask();
+
+        // Hide back and forth navigation in normal mode
+        if (params.disableBackwardsNavigation) {
+          // Check if first question is answered by default
+          if (i === 0 && questionInstances[i].getAnswerGiven()) {
+            questionInstances[i].showButton('next');
+          }
+          else {
+            questionInstances[i].hideButton('next');
+          }
+
+          questionInstances[i].hideButton('prev');
+        }
       }
       catch(error) {
         H5P.error("subcontent does not contain a valid resetTask function");
@@ -329,17 +364,19 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   var moveQuestion = function (direction) {
+    if (params.disableBackwardsNavigation && !questionInstances[currentQuestion].getAnswerGiven()) {
+      questionInstances[currentQuestion].hideButton('next');
+      questionInstances[currentQuestion].hideButton('finish');
+      return;
+    }
+
     _stopQuestion(currentQuestion);
     if (currentQuestion + direction >= questionInstances.length) {
       _displayEndGame();
-
-    }
-    else if (!params.disableBackwardsNavigation || questionInstances[currentQuestion].getAnswerGiven()) {
-      // Allow movement if backward navigation enabled or answer given
-      _showQuestion(currentQuestion + direction);
     }
     else {
-      //TODO: Give an error message ? or disable/grey out previous button when not allowed
+      // Allow movement if backward navigation enabled or answer given
+      _showQuestion(currentQuestion + direction);
     }
   };
 
@@ -598,21 +635,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           moveQuestion.bind(this, 1), false);
 
       } else {
-
-        // Add next question button
-        question.addButton('next', '', moveQuestion.bind(this, 1), true, {
-          href: '#', // Use href since this is a navigation button
-          'aria-label': params.texts.nextButton
-        });
+        // Only show button next button when answered or is allowed to go back
+        question.addButton('next', '', moveQuestion.bind(this, 1),
+          !params.disableBackwardsNavigation || !!question.getAnswerGiven(), {
+            href: '#', // Use href since this is a navigation button
+            'aria-label': params.texts.nextButton
+          });
       }
 
       // Add previous question button
-      if (questionInstances[0] !== question && !params.disableBackwardsNavigation) {
-        question.addButton('prev', '', moveQuestion.bind(this, -1), true, {
+      question.addButton('prev', '', moveQuestion.bind(this, -1),
+        !(questionInstances[0] === question || params.disableBackwardsNavigation), {
           href: '#', // Use href since this is a navigation button
           'aria-label': params.texts.prevButton
         });
-      }
 
       question.on('xAPI', function (event) {
         var shortVerb = event.getVerb();
@@ -653,9 +689,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
      * @param {Object} [event]
      */
     var handleProgressDotClick = function (event) {
+      // Disable dots when backward nav disabled
+      event.preventDefault();
+      if (params.disableBackwardsNavigation && !showingSolutions) {
+        return;
+      }
       _stopQuestion(currentQuestion);
       _showQuestion($(this).parent().index());
-      event.preventDefault();
     };
 
     // Set event listeners.
