@@ -45,8 +45,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
           '                   aria-label="<%=' +
           '                   texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
-          '                   + ", " + texts.unansweredText' +
-          '            %>" tabindex="-1"></a></li>' +
+          '                   + ", " + texts.unansweredText %>" tabindex="-1" ' +
+          '                   <% if (disableBackwardsNavigation) { %> aria-disabled="true" <% } %>' +
+          '            ></a></li>' +
           '          <% } %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -296,6 +297,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (var i = 0; i < questionInstances.length; i++) {
 
       // Enable back and forth navigation in solution mode
+      toggleDotsNavigation(true);
       if (i < questionInstances.length - 1) {
         questionInstances[i].showButton('next');
       }
@@ -317,6 +319,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   /**
+   * Toggles whether dots are enabled for navigation
+   */
+  var toggleDotsNavigation = function (enable) {
+    console.log("toggle dots", enable);
+    $('.progress-dot', $myDom).each(function () {
+      $(this).attr('aria-disabled', enable ? 'false' : 'true');
+    });
+  };
+
+  /**
    * Resets the task and every subcontent task.
    * Used for contracts with integrated content.
    * @public
@@ -329,6 +341,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         // Hide back and forth navigation in normal mode
         if (params.disableBackwardsNavigation) {
+          toggleDotsNavigation(false);
+
           // Check if first question is answered by default
           if (i === 0 && questionInstances[i].getAnswerGiven()) {
             questionInstances[i].showButton('next');
