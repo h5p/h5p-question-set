@@ -114,6 +114,9 @@
           "label": "Visualizza risultati"
         },
         {
+          "label": "Display solution button"
+        },
+        {
           "label": "No results message",
           "description": "Text displayed on end page when \"Display results\" is disabled",
           "default": "Finished"
