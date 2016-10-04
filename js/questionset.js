@@ -131,7 +131,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var renderSolutions = false;
   var showingSolutions = false;
   contentData = contentData || {};
-  if (contentData.previousState) {
+  if (contentData.previousState && contentData.previousState.progress) {
     currentQuestion = contentData.previousState.progress;
   }
 
