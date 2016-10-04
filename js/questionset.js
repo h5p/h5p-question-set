@@ -42,12 +42,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '      <% if (progressType == "dots") { %>' +
           '        <ul class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
-          '                   aria-label="<%=' +
-          '                   texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
-          '                   + ", " + texts.unansweredText %>" tabindex="-1" ' +
-          '                   <% if (disableBackwardsNavigation) { %> aria-disabled="true" <% } %>' +
-          '            ></a></li>' +
+          '           <li class="progress-item">' +
+          '             <a href="#" ' +
+          '               class="progress-dot unanswered<%' +
+          '               if (disableBackwardsNavigation) { %> disabled <% } %>"' +
+          '               aria-label="<%=' +
+          '               texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
+          '               + ", " + texts.unansweredText %>" tabindex="-1" ' +
+          '               <% if (disableBackwardsNavigation) { %> aria-disabled="true" <% } %>' +
+          '             ></a>' +
+          '           </li>' +
           '          <% } %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -323,7 +327,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   var toggleDotsNavigation = function (enable) {
     $('.progress-dot', $myDom).each(function () {
+      $(this).toggleClass('disabled', !enable);
       $(this).attr('aria-disabled', enable ? 'false' : 'true');
+      // Remove tabindex
+      if (!enable) {
+        $(this).attr('tabindex', '-1');
+      }
     });
   };
 
@@ -441,9 +450,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       label += ', ' + texts.currentQuestionText;
     }
 
+    var disabledTabindex = params.disableBackwardsNavigation && !showingSolutions;
     $el.toggleClass('current', isCurrent)
       .attr('aria-label', label)
-      .attr('tabindex', isCurrent ? 0 : -1);
+      .attr('tabindex', isCurrent && !disabledTabindex ? 0 : -1);
   };
 
   var _displayEndGame = function () {
