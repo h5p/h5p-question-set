@@ -322,7 +322,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * Toggles whether dots are enabled for navigation
    */
   var toggleDotsNavigation = function (enable) {
-    console.log("toggle dots", enable);
     $('.progress-dot', $myDom).each(function () {
       $(this).attr('aria-disabled', enable ? 'false' : 'true');
     });
