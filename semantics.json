@@ -202,6 +202,13 @@
     "default": false
   },
   {
+    "name": "randomQuestions",
+    "type": "boolean",
+    "label": "Randomize questions",
+    "description": "Enable to randomize the order of questions on display.",
+    "default": true
+  },
+  {
     "name": "endGame",
     "type": "group",
     "label": "Quiz finished",

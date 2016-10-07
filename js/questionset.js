@@ -77,7 +77,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '</div>';
 
   var defaults = {
-    randomOrder: false,
     initialQuestion: 0,
     progressType: 'dots',
     passPercentage: 50,
@@ -124,14 +123,17 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   var currentQuestion = 0;
   var questionInstances = [];
+  var idMap = [];
   var $myDom;
   var scoreBar;
   var up;
   var renderSolutions = false;
   var showingSolutions = false;
   contentData = contentData || {};
+  var answerIndex;
   if (contentData.previousState) {
     currentQuestion = contentData.previousState.progress;
+    answerIndex = contentData.previousState.order;
   }
 
   var $template = $(template.render(params));
@@ -168,7 +170,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var hasAnswers = contentData.previousState && contentData.previousState.answers;
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
       {
-        previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
+        previousState: hasAnswers ? contentData.previousState.answers[answerIndex[i]] : undefined,
         parent: self
       });
     questionInstance.on('resize', function () {
@@ -176,6 +178,40 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       self.trigger('resize');
     });
     questionInstances.push(questionInstance);
+  }
+
+  // Save the original order of questions
+  for (var i = 0; i < questionInstances.length; i++) {
+    questionInstances[i].originalOrder = i;
+    idMap[i] = i;
+  }
+
+  // Randomize questions only once
+  if (params.randomQuestions && contentData.previousState === undefined) {
+    // Randomize order of the questions
+    questionInstances = H5P.shuffleArray(questionInstances);
+
+    // Save new randomized order in case the question is resumed
+    for (var i = 0; i < questionInstances.length; i++) {
+      idMap[i] = questionInstances[i].originalOrder;
+    }
+  }
+
+  // Restore previous order of questions if necessary
+  if (contentData && contentData.previousState !== undefined
+    && contentData.previousState.order !== undefined) {
+    var temp = [];
+
+    // Fill temporary array in the previous order
+    for (var i = 0; i < questionInstances.length; i++) {
+      temp[contentData.previousState.order[i]] = questionInstances[i];
+    }
+
+    // Update current arrays using the temporary array
+    for (var i = 0; i < questionInstances.length; i++) {
+      questionInstances[i] = temp[i];
+      idMap[i] = i;
+    }
   }
 
   // Resize all interactions on resize
@@ -356,6 +392,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     //Force the last page to be reRendered
     rendered = false;
+
+    randomizeQuestions();
   };
 
   var rendered = false;
@@ -363,6 +401,90 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   this.reRender = function () {
     rendered = false;
   };
+
+  var randomizeQuestions = function () {
+
+    if (!params.randomizeQuestions) {
+      return false;
+    }
+
+    // Randomize order of the questions
+    questionInstances = H5P.shuffleArray(questionInstances);
+
+    // Save new randomized order in case the question is resumed
+    for (var i = 0; i < questionInstances.length; i++) {
+      idMap[i] = questionInstances[i].originalOrder;
+    }
+
+    // Find all question containers and detach questions from them
+    $('.question-container', $myDom).each(function (){
+      $(this).children().detach();
+    });
+
+    // Reattach questions and their buttons in the new order
+    for (var i = 0; i < questionInstances.length; i++) {
+      var question = questionInstances[i];
+
+      question.attach($('.question-container:eq(' + i + ')', $myDom));
+
+      // Add 'finish' button if needed
+      if(questionInstances[questionInstances.length -1] === question) {
+
+        if (question.hasButton('finish')) {question.showButton('finish');}
+
+        else {
+          // Add finish question set button
+          question.addButton('finish', params.texts.finishButton,
+            moveQuestion.bind(this, 1), false);
+          }
+      }
+
+      // Add 'next' button if needed
+      if(questionInstances[questionInstances.length -1] !== question) {
+
+        if (question.hasButton('next')) {question.showButton('next');}
+
+        else {
+          // Only show button 'next' button when answered or is allowed to go back
+          question.addButton('next', '', moveQuestion.bind(this, 1),
+            !params.disableBackwardsNavigation || !!question.getAnswerGiven(), {
+              href: '#', // Use href since this is a navigation button
+              'aria-label': params.texts.nextButton
+            });
+        }
+      }
+
+      // Add 'previous' button if needed
+      if(questionInstances[0] !== question) {
+
+        if (question.hasButton('prev')) {question.showButton('prev');}
+
+        else {
+          // Only show button 'previous' button when answered or is allowed to go forward
+          question.addButton('prev', '', moveQuestion.bind(this, -1),
+            !(questionInstances[0] === question || params.disableBackwardsNavigation), {
+              href: '#', // Use href since this is a navigation button
+              'aria-label': params.texts.prevButton
+            });
+        }
+      }
+
+      // Hide relevant buttons since the order has changed
+      if (questionInstances[0] === question) {
+        question.hideButton('prev');
+      }
+
+      if (questionInstances[questionInstances.length-1] === question) {
+        question.hideButton('next');
+      }
+
+      if (questionInstances[questionInstances.length-1] !== question) {
+        question.hideButton('finish');
+      }
+
+    }
+
+  }
 
   var moveQuestion = function (direction) {
     if (params.disableBackwardsNavigation && !questionInstances[currentQuestion].getAnswerGiven()) {
@@ -865,7 +987,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       progress: currentQuestion,
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
-      })
+      }),
+      order: idMap
     };
 
     return state;
