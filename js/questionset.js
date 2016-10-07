@@ -881,17 +881,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   /**
    * Returns the complete state of question set and sub-content
    *
-   * @returns {Object}
+   * @returns {Object} current state
    */
   this.getCurrentState = function () {
-    var state = {
-      progress: currentQuestion,
+    return {
+      progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
       })
     };
-
-    return state;
   };
 };
 
