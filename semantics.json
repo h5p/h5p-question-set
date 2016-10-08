@@ -120,6 +120,22 @@
     }
   },
   {
+    "name": "randomizeQuestions",
+    "type": "boolean",
+    "label": "Randomize questions",
+    "description": "Show questions to the user in random order.",
+    "default": false
+  },
+  {
+    "name": "randomQuestionsAmount",
+    "type": "number",
+    "label": "Random questions amount",
+    "description": "Amount of questions that will be shown to the user in random order. If it is empty all questions will be shown.",
+    "min": 1,
+    "step": 1,
+    "optional": true
+  },
+  {
     "name": "texts",
     "type": "group",
     "label": "Interface texts in quiz",

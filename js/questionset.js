@@ -20,6 +20,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var self = this;
   this.contentId = contentId;
 
+  H5P.Randomize(options, 'questions');
+
   var texttemplate =
           '<% if (introPage.showIntroPage) { %>' +
           '<div class="intro-page">' +
