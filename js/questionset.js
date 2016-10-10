@@ -469,7 +469,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Get total score.
     var finals = self.getScore();
-    var totals = self.totalScore();
+    var totals = self.getMaxScore();
     var scoreString = params.endGame.scoreString.replace("@score", finals).replace("@total", totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
     var eventData = {
@@ -494,7 +494,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     };
 
     var displayResults = function () {
-      self.triggerXAPICompleted(self.getScore(), self.totalScore(), success);
+      self.triggerXAPICompleted(self.getScore(), self.getMaxScore(), success);
 
       var eparams = {
         message: params.endGame.showResultPage ? params.endGame.message : params.endGame.noResultMessage,
@@ -779,12 +779,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   // Get total score possible for questionset.
-  this.totalScore = function () {
+  this.getMaxScore = function () {
     var score = 0;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       score += questionInstances[i].getMaxScore();
     }
     return score;
+  };
+
+
+  /**
+   * @deprecated since version 1.9.2
+   * @returns {number}
+   */
+  this.totalScore = function () {
+    return this.getMaxScore();
   };
 
   /**
