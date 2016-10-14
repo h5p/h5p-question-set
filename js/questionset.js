@@ -42,11 +42,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '      <% if (progressType == "dots") { %>' +
           '        <ul class="dots-container" role="navigation">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '            <li class="progress-item"><a href="#" class="progress-dot unanswered" ' +
-          '                   aria-label="<%=' +
-          '                   texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
-          '                   + ", " + texts.unansweredText' +
-          '            %>" tabindex="-1"></a></li>' +
+          '           <li class="progress-item">' +
+          '             <a href="#" ' +
+          '               class="progress-dot unanswered<%' +
+          '               if (disableBackwardsNavigation) { %> disabled <% } %>"' +
+          '               aria-label="<%=' +
+          '               texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
+          '               + ", " + texts.unansweredText %>" tabindex="-1" ' +
+          '               <% if (disableBackwardsNavigation) { %> aria-disabled="true" <% } %>' +
+          '             ></a>' +
+          '           </li>' +
           '          <% } %>' +
           '        </div>' +
           '      <% } else if (progressType == "textual") { %>' +
@@ -131,7 +136,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var showingSolutions = false;
   contentData = contentData || {};
   var answerIndex;
-  if (contentData.previousState) {
+  if (contentData.previousState && contentData.previousState.progress) {
     currentQuestion = contentData.previousState.progress;
     answerIndex = contentData.previousState.order;
   }
@@ -332,6 +337,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (var i = 0; i < questionInstances.length; i++) {
 
       // Enable back and forth navigation in solution mode
+      toggleDotsNavigation(true);
       if (i < questionInstances.length - 1) {
         questionInstances[i].showButton('next');
       }
@@ -353,6 +359,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   /**
+   * Toggles whether dots are enabled for navigation
+   */
+  var toggleDotsNavigation = function (enable) {
+    $('.progress-dot', $myDom).each(function () {
+      $(this).toggleClass('disabled', !enable);
+      $(this).attr('aria-disabled', enable ? 'false' : 'true');
+      // Remove tabindex
+      if (!enable) {
+        $(this).attr('tabindex', '-1');
+      }
+    });
+  };
+
+  /**
    * Resets the task and every subcontent task.
    * Used for contracts with integrated content.
    * @public
@@ -365,6 +385,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         // Hide back and forth navigation in normal mode
         if (params.disableBackwardsNavigation) {
+          toggleDotsNavigation(false);
+
           // Check if first question is answered by default
           if (i === 0 && questionInstances[i].getAnswerGiven()) {
             questionInstances[i].showButton('next');
@@ -550,9 +572,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       label += ', ' + texts.currentQuestionText;
     }
 
+    var disabledTabindex = params.disableBackwardsNavigation && !showingSolutions;
     $el.toggleClass('current', isCurrent)
       .attr('aria-label', label)
-      .attr('tabindex', isCurrent ? 0 : -1);
+      .attr('tabindex', isCurrent && !disabledTabindex ? 0 : -1);
   };
 
   var _displayEndGame = function () {
@@ -568,7 +591,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Get total score.
     var finals = self.getScore();
-    var totals = self.totalScore();
+    var totals = self.getMaxScore();
     var scoreString = params.endGame.scoreString.replace("@score", finals).replace("@total", totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
     var eventData = {
@@ -593,7 +616,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     };
 
     var displayResults = function () {
-      self.triggerXAPICompleted(self.getScore(), self.totalScore(), success);
+      self.triggerXAPICompleted(self.getScore(), self.getMaxScore(), success);
 
       var eparams = {
         message: params.endGame.showResultPage ? params.endGame.message : params.endGame.noResultMessage,
@@ -878,12 +901,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   // Get total score possible for questionset.
-  this.totalScore = function () {
+  this.getMaxScore = function () {
     var score = 0;
     for (var i = questionInstances.length - 1; i >= 0; i--) {
       score += questionInstances[i].getMaxScore();
     }
     return score;
+  };
+
+
+  /**
+   * @deprecated since version 1.9.2
+   * @returns {number}
+   */
+  this.totalScore = function () {
+    return this.getMaxScore();
   };
 
   /**
@@ -980,18 +1012,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   /**
    * Returns the complete state of question set and sub-content
    *
-   * @returns {Object}
+   * @returns {Object} current state
    */
   this.getCurrentState = function () {
-    var state = {
-      progress: currentQuestion,
+    return {
+      progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
       }),
       order: idMap
     };
-
-    return state;
   };
 };
 
