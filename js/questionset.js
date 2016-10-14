@@ -136,8 +136,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var showingSolutions = false;
   contentData = contentData || {};
   var answerIndex;
-  if (contentData.previousState && contentData.previousState.progress) {
-    currentQuestion = contentData.previousState.progress;
+  if (contentData.previousState) {
+    if (contentData.previousState.progress) {
+      currentQuestion = contentData.previousState.progress;
+    }
     answerIndex = contentData.previousState.order;
   }
 
@@ -161,7 +163,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Instantiate question instances
   for (var i = 0; i < params.questions.length; i++) {
-    var question = params.questions[i];
+    var question = params.questions[answerIndex[i]];
 
     if (override) {
       // Extend subcontent with the overrided settings.
@@ -426,7 +428,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   var randomizeQuestions = function () {
 
-    if (!params.randomizeQuestions) {
+    if (!params.randomQuestions) {
       return false;
     }
 
