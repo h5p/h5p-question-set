@@ -128,7 +128,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   var currentQuestion = 0;
   var questionInstances = [];
-  var idMap = [];
+  var questionOrder = []; //Stores order of questions to allow resuming of question set
   var $myDom;
   var scoreBar;
   var up;
@@ -136,11 +136,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var showingSolutions = false;
   contentData = contentData || {};
   var answerIndex;
+
+  // Bring question set up to date when resuming
   if (contentData.previousState) {
     if (contentData.previousState.progress) {
       currentQuestion = contentData.previousState.progress;
     }
-    answerIndex = contentData.previousState.order;
+    questionOrder = contentData.previousState.order;
+  }
+
+  else {
+    // Set a generic order of 0...N if not resuming
+    for (var i = 0; i < params.questions.length; i++) {
+      questionOrder[i] = i;
+    }
   }
 
   var $template = $(template.render(params));
@@ -163,7 +172,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Instantiate question instances
   for (var i = 0; i < params.questions.length; i++) {
-    var question = params.questions[answerIndex[i]];
+
+    // Create questions in either a generic or randomized order
+    var question = params.questions[questionOrder[i]];
 
     if (override) {
       // Extend subcontent with the overrided settings.
@@ -177,7 +188,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var hasAnswers = contentData.previousState && contentData.previousState.answers;
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
       {
-        previousState: hasAnswers ? contentData.previousState.answers[answerIndex[i]] : undefined,
+        previousState: hasAnswers ? contentData.previousState.answers[questionOrder[i]] : undefined,
         parent: self
       });
     questionInstance.on('resize', function () {
@@ -187,38 +198,32 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     questionInstances.push(questionInstance);
   }
 
-  // Save the original order of questions
-  for (var i = 0; i < questionInstances.length; i++) {
-    questionInstances[i].originalOrder = i;
-    idMap[i] = i;
+  // General purpose function to randomize elements and update a map of their indexes
+  // TODO: Move this function to a seperate file
+  var randomizeElements = function (elements, map) {
+
+    // Save the original order of the elements in a nested array [[element1,0],[element2,1]...
+    var tuples = elements.map(function(object, index) { return [object, index] });
+
+    tuples = H5P.shuffleArray(tuples);
+
+    // Retrieve elements and indexes
+    elements = tuples.map(d => d[0]);
+    map = tuples.map(d => d[1]);
+
+    return {
+      elements:elements,
+      map:map
+    };
+
   }
 
-  // Randomize questions only once
+  // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
-    // Randomize order of the questions
-    questionInstances = H5P.shuffleArray(questionInstances);
 
-    // Save new randomized order in case the question is resumed
-    for (var i = 0; i < questionInstances.length; i++) {
-      idMap[i] = questionInstances[i].originalOrder;
-    }
-  }
-
-  // Restore previous order of questions if necessary
-  if (contentData && contentData.previousState !== undefined
-    && contentData.previousState.order !== undefined) {
-    var temp = [];
-
-    // Fill temporary array in the previous order
-    for (var i = 0; i < questionInstances.length; i++) {
-      temp[contentData.previousState.order[i]] = questionInstances[i];
-    }
-
-    // Update current arrays using the temporary array
-    for (var i = 0; i < questionInstances.length; i++) {
-      questionInstances[i] = temp[i];
-      idMap[i] = i;
-    }
+    var result = randomizeElements(questionInstances,questionOrder);
+    questionInstances = result.elements;
+    questionOrder = result.map;
   }
 
   // Resize all interactions on resize
@@ -417,7 +422,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     //Force the last page to be reRendered
     rendered = false;
 
-    randomizeQuestions();
+    if (params.randomQuestions) {
+      // randomizeQuestions();
+    }
+
   };
 
   var rendered = false;
@@ -428,16 +436,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   var randomizeQuestions = function () {
 
-    if (!params.randomQuestions) {
-      return false;
-    }
-
     // Randomize order of the questions
     questionInstances = H5P.shuffleArray(questionInstances);
 
     // Save new randomized order in case the question is resumed
     for (var i = 0; i < questionInstances.length; i++) {
-      idMap[i] = questionInstances[i].originalOrder;
+      questionOrder[i] = questionInstances[i].originalOrder;
     }
 
     // Find all question containers and detach questions from them
@@ -1022,7 +1026,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
       }),
-      order: idMap
+      order: questionOrder
     };
   };
 };
