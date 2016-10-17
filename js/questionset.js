@@ -128,7 +128,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   var currentQuestion = 0;
   var questionInstances = [];
-  var questionOrder = []; //Stores order of questions to allow resuming of question set
+  var questionOrder; //Stores order of questions to allow resuming of question set
   var $myDom;
   var scoreBar;
   var up;
@@ -143,13 +143,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       currentQuestion = contentData.previousState.progress;
     }
     questionOrder = contentData.previousState.order;
-  }
-
-  else {
-    // Set a generic order of 0...N if not resuming
-    for (var i = 0; i < params.questions.length; i++) {
-      questionOrder[i] = i;
-    }
   }
 
   var $template = $(template.render(params));
@@ -173,8 +166,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   // Instantiate question instances
   for (var i = 0; i < params.questions.length; i++) {
 
-    // Create questions in either a generic or randomized order
-    var question = params.questions[questionOrder[i]];
+    var question;
+    // If a previous order exists, use it
+    if (questionOrder !== undefined) {
+      question = params.questions[questionOrder[i]];
+    }
+    else {
+      // Use generic order when initialzing for the first time
+      question = params.questions[i];
+    }
 
     if (override) {
       // Extend subcontent with the overrided settings.
@@ -198,8 +198,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     questionInstances.push(questionInstance);
   }
 
-  // General purpose function to randomize elements and update a map of their indexes
-  // TODO: Move this function to a seperate file
+  /**
+   * Randomizes elements in an array and updates a map of the order
+   * @param  elements
+   * @param  map
+   * @return {array}
+   */
   var randomizeElements = function (elements, map) {
 
     // Save the original order of the elements in a nested array [[element1,0],[element2,1]...
@@ -423,7 +427,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     rendered = false;
 
     if (params.randomQuestions) {
-      // randomizeQuestions();
+      randomizeQuestions();
     }
 
   };
@@ -434,15 +438,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     rendered = false;
   };
 
+  /**
+   * Randomizes question instances
+   */
   var randomizeQuestions = function () {
 
-    // Randomize order of the questions
-    questionInstances = H5P.shuffleArray(questionInstances);
-
-    // Save new randomized order in case the question is resumed
-    for (var i = 0; i < questionInstances.length; i++) {
-      questionOrder[i] = questionInstances[i].originalOrder;
-    }
+    var result = randomizeElements(questionInstances,questionOrder);
+    questionInstances = result.elements;
+    questionOrder = result.map;
 
     // Find all question containers and detach questions from them
     $('.question-container', $myDom).each(function (){
@@ -451,50 +454,25 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Reattach questions and their buttons in the new order
     for (var i = 0; i < questionInstances.length; i++) {
+
       var question = questionInstances[i];
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
 
-      // Add 'finish' button if needed
-      if(questionInstances[questionInstances.length -1] === question) {
-
-        if (question.hasButton('finish')) {question.showButton('finish');}
-
-        else {
-          // Add finish question set button
-          question.addButton('finish', params.texts.finishButton,
-            moveQuestion.bind(this, 1), false);
-          }
+      //Show buttons if necessary
+      if(questionInstances[questionInstances.length -1] === question
+        && question.hasButton('finish')) {
+          question.showButton('finish');
       }
 
-      // Add 'next' button if needed
-      if(questionInstances[questionInstances.length -1] !== question) {
-
-        if (question.hasButton('next')) {question.showButton('next');}
-
-        else {
-          // Only show button 'next' button when answered or is allowed to go back
-          question.addButton('next', '', moveQuestion.bind(this, 1),
-            !params.disableBackwardsNavigation || !!question.getAnswerGiven(), {
-              href: '#', // Use href since this is a navigation button
-              'aria-label': params.texts.nextButton
-            });
-        }
+      if(questionInstances[questionInstances.length -1] !== question
+        && question.hasButton('next')) {
+          question.showButton('next');
       }
 
-      // Add 'previous' button if needed
-      if(questionInstances[0] !== question) {
-
-        if (question.hasButton('prev')) {question.showButton('prev');}
-
-        else {
-          // Only show button 'previous' button when answered or is allowed to go forward
-          question.addButton('prev', '', moveQuestion.bind(this, -1),
-            !(questionInstances[0] === question || params.disableBackwardsNavigation), {
-              href: '#', // Use href since this is a navigation button
-              'aria-label': params.texts.prevButton
-            });
-        }
+      if(questionInstances[0] !== question
+        && question.hasButton('prev')) {
+          question.showButton('prev');
       }
 
       // Hide relevant buttons since the order has changed
@@ -779,28 +757,28 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Listen for image resize
       registerImageLoadedListener(question);
 
-      // Add next/finish button
-      if (questionInstances[questionInstances.length -1] === question) {
+      // Add finish button
+      question.addButton('finish', params.texts.finishButton,
+        moveQuestion.bind(this, 1), false);
 
-        // Add finish question set button
-        question.addButton('finish', params.texts.finishButton,
-          moveQuestion.bind(this, 1), false);
+      // Add next button
+      question.addButton('next', '', moveQuestion.bind(this, 1),
+        !params.disableBackwardsNavigation || !!question.getAnswerGiven(), {
+          href: '#', // Use href since this is a navigation button
+          'aria-label': params.texts.nextButton
+        });
 
-      } else {
-        // Only show button next button when answered or is allowed to go back
-        question.addButton('next', '', moveQuestion.bind(this, 1),
-          !params.disableBackwardsNavigation || !!question.getAnswerGiven(), {
-            href: '#', // Use href since this is a navigation button
-            'aria-label': params.texts.nextButton
-          });
-      }
-
-      // Add previous question button
+      // Add previous button
       question.addButton('prev', '', moveQuestion.bind(this, -1),
         !(questionInstances[0] === question || params.disableBackwardsNavigation), {
           href: '#', // Use href since this is a navigation button
           'aria-label': params.texts.prevButton
         });
+
+      // Hide next button if it is the last question
+      if(questionInstances[questionInstances.length -1] === question) {
+        question.hideButton('next');
+      }
 
       question.on('xAPI', function (event) {
         var shortVerb = event.getVerb();
