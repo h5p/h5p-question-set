@@ -1,213 +1,320 @@
 {
   "semantics": [
     {
+      "englishLabel": "Quiz introduction",
       "label": "Introduksjon",
       "fields": [
         {
+          "englishLabel": "Display introduction",
           "label": "Vis introduksjon"
         },
         {
+          "englishLabel": "Title",
           "label": "Tittel",
+          "englishDescription": "This title will be displayed above the introduction text.",
           "description": "Tittel for intoduksjonssiden."
         },
         {
+          "englishLabel": "Introduction text",
           "label": "Introduksjonstekst",
+          "englishDescription": "This text will be displayed before the quiz starts.",
           "description": "Denne teksten vises før spørsmålssettet starter."
         },
         {
+          "englishLabel": "Start button text",
           "label": "Tekst til \"Start\" knappen",
+          "englishDefault": "Start Quiz",
           "default": "Start"
         },
         {
+          "englishLabel": "Background image",
           "label": "Bakgrunnsbilde",
+          "englishDescription": "An optional background image for the introduction.",
           "description": "Bakgrunnsbilde for introduksjonssiden"
         }
       ]
     },
     {
+      "englishLabel": "Background image",
       "label": "Bakgrunnsbilde",
+      "englishDescription": "An optional background image for the Question set.",
       "description": "Bakgrunnsbilde for spørsmålssettet(ikke obligatorisk)."
     },
     {
+      "englishLabel": "Progress indicator",
       "label": "Fremdriftsindikator",
+      "englishDescription": "Question set progress indicator style.",
       "description": "Velg om fremdriften skal angis som prikker(få spørsmål) eller som tekst(mange spørsmål).",
       "options": [
         {
+          "englishLabel": "Textual",
           "label": "Angi fremdrift med tekst"
         },
         {
+          "englishLabel": "Dots",
           "label": "Angi fremdrift med prikker"
         }
       ]
     },
     {
+      "englishLabel": "Pass percentage",
       "label": "Krav for å bestå",
+      "englishDescription": "Percentage of Total score required for passing the quiz.",
       "description": "Antall prosent riktig som kreves for å bestå spørsmålssettet."
     },
     {
+      "englishLabel": "Questions",
       "label": "Spørsmål",
+      "widgets": [
+        {
+          "englishLabel": "Default",
+          "label": "Default"
+        },
+        {
+          "englishLabel": "Textual",
+          "label": "Textual"
+        }
+      ],
+      "englishEntity": "question",
       "entity": "spørsmål",
       "field": {
+        "englishLabel": "Question type",
         "label": "Spørsmål",
-        "fields": [
-          {
-            "label": "Spørsmålstype",
-            "description": "Velg spørsmålstype for dette spørsmålet"
-          }
-        ]
+        "englishDescription": "Library for this question.",
+        "description": "Library for this question."
       }
     },
     {
+      "englishLabel": "Interface texts in quiz",
       "label": "Ledetekster",
       "fields": [
         {
+          "englishLabel": "Back button",
           "label": "Førre-knappen",
+          "englishDefault": "Previous question",
           "default": "Førre"
         },
         {
+          "englishLabel": "Next button",
           "label": "Neste-knappen",
+          "englishDefault": "Next question",
           "default": "Neste"
         },
         {
+          "englishLabel": "Finish button",
           "label": "Avslutt-knappen",
+          "englishDefault": "Finish",
           "default": "Avslutt"
         },
         {
+          "englishLabel": "Progress text",
           "label": "Fremdriftstekst",
+          "englishDescription": "Text used if textual progress is selected.",
           "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total",
+          "englishDefault": "Question: @current of @total questions",
           "default": "Deloppgåve @current av @total"
         },
         {
+          "englishLabel": "Label for jumping to a certain question",
           "label": "Merkelapp ved hopping til spørsmål",
+          "englishDescription": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
           "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret, og '%total' istedet for totalt antall spørsmål.",
+          "englishDefault": "Question %d of %total",
           "default": "Spørsmål %d av %total"
         },
         {
+          "englishLabel": "Copyright dialog question label",
           "label": "Opphavsrett spørsmål-etikett",
+          "englishDefault": "Question",
           "default": "Spørsmål"
         },
         {
+          "englishLabel": "Readspeaker progress",
           "label": "Fremdriftstekst for hjelpemiddelteknologi",
+          "englishDescription": "May use @current and @total question variables",
           "description": "Kan bruke @current og @total variabler",
+          "englishDefault": "Question @current of @total",
           "default": "Deloppgave @current av @total"
         },
         {
+          "englishLabel": "Unanswered question text",
           "label": "Ikke svart på spørsmål-tekst",
+          "englishDefault": "Unanswered",
           "default": "Ikke svart"
         },
         {
+          "englishLabel": "Answered question text",
           "label": "Svart på spørsmål-tekst",
+          "englishDefault": "Answered",
           "default": "Svar avgitt"
         },
         {
+          "englishLabel": "Current question text",
           "label": "Aktivt spørsmål-tekst",
+          "englishDefault": "Current question",
           "default": "Aktivt spørsmål"
         }
       ]
     },
     {
+      "englishLabel": "Disable backwards navigation",
       "label": "Slå av bakoverknapp",
+      "englishDescription": "This option will only allow you to move forward in Question Set",
       "description": "Slå på for å nekte å gå tilbake i Question Set"
     },
     {
-      "label": "Spørsmålssett avslutning",
+      "englishLabel": "Randomize questions",
+      "label": "Random spørsmåler",
+      "englishDescription": "Enable to randomize the order of questions on display.",
+      "description": "Enable to randomize the order of questions on display."
+    },
+    {
+      "englishLabel": "Quiz finished",
+      "label": "Innstillinger for «Fasit»- og «Prøv igjen»-knapp",
       "fields": [
         {
-          "label": "Vis resultat"
+          "englishLabel": "Display results",
+          "label": "Overstyr «Fasit»-knapp"
         },
         {
-          "label": "Melding når resultater ikke vises",
-          "description": "Teksten vises på avslutnings-siden når resultater ikke vises",
-          "default": "Ferdig"
+          "englishLabel": "No results message",
+          "label": "Overstyr «Prøv igjen»-knapp",
+          "englishDescription": "Text displayed on end page when \"Display results\" is disabled",
+          "description": "Dette valget avgjør om «Prøv igjen»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "englishDefault": "Finished",
+          "default": "Finished"
         },
         {
-          "label": "Overskrift over tilbakemeldingar",
-          "default": "Resultat:",
-          "description": "Denne overskriften vises over tilbakemeldingane på slutten av spørsmålssettet."
+          "englishLabel": "Feedback heading",
+          "label": "Feedback heading",
+          "englishDefault": "Your result:",
+          "default": "Your result:",
+          "englishDescription": "This heading will be displayed at the end of the quiz when the user has answered all questions.",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
         },
         {
-          "label": "Poengvisningstekst",
-          "default": "@score av @total poeng",
-          "description": "Tekst som viser brukerens oppnådde poeng. \"@score\" blir erstatta med utregna resultat, \"@total\" blir erstatta med høgest mulig resultat."
+          "englishLabel": "Score display text",
+          "label": "Score display text",
+          "englishDescription": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
+          "description": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
+          "englishDefault": "You got @score of @total points",
+          "default": "You got @score of @total points"
         },
         {
-          "label": "Tittel ved bestått",
-          "default": "Gratulerer!",
-          "description": "Denne tittelen vises dersom brukeren har bestått spørsmålssettet."
+          "englishLabel": "Quiz passed greeting",
+          "label": "Quiz passed greeting",
+          "englishDefault": "Congratulations!",
+          "default": "Congratulations!",
+          "englishDescription": "This text will be displayed above the score if the user has successfully passed the quiz.",
+          "description": "This text will be displayed above the score if the user has successfully passed the quiz."
         },
         {
-          "label": "Kommentar ved bestått",
-          "default": "Dette gjekk bra.",
-          "description": "Denne kommentaren vises dersom brukaren har bestått spørsmålssettet."
+          "englishLabel": "Passed comment",
+          "label": "Passed comment",
+          "englishDefault": "You did very well!",
+          "default": "You did very well!",
+          "englishDescription": "This comment will be displayed after the score if the user has successfully passed the quiz.",
+          "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
         },
         {
-          "label": "Tittel ved ikkje bestått",
-          "default": "Dette gjekk ikkje så bra!",
-          "description": "Denne tittelen visast dersom brukaren ikkje har bestått spørsmålssettet."
+          "englishLabel": "Quiz failed title",
+          "label": "Quiz failed title",
+          "englishDefault": "You did not pass this time.",
+          "default": "You did not pass this time.",
+          "englishDescription": "This text will be displayed above the score if the user has failed the quiz.",
+          "description": "This text will be displayed above the score if the user has failed the quiz."
         },
         {
-          "label": "Kommentar ved ikkje bestått",
-          "default": "Det er litt mange feil her. Prøv igjen!",
-          "description": "Denne kommentaren vises dersom brukaren ikkje har bestått spørsmålssettet."
+          "englishLabel": "Failed comment",
+          "label": "Failed comment",
+          "englishDefault": "Have another try!",
+          "default": "Have another try!",
+          "englishDescription": "This comment will be displayed after the score if the user has failed the quiz.",
+          "description": "This comment will be displayed after the score if the user has failed the quiz."
         },
         {
-          "label": "Tekst til \"Fasit\" knapp",
-          "default": "Vis fasit",
-          "description": ""
+          "englishLabel": "Solution button label",
+          "label": "Solution button label",
+          "englishDefault": "Show solution",
+          "default": "Show solution",
+          "englishDescription": "Text for the solution button.",
+          "description": "Text for the solution button."
         },
         {
-          "label": "Tekst til \"Prøv igjen\" knapp",
-          "default": "Prøv igjen",
-          "description": ""
+          "englishLabel": "Retry button label",
+          "label": "Retry button label",
+          "englishDefault": "Retry",
+          "default": "Retry",
+          "englishDescription": "Text for the retry button.",
+          "description": "Text for the retry button."
         },
         {
-          "label": "Tekst til \"Avslutt\" knapp",
-          "default": "Avslutt"
+          "englishLabel": "Finish button text",
+          "label": "Finish button text",
+          "englishDefault": "Finish",
+          "default": "Finish"
         },
         {
-          "label": "Vis video før resultata"
+          "englishLabel": "Display video before quiz results",
+          "label": "Display video before quiz results"
         },
         {
-          "label": "Tillat å hoppe over video"
+          "englishLabel": "Enable skip video button",
+          "label": "Enable skip video button"
         },
         {
-          "label": "Tekst til \"Hopp over video\" knapp",
-          "default": "Hopp over"
+          "englishLabel": "Skip video button label",
+          "label": "Skip video button label",
+          "englishDefault": "Skip video",
+          "default": "Skip video"
         },
         {
-          "label": "Video ved bestått",
-          "description": "Denne videoen vil bli vist dersom brukaren består spørsmålssettet."
+          "englishLabel": "Passed video",
+          "label": "Passed video",
+          "englishDescription": "This video will be played if the user successfully passed the quiz.",
+          "description": "This video will be played if the user successfully passed the quiz."
         },
         {
-          "label": "Video ved ikke bestått",
-          "description": "Denne videoen vil bli vist dersom brukaren ikkje består spørsmålssettet."
+          "englishLabel": "Fail video",
+          "label": "Fail video",
+          "englishDescription": "This video will be played if the user failes the quiz.",
+          "description": "This video will be played if the user failes the quiz."
         }
       ]
     },
     {
-      "label": "Innstillinger for «Fasit»- og «Prøv igjen»-knapp",
+      "englishLabel": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
       "fields": [
         {
-          "label": "Overstyr «Fasit»-knapp",
-          "description": "Dette valget avgjør om «Fasit»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "englishLabel": "Override \"Show Solution\" button",
+          "label": "Override \"Show Solution\" button",
+          "englishDescription": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
-              "label": "Aktivert"
+              "englishLabel": "Enabled",
+              "label": "Enabled"
             },
             {
-              "label": "Deaktivert"
+              "englishLabel": "Disabled",
+              "label": "Disabled"
             }
           ]
         },
         {
-          "label": "Overstyr «Prøv igjen»-knapp",
-          "description": "Dette valget avgjør om «Prøv igjen»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "englishLabel": "Override \"Retry\" button",
+          "label": "Override \"Retry\" button",
+          "englishDescription": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
-              "label": "Aktivert"
+              "englishLabel": "Enabled",
+              "label": "Enabled"
             },
             {
-              "label": "Deaktivert"
+              "englishLabel": "Disabled",
+              "label": "Disabled"
             }
           ]
         }

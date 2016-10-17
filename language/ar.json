@@ -1,200 +1,319 @@
 {
   "semantics": [
     {
+      "englishLabel": "Quiz introduction",
       "label": "مقدمة المسابقة",
       "fields": [
         {
+          "englishLabel": "Display introduction",
           "label": "عرض المقدمة"
         },
         {
+          "englishLabel": "Title",
           "label": "العنوان",
+          "englishDescription": "This title will be displayed above the introduction text.",
           "description": "سيتم عرض هذا العنوان فوق النص المقدمة"
         },
         {
+          "englishLabel": "Introduction text",
           "label": "مقدمة النص",
+          "englishDescription": "This text will be displayed before the quiz starts.",
           "description": "سيتم عرض هذا النص قبل أن تبدأ هذه المسابقة"
         },
         {
-          "label": "بدء زر النص"
+          "englishLabel": "Start button text",
+          "label": "بدء زر النص",
+          "englishDefault": "Start Quiz",
+          "default": "Start Quiz"
         },
         {
+          "englishLabel": "Background image",
           "label": "صورة الخلفية",
+          "englishDescription": "An optional background image for the introduction.",
           "description": "إدخال صورة خلفية اختيارية"
         }
       ]
     },
     {
+      "englishLabel": "Background image",
       "label": "صورة الخلفية",
+      "englishDescription": "An optional background image for the Question set.",
       "description": "صورة خلفية اختيارية لأسئلة"
     },
     {
+      "englishLabel": "Progress indicator",
       "label": "مؤشر التقدم",
+      "englishDescription": "Question set progress indicator style.",
       "description": "أسئلة لتعيين نمط مؤشر التقدم",
       "options": [
         {
+          "englishLabel": "Textual",
           "label": "النصية"
         },
         {
+          "englishLabel": "Dots",
           "label": "النقاط"
         }
       ]
     },
     {
+      "englishLabel": "Pass percentage",
       "label": "نسبة النجاح",
+      "englishDescription": "Percentage of Total score required for passing the quiz.",
       "description": "النسبة المئوية لمجموع النقاط المطلوبة لاجتياز الاختبار"
     },
     {
+      "englishLabel": "Questions",
       "label": "الأسئلة",
       "widgets": [
         {
+          "englishLabel": "Default",
           "label": "الافتراضي"
         },
         {
+          "englishLabel": "Textual",
           "label": "النصية"
         }
       ],
+      "englishEntity": "question",
       "entity": "السؤال",
       "field": {
+        "englishLabel": "Question type",
         "label": "نوع السؤال",
+        "englishDescription": "Library for this question.",
         "description": "مكتبة لهذا السؤال"
       }
     },
     {
+      "englishLabel": "Interface texts in quiz",
       "label": "واجهة النصوص لهذه المسابقة",
       "fields": [
         {
-          "label": "زر الرجوع"
+          "englishLabel": "Back button",
+          "label": "زر الرجوع",
+          "englishDefault": "Previous question",
+          "default": "Previous question"
         },
         {
-          "label": "زر التقدم"
+          "englishLabel": "Next button",
+          "label": "زر التقدم",
+          "englishDefault": "Next question",
+          "default": "Next question"
         },
         {
-          "label": "زر الانتهاء"
+          "englishLabel": "Finish button",
+          "label": "زر الانتهاء",
+          "englishDefault": "Finish",
+          "default": "Finish"
         },
         {
+          "englishLabel": "Progress text",
           "label": "نص التقدم",
-          "description": "النص المستخدم إذا تم تحديد التقدم نصيا"
+          "englishDescription": "Text used if textual progress is selected.",
+          "description": "النص المستخدم إذا تم تحديد التقدم نصيا",
+          "englishDefault": "Question: @current of @total questions",
+          "default": "Question: @current of @total questions"
         },
         {
+          "englishLabel": "Label for jumping to a certain question",
           "label": "Label for jumping to a certain question",
+          "englishDescription": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
           "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
+          "englishDefault": "Question %d of %total",
           "default": "Question %d of %total"
         },
         {
+          "englishLabel": "Copyright dialog question label",
           "label": "Copyright dialog question label",
+          "englishDefault": "Question",
           "default": "Question"
         },
         {
+          "englishLabel": "Readspeaker progress",
           "label": "Readspeaker progress",
+          "englishDescription": "May use @current and @total question variables",
           "description": "May use @current and @total question variables",
+          "englishDefault": "Question @current of @total",
           "default": "Question @current of @total"
         },
         {
+          "englishLabel": "Unanswered question text",
           "label": "Unanswered question text",
+          "englishDefault": "Unanswered",
           "default": "Unanswered"
         },
         {
+          "englishLabel": "Answered question text",
           "label": "Answered question text",
+          "englishDefault": "Answered",
           "default": "Answered"
         },
         {
+          "englishLabel": "Current question text",
           "label": "Current question text",
+          "englishDefault": "Current question",
           "default": "Current question"
         }
       ]
     },
     {
+      "englishLabel": "Disable backwards navigation",
       "label": "Disable backwards navigation",
+      "englishDescription": "This option will only allow you to move forward in Question Set",
       "description": "This option will only allow you to move forward in Question Set"
     },
     {
-      "label": "انتهاء المسابقة",
+      "englishLabel": "Randomize questions",
+      "label": "Randomize questions",
+      "englishDescription": "Enable to randomize the order of questions on display.",
+      "description": "Enable to randomize the order of questions on display."
+    },
+    {
+      "englishLabel": "Quiz finished",
+      "label": "إعدادات زر \"مشاهدة حل \" وزر \"إعادة المحاولة\" ",
       "fields": [
         {
-          "label": "عرض النتائج"
+          "englishLabel": "Display results",
+          "label": "Override \"Show Solution\" button"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
+          "englishLabel": "No results message",
+          "label": "Override \"Retry\" button",
+          "englishDescription": "Text displayed on end page when \"Display results\" is disabled",
+          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "englishDefault": "Finished",
           "default": "Finished"
         },
         {
-          "label": "نص راس الملاحظات",
-          "description": "سيتم عرض هذا العنوان في نهاية هذه المسابقة حيثما أجاب المستخدم على جميع الأسئلة المستعملة"
+          "englishLabel": "Feedback heading",
+          "label": "Feedback heading",
+          "englishDefault": "Your result:",
+          "default": "Your result:",
+          "englishDescription": "This heading will be displayed at the end of the quiz when the user has answered all questions.",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
         },
         {
-          "label": "عرض نص النتيجة",
-          "description": "النص يستخدم لعرض مجموع النقاط للمستخدم \"@score\" سوف تحل محلها النتيجة المحسوبة, \"@total\" حسب أقصى درجة ممكنة"
+          "englishLabel": "Score display text",
+          "label": "Score display text",
+          "englishDescription": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
+          "description": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
+          "englishDefault": "You got @score of @total points",
+          "default": "You got @score of @total points"
         },
         {
-          "label": "تعليق النجاح بالمسابقة",
-          "description": "سيتم عرض هذا النص أعلاه النتيجة إذا انقضى المستخدم بنجاح هذه المسابقة"
+          "englishLabel": "Quiz passed greeting",
+          "label": "Quiz passed greeting",
+          "englishDefault": "Congratulations!",
+          "default": "Congratulations!",
+          "englishDescription": "This text will be displayed above the score if the user has successfully passed the quiz.",
+          "description": "This text will be displayed above the score if the user has successfully passed the quiz."
         },
         {
-          "label": "ملاحظة النجاح",
-          "description": "سيتم عرض هذه الملاحظة بعد النتيجة إذا انقضى المستخدم بنجاح هذه المسابقة"
+          "englishLabel": "Passed comment",
+          "label": "Passed comment",
+          "englishDefault": "You did very well!",
+          "default": "You did very well!",
+          "englishDescription": "This comment will be displayed after the score if the user has successfully passed the quiz.",
+          "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
         },
         {
-          "label": "تعليق الرسوب بالمسابقة",
-          "description": "سيتم عرض هذا النص أعلاه النتيجة إذا كان المستخدم قد فشلت في المسابقة"
+          "englishLabel": "Quiz failed title",
+          "label": "Quiz failed title",
+          "englishDefault": "You did not pass this time.",
+          "default": "You did not pass this time.",
+          "englishDescription": "This text will be displayed above the score if the user has failed the quiz.",
+          "description": "This text will be displayed above the score if the user has failed the quiz."
         },
         {
-          "label": "ملاحظة الرسوب",
-          "description": "سيتم عرض هذه الملاحظة بعد النتيجة إذا كان المستخدم قد فشلت في المسابقة"
+          "englishLabel": "Failed comment",
+          "label": "Failed comment",
+          "englishDefault": "Have another try!",
+          "default": "Have another try!",
+          "englishDescription": "This comment will be displayed after the score if the user has failed the quiz.",
+          "description": "This comment will be displayed after the score if the user has failed the quiz."
         },
         {
-          "label": "تسمية زر اظهار الحل",
-          "description": "نص زر الحل"
+          "englishLabel": "Solution button label",
+          "label": "Solution button label",
+          "englishDefault": "Show solution",
+          "default": "Show solution",
+          "englishDescription": "Text for the solution button.",
+          "description": "Text for the solution button."
         },
         {
-          "label": "تسمية زر إعادة المحاولة",
-          "description": "نص زر إعادة المحاولة"
+          "englishLabel": "Retry button label",
+          "label": "Retry button label",
+          "englishDefault": "Retry",
+          "default": "Retry",
+          "englishDescription": "Text for the retry button.",
+          "description": "Text for the retry button."
         },
         {
-          "label": "نص زر الانتهاء"
+          "englishLabel": "Finish button text",
+          "label": "Finish button text",
+          "englishDefault": "Finish",
+          "default": "Finish"
         },
         {
-          "label": "عرض الفيديو قبل نتائج المسابقة"
+          "englishLabel": "Display video before quiz results",
+          "label": "Display video before quiz results"
         },
         {
-          "label": "تفعيل زر  تخطى الفيديو"
+          "englishLabel": "Enable skip video button",
+          "label": "Enable skip video button"
         },
         {
-          "label": "تسمية زر  تخطى الفيديو"
+          "englishLabel": "Skip video button label",
+          "label": "Skip video button label",
+          "englishDefault": "Skip video",
+          "default": "Skip video"
         },
         {
-          "label": "فيديو النجاح بالمسابقة",
-          "description": "سيتم تشغيل هذا الفيديو إذا كان المستخدم ناجحا بهذه المسابقة"
+          "englishLabel": "Passed video",
+          "label": "Passed video",
+          "englishDescription": "This video will be played if the user successfully passed the quiz.",
+          "description": "This video will be played if the user successfully passed the quiz."
         },
         {
-          "label": "فيديو الرسوب بالمسابقة",
-          "description": "سيتم تشغيل هذا الفيديو إذا كان المستخدم راسبا بهذه المسابقة"
+          "englishLabel": "Fail video",
+          "label": "Fail video",
+          "englishDescription": "This video will be played if the user failes the quiz.",
+          "description": "This video will be played if the user failes the quiz."
         }
       ]
     },
     {
-      "label": "إعدادات زر \"مشاهدة حل \" وزر \"إعادة المحاولة\" ",
+      "englishLabel": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
       "fields": [
         {
+          "englishLabel": "Override \"Show Solution\" button",
           "label": "Override \"Show Solution\" button",
+          "englishDescription": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
+              "englishLabel": "Enabled",
               "label": "Enabled"
             },
             {
+              "englishLabel": "Disabled",
               "label": "Disabled"
             }
           ]
         },
         {
+          "englishLabel": "Override \"Retry\" button",
           "label": "Override \"Retry\" button",
+          "englishDescription": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
+              "englishLabel": "Enabled",
               "label": "Enabled"
             },
             {
+              "englishLabel": "Disabled",
               "label": "Disabled"
             }
           ]
