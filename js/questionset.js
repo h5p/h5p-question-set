@@ -135,7 +135,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var renderSolutions = false;
   var showingSolutions = false;
   contentData = contentData || {};
-  var answerIndex;
 
   // Bring question set up to date when resuming
   if (contentData.previousState) {
@@ -200,20 +199,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   /**
    * Randomizes elements in an array and updates a map of the order
-   * @param  elements
-   * @param  map
-   * @return {array}
+   * @param  {array} elements
+   * @param  {array} map
+   * @return {Object.<array, array>} elements and indexes
    */
   var randomizeElements = function (elements, map) {
 
     // Save the original order of the elements in a nested array [[element1,0],[element2,1]...
-    var tuples = elements.map(function(object, index) { return [object, index] });
+    var elementsAndIndexes = elements.map(function(object, index) { return [object, index] });
 
-    tuples = H5P.shuffleArray(tuples);
+    elementsAndIndexes = H5P.shuffleArray(elementsAndIndexes);
 
     // Retrieve elements and indexes
-    elements = tuples.map(d => d[0]);
-    map = tuples.map(d => d[1]);
+    elements = elementsAndIndexes.map(d => d[0]);
+    map = elementsAndIndexes.map(d => d[1]);
 
     return {
       elements:elements,
@@ -224,6 +223,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
+
+    $('.question-container.h5p-question', $myDom).attr('class','');
 
     var result = randomizeElements(questionInstances,questionOrder);
     questionInstances = result.elements;
@@ -456,6 +457,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (var i = 0; i < questionInstances.length; i++) {
 
       var question = questionInstances[i];
+
+      // Make sure styles are not being added twice
+      var lastClass = $('.question-container:eq(' + i + ')', $myDom).attr("class").split(' ').pop();
+      $('.question-container:eq(' + i + ')', $myDom).removeClass(lastClass);
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
 
