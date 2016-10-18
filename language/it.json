@@ -1,319 +1,204 @@
 {
   "semantics": [
     {
-      "englishLabel": "Quiz introduction",
       "label": "Introduzione quiz",
       "fields": [
         {
-          "englishLabel": "Display introduction",
           "label": "Visualizza introduzione"
         },
         {
-          "englishLabel": "Title",
           "label": "Titolo",
-          "englishDescription": "This title will be displayed above the introduction text.",
           "description": "Questo titolo verrà visualizzato sopra il testo introduttivo."
         },
         {
-          "englishLabel": "Introduction text",
           "label": "Testo introduttivo",
-          "englishDescription": "This text will be displayed before the quiz starts.",
           "description": "Questo testo verrà visualizzato prima dell'inizio del quiz."
         },
         {
-          "englishLabel": "Start button text",
-          "label": "Testo pulsante Start",
-          "englishDefault": "Start Quiz",
-          "default": "Start Quiz"
+          "label": "Testo pulsante Start"
         },
         {
-          "englishLabel": "Background image",
           "label": "Immagine di sfondo",
-          "englishDescription": "An optional background image for the introduction.",
           "description": "Immagine di sfondo facoltativa per l'introduzione."
         }
       ]
     },
     {
-      "englishLabel": "Background image",
       "label": "Immagine di sfondo",
-      "englishDescription": "An optional background image for the Question set.",
       "description": "Immagine di sfondo facoltativa per il set di domande."
     },
     {
-      "englishLabel": "Progress indicator",
       "label": "Indicatore di avanzamento",
-      "englishDescription": "Question set progress indicator style.",
       "description": "Stile dell'indicatore di avanzamento del set di domande.",
       "options": [
         {
-          "englishLabel": "Textual",
           "label": "Testuale"
         },
         {
-          "englishLabel": "Dots",
           "label": "Punti"
         }
       ]
     },
     {
-      "englishLabel": "Pass percentage",
       "label": "Percentuale superamento quiz",
-      "englishDescription": "Percentage of Total score required for passing the quiz.",
       "description": "Percentuale minima del punteggio totale richiesto per passare il quiz."
     },
     {
-      "englishLabel": "Questions",
       "label": "Domande",
       "widgets": [
         {
-          "englishLabel": "Default",
           "label": "Predefinito"
         },
         {
-          "englishLabel": "Textual",
           "label": "Testuale"
         }
       ],
-      "englishEntity": "question",
       "entity": "domanda",
       "field": {
-        "englishLabel": "Question type",
         "label": "Tipo di domanda",
-        "englishDescription": "Library for this question.",
         "description": "Biblioteca per questa domanda."
       }
     },
     {
-      "englishLabel": "Interface texts in quiz",
       "label": "Testi di interfaccia nel quiz",
       "fields": [
         {
-          "englishLabel": "Back button",
-          "label": "Pulsante Indietro",
-          "englishDefault": "Previous question",
-          "default": "Previous question"
+          "label": "Pulsante Indietro"
         },
         {
-          "englishLabel": "Next button",
-          "label": "Pulsante Prossimo",
-          "englishDefault": "Next question",
-          "default": "Next question"
+          "label": "Pulsante Prossimo"
         },
         {
-          "englishLabel": "Finish button",
-          "label": "Pulsante Fine",
-          "englishDefault": "Finish",
-          "default": "Finish"
+          "label": "Pulsante Fine"
         },
         {
-          "englishLabel": "Progress text",
           "label": "Testo Avanzamento",
-          "englishDescription": "Text used if textual progress is selected.",
-          "description": "esto utilizzato se il testo Avanzamento è selezionato.",
-          "englishDefault": "Question: @current of @total questions",
-          "default": "Question: @current of @total questions"
+          "description": "esto utilizzato se il testo Avanzamento è selezionato."
         },
         {
-          "englishLabel": "Label for jumping to a certain question",
           "label": "Label for jumping to a certain question",
-          "englishDescription": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
           "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "englishDefault": "Question %d of %total",
           "default": "Question %d of %total"
         },
         {
-          "englishLabel": "Copyright dialog question label",
           "label": "Copyright dialog question label",
-          "englishDefault": "Question",
           "default": "Question"
         },
         {
-          "englishLabel": "Readspeaker progress",
           "label": "Readspeaker progress",
-          "englishDescription": "May use @current and @total question variables",
           "description": "May use @current and @total question variables",
-          "englishDefault": "Question @current of @total",
           "default": "Question @current of @total"
         },
         {
-          "englishLabel": "Unanswered question text",
           "label": "Unanswered question text",
-          "englishDefault": "Unanswered",
           "default": "Unanswered"
         },
         {
-          "englishLabel": "Answered question text",
           "label": "Answered question text",
-          "englishDefault": "Answered",
           "default": "Answered"
         },
         {
-          "englishLabel": "Current question text",
           "label": "Current question text",
-          "englishDefault": "Current question",
           "default": "Current question"
         }
       ]
     },
     {
-      "englishLabel": "Disable backwards navigation",
       "label": "Disable backwards navigation",
-      "englishDescription": "This option will only allow you to move forward in Question Set",
       "description": "This option will only allow you to move forward in Question Set"
     },
     {
-      "englishLabel": "Randomize questions",
       "label": "Randomize questions",
-      "englishDescription": "Enable to randomize the order of questions on display.",
-      "description": "Enable to randomize the order of questions on display."
+      "description": "Enable to randomize the order of questions on display.",
     },
     {
-      "englishLabel": "Quiz finished",
-      "label": "Impostazioni per i pulsanti \"Mostra soluzione\" e \"Riprova\".",
+      "label": "Quiz terminato",
       "fields": [
         {
-          "englishLabel": "Display results",
-          "label": "Override \"Show Solution\" button"
+          "label": "Visualizza risultati"
         },
         {
-          "englishLabel": "No results message",
-          "label": "Override \"Retry\" button",
-          "englishDescription": "Text displayed on end page when \"Display results\" is disabled",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
-          "englishDefault": "Finished",
+          "label": "No results message",
+          "description": "Text displayed on end page when \"Display results\" is disabled",
           "default": "Finished"
         },
         {
-          "englishLabel": "Feedback heading",
-          "label": "Feedback heading",
-          "englishDefault": "Your result:",
-          "default": "Your result:",
-          "englishDescription": "This heading will be displayed at the end of the quiz when the user has answered all questions.",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Intestazione Feedback",
+          "description": "Questa intestazione verrà visualizzata alla fine del quiz, dopo che l'utente avrà risposto a tutte le domande."
         },
         {
-          "englishLabel": "Score display text",
-          "label": "Score display text",
-          "englishDescription": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
-          "description": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
-          "englishDefault": "You got @score of @total points",
-          "default": "You got @score of @total points"
+          "label": "Testo visualizza punteggio",
+          "description": "Testo utilizzato per visualizzare il punteggio Totale dell'utente. \"@score\" verrà rimpiazzato dal punteggio calcolato, \"@total\" sarà rimpiazzato dal punteggio massimo possibile. "
         },
         {
-          "englishLabel": "Quiz passed greeting",
-          "label": "Quiz passed greeting",
-          "englishDefault": "Congratulations!",
-          "default": "Congratulations!",
-          "englishDescription": "This text will be displayed above the score if the user has successfully passed the quiz.",
-          "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+          "label": "Messaggio di superamento quiz",
+          "description": "Questo testo verrà visualizzato sopra il punteggio se l'utente ha superato con successo il quiz."
         },
         {
-          "englishLabel": "Passed comment",
-          "label": "Passed comment",
-          "englishDefault": "You did very well!",
-          "default": "You did very well!",
-          "englishDescription": "This comment will be displayed after the score if the user has successfully passed the quiz.",
-          "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+          "label": "Commento di superamento quiz",
+          "description": "Questo commento verrà visualizzato dopo il punteggio se l'utente ha superato con successo il quiz."
         },
         {
-          "englishLabel": "Quiz failed title",
-          "label": "Quiz failed title",
-          "englishDefault": "You did not pass this time.",
-          "default": "You did not pass this time.",
-          "englishDescription": "This text will be displayed above the score if the user has failed the quiz.",
-          "description": "This text will be displayed above the score if the user has failed the quiz."
+          "label": "Titolo quiz fallito",
+          "description": "Questo testo verrà visualizzato sopra il punteggio se l'utente non ha superato il quiz."
         },
         {
-          "englishLabel": "Failed comment",
-          "label": "Failed comment",
-          "englishDefault": "Have another try!",
-          "default": "Have another try!",
-          "englishDescription": "This comment will be displayed after the score if the user has failed the quiz.",
-          "description": "This comment will be displayed after the score if the user has failed the quiz."
+          "label": "Commento quiz fallito",
+          "description": "Questo commento verrà visualizzato dopo il punteggio se l'utente non ha superato il quiz."
         },
         {
-          "englishLabel": "Solution button label",
-          "label": "Solution button label",
-          "englishDefault": "Show solution",
-          "default": "Show solution",
-          "englishDescription": "Text for the solution button.",
-          "description": "Text for the solution button."
+          "label": "Etichetta pulsante Soluzione",
+          "description": "Testo per il pulsante Soluzione."
         },
         {
-          "englishLabel": "Retry button label",
-          "label": "Retry button label",
-          "englishDefault": "Retry",
-          "default": "Retry",
-          "englishDescription": "Text for the retry button.",
-          "description": "Text for the retry button."
+          "label": "Etichetta pulsante Riprova",
+          "description": "Testo per il pulsante Riprova."
         },
         {
-          "englishLabel": "Finish button text",
-          "label": "Finish button text",
-          "englishDefault": "Finish",
-          "default": "Finish"
+          "label": "Testo pulsante Fine"
         },
         {
-          "englishLabel": "Display video before quiz results",
-          "label": "Display video before quiz results"
+          "label": "Visualizza il video prima dei risultati del quiz"
         },
         {
-          "englishLabel": "Enable skip video button",
-          "label": "Enable skip video button"
+          "label": "Abilita pulsante Salta video"
         },
         {
-          "englishLabel": "Skip video button label",
-          "label": "Skip video button label",
-          "englishDefault": "Skip video",
-          "default": "Skip video"
+          "label": "Etichetta pulsante Salta video"
         },
         {
-          "englishLabel": "Passed video",
-          "label": "Passed video",
-          "englishDescription": "This video will be played if the user successfully passed the quiz.",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "Video di superamento quiz",
+          "description": "Questo video verrà visualizzato sopra il punteggio se l'utente ha superato con successo il quiz."
         },
         {
-          "englishLabel": "Fail video",
-          "label": "Fail video",
-          "englishDescription": "This video will be played if the user failes the quiz.",
-          "description": "This video will be played if the user failes the quiz."
+          "label": "Video quiz fallito",
+          "description": "Questo testo verrà visualizzato se l'utente non ha superato il quiz."
         }
       ]
     },
     {
-      "englishLabel": "Settings for \"Show solution\" and \"Retry\" buttons",
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Impostazioni per i pulsanti \"Mostra soluzione\" e \"Riprova\".",
       "fields": [
         {
-          "englishLabel": "Override \"Show Solution\" button",
           "label": "Override \"Show Solution\" button",
-          "englishDescription": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
-              "englishLabel": "Enabled",
               "label": "Enabled"
             },
             {
-              "englishLabel": "Disabled",
               "label": "Disabled"
             }
           ]
         },
         {
-          "englishLabel": "Override \"Retry\" button",
           "label": "Override \"Retry\" button",
-          "englishDescription": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
-              "englishLabel": "Enabled",
               "label": "Enabled"
             },
             {
-              "englishLabel": "Disabled",
               "label": "Disabled"
             }
           ]
