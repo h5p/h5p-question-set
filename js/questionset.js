@@ -187,7 +187,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var hasAnswers = contentData.previousState && contentData.previousState.answers;
     var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
       {
-        previousState: hasAnswers ? contentData.previousState.answers[questionOrder[i]] : undefined,
+        previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
         parent: self
       });
     questionInstance.on('resize', function () {
