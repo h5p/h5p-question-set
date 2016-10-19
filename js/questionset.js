@@ -212,11 +212,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Retrieve questions and indexes
     questions = questionOrdering.map(d => d[0]);
-    questionOrder = questionOrdering.map(d => d[1]);
+    var newOrder = questionOrdering.map(d => questionOrder[d[1]])
 
     return {
       questions:questions,
-      questionOrder:questionOrder
+      questionOrder:newOrder
     };
 
   }
