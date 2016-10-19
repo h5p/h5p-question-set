@@ -198,37 +198,34 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   }
 
   /**
-   * Randomizes elements in an array and updates a map of the order
-   * @param  {array} elements
-   * @param  {array} map
-   * @return {Object.<array, array>} elements and indexes
+   * Randomizes questions in an array and updates an array containing their order
+   * @param  {array} questions
+   * @param  {array} questionOrder
+   * @return {Object.<array, array>} questionOrdering
    */
-  var randomizeElements = function (elements, map) {
+  var randomizeQuestionOrdering = function (questions, questionOrder) {
 
-    // Save the original order of the elements in a nested array [[element1,0],[element2,1]...
-    var elementsAndIndexes = elements.map(function(object, index) { return [object, index] });
+    // Save the original order of the questions in a nested array [[question0,0],[question1,1]...
+    var questionOrdering = questions.map(function(object, index) { return [object, index] });
 
-    elementsAndIndexes = H5P.shuffleArray(elementsAndIndexes);
+    questionOrdering = H5P.shuffleArray(questionOrdering);
 
-    // Retrieve elements and indexes
-    elements = elementsAndIndexes.map(d => d[0]);
-    map = elementsAndIndexes.map(d => d[1]);
+    // Retrieve questions and indexes
+    questions = questionOrdering.map(d => d[0]);
+    questionOrder = questionOrdering.map(d => d[1]);
 
     return {
-      elements:elements,
-      map:map
+      questions:questions,
+      questionOrder:questionOrder
     };
 
   }
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
-
-    $('.question-container.h5p-question', $myDom).attr('class','');
-
-    var result = randomizeElements(questionInstances,questionOrder);
-    questionInstances = result.elements;
-    questionOrder = result.map;
+    var result = randomizeQuestionOrdering(questionInstances,questionOrder);
+    questionInstances = result.questions;
+    questionOrder = result.questionOrder;
   }
 
   // Resize all interactions on resize
@@ -445,9 +442,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   var randomizeQuestions = function () {
 
-    var result = randomizeElements(questionInstances,questionOrder);
-    questionInstances = result.elements;
-    questionOrder = result.map;
+    var result = randomizeQuestionOrdering(questionInstances,questionOrder);
+    questionInstances = result.questions;
+    questionOrder = result.questionOrder;
 
     // Find all question containers and detach questions from them
     $('.question-container', $myDom).each(function (){
@@ -460,8 +457,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       var question = questionInstances[i];
 
       // Make sure styles are not being added twice
-      var lastClass = $('.question-container:eq(' + i + ')', $myDom).attr("class").split(' ').pop();
-      $('.question-container:eq(' + i + ')', $myDom).removeClass(lastClass);
+      $('.question-container:eq(' + i + ')', $myDom).attr('class', 'question-container');
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
 

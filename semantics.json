@@ -207,7 +207,7 @@
     "type": "boolean",
     "label": "Randomize questions",
     "description": "Enable to randomize the order of questions on display.",
-    "default": true
+    "default": false
   },
   {
     "name": "endGame",
