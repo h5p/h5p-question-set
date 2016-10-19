@@ -248,7 +248,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var _updateButtons = function () {
     // Verify that current question is answered when backward nav is disabled
     if (params.disableBackwardsNavigation) {
-      if (questionInstances[currentQuestion].getAnswerGiven()) {
+      if (questionInstances[currentQuestion].getAnswerGiven()
+          && questionInstances.length-1 !== currentQuestion) {
         questionInstances[currentQuestion].showButton('next');
       }
       else {
@@ -476,7 +477,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
 
       if(questionInstances[0] !== question
-        && question.hasButton('prev')) {
+        && question.hasButton('prev')
+        && !params.disableBackwardsNavigation) {
           question.showButton('prev');
       }
 
