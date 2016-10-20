@@ -210,6 +210,13 @@
     "default": false
   },
   {
+    "name": "poolSize",
+    "type": "number",
+    "label": "Number of questions to be shown:",
+    "description": "Create a randomized batch of questions from the total.",
+    "optional": true
+  },
+  {
     "name": "endGame",
     "type": "group",
     "label": "Quiz finished",

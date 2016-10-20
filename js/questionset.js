@@ -126,6 +126,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var endTemplate = new EJS({text: resulttemplate});
   var params = $.extend(true, {}, defaults, options);
 
+  var poolSize; // Number of questions to be pooled into a subset
+  var poolQuestions; // Questions in a pool
+  var poolOrder; // Order of questions in a pool
   var currentQuestion = 0;
   var questionInstances = [];
   var questionOrder; //Stores order of questions to allow resuming of question set
@@ -144,7 +147,85 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     questionOrder = contentData.previousState.order;
   }
 
+  // Create a pool of questions if necessary
+  /**
+   * Randomizes questions in an array and updates an array containing their order
+   * @param  {array} questions
+   * @param  {array} questionOrder
+   * @return {Object.<array, array>} questionOrdering
+   */
+  var randomizeQuestionOrdering = function (questions, questionOrder) {
+
+    // Save the original order of the questions in a nested array [[question0,0],[question1,1]...
+    var questionOrdering = questions.map(function(object, index) { return [object, index] });
+
+    questionOrdering = H5P.shuffleArray(questionOrdering);
+
+    // Retrieve questions and indexes
+    questions = questionOrdering.map(d => d[0]);
+
+    // Use the previous question order if it exists
+    var newOrder;
+    if (questionOrder) {
+      newOrder = questionOrdering.map(d => questionOrder[d[1]]);
+    }
+    else{
+      newOrder = questionOrdering.map(d => d[1]);
+    }
+
+    return {
+      questions:questions,
+      questionOrder:newOrder
+    };
+
+  }
+
+  // Create a pool (a subset) of questions if necessary
+  if (params.poolSize) {
+
+    // If a previous pool exists, recreate it
+    if(contentData.previousState && contentData.previousState.poolOrder) {
+      poolOrder = contentData.previousState.poolOrder;
+
+      // Recreate the pool from the saved data
+      var pool = [];
+      for (var i = 0; i < poolOrder.length; i++) {
+        pool[i] = params.questions[poolOrder[i]];
+      }
+
+      // Replace original questions with just the ones in the pool
+      params.questions = pool;
+    }
+
+    // Otherwise create a new pool
+    else {
+
+      // Sanitize input
+      if (params.poolSize > params.questions.length) {
+        poolSize = params.questions.length;
+      }
+      else {
+        poolSize = params.poolSize;
+      }
+
+      // Randomize and get the results
+      var poolResult = randomizeQuestionOrdering(params.questions, poolOrder);
+      poolQuestions = poolResult.questions;
+      poolOrder = poolResult.questionOrder;
+
+      // Discard extra questions
+      poolQuestions = poolQuestions.slice(0,poolSize);
+      poolOrder = poolOrder.slice(0,poolSize);
+
+      // Replace original questions with just the ones in the pool
+      params.questions = poolQuestions;
+    }
+
+  }
+
+  // Create the html template for the question container
   var $template = $(template.render(params));
+
   // Set overrides for questions
   var override;
   if (params.override.showSolutionButton || params.override.retryButton) {
@@ -171,7 +252,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       question = params.questions[questionOrder[i]];
     }
     else {
-      // Use generic order when initialzing for the first time
+      // Use a generic order when initialzing for the first time
       question = params.questions[i];
     }
 
@@ -195,38 +276,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       self.trigger('resize');
     });
     questionInstances.push(questionInstance);
-  }
-
-  /**
-   * Randomizes questions in an array and updates an array containing their order
-   * @param  {array} questions
-   * @param  {array} questionOrder
-   * @return {Object.<array, array>} questionOrdering
-   */
-  var randomizeQuestionOrdering = function (questions, questionOrder) {
-
-    // Save the original order of the questions in a nested array [[question0,0],[question1,1]...
-    var questionOrdering = questions.map(function(object, index) { return [object, index] });
-
-    questionOrdering = H5P.shuffleArray(questionOrdering);
-
-    // Retrieve questions and indexes
-    questions = questionOrdering.map(d => d[0]);
-    
-    // Use the previous question order if it exists
-    var newOrder;
-    if (questionOrder) {
-      newOrder = questionOrdering.map(d => questionOrder[d[1]]);
-    }
-    else{
-      newOrder = questionOrdering.map(d => d[1]);
-    }
-
-    return {
-      questions:questions,
-      questionOrder:newOrder
-    };
-
   }
 
   // Randomize questions only on instantiation
@@ -1015,7 +1064,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
       }),
-      order: questionOrder
+      order: questionOrder,
+      poolOrder: poolOrder
     };
   };
 };
