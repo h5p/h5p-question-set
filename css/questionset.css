@@ -161,6 +161,12 @@
   width: 2.1875em;
 }
 
+.h5p-question .h5p-question-prev.truncated,
+.h5p-question .h5p-question-next.truncated {
+  padding: 0;
+  line-height: 2.2335em;
+}
+
 .h5p-question .h5p-question-next,
 .h5p-question .h5p-question-finish {
   margin: 0 0 1.5em 0.5em;
