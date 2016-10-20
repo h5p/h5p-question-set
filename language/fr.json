@@ -117,6 +117,10 @@
       "description": "Enable to randomize the order of questions on display."
     },
     {
+      "label": "Number of questions to be shown:",
+      "description": "Create a randomized batch of questions from the total."
+    },
+    {
       "label": "Quiz terminé",
       "fields": [
         {
