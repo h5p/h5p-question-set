@@ -181,16 +181,23 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
     }
 
-    // Return the questions in their new order *with* their new order 
+    // Return the questions in their new order *with* their new order
     return {
       questions:questions,
       questionOrder:newOrder
     };
-
   }
 
   // Create a pool (a subset) of questions if necessary
   if (params.poolSize) {
+
+    // Sanitize input
+    if (params.poolSize > params.questions.length) {
+      poolSize = params.questions.length;
+    }
+    else {
+      poolSize = params.poolSize;
+    }
 
     // If a previous pool exists, recreate it
     if(contentData.previousState && contentData.previousState.poolOrder) {
@@ -209,14 +216,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Otherwise create a new pool
     else {
 
-      // Sanitize input
-      if (params.poolSize > params.questions.length) {
-        poolSize = params.questions.length;
-      }
-      else {
-        poolSize = params.poolSize;
-      }
-
       // Randomize and get the results
       var poolResult = randomizeQuestionOrdering(params.questions, poolOrder);
       poolQuestions = poolResult.questions;
@@ -229,7 +228,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Replace original questions with just the ones in the pool
       params.questions = poolQuestions;
     }
-
   }
 
   // Create the html template for the question container
