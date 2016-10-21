@@ -126,8 +126,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var endTemplate = new EJS({text: resulttemplate});
   var params = $.extend(true, {}, defaults, options);
 
-  var poolSize; // Number of questions to be pooled into a subset
-  var poolQuestions; // Questions in a pool
   var poolOrder; // Order of questions in a pool
   var currentQuestion = 0;
   var questionInstances = [];
@@ -183,21 +181,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Return the questions in their new order *with* their new order
     return {
-      questions:questions,
-      questionOrder:newOrder
+      questions: questions,
+      questionOrder: newOrder
     };
   }
 
   // Create a pool (a subset) of questions if necessary
-  if (params.poolSize) {
-
-    // Sanitize input
-    if (params.poolSize > params.questions.length) {
-      poolSize = params.questions.length;
-    }
-    else {
-      poolSize = params.poolSize;
-    }
+  if (params.poolSize && params.poolSize < params.questions.length) {
 
     // If a previous pool exists, recreate it
     if(contentData.previousState && contentData.previousState.poolOrder) {
@@ -212,18 +202,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Replace original questions with just the ones in the pool
       params.questions = pool;
     }
-
-    // Otherwise create a new pool
-    else {
-
+    else { // Otherwise create a new pool
       // Randomize and get the results
       var poolResult = randomizeQuestionOrdering(params.questions, poolOrder);
-      poolQuestions = poolResult.questions;
+      var poolQuestions = poolResult.questions;
       poolOrder = poolResult.questionOrder;
 
       // Discard extra questions
-      poolQuestions = poolQuestions.slice(0,poolSize);
-      poolOrder = poolOrder.slice(0,poolSize);
+
+      poolQuestions = poolQuestions.slice(0, params.poolSize);
+      poolOrder = poolOrder.slice(0, params.poolSize);
 
       // Replace original questions with just the ones in the pool
       params.questions = poolQuestions;
