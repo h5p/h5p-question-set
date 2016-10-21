@@ -155,7 +155,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var randomizeQuestionOrdering = function (questions, questionOrder) {
 
     // Save the original order of the questions in a multidimensional array [[question0,0],[question1,1]...
-    var questionOrdering = questions.map(function(object, index) { return [object, index] });
+    var questionOrdering = questions.map(function(questionInstance, index) { return [questionInstance, index] });
 
     // Shuffle the multidimensional array
     questionOrdering = H5P.shuffleArray(questionOrdering);
