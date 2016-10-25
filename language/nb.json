@@ -106,6 +106,18 @@
       ]
     },
     {
+      "label": "Slå av bakoverknapp",
+      "description": "Slå på for å nekte å gå tilbake i Question Set"
+    },
+    {
+      "label": "Randomize questions",
+      "description": "Enable to randomize the order of questions on display."
+    },
+    {
+      "label": "Number of questions to be shown:",
+      "description": "Create a randomized batch of questions from the total."
+    },
+    {
       "label": "Spørsmålssett avslutning",
       "fields": [
         {

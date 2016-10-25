@@ -114,7 +114,8 @@
         "H5P.DragQuestion 1.7",
         "H5P.Blanks 1.7",
         "H5P.MarkTheWords 1.6",
-        "H5P.DragText 1.5"
+        "H5P.DragText 1.5",
+        "H5P.TrueFalse 1.0"
       ]
     }
   },
@@ -192,6 +193,29 @@
         "default": "Current question"
       }
     ]
+  },
+  {
+    "name": "disableBackwardsNavigation",
+    "type": "boolean",
+    "label": "Disable backwards navigation",
+    "description": "This option will only allow you to move forward in Question Set",
+    "optional": true,
+    "default": false
+  },
+  {
+    "name": "randomQuestions",
+    "type": "boolean",
+    "label": "Randomize questions",
+    "description": "Enable to randomize the order of questions on display.",
+    "default": false
+  },
+  {
+    "name": "poolSize",
+    "type": "number",
+    "min": 1,
+    "label": "Number of questions to be shown:",
+    "description": "Create a randomized batch of questions from the total.",
+    "optional": true
   },
   {
     "name": "endGame",
