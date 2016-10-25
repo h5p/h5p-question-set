@@ -212,6 +212,7 @@
   {
     "name": "poolSize",
     "type": "number",
+    "min": 1,
     "label": "Number of questions to be shown:",
     "description": "Create a randomized batch of questions from the total.",
     "optional": true
