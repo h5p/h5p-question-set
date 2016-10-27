@@ -110,11 +110,12 @@
       "label": "Question type",
       "description": "Library for this question.",
       "options": [
-        "H5P.MultiChoice 1.6",
-        "H5P.DragQuestion 1.5",
-        "H5P.Blanks 1.5",
-        "H5P.MarkTheWords 1.5",
-        "H5P.DragText 1.4"
+        "H5P.MultiChoice 1.8",
+        "H5P.DragQuestion 1.7",
+        "H5P.Blanks 1.7",
+        "H5P.MarkTheWords 1.6",
+        "H5P.DragText 1.5",
+        "H5P.TrueFalse 1.0"
       ]
     }
   },
@@ -157,16 +158,64 @@
         "name": "jumpToQuestion",
         "type": "text",
         "label": "Label for jumping to a certain question",
-        "description": "You must use the placeholder '%d' instead of the question number.",
-        "default": "Jump to question %d"
+        "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
+        "default": "Question %d of %total"
       },
       {
         "name": "questionLabel",
         "type": "text",
         "label": "Copyright dialog question label",
         "default": "Question"
+      },
+      {
+        "name": "readSpeakerProgress",
+        "type": "text",
+        "label": "Readspeaker progress",
+        "description": "May use @current and @total question variables",
+        "default": "Question @current of @total"
+      },
+      {
+        "name": "unansweredText",
+        "type": "text",
+        "label": "Unanswered question text",
+        "default": "Unanswered"
+      },
+      {
+        "name": "answeredText",
+        "type": "text",
+        "label": "Answered question text",
+        "default": "Answered"
+      },
+      {
+        "name": "currentQuestionText",
+        "type": "text",
+        "label": "Current question text",
+        "default": "Current question"
       }
     ]
+  },
+  {
+    "name": "disableBackwardsNavigation",
+    "type": "boolean",
+    "label": "Disable backwards navigation",
+    "description": "This option will only allow you to move forward in Question Set",
+    "optional": true,
+    "default": false
+  },
+  {
+    "name": "randomQuestions",
+    "type": "boolean",
+    "label": "Randomize questions",
+    "description": "Enable to randomize the order of questions on display.",
+    "default": false
+  },
+  {
+    "name": "poolSize",
+    "type": "number",
+    "min": 1,
+    "label": "Number of questions to be shown:",
+    "description": "Create a randomized batch of questions from the total.",
+    "optional": true
   },
   {
     "name": "endGame",
@@ -178,6 +227,14 @@
         "type": "boolean",
         "label": "Display results",
         "default": true
+      },
+      {
+        "name": "noResultMessage",
+        "type": "text",
+        "label": "No results message",
+        "description": "Text displayed on end page when \"Display results\" is disabled",
+        "default": "Finished",
+        "optional": true
       },
       {
         "name": "message",
@@ -196,7 +253,7 @@
         "type": "text",
         "label": "Score display text",
         "description": "Text used to display Total user score. \"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score. ",
-        "default": "@score of @total points",
+        "default": "You got @score of @total points",
         "optional": true
       },
       {
@@ -262,7 +319,7 @@
         "name": "solutionButtonText",
         "type": "text",
         "label": "Solution button label",
-        "default": "Solution",
+        "default": "Show solution",
         "description": "Text for the solution button."
       },
       {

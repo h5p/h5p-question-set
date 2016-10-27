@@ -35,6 +35,12 @@
 .dots-container {
   text-align: center;
   line-height: 2em;
+  padding: 0;
+  margin: 0;
+}
+.progress-item {
+  list-style: none;
+  display: inline-block;
 }
 .progress-dot {
   display: inline-block;
@@ -46,7 +52,12 @@
   background: #fff;
   background: #cecece;
 }
-.progress-dot:hover {
+
+.progress-dot.disabled {
+  cursor: default;
+}
+
+.progress-dot:not(.disabled):hover {
   box-shadow: 0 0 0.5em #c7c7c7;
 }
 .progress-dot.answered {
@@ -55,6 +66,11 @@
 .progress-dot.current {
   background: #285585;
 }
+
+.progress-dot.disabled:focus {
+  outline: none
+}
+
 .progress-dot:focus {
   outline-color: rgb(40, 130, 211);
   outline-width: thin;
@@ -95,6 +111,7 @@
 }
 .qs-footer {
   overflow: hidden;
+  clear: both;
 }
 
 .qs-footer > .prev {
@@ -125,6 +142,13 @@
   transition: none;
 }
 
+.qs-progress-announcer {
+  height: 0;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
 .h5p-question .h5p-question-prev,
 .h5p-question .h5p-question-finish,
 .h5p-question .h5p-question-next {
@@ -135,6 +159,12 @@
 .h5p-question .h5p-question-next {
   padding: 0.5em 0;
   width: 2.1875em;
+}
+
+.h5p-question .h5p-question-prev.truncated,
+.h5p-question .h5p-question-next.truncated {
+  padding: 0;
+  line-height: 2.2335em;
 }
 
 .h5p-question .h5p-question-next,
@@ -178,6 +208,7 @@
 }
 .video-container > video {
   background-color: #000;
+  width: 100%;
 }
 .video-container > .h5p-button {
   position: absolute;

@@ -77,20 +77,54 @@
         },
         {
           "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number.",
-          "default": "Jump to question %d"
+          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
+          "default": "Question %d of %total"
         },
         {
           "label": "Copyright dialog question label",
           "default": "Question"
+        },
+        {
+          "label": "Readspeaker progress",
+          "description": "May use @current and @total question variables",
+          "default": "Question @current of @total"
+        },
+        {
+          "label": "Unanswered question text",
+          "default": "Unanswered"
+        },
+        {
+          "label": "Answered question text",
+          "default": "Answered"
+        },
+        {
+          "label": "Current question text",
+          "default": "Current question"
         }
       ]
+    },
+    {
+      "label": "Disable backwards navigation",
+      "description": "This option will only allow you to move forward in Question Set"
+    },
+    {
+      "label": "Randomize questions",
+      "description": "Enable to randomize the order of questions on display."
+    },
+    {
+      "label": "Number of questions to be shown:",
+      "description": "Create a randomized batch of questions from the total."
     },
     {
       "label": "انتهاء المسابقة",
       "fields": [
         {
           "label": "عرض النتائج"
+        },
+        {
+          "label": "No results message",
+          "description": "Text displayed on end page when \"Display results\" is disabled",
+          "default": "Finished"
         },
         {
           "label": "نص راس الملاحظات",

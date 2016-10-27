@@ -79,20 +79,54 @@
         },
         {
           "label": "Merkelapp ved hopping til spørsmål",
-          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålstalet.",
-          "default": "Hopp til spørsmål %d"
+          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret, og '%total' istedet for totalt antall spørsmål.",
+          "default": "Spørsmål %d av %total"
         },
         {
           "label": "Opphavsrett spørsmål-etikett",
           "default": "Spørsmål"
+        },
+        {
+          "label": "Fremdriftstekst for hjelpemiddelteknologi",
+          "description": "Kan bruke @current og @total variabler",
+          "default": "Deloppgave @current av @total"
+        },
+        {
+          "label": "Ikke svart på spørsmål-tekst",
+          "default": "Ikke svart"
+        },
+        {
+          "label": "Svart på spørsmål-tekst",
+          "default": "Svar avgitt"
+        },
+        {
+          "label": "Aktivt spørsmål-tekst",
+          "default": "Aktivt spørsmål"
         }
       ]
+    },
+    {
+      "label": "Slå av bakoverknapp",
+      "description": "Slå på for å nekte å gå tilbake i Question Set"
+    },
+    {
+      "label": "Randomize questions",
+      "description": "Enable to randomize the order of questions on display."
+    },
+    {
+      "label": "Number of questions to be shown:",
+      "description": "Create a randomized batch of questions from the total."
     },
     {
       "label": "Spørsmålssett avslutning",
       "fields": [
         {
           "label": "Vis resultat"
+        },
+        {
+          "label": "Melding når resultater ikke vises",
+          "description": "Teksten vises på avslutnings-siden når resultater ikke vises",
+          "default": "Ferdig"
         },
         {
           "label": "Overskrift over tilbakemeldingar",
