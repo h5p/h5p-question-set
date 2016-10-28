@@ -109,6 +109,18 @@
       ]
     },
     {
+      "label": "Disable backwards navigation",
+      "description": "This option will only allow you to move forward in Question Set"
+    },
+    {
+      "label": "Randomize questions",
+      "description": "Enable to randomize the order of questions on display."
+    },
+    {
+      "label": "Number of questions to be shown:",
+      "description": "Create a randomized batch of questions from the total."
+    },
+    {
       "label": "Quiz beendet",
       "fields": [
         {
