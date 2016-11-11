@@ -17,6 +17,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     EventDispatcher.call(this);
     self.contentId = contentId;
     self.isEndgameRendered = false;
+    self.contentData = contentData || {};
 
     // set default params
     var params = $.extend(true, {}, getDefaults(), options);
@@ -24,18 +25,18 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     // add the params to the this scope
     $.extend(true, this, params);
 
-    contentData = contentData || {};
+
 
     // Bring question set up to date when resuming
-    if (contentData.previousState) {
-      if (contentData.previousState.progress) {
-        currentQuestion = contentData.previousState.progress;
+    if (self.contentData.previousState) {
+      if (self.contentData.previousState.progress) {
+        currentQuestionIndex = self.contentData.previousState.progress;
       }
 
-      questionOrder = contentData.previousState.order;
+      questionOrder = self.contentData.previousState.order;
     }
 
-    this.instances = this.init(params, contentId, contentData);
+    this.instances = this.init(params, contentId, self.contentData);
   };
 
   QuestionSet.prototype = Object.create(EventDispatcher.prototype);
@@ -106,7 +107,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
   var endTemplate = new EJS({text: resulttemplate});
 
   // TODO Move to QuestionSet
-  var currentQuestion = 0;
+  var currentQuestionIndex = 0;
   var questionInstances = [];
   var questionOrder; //Stores order of questions to allow resuming of question set
   var $myDom;
@@ -166,7 +167,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     }
   };
 
-  var createQuestionInstance = function (questionSet, question, questionIndex, contentId, params, contentData) {
+  var createQuestionInstance = function (questionSet, question, questionIndex, contentId, contentData) {
     var previousState = getAnswersPreviousState(contentData, questionIndex);
     var instance = H5P.newRunnable(question, contentId, undefined, undefined, {
       previousState: previousState,
@@ -200,7 +201,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
 
     questionInstances = questions.map(function (question, index) {
       question = overrideBehaviourAndSettings(question, params.override, $template, self);
-      return createQuestionInstance(self, question, index, contentId, params, contentData);
+      return createQuestionInstance(self, question, index, contentId, contentData);
     });
 
     // Resize all interactions on resize
@@ -223,33 +224,24 @@ H5P.QuestionSet = (function($, EventDispatcher) {
 
   // Update button state.
   QuestionSet.prototype._updateButtons = function () {
-
     var self = this;
+
+    var currentQuestion = questionInstances[currentQuestionIndex];
+    var isLast = currentQuestionIndex === (questionInstances.length - 1);
 
     // Verify that current question is answered when backward nav is disabled
     if (self.disableBackwardsNavigation) {
-      if (questionInstances[currentQuestion].getAnswerGiven()
-        && questionInstances.length - 1 !== currentQuestion) {
-        questionInstances[currentQuestion].showButton('next');
-      }
-      else {
-        questionInstances[currentQuestion].hideButton('next');
-      }
+      var showNextButton = currentQuestion.getAnswerGiven() && !isLast;
+      currentQuestion[showNextButton ? 'showButton' : 'hideButton']('next');
     }
 
-    var answered = true;
-    for (var i = questionInstances.length - 1; i >= 0; i--) {
-      answered = answered && (questionInstances[i]).getAnswerGiven();
-    }
+    // checks if all questions are answered
+    var isAllAnswered = questionInstances.every(function(question){
+      return question.getAnswerGiven();
+    });
 
-    if (currentQuestion === (self.questions.length - 1) &&
-      questionInstances[currentQuestion]) {
-      if (answered) {
-        questionInstances[currentQuestion].showButton('finish');
-      }
-      else {
-        questionInstances[currentQuestion].hideButton('finish');
-      }
+    if (isLast && currentQuestion) {
+      currentQuestion[isAllAnswered ? 'showButton' : 'hideButton']('finish');
     }
   };
 
@@ -270,7 +262,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
       questionNumber = self.questions.length - 1;
     }
 
-    currentQuestion = questionNumber;
+    currentQuestionIndex = questionNumber;
 
     // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
@@ -303,7 +295,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
       // Announce question number of total, must use timeout because of buttons logic
       setTimeout(function () {
         var humanizedProgress = self.texts.readSpeakerProgress
-          .replace('@current', (currentQuestion + 1).toString())
+          .replace('@current', (currentQuestionIndex + 1).toString())
           .replace('@total', questionInstances.length.toString());
 
         $('.qs-progress-announcer', $myDom)
@@ -319,7 +311,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     // Remember where we are
     self._updateButtons();
     self.trigger('resize');
-    return currentQuestion;
+    return currentQuestionIndex;
   };
 
   /**
@@ -406,7 +398,15 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     //Force the last page to be reRendered
     self.rendered = false;
 
-    if (self.randomQuestions) {
+    if(self.poolSize > 0){
+      var questions = H5P.shuffleArray(self.questions);
+      questionInstances = questions.map(function (question, index) {
+        question = overrideBehaviourAndSettings(question, self.override, $template, self);
+        return createQuestionInstance(self, question, index, self.contentId, self.contentData);
+      });
+    }
+
+    if (self.randomQuestions || self.poolSize > 0) {
       self.renderRandomizedQuestions();
     }
   };
@@ -457,19 +457,19 @@ H5P.QuestionSet = (function($, EventDispatcher) {
 
   QuestionSet.prototype.moveQuestion = function (direction) {
     var self = this;
-    if (self.disableBackwardsNavigation && !questionInstances[currentQuestion].getAnswerGiven()) {
-      questionInstances[currentQuestion].hideButton('next');
-      questionInstances[currentQuestion].hideButton('finish');
+    if (self.disableBackwardsNavigation && !questionInstances[currentQuestionIndex].getAnswerGiven()) {
+      questionInstances[currentQuestionIndex].hideButton('next');
+      questionInstances[currentQuestionIndex].hideButton('finish');
       return;
     }
 
-    _stopQuestion(currentQuestion);
-    if (currentQuestion + direction >= questionInstances.length) {
+    _stopQuestion(currentQuestionIndex);
+    if (currentQuestionIndex + direction >= questionInstances.length) {
       self._displayEndGame();
     }
     else {
       // Allow movement if backward navigation enabled or answer given
-      self._showQuestion(currentQuestion + direction);
+      self._showQuestion(currentQuestionIndex + direction);
     }
   };
 
@@ -753,8 +753,8 @@ H5P.QuestionSet = (function($, EventDispatcher) {
         if (shortVerb === 'interacted' ||
           shortVerb === 'answered' ||
           shortVerb === 'attempted') {
-          self.toggleAnsweredDot(currentQuestion,
-            questionInstances[currentQuestion].getAnswerGiven());
+          self.toggleAnsweredDot(currentQuestionIndex,
+            questionInstances[currentQuestionIndex].getAnswerGiven());
           self._updateButtons();
         }
         if (shortVerb === 'completed') {
@@ -764,7 +764,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
         if (event.data.statement.context.extensions === undefined) {
           event.data.statement.context.extensions = {};
         }
-        event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
+        event.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestionIndex + 1;
       });
 
       // Mark question if answered
@@ -792,7 +792,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
       if (self.disableBackwardsNavigation && !showingSolutions) {
         return;
       }
-      _stopQuestion(currentQuestion);
+      _stopQuestion(currentQuestionIndex);
       _showQuestion($(this).parent().index());
     };
 
@@ -829,7 +829,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
 
 
     // Hide all but current question
-    self._showQuestion(currentQuestion, true);
+    self._showQuestion(currentQuestionIndex, true);
 
     if (renderSolutions) {
       showSolutions();
@@ -970,7 +970,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
    */
   QuestionSet.prototype.getCurrentState = function () {
     return {
-      progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
+      progress: showingSolutions ? questionInstances.length - 1 : currentQuestionIndex,
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
       }),
