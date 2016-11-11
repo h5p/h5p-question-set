@@ -222,28 +222,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     }
   };
 
-  // Update button state.
-  QuestionSet.prototype._updateButtons = function () {
-    var self = this;
 
-    var currentQuestion = questionInstances[currentQuestionIndex];
-    var isLast = currentQuestionIndex === (questionInstances.length - 1);
-
-    // Verify that current question is answered when backward nav is disabled
-    if (self.disableBackwardsNavigation) {
-      var showNextButton = currentQuestion.getAnswerGiven() && !isLast;
-      currentQuestion[showNextButton ? 'showButton' : 'hideButton']('next');
-    }
-
-    // checks if all questions are answered
-    var isAllAnswered = questionInstances.every(function(question){
-      return question.getAnswerGiven();
-    });
-
-    if (isLast && currentQuestion) {
-      currentQuestion[isAllAnswered ? 'showButton' : 'hideButton']('finish');
-    }
-  };
 
   var _stopQuestion = function (questionNumber) {
     if (questionInstances[questionNumber]) {
@@ -398,12 +377,16 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     //Force the last page to be reRendered
     self.rendered = false;
 
+    // if using pool
     if(self.poolSize > 0){
       var questions = H5P.shuffleArray(self.questions);
+
       questionInstances = questions.map(function (question, index) {
         question = overrideBehaviourAndSettings(question, self.override, $template, self);
         return createQuestionInstance(self, question, index, self.contentId, self.contentData);
       });
+
+      questionInstances = limitArrayToPoolSize(questionInstances, self.poolSize);
     }
 
     if (self.randomQuestions || self.poolSize > 0) {
@@ -428,9 +411,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
       question.attach($questionContainer, $myDom);
 
       // toggle buttons
-      var isFirst = (i === 0);
-      var isLast = (i === questionInstances.length - 1);
-      self.toggleButtonsForQuestion(question, isFirst, isLast);
+      self._updateButtons(question, i);
     });
   };
 
@@ -441,17 +422,44 @@ H5P.QuestionSet = (function($, EventDispatcher) {
   };
 
 
-  QuestionSet.prototype.toggleButtonsForQuestion = function (question, isFirst, isLast) {
+  // Update button state.
+  QuestionSet.prototype._updateButtons = function () {
     var self = this;
+
+    var currentQuestion = questionInstances[currentQuestionIndex];
+    var isLast = currentQuestionIndex === (questionInstances.length - 1);
+  };
+
+  QuestionSet.prototype.isAllAnswered = function(){
+    return questionInstances.every(function(question){
+      return question.getAnswerGiven();
+    });
+  };
+
+
+  QuestionSet.prototype._updateButtons = function (questionInstance, index) {
+    questionInstance = questionInstance || questionInstances[currentQuestionIndex];
+    index = index || currentQuestionIndex;
+    var self = this;
+    var isFirst = self.isFirst(index);
+    var isLast = self.isLast(index);
+
     //Show buttons if necessary
-    question[isLast ? 'showButton' : 'hideButton']('finish');
-    question[!isLast ? 'showButton' : 'hideButton']('next');
+    questionInstance[isLast && self.isAllAnswered() ? 'showButton' : 'hideButton']('finish');
+
+    // Verify that current question is answered when backward nav is disabled
+    if (self.disableBackwardsNavigation) {
+      var showNextButton = questionInstance.getAnswerGiven() && !isLast;
+      questionInstance[showNextButton ? 'showButton' : 'hideButton']('next');
+    } else {
+      questionInstance[!isLast ? 'showButton' : 'hideButton']('next');
+    }
 
     if (isFirst || self.disableBackwardsNavigation) {
-      question.hideButton('prev');
+      questionInstance.hideButton('prev');
     }
     else {
-      question.showButton('prev');
+      questionInstance.showButton('prev');
     }
   };
 
@@ -755,6 +763,9 @@ H5P.QuestionSet = (function($, EventDispatcher) {
           shortVerb === 'attempted') {
           self.toggleAnsweredDot(currentQuestionIndex,
             questionInstances[currentQuestionIndex].getAnswerGiven());
+
+
+
           self._updateButtons();
         }
         if (shortVerb === 'completed') {
@@ -777,7 +788,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     $('.qs-startbutton', $myDom).click(function () {
       $(this).parents('.intro-page').hide();
       $('.questionset', $myDom).show();
-      _showQuestion(self.initialQuestion);
+      self._showQuestion(self.initialQuestion);
     });
 
     /**
@@ -793,7 +804,7 @@ H5P.QuestionSet = (function($, EventDispatcher) {
         return;
       }
       _stopQuestion(currentQuestionIndex);
-      _showQuestion($(this).parent().index());
+      self._showQuestion($(this).parent().index());
     };
 
     // Set event listeners.
@@ -840,6 +851,14 @@ H5P.QuestionSet = (function($, EventDispatcher) {
     self.trigger('resize');
 
     return this;
+  };
+
+  QuestionSet.prototype.isFirst = function (index) {
+    return index === 0;
+  };
+
+  QuestionSet.prototype.isLast = function (index) {
+    return index === (questionInstances.length - 1);
   };
 
   // Get current score for questionset.
