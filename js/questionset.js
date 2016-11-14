@@ -146,11 +146,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     questionOrder = contentData.previousState.order;
   }
 
-  // Create a pool of questions if necessary
   /**
    * Randomizes questions in an array and updates an array containing their order
    * @param  {array} questions
-   * @param  {array} questionOrder
    * @return {Object.<array, array>} questionOrdering
    */
   var randomizeQuestionOrdering = function (questions) {
@@ -239,21 +237,26 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   }
 
-  var createQuestionInstancesFromQuestions = function(questions){
-
+  /**
+   * Generates question instances from H5P objects
+   *
+   * @param  {object} questions H5P content types to be created as instances
+   * @return {array} Array of questions instances
+   */
+  var createQuestionInstancesFromQuestions = function(questions) {
     var result = [];
     // Create question instances from questions
     // Instantiate question instances
-    for (var i = 0; i < params.questions.length; i++) {
+    for (var i = 0; i < questions.length; i++) {
 
       var question;
       // If a previous order exists, use it
       if (questionOrder !== undefined) {
-        question = params.questions[questionOrder[i]];
+        question = questions[questionOrder[i]];
       }
       else {
         // Use a generic order when initialzing for the first time
-        question = params.questions[i];
+        question = questions[i];
       }
 
       if (override) {
@@ -451,7 +454,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @public
    */
   var resetTask = function () {
+
+    // Clear previous state to ensure questions are created cleanly 
+    contentData.previousState = [];
+
     showingSolutions = false;
+
     for (var i = 0; i < questionInstances.length; i++) {
       try {
         questionInstances[i].resetTask();
@@ -533,6 +541,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     replaceQuestionsInDOM(questionInstances);
   };
 
+
+  /**
+   * Empty the DOM of all questions, attach new questions and update buttons
+   *
+   * @param  {type} questionInstances Array of questions to be attached to the DOM
+   */
   var replaceQuestionsInDOM = function (questionInstances) {
 
     // Find all question containers and detach questions from them
@@ -803,7 +817,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     });
   };
 
-  // Function for attaching the multichoice to a DOM element.
+
+  /**
+   * Initialize a question and attach it to the DOM
+   *
+   */
   function initializeQuestion() {
     // Attach questions
     for (var i = 0; i < questionInstances.length; i++) {
