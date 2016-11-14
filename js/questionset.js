@@ -126,6 +126,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var endTemplate = new EJS({text: resulttemplate});
   var params = $.extend(true, {}, defaults, options);
 
+  var initialParams = $.extend(true, {}, defaults, options);
   var poolOrder; // Order of questions in a pool
   var currentQuestion = 0;
   var questionInstances = [];
@@ -184,7 +185,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       questions: questions,
       questionOrder: newOrder
     };
-  }
+  };
 
   // Create a pool (a subset) of questions if necessary
   if (params.poolSize && params.poolSize < params.questions.length) {
@@ -477,7 +478,61 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     //Force the last page to be reRendered
     rendered = false;
 
-    if (params.randomQuestions) {
+    if(params.poolSize > 0){
+      questionInstances = [];
+
+      // Make new pool from params.questions
+      // Randomize and get the results
+      var poolResult = randomizeQuestionOrdering(initialParams.questions, poolOrder);
+      var poolQuestions = poolResult.questions;
+      poolOrder = poolResult.questionOrder;
+
+      // Discard extra questions
+      poolQuestions = poolQuestions.slice(0, params.poolSize);
+      poolOrder = poolOrder.slice(0, params.poolSize);
+
+      // Replace original questions with just the ones in the pool
+      params.questions = poolQuestions;
+
+      // Create question instances from questions
+      // Instantiate question instances
+      for (var i = 0; i < params.questions.length; i++) {
+
+        var question;
+        // If a previous order exists, use it
+        if (questionOrder !== undefined) {
+          question = params.questions[questionOrder[i]];
+        }
+        else {
+          // Use a generic order when initialzing for the first time
+          question = params.questions[i];
+        }
+
+        if (override) {
+          // Extend subcontent with the overrided settings.
+          $.extend(question.params.behaviour, override);
+        }
+
+        question.params = question.params || {};
+        question.params.overrideSettings = question.params.overrideSettings || {};
+        question.params.overrideSettings.$confirmationDialogParent = $template.last();
+        question.params.overrideSettings.instance = this;
+        var hasAnswers = contentData.previousState && contentData.previousState.answers;
+        var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
+          {
+            previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
+            parent: self
+          });
+        questionInstance.on('resize', function () {
+          up = true;
+          self.trigger('resize');
+        });
+        questionInstances.push(questionInstance);
+      }
+
+      // Update buttons
+      initializeQuestion();
+    } else if (params.randomQuestions) {
       randomizeQuestions();
     }
 
@@ -498,6 +553,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
 
+    replaceQuestionsInDOM(questionInstances);
+  };
+
+  var replaceQuestionsInDOM = function (questionInstances) {
+
     // Find all question containers and detach questions from them
     $('.question-container', $myDom).each(function (){
       $(this).children().detach();
@@ -514,20 +574,22 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       question.attach($('.question-container:eq(' + i + ')', $myDom));
 
       //Show buttons if necessary
+      console.log('replaceQuestionsInDOM', questionInstances[0].getAnswerGiven());
+      debugger;
       if(questionInstances[questionInstances.length -1] === question
         && question.hasButton('finish')) {
-          question.showButton('finish');
+        question.showButton('finish');
       }
 
       if(questionInstances[questionInstances.length -1] !== question
         && question.hasButton('next')) {
-          question.showButton('next');
+        question.showButton('next');
       }
 
       if(questionInstances[0] !== question
         && question.hasButton('prev')
         && !params.disableBackwardsNavigation) {
-          question.showButton('prev');
+        question.showButton('prev');
       }
 
       // Hide relevant buttons since the order has changed
@@ -542,10 +604,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if (questionInstances[questionInstances.length-1] !== question) {
         question.hideButton('finish');
       }
-
     }
-
-  }
+  };
 
   var moveQuestion = function (direction) {
     if (params.disableBackwardsNavigation && !questionInstances[currentQuestion].getAnswerGiven()) {
@@ -762,47 +822,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.trigger('resize');
   };
 
+  var registerImageLoadedListener = function (question) {
+    H5P.on(question, 'imageLoaded', function () {
+      self.trigger('resize');
+    });
+  };
+
   // Function for attaching the multichoice to a DOM element.
-  this.attach = function (target) {
-    if (this.isRoot()) {
-      this.setActivityStarted();
-    }
-    if (typeof(target) === "string") {
-      $myDom = $('#' + target);
-    }
-    else {
-      $myDom = $(target);
-    }
-
-    // Render own DOM into target.
-    $myDom.children().remove();
-    $myDom.append($template);
-    if (params.backgroundImage !== undefined) {
-      $myDom.css({
-        overflow: 'hidden',
-        background: '#fff url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
-        backgroundSize: '100% auto'
-      });
-    }
-
-    if (params.introPage.backgroundImage !== undefined) {
-      var $intro = $myDom.find('.intro-page');
-      if ($intro.length) {
-        var bgImg = params.introPage.backgroundImage;
-        var bgImgRatio = (bgImg.height / bgImg.width);
-        $intro.css({
-          background: '#fff url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
-          backgroundSize: 'auto 100%',
-          minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
-        });
-      }
-    }
-    var registerImageLoadedListener = function (question) {
-      H5P.on(question, 'imageLoaded', function () {
-        self.trigger('resize');
-      });
-    };
-
+  function initializeQuestion() {
     // Attach questions
     for (var i = 0; i < questionInstances.length; i++) {
       var question = questionInstances[i];
@@ -838,8 +865,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       question.on('xAPI', function (event) {
         var shortVerb = event.getVerb();
         if (shortVerb === 'interacted' ||
-            shortVerb === 'answered' ||
-            shortVerb === 'attempted') {
+          shortVerb === 'answered' ||
+          shortVerb === 'attempted') {
           toggleAnsweredDot(currentQuestion,
             questionInstances[currentQuestion].getAnswerGiven());
           _updateButtons();
@@ -857,6 +884,44 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Mark question if answered
       toggleAnsweredDot(i, question.getAnswerGiven());
     }
+  }
+
+  this.attach = function (target) {
+    if (this.isRoot()) {
+      this.setActivityStarted();
+    }
+    if (typeof(target) === "string") {
+      $myDom = $('#' + target);
+    }
+    else {
+      $myDom = $(target);
+    }
+
+    // Render own DOM into target.
+    $myDom.children().remove();
+    $myDom.append($template);
+    if (params.backgroundImage !== undefined) {
+      $myDom.css({
+        overflow: 'hidden',
+        background: '#fff url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+        backgroundSize: '100% auto'
+      });
+    }
+
+    if (params.introPage.backgroundImage !== undefined) {
+      var $intro = $myDom.find('.intro-page');
+      if ($intro.length) {
+        var bgImg = params.introPage.backgroundImage;
+        var bgImgRatio = (bgImg.height / bgImg.width);
+        $intro.css({
+          background: '#fff url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
+          backgroundSize: 'auto 100%',
+          minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
+        });
+      }
+    }
+
+    initializeQuestion();
 
     // Allow other libraries to add transitions after the questions have been inited
     $('.questionset', $myDom).addClass('started');
