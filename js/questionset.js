@@ -1,4 +1,4 @@
-var H5P = H5P || {};
+H5P = H5P || {};
 
 /**
  * Will render a Question with multiple choices for answers.
@@ -153,7 +153,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @param  {array} questionOrder
    * @return {Object.<array, array>} questionOrdering
    */
-  var randomizeQuestionOrdering = function (questions, questionOrder) {
+  var randomizeQuestionOrdering = function (questions) {
 
     // Save the original order of the questions in a multidimensional array [[question0,0],[question1,1]...
     var questionOrdering = questions.map(function(questionInstance, index) { return [questionInstance, index] });
@@ -172,7 +172,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (var i = 0; i< questionOrdering.length; i++) {
 
       // Use a previous order if it exists
-      if(questionOrder) {
+      if(contentData.previousState && contentData.previousState.questionOrder) {
         newOrder[i] = questionOrder[questionOrdering[i][1]];
       }
       else {
@@ -180,7 +180,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
     }
 
-    // Return the questions in their new order *with* their new order
+    // Return the questions in their new order *with* their new indexes
     return {
       questions: questions,
       questionOrder: newOrder
@@ -188,7 +188,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   // Create a pool (a subset) of questions if necessary
-  if (params.poolSize && params.poolSize < params.questions.length) {
+  if (params.poolSize > 0) {
 
     // If a previous pool exists, recreate it
     if(contentData.previousState && contentData.previousState.poolOrder) {
@@ -205,7 +205,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
     else { // Otherwise create a new pool
       // Randomize and get the results
-      var poolResult = randomizeQuestionOrdering(params.questions, poolOrder);
+      var poolResult = randomizeQuestionOrdering(params.questions);
       var poolQuestions = poolResult.questions;
       poolOrder = poolResult.questionOrder;
 
@@ -239,44 +239,54 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   }
 
-  // Instantiate question instances
-  for (var i = 0; i < params.questions.length; i++) {
+  var createQuestionInstancesFromQuestions = function(questions){
 
-    var question;
-    // If a previous order exists, use it
-    if (questionOrder !== undefined) {
-      question = params.questions[questionOrder[i]];
-    }
-    else {
-      // Use a generic order when initialzing for the first time
-      question = params.questions[i];
-    }
+    var result = [];
+    // Create question instances from questions
+    // Instantiate question instances
+    for (var i = 0; i < params.questions.length; i++) {
 
-    if (override) {
-      // Extend subcontent with the overrided settings.
-      $.extend(question.params.behaviour, override);
-    }
+      var question;
+      // If a previous order exists, use it
+      if (questionOrder !== undefined) {
+        question = params.questions[questionOrder[i]];
+      }
+      else {
+        // Use a generic order when initialzing for the first time
+        question = params.questions[i];
+      }
 
-    question.params = question.params || {};
-    question.params.overrideSettings = question.params.overrideSettings || {};
-    question.params.overrideSettings.$confirmationDialogParent = $template.last();
-    question.params.overrideSettings.instance = this;
-    var hasAnswers = contentData.previousState && contentData.previousState.answers;
-    var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
-      {
-        previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
-        parent: self
+      if (override) {
+        // Extend subcontent with the overrided settings.
+        $.extend(question.params.behaviour, override);
+      }
+
+      question.params = question.params || {};
+      question.params.overrideSettings = question.params.overrideSettings || {};
+      question.params.overrideSettings.$confirmationDialogParent = $template.last();
+      question.params.overrideSettings.instance = this;
+      var hasAnswers = contentData.previousState && contentData.previousState.answers;
+      var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
+        {
+          previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
+          parent: self
+        });
+      questionInstance.on('resize', function () {
+        up = true;
+        self.trigger('resize');
       });
-    questionInstance.on('resize', function () {
-      up = true;
-      self.trigger('resize');
-    });
-    questionInstances.push(questionInstance);
+      result.push(questionInstance);
+    }
+
+    return result;
   }
+
+  // Create question instances from questions given by params
+  questionInstances = createQuestionInstancesFromQuestions(params.questions);
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
-    var result = randomizeQuestionOrdering(questionInstances,questionOrder);
+    var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
   }
@@ -479,11 +489,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     rendered = false;
 
     if(params.poolSize > 0){
-      questionInstances = [];
 
       // Make new pool from params.questions
       // Randomize and get the results
-      var poolResult = randomizeQuestionOrdering(initialParams.questions, poolOrder);
+      var poolResult = randomizeQuestionOrdering(initialParams.questions);
       var poolQuestions = poolResult.questions;
       poolOrder = poolResult.questionOrder;
 
@@ -494,44 +503,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Replace original questions with just the ones in the pool
       params.questions = poolQuestions;
 
-      // Create question instances from questions
-      // Instantiate question instances
-      for (var i = 0; i < params.questions.length; i++) {
-
-        var question;
-        // If a previous order exists, use it
-        if (questionOrder !== undefined) {
-          question = params.questions[questionOrder[i]];
-        }
-        else {
-          // Use a generic order when initialzing for the first time
-          question = params.questions[i];
-        }
-
-        if (override) {
-          // Extend subcontent with the overrided settings.
-          $.extend(question.params.behaviour, override);
-        }
-
-        question.params = question.params || {};
-        question.params.overrideSettings = question.params.overrideSettings || {};
-        question.params.overrideSettings.$confirmationDialogParent = $template.last();
-        question.params.overrideSettings.instance = this;
-        var hasAnswers = contentData.previousState && contentData.previousState.answers;
-        var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
-          {
-            previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
-            parent: self
-          });
-        questionInstance.on('resize', function () {
-          up = true;
-          self.trigger('resize');
-        });
-        questionInstances.push(questionInstance);
-      }
+      // Recreate the question instances
+      questionInstances = createQuestionInstancesFromQuestions(params.questions);
 
       // Update buttons
       initializeQuestion();
+
     } else if (params.randomQuestions) {
       randomizeQuestions();
     }
@@ -549,7 +526,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   var randomizeQuestions = function () {
 
-    var result = randomizeQuestionOrdering(questionInstances,questionOrder);
+    var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
 
@@ -574,8 +551,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       question.attach($('.question-container:eq(' + i + ')', $myDom));
 
       //Show buttons if necessary
-      console.log('replaceQuestionsInDOM', questionInstances[0].getAnswerGiven());
-      debugger;
       if(questionInstances[questionInstances.length -1] === question
         && question.hasButton('finish')) {
         question.showButton('finish');
