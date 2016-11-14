@@ -455,7 +455,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   var resetTask = function () {
 
-    // Clear previous state to ensure questions are created cleanly 
+    // Clear previous state to ensure questions are created cleanly
     contentData.previousState = [];
 
     showingSolutions = false;
@@ -826,6 +826,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Attach questions
     for (var i = 0; i < questionInstances.length; i++) {
       var question = questionInstances[i];
+
+      // Make sure styles are not being added twice
+      $('.question-container:eq(' + i + ')', $myDom).attr('class', 'question-container');
 
       question.attach($('.question-container:eq(' + i + ')', $myDom));
 
