@@ -1121,6 +1121,58 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       poolOrder: poolOrder
     };
   };
+
+  /**
+   * Generate xAPI object definition used in xAPI statements.
+   * @return {Object}
+   */
+  var getxAPIDefinition = function () {
+    var definition = {};
+
+    definition.interactionType = 'compound';
+    definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
+    definition.description = {
+      'en-US': 'Question Set'  
+    };
+
+    return definition;
+  };
+
+  /**
+   * Add the question itself to the definition part of an xAPIEvent
+   */
+  var addQuestionToXAPI = function(xAPIEvent) {
+    var definition = xAPIEvent.getVerifiedStatementValue(['object', 'definition']);
+    $.extend(definition, getxAPIDefinition());
+  };
+
+  /**
+   * Get xAPI data from sub content types
+   *
+   * @param {Object} metaContentType
+   * @returns {array}  
+   */
+  var getXAPIDataFromChildren = function(metaContentType) {
+    return metaContentType.getQuestions().map(function(question) {
+      return question.getXAPIData();
+    });
+  }
+
+  /**
+   * Get xAPI data.
+   * Contract used by report rendering engine.
+   *
+   * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
+   */
+  this.getXAPIData = function(){
+    var xAPIEvent = this.createXAPIEventTemplate('answered');
+    addQuestionToXAPI(xAPIEvent); 
+    var childrenData = getXAPIDataFromChildren(this);
+    return {
+      statement: xAPIEvent.data.statement,
+      children: childrenData
+    }
+  };
 };
 
 H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
