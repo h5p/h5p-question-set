@@ -1132,7 +1132,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     definition.interactionType = 'compound';
     definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
     definition.description = {
-      'en-US': 'Question Set'  
+      'en-US': ''  
     };
 
     return definition;
