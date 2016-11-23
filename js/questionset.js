@@ -541,7 +541,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     replaceQuestionsInDOM(questionInstances);
   };
 
-
   /**
    * Empty the DOM of all questions, attach new questions and update buttons
    *
@@ -817,7 +816,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     });
   };
 
-
   /**
    * Initialize a question and attach it to the DOM
    *
@@ -1008,7 +1006,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
     return score;
   };
-
 
   /**
    * @deprecated since version 1.9.2
