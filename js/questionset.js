@@ -1132,7 +1132,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     definition.interactionType = 'compound';
     definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
     definition.description = {
-      'en-US': ''  
+      'en-US': ''
     };
 
     return definition;
@@ -1150,13 +1150,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * Get xAPI data from sub content types
    *
    * @param {Object} metaContentType
-   * @returns {array}  
+   * @returns {array}
    */
   var getXAPIDataFromChildren = function(metaContentType) {
     return metaContentType.getQuestions().map(function(question) {
       return question.getXAPIData();
     });
-  }
+  };
 
   /**
    * Get xAPI data.
@@ -1166,11 +1166,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   this.getXAPIData = function(){
     var xAPIEvent = this.createXAPIEventTemplate('answered');
-    addQuestionToXAPI(xAPIEvent); 
-    var childrenData = getXAPIDataFromChildren(this);
+    addQuestionToXAPI(xAPIEvent);
+    xAPIEvent.setScoredResult(this.getScore(),
+      this.getMaxScore(),
+      this,
+      true,
+      this.getScore() === this.getMaxScore()
+    );
     return {
       statement: xAPIEvent.data.statement,
-      children: childrenData
+      children: getXAPIDataFromChildren(this)
     }
   };
 };
