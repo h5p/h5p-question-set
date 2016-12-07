@@ -541,7 +541,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     replaceQuestionsInDOM(questionInstances);
   };
 
-
   /**
    * Empty the DOM of all questions, attach new questions and update buttons
    *
@@ -817,7 +816,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     });
   };
 
-
   /**
    * Initialize a question and attach it to the DOM
    *
@@ -1009,7 +1007,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     return score;
   };
 
-
   /**
    * @deprecated since version 1.9.2
    * @returns {number}
@@ -1123,6 +1120,63 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       order: questionOrder,
       poolOrder: poolOrder
     };
+  };
+
+  /**
+   * Generate xAPI object definition used in xAPI statements.
+   * @return {Object}
+   */
+  var getxAPIDefinition = function () {
+    var definition = {};
+
+    definition.interactionType = 'compound';
+    definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
+    definition.description = {
+      'en-US': ''
+    };
+
+    return definition;
+  };
+
+  /**
+   * Add the question itself to the definition part of an xAPIEvent
+   */
+  var addQuestionToXAPI = function(xAPIEvent) {
+    var definition = xAPIEvent.getVerifiedStatementValue(['object', 'definition']);
+    $.extend(definition, getxAPIDefinition());
+  };
+
+  /**
+   * Get xAPI data from sub content types
+   *
+   * @param {Object} metaContentType
+   * @returns {array}
+   */
+  var getXAPIDataFromChildren = function(metaContentType) {
+    return metaContentType.getQuestions().map(function(question) {
+      return question.getXAPIData();
+    });
+  };
+
+  /**
+   * Get xAPI data.
+   * Contract used by report rendering engine.
+   *
+   * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
+   */
+  this.getXAPIData = function(){
+    var xAPIEvent = this.createXAPIEventTemplate('answered');
+    addQuestionToXAPI(xAPIEvent);
+    xAPIEvent.setScoredResult(this.getScore(),
+      this.getMaxScore(),
+      this,
+      true,
+      this.getScore() === this.getMaxScore()
+    );
+    return {
+      statement: xAPIEvent.data.statement,
+      children: getXAPIDataFromChildren(this)
+    }
   };
 };
 
