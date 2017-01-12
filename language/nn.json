@@ -56,13 +56,8 @@
         }
       ],
       "field": {
-        "label": "Spørsmål",
-        "fields": [
-          {
-            "label": "Spørsmålstype",
-            "description": "Velg spørsmålstype for dette spørsmålet"
-          }
-        ]
+        "label": "Spørsmålstype",
+        "description": "Velg spørsmålstype for dette spørsmålet"
       }
     },
     {
