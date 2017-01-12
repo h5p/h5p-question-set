@@ -38,8 +38,7 @@
         {
           "label": "Punkte"
         }
-      ],
-      "default": "punkte"
+      ]
     },
     {
       "label": "Prozent bearbeitet",
