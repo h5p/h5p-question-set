@@ -47,6 +47,14 @@
     {
       "label": "Spørsmål",
       "entity": "spørsmål",
+      "widgets": [
+        {
+          "label": "Standard"
+        },
+        {
+          "label": "Tekstlig"
+        }
+      ],
       "field": {
         "label": "Spørsmål",
         "fields": [
