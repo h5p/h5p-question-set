@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Quiz Einführung",
+      "label": "Quiz-Einführung",
       "fields": [
         {
           "label": "Zeige Einführung"
@@ -15,7 +15,7 @@
           "description": "Dieser Text wird angezeigt, bevor das Quiz anfängt."
         },
         {
-          "label": "Start Button Text",
+          "label": "Beschriftung des \"Start\"-Buttons",
           "default": "Starte Quiz"
         },
         {
@@ -26,11 +26,11 @@
     },
     {
       "label": "Hintergrundbild",
-      "description": "Ein optionales Hintergrundbild für das Frage Set."
+      "description": "Ein optionales Hintergrundbild für das Fragenset."
     },
     {
       "label": "Fortschrittsanzeige",
-      "description": "Anzeigestil für die Fortschrittsanzeige des Frage Sets.",
+      "description": "Anzeigestil für die Fortschrittsanzeige des Fragensets.",
       "options": [
         {
           "label": "Text"
@@ -42,7 +42,7 @@
     },
     {
       "label": "Prozent bearbeitet",
-      "description": "Prozent der Gesamtpunkte sind notwendig um das Quiz zu bestehen."
+      "description": "Prozentsatz der Gesamtpunkte, die notwendig sind, um das Quiz zu bestehen."
     },
     {
       "label": "Fragen",
@@ -64,61 +64,61 @@
       "label": "Anzeigetexte im Quiz",
       "fields": [
         {
-          "label": "Rückwärts Button",
-          "default": "vorherige"
+          "label": "Beschriftung des \"Zurück\"-Buttons",
+          "default": "Zurück"
         },
         {
-          "label": "Weiter Button",
-          "default": "weiter"
+          "label": "Beschriftung des \"Weiter\"-Buttons",
+          "default": "Weiter"
         },
         {
-          "label": "Ende Button",
-          "default": "beenden"
+          "label": "Beschriftung des \"Beenden\"-Buttons",
+          "default": "Beenden"
         },
         {
           "label": "Fortschrittstext",
-          "description": "Verwendeter Text wenn Text Fortschrittsanzeige gewählt wurde.",
+          "description": "Verwendeter Text, wenn Fortschrittsanzeige in Textform gewählt wurde.",
           "default": "Aktuelle Frage: @current von @total Fragen"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Beschriftung für das Springen zu einem bestimmten Punkt",
+          "description": "Nutze den Platzhalter '%d' für die Fragennummer und %total für die Gesamtzahl der Fragen.",
+          "default": "Frage %d von %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Beschriftung für eine Frage zum Urheberrechtsdialog",
+          "default": "Frage"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Fortschritt \"Readspeaker\"",
+          "description": "Variablen: @current und @total",
+          "default": "Frage @current von @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Text für unbeantwortete Fragen",
+          "default": "Unbeantwortet"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Text für beantwortete Fragen",
+          "default": "Beantwortet"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "Text fpr aktuelle Frage",
+          "default": "Aktuelle Frage"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Möglichkeit zum Rückwärts-Springen deaktivieren",
+      "description": "Wenn aktiviert, kann der Nutzer nur vorwärts durch das Fragenset navigieren."
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "Fragen zufällig anordnen",
+      "description": "Aktivieren, um die Reihenfolge der Fragen zufällig zu bestimmen."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "Anzahl der anzuzeigenden Fragen:",
+      "description": "Kann benutzt werden, um eine zufällige Auswahl auf mehreren Fragen zu treffen."
     },
     {
       "label": "Quiz beendet",
@@ -127,98 +127,99 @@
           "label": "Ergebnisanzeige"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Hinweis bei keinen Ergebnissen",
+          "description": "Text, der am Ende angezeigt wird, falls \"Ergebnisse anzeigen\" deaktiviert ist",
+          "default": "Beendet"
         },
         {
-          "label": "Kopfzeile Feedback",
+          "label": "Kopfzeile für die Rückmeldungen",
           "default": "Dein Ergebnis:",
-          "description": "diese Kopfzeile wird am Ende des Quiz angezeigt, wenn der Benutzer alle Fragen beantwortet hat."
+          "description": "diese Kopfzeile wird am Ende des Quizzes angezeigt, wenn der Nutzer alle Fragen beantwortet hat."
         },
         {
-          "label": "Punkt Anzeige Text",
-          "description": "Dieser Text wird verwendet um die Gesamtpunkte des Benutzers anzuzeigen. \"@score\" wird durch die errechneten Punkte ersetzt, \"@total\" wird durch die maximal erreichbaren Punkte ersetzt.",
+          "label": "Text für die Punkteanzeige",
+          "description": "Dieser Text wird verwendet, um die Gesamtpunkte des Nutzers anzuzeigen. \"@score\" wird durch die errechnete Punktzahl ersetzt, \"@total\" wird durch die maximal erreichbare Punktzahl ersetzt.",
           "default": "Du hast @score Punkte von @total möglichen."
         },
         {
-          "label": "Quiz bestanden Mitteilung",
-          "default": "Gratulation!",
-          "description": "Dieser Text wird oberhalb der Punkte angezeigt, wenn der Benutzer das Quiz erfolgreich abgeschlossen hat."
+          "label": "Kopfzeile für \"Quiz bestanden\"",
+          "placeholder": "Glückwunsch!",
+          "default": "Glückwunsch!",
+          "description": "Dieser Text wird oberhalb der Punkte angezeigt, wenn der Nutzer das Quiz erfolgreich abgeschlossen hat."
         },
         {
-          "label": "Bestanden Kommentar",
+          "label": "Kommentar für bestandenes Quiz",
           "default": "Gut gemacht!",
-          "description": "dieser Kommentar wird nach den Punkten angezeigt, wenn der Benutzer das Quiz erfolgreich bestanden hat."
+          "description": "Dieser Kommentar wird nach den Punkten angezeigt, wenn der Nutzer das Quiz erfolgreich bestanden hat."
         },
         {
-          "label": "Quiz nicht bestanden Titel",
+          "label": "Kopfzeile für nicht bestandenes Quiz",
           "default": "Diese Mal hast du nicht bestanden.",
-          "description": "dieser Text wird oberhalb der Punkte angezeigt, wenn der Benutzer das Quiz nicht bestanden hat."
+          "description": "Dieser Text wird oberhalb der Punkte angezeigt, wenn der Nutzer das Quiz nicht bestanden hat."
         },
         {
-          "label": "Nicht bestanden Kommentar",
+          "label": "Kommentar für nicht bestandenes Quiz",
           "default": "Versuche es noch einmal!",
-          "description": "Dieser Kommentar wird nach den Punkten angezeigt, wenn der Benutzer das Quiz nicht bestanden hat."
+          "description": "Dieser Kommentar wird nach den Punkten angezeigt, wenn der Nutzer das Quiz nicht bestanden hat."
         },
         {
-          "label": "Lösungs Button Beschriftung",
-          "default": "Zeige die Lösung",
-          "description": "Text für den Lösungs Button."
+          "label": "Beschriftung des \"Lösung zeigen\"-Buttons",
+          "default": "Lösung zeigen",
+          "description": "Beschriftung des \"Lösung zeigen\"-Buttons"
         },
         {
-          "label": "Wiederholen Button Beschriftung",
-          "default": "Versuch es nochmal",
-          "description": "Text für den Wiederholen Button."
+          "label": "Beschriftung des \"Wiederholen\"-Buttons",
+          "default": "Wiederholen",
+          "description": "Beschriftung des \"Wiederholen\"-Buttons"
         },
         {
-          "label": "Beende Button Text",
+          "label": "Beschriftung des \"Beenden\"-Buttons",
           "default": "Beenden"
         },
         {
           "label": "Zeige Video vor den Quizergebnissen"
         },
         {
-          "label": "Aktiviere Skip Video Button"
+          "label": "Aktiviere \"Video überspringen\"-Button"
         },
         {
-          "label": "Skip Video Button Beschriftung",
-          "default": "Überspringe Video"
+          "label": "Beschriftung des \"Video überspringen\"-Buttons",
+          "default": "Video überspringen"
         },
         {
-          "label": "Bestanden Video",
-          "description": "Dieses Video wird angezeigt, wenn der Benutzer das Quiz erfolgreich bestanden hat."
+          "label": "Bestanden-Video",
+          "description": "Dieses Video wird angezeigt, wenn der Nutzer das Quiz erfolgreich bestanden hat."
         },
         {
-          "label": "Nicht bestanden Video",
-          "description": "Dieses Video wird angezeigt, wenn der Benutzer das Quiz nicht bestanden hat."
+          "label": "Nicht-bestanden-Video",
+          "description": "Dieses Video wird angezeigt, wenn der Nutzer das Quiz nicht bestanden hat."
         }
       ]
     },
     {
-      "label": "Einstellungen für \"Zeige die Lösung\" Button und \"Nochmal\".",
+      "label": "Einstellungen für \"Lösung zeigen\"-Button und \"Nochmal\".",
       "fields": [
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Überschreiben des \"Lösungen anzeigen\"-Buttons",
+          "description": "Diese Option gibt an, ob der \"Lösung anzeigen\"-Button für alle Fragen angezeigt, ausgeblendet oder für jede Frage individuell konfiguriert wird.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Anzeigen"
             },
             {
-              "label": "Disabled"
+              "label": "Ausblenden"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Überschreiben des \"Wiederholen\"-Buttons",
+          "description": "Diese Option gibt an, ob der \"Wiederholen\" Button für alle Fragen angezeigt, ausgeblendet oder für jede Frage individuell konfiguriert wird.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Anzeigen"
             },
             {
-              "label": "Disabled"
+              "label": "Ausblenden"
             }
           ]
         }

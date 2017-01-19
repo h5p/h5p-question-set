@@ -1,7 +1,7 @@
 H5P Question Set
 ==========
 
-Test your users with by putting together multiple tasks into a question set(quiz).
+Test your users with by putting together multiple tasks into a question set(quiz)
 
 ## License
 

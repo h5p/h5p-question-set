@@ -47,14 +47,17 @@
     {
       "label": "Spørsmål",
       "entity": "spørsmål",
+      "widgets": [
+        {
+          "label": "Standard"
+        },
+        {
+          "label": "Tekstlig"
+        }
+      ],
       "field": {
-        "label": "Spørsmål",
-        "fields": [
-          {
-            "label": "Spørsmålstype",
-            "description": "Velg spørsmålstype for dette spørsmålet"
-          }
-        ]
+        "label": "Spørsmålstype",
+        "description": "Velg spørsmålstype for dette spørsmålet"
       }
     },
     {
