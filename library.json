@@ -3,7 +3,7 @@
   "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 11,
+  "minorVersion": 12,
   "patchVersion": 0,
   "embedTypes": [
     "iframe"
