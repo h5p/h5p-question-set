@@ -265,9 +265,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
 
       question.params = question.params || {};
-      question.params.overrideSettings = question.params.overrideSettings || {};
-      question.params.overrideSettings.$confirmationDialogParent = $template.last();
-      question.params.overrideSettings.instance = this;
       var hasAnswers = contentData.previousState && contentData.previousState.answers;
       var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
         {
@@ -282,7 +279,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
 
     return result;
-  }
+  };
 
   // Create question instances from questions given by params
   questionInstances = createQuestionInstancesFromQuestions(params.questions);
