@@ -353,6 +353,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     currentQuestion = questionNumber;
 
+    handleAutoPlay(currentQuestion);
+
     // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
@@ -401,6 +403,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     _updateButtons();
     self.trigger('resize');
     return currentQuestion;
+  };
+
+  /**
+   * Handle autoplays, limit to one at a time
+   */
+  var handleAutoPlay = function (currentQuestion) {
+    for (var i = 0; i < questionInstances.length; i++) {
+      questionInstances[i].pause();
+    }
+
+    var hasAutoPlay = params.questions[currentQuestion].params.media.params.playback.autoplay;
+
+    if (hasAutoPlay) {
+      questionInstances[currentQuestion].play();
+    }
   };
 
   /**
