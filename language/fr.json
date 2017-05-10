@@ -109,8 +109,16 @@
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Désactiver la possibilité de naviguer en arrière",
+      "description": "Cette option ne permettra plus que la navigation en avant au sein du module Question Set"
+    },
+    {
+      "label": "Afficher les question dans un ordre aléatoire",
+      "description": "Ceci permet d'afficher les questions dans un ordre aléatoire."
+    },
+    {
+      "label": "Nombre de questions à afficher:",
+      "description": "Génère aléatoire un jeu de question parmi toutes les questions disponibles."
     },
     {
       "label": "Quiz terminé",
