@@ -411,16 +411,22 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   /**
    * Handle autoplays, limit to one at a time
+   *
+   * @param {number} currentQuestionIndex
    */
-  var handleAutoPlay = function (currentQuestion) {
+  var handleAutoPlay = function (currentQuestionIndex) {
     for (var i = 0; i < questionInstances.length; i++) {
       questionInstances[i].pause();
     }
 
-    var hasAutoPlay = params.questions[currentQuestion].params.media.params.playback.autoplay;
+    var currentQuestion = params.questions[currentQuestionIndex];
+
+    var hasAutoPlay = currentQuestion
+      && currentQuestion.params.media
+      && currentQuestion.params.media.params.playback.autoplay;
 
     if (hasAutoPlay) {
-      questionInstances[currentQuestion].play();
+      questionInstances[currentQuestionIndex].play();
     }
   };
 
