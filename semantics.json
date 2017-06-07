@@ -122,7 +122,7 @@
       "description": "Library for this question.",
       "options": [
         "H5P.MultiChoice 1.9",
-        "H5P.DragQuestion 1.9",
+        "H5P.DragQuestion 1.10",
         "H5P.Blanks 1.7",
         "H5P.MarkTheWords 1.6",
         "H5P.DragText 1.5",
@@ -253,6 +253,12 @@
         "type": "boolean",
         "label": "Display results",
         "importance": "low",
+        "default": true
+      },
+      {
+        "name": "showSolutionButton",
+        "type": "boolean",
+        "label": "Display solution button",
         "default": true
       },
       {

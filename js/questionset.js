@@ -61,6 +61,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  </div>' +
           '</div>';
 
+  var solutionButtonTemplate = options.endGame.showSolutionButton ?
+          '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
+          '';
+
   var resulttemplate =
           '<div class="questionset-results">' +
           '  <div class="greeting"><%= message %></div>' +
@@ -76,7 +80,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% } %>' +
           '  <div class="buttons">' +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></button>' +
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>' +
+          solutionButtonTemplate +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>' +
           '  </div>' +
           '</div>';
@@ -350,6 +354,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     currentQuestion = questionNumber;
 
+    handleAutoPlay(currentQuestion);
+
     // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
 
@@ -398,6 +404,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     _updateButtons();
     self.trigger('resize');
     return currentQuestion;
+  };
+
+  /**
+   * Handle autoplays, limit to one at a time
+   */
+  var handleAutoPlay = function (currentQuestion) {
+    for (var i = 0; i < questionInstances.length; i++) {
+      questionInstances[i].pause();
+    }
+
+    var hasAutoPlay = params.questions[currentQuestion].params.media.params.playback.autoplay;
+
+    if (hasAutoPlay) {
+      questionInstances[currentQuestion].play();
+    }
   };
 
   /**
