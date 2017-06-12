@@ -418,28 +418,10 @@
   {
     "name": "override",
     "type": "group",
-    "label": "Override settings for \"Check\", \"Show solution\" and \"Retry\" buttons",
+    "label": "Settings for \"Show solution\" and \"Retry\" buttons",
     "importance": "low",
     "optional": true,
     "fields": [
-      {
-        "name": "checkButton",
-        "type": "select",
-        "label": "Override \"Check\" button",
-        "importance": "low",
-        "description": "This option determines if the \"Check\" button will be shown for all questions, disabled for all or configured for each question individually.",
-        "optional": true,
-        "options": [
-          {
-            "value": "on",
-            "label": "Enabled"
-          },
-          {
-            "value": "off",
-            "label": "Disabled"
-          }
-        ]
-      },
       {
         "name": "showSolutionButton",
         "type": "select",
