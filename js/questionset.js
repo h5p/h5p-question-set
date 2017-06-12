@@ -225,21 +225,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var $template = $(template.render(params));
 
   // Set overrides for questions
-  var override = {};
+  var override;
+  if (params.override.showSolutionButton || params.override.retryButton) {
+    override = {};
+    if (params.override.showSolutionButton) {
+      // Force "Show solution" button to be on or off for all interactions
+      override.enableSolutionsButton =
+          (params.override.showSolutionButton === 'on' ? true : false);
+    }
 
-  if (params.override.checkButton) {
-    // Force "Check" button to be on or off for all interactions
-    override.enableCheck = params.override.checkButton === 'on';
-  }
-
-  if (params.override.showSolutionButton) {
-    // Force "Show solution" button to be on or off for all interactions
-    override.enableSolutionsButton = params.override.showSolutionButton === 'on';
-  }
-
-  if (params.override.retryButton) {
-    // Force "Retry" button to be on or off for all interactions
-    override.enableRetry = params.override.retryButton === 'on';
+    if (params.override.retryButton) {
+      // Force "Retry" button to be on or off for all interactions
+      override.enableRetry =
+          (params.override.retryButton === 'on' ? true : false);
+    }
   }
 
   /**
