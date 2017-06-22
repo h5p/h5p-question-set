@@ -38,8 +38,7 @@
         {
           "label":"Bodovi"
         }
-      ],
-      "default":"dots"
+      ]
     },
     {
       "label":"Minimalno procenata za prolaz",
