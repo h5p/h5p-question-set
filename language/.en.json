@@ -38,7 +38,8 @@
         {
           "label": "Dots"
         }
-      ]
+      ],
+      "default": "dots"
     },
     {
       "label": "Pass percentage",
