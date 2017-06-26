@@ -38,7 +38,8 @@
         {
           "label":"Punti"
         }
-      ]
+      ],
+      "default":"dots"
     },
     {
       "label":"Percentuale superamento quiz",
