@@ -38,7 +38,8 @@
         {
           "label":"Points"
         }
-      ]
+      ],
+      "default":"dots"
     },
     {
       "label":"Pourcentage de réussite",
