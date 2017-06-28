@@ -103,7 +103,7 @@
           "default": "Beantwortet"
         },
         {
-          "label": "Text fpr aktuelle Frage",
+          "label": "Text für aktuelle Frage",
           "default": "Aktuelle Frage"
         }
       ]
