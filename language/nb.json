@@ -38,7 +38,8 @@
         {
           "label":"Angi fremdrift med prikker"
         }
-      ]
+      ],
+      "default":"dots"
     },
     {
       "label":"Krav for å bestå",
