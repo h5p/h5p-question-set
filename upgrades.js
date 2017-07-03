@@ -53,6 +53,32 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
         delete parameters.questionLabel;
 
         finished(null, parameters);
+      },
+
+      /**
+       * Asynchronous content upgrade hook.
+       *
+       * Upgrade params to support overall feedback
+       *
+       * @param  {Object} parameters
+       * @param  {function} finished
+       */
+      13: function (parameters, finished) {
+
+        parameters.endGame = parameters.endGame || {};
+        parameters.endGame.overallFeedback = [];
+
+        if (parameters.endGame.scoreString) {
+          parameters.endGame.overallFeedback.push({
+            from: 0,
+            to: 100,
+            feedback: parameters.endGame.scoreString
+          });
+
+          delete parameters.endGame.scoreString;
+        }
+
+        finished(null, parameters);
       }
     }
   };

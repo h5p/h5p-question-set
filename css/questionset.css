@@ -225,30 +225,27 @@
   font-size: 1.25em;
 }
 
-.questionset-results .feedback-section .feedback-text {
-  font-weight: normal;
-  color: #777;
-}
-
 .questionset-results .buttons {
-  margin-bottom: 1.5em;
+  margin: 2em 0 1em 0;
 }
 
 .questionset-results .result-header,
-.questionset-results .result-text {
+.questionset-results .result-text,
+.questionset-results .feedback-section .feedback-text {
   color: #1a73d9;
   font-weight: bold;
 }
 
 .questionset-results .result-header {
   font-size: 2em;
-  margin-top: 1em;
+  margin: 1em 0.5em 0.5em 0.5em;
 }
 
-.questionset-results .result-text {
+.questionset-results .result-text,
+.questionset-results .feedback-section .feedback-text {
   font-size: 1.25em;
   line-height: 1.25em;
-  margin: 1em 1em 2.25em;
+  margin: 1em;
 }
 
 /* No margin for questions when no frame */

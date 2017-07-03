@@ -112,11 +112,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       showResultPage: true,
       noResultMessage: 'Finished',
       message: 'Your result:',
-      successGreeting: 'Congratulations!',
-      successComment: 'You have enough correct answers to pass the test.',
-      failGreeting: 'Sorry!',
-      failComment: "You don't have enough correct answers to pass this test.",
-      scoreString: 'You got @score of @total points',
+      successGreeting: '',
+      successComment: '',
+      failGreeting: '',
+      failComment: '',
+      overallFeedback: [],
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
       retryButtonText: 'Retry',
@@ -420,12 +420,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     var hasAutoPlay = currentQuestion
       && currentQuestion.params.media
+      && currentQuestion.params.media.params
+      && currentQuestion.params.media.params.playback
       && currentQuestion.params.media.params.playback.autoplay;
 
-    if (hasAutoPlay) {
+    if (hasAutoPlay && typeof questionInstances[currentQuestionIndex].play === 'function') {
       questionInstances[currentQuestionIndex].play();
     }
   };
+
+
 
   /**
    * Show solutions for subcontent, and hide subcontent buttons.
@@ -703,12 +707,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Get total score.
     var finals = self.getScore();
     var totals = self.getMaxScore();
-    var scoreString = params.endGame.scoreString.replace("@score", finals).replace("@total", totals);
+
+    var scoreString = H5P.Question.determineOverallFeedback(params.endGame.overallFeedback, finals / totals).replace('@score', finals).replace('@total', totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
-    var eventData = {
-      score: scoreString,
-      passed: success
-    };
 
     /**
      * Makes our buttons behave like other buttons.
@@ -743,10 +744,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       $myDom.append(endTemplate.render(eparams));
 
       if (params.endGame.showResultPage) {
-        // Add event handlers to summary buttons
-        hookUpButton('.qs-finishbutton', function () {
-          self.trigger('h5pQuestionSetFinished', eventData);
-        });
         hookUpButton('.qs-solutionbutton', function () {
           showSolutions();
           $myDom.children().hide().filter('.questionset').show();
