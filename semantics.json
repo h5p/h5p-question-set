@@ -299,7 +299,7 @@
             ],
             "importance": "high",
             "label": "Define custom feedback for any score range",
-            "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+            "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!\n\"@score\" will be replaced by calculated score, \"@total\" will be replaced by maximum possible score.",
             "entity": "range",
             "min": 1,
             "defaultNum": 1,
@@ -332,6 +332,8 @@
                   "label": "Feedback for defined score range",
                   "importance": "low",
                   "placeholder": "Fill in the feedback",
+                  "default": "You got @score of @total points",
+                  "showDefaultOnFirstRow": true,
                   "optional": true
                 }
               ]
