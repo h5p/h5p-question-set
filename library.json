@@ -3,7 +3,7 @@
   "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 13,
+  "minorVersion": 15,
   "patchVersion": 0,
   "embedTypes": [
     "iframe"
@@ -59,6 +59,11 @@
       "machineName": "H5PEditor.QuestionSetTextualEditor",
       "majorVersion": 1,
       "minorVersion": 2
+    },
+    {
+      "machineName": "H5PEditor.RangeList",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ]
 }
