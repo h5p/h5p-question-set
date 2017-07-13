@@ -340,66 +340,71 @@
         ]
       },
       {
-        "name": "successGreeting",
-        "type": "text",
-        "label": "Quiz passed greeting",
+        "name": "oldFeedback",
+        "type": "group",
+        "label": "Old Feedback",
         "importance": "low",
-        "optional": true,
-        "description": "This text will be displayed above the score if the user has successfully passed the quiz.",
-        "tags": [
-          "strong",
-          "em"
-        ],
-        "deprecated": true
-      },
-      {
-        "name": "successComment",
-        "type": "text",
-        "widget": "html",
-        "label": "Passed comment",
-        "importance": "low",
-        "optional": true,
-        "description": "This comment will be displayed after the score if the user has successfully passed the quiz.",
-        "tags": [
-          "sub",
-          "sup",
-          "strong",
-          "em",
-          "a",
-          "p"
-        ],
-        "deprecated": true
-      },
-      {
-        "name": "failGreeting",
-        "type": "text",
-        "label": "Quiz failed title",
-        "importance": "low",
-        "optional": true,
-        "description": "This text will be displayed above the score if the user has failed the quiz.",
-        "tags": [
-          "strong",
-          "em"
-        ],
-        "deprecated": true
-      },
-      {
-        "name": "failComment",
-        "type": "text",
-        "widget": "html",
-        "label": "Failed comment",
-        "importance": "low",
-        "optional": true,
-        "description": "This comment will be displayed after the score if the user has failed the quiz.",
-        "tags": [
-          "sub",
-          "sup",
-          "strong",
-          "em",
-          "a",
-          "p"
-        ],
-        "deprecated": true
+        "deprecated": true,
+        "fields": [
+          {
+            "name": "successGreeting",
+            "type": "text",
+            "label": "Quiz passed greeting",
+            "importance": "low",
+            "optional": true,
+            "description": "This text will be displayed above the score if the user has successfully passed the quiz.",
+            "tags": [
+              "strong",
+              "em"
+            ]
+          },
+          {
+            "name": "successComment",
+            "type": "text",
+            "widget": "html",
+            "label": "Passed comment",
+            "importance": "low",
+            "optional": true,
+            "description": "This comment will be displayed after the score if the user has successfully passed the quiz.",
+            "tags": [
+              "sub",
+              "sup",
+              "strong",
+              "em",
+              "a",
+              "p"
+            ]
+          },
+          {
+            "name": "failGreeting",
+            "type": "text",
+            "label": "Quiz failed title",
+            "importance": "low",
+            "optional": true,
+            "description": "This text will be displayed above the score if the user has failed the quiz.",
+            "tags": [
+              "strong",
+              "em"
+            ]
+          },
+          {
+            "name": "failComment",
+            "type": "text",
+            "widget": "html",
+            "label": "Failed comment",
+            "importance": "low",
+            "optional": true,
+            "description": "This comment will be displayed after the score if the user has failed the quiz.",
+            "tags": [
+              "sub",
+              "sup",
+              "strong",
+              "em",
+              "a",
+              "p"
+            ]
+          }
+        ]
       },
       {
         "name": "solutionButtonText",

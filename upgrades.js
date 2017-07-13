@@ -78,6 +78,26 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
           delete parameters.endGame.scoreString;
         }
 
+        // Group old feedback fields
+        if (parameters.endGame.successGreeting ||
+            parameters.endGame.successComment ||
+            parameters.endGame.failGreeting ||
+            parameters.endGame.failComment) {
+          parameters.endGame.oldFeedback = {};
+          if (parameters.endGame.successGreeting) {
+            parameters.endGame.oldFeedback.successGreeting = parameters.endGame.successGreeting;
+          }
+          if (parameters.endGame.successComment) {
+            parameters.endGame.oldFeedback.successComment = parameters.endGame.successComment;
+          }
+          if (parameters.endGame.failGreeting) {
+            parameters.endGame.oldFeedback.failGreeting = parameters.endGame.failGreeting;
+          }
+          if (parameters.endGame.failComment) {
+            parameters.endGame.oldFeedback.failComment = parameters.endGame.failComment;
+          }
+        }
+
         finished(null, parameters);
       }
     }
