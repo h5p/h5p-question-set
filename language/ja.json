@@ -91,13 +91,13 @@
           "default":"質問"
         },
         {
-          "label":"Readspeaker progress",
-          "description":"May use @current and @total question variables",
-          "default":"Question @current of @total"
+          "label":"リードスピーカーの進行状況",
+          "description":"@current と @total の質問用変数を使用できます",
+          "default":"質問 @current \/ @total"
         },
         {
-          "label":"Unanswered question text",
-          "default":"Unanswered"
+          "label":"未回答の質問テキスト",
+          "default":"未回答"
         },
         {
           "label":"Answered question text",
