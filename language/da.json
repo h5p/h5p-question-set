@@ -65,47 +65,47 @@
       "label":"Interface texts in quiz",
       "fields":[
         {
-          "label": "Back button",
-          "default": "Forrige spørgsmål"
+          "label":"Back button",
+          "default":"Forrige spørgsmål"
         },
         {
-          "label": "Next button",
-          "default": "Næste spørgsmål"
+          "label":"Next button",
+          "default":"Næste spørgsmål"
         },
         {
-          "label": "Finish button",
-          "default": "Færdig"
+          "label":"Finish button",
+          "default":"Færdig"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Spørgsmål: nummer @current ud af @spørgsmål"
+          "label":"Progress text",
+          "description":"Text used if textual progress is selected.",
+          "default":"Spørgsmål:nummer @current ud af @spørgsmål"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Spørgsmål %d ud af %total"
+          "label":"Label for jumping to a certain question",
+          "description":"You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
+          "default":"Spørgsmål %d ud af %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Spørgsmål"
+          "label":"Copyright dialog question label",
+          "default":"Spørgsmål"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Spørgsmål @current ud af @total"
+          "label":"Readspeaker progress",
+          "description":"May use @current and @total question variables",
+          "default":"Spørgsmål @current ud af @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Ubesvaret"
+          "label":"Unanswered question text",
+          "default":"Ubesvaret"
         },
         {
-          "label": "Answered question text",
-          "default": "Besvaret"
+          "label":"Answered question text",
+          "default":"Besvaret"
         },
         {
-          "label": "Current question text",
-          "default": "Aktuel spørgsmål"
+          "label":"Current question text",
+          "default":"Aktuel spørgsmål"
         }
       ]
     },
