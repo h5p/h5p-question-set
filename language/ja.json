@@ -110,11 +110,11 @@
       ]
     },
     {
-      "label":"Disable backwards navigation",
-      "description":"This option will only allow you to move forward in Question Set"
+      "label":"後方ナビゲーションを無効化",
+      "description":"このオプションは、質問集内で前方移動を許可します。"
     },
     {
-      "label":"Randomize questions",
+      "label":"ランダムな質問",
       "description":"表示される質問の順序をランダム化します。"
     },
     {
@@ -141,13 +141,13 @@
           "description":"この見出しは、ユーザーがすべての質問に答えたときクイズの終わりに表示されます。"
         },
         {
-          "label":"Overall Feedback",
+          "label":"全体のフィードバック",
           "fields":[
             {
               "widgets":[
                 
               ],
-              "label":"Define custom feedback for any score range",
+              "label":"あるスコアの範囲に対して、カスタムフィードバックを定義します。",
               "description":"Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
               "entity":"range",
               "field":{
