@@ -100,12 +100,12 @@
           "default":"未回答"
         },
         {
-          "label":"Answered question text",
-          "default":"Answered"
+          "label":"回答済みの質問テキスト",
+          "default":"回答済み"
         },
         {
-          "label":"Current question text",
-          "default":"Current question"
+          "label":"現在の質問テキスト",
+          "default":"現在の質問"
         }
       ]
     },
