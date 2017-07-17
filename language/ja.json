@@ -214,38 +214,38 @@
         },
         {
           "label":"合格ビデオ",
-          "description":"ユーザーがクイズの合格に成功した場合にこのビデオが表示されます。"
+          "description":"このビデオは、ユーザーがクイズの合格に成功した場合に表示されます。"
         },
         {
-          "label":"Fail video",
-          "description":"This video will be played if the user failes the quiz."
+          "label":"不合格ビデオ",
+          "description":"このビデオは、ユーザーがクイズに不合格となった場合に表示されます。"
         }
       ]
     },
     {
-      "label":"Settings for \"Show solution\" and \"Retry\" buttons",
+      "label":"「解を表示」と「リトライ」ボタンの設定",
       "fields":[
         {
-          "label":"Override \"Show Solution\" button",
-          "description":"This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"「解を表示」ボタンを上書き",
+          "description":"このオプションは、すべての質問に対して「解を表示」ボタンが表示されるか、すべての質問に対して無効になるか、各質問ごとに個別に設定されるかを決定します。",
           "options":[
             {
-              "label":"Enabled"
+              "label":"有効"
             },
             {
-              "label":"Disabled"
+              "label":"無効"
             }
           ]
         },
         {
-          "label":"Override \"Retry\" button",
-          "description":"This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"「リトライ」ボタンを上書き",
+          "description":"このオプションは、すべての質問に対して「リトライ」ボタンが表示されるか、すべての質問に対して無効になるか、各質問ごとに個別に設定されるかを決定します。",
           "options":[
             {
-              "label":"Enabled"
+              "label":"有効"
             },
             {
-              "label":"Disabled"
+              "label":"無効"
             }
           ]
         }
