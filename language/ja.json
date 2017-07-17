@@ -83,12 +83,12 @@
         },
         {
           "label":"特定の質問にジャンプするラベル",
-          "description":"You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default":"Question %d of %total"
+          "description":"質問番号ではなくプレース ホルダー '%d' を、また質問の全体数ではなく %total を使用する必要があります。",
+          "default":"質問 %d \/ %total"
         },
         {
-          "label":"Copyright dialog question label",
-          "default":"Question"
+          "label":"著作権ダイアログ質問ラベル",
+          "default":"質問"
         },
         {
           "label":"Readspeaker progress",
