@@ -115,10 +115,10 @@
     },
     {
       "label":"Randomize questions",
-      "description":"Enable to randomize the order of questions on display."
+      "description":"表示される質問の順序をランダム化します。"
     },
     {
-      "label":"Number of questions to be shown:",
+      "label":"表示される質問の数:",
       "description":"Create a randomized batch of questions from the total."
     },
     {
