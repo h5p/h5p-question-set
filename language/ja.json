@@ -33,7 +33,7 @@
       "description":"質問集の進捗状況インジケータースタイル",
       "options":[
         {
-          "label":"本文"
+          "label":"原文"
         },
         {
           "label":"ドット"
@@ -43,22 +43,22 @@
     },
     {
       "label":"合格パーセンテージ",
-      "description":"Percentage of Total score required for passing the quiz."
+      "description":"クイズにパスするために必要となる合計点のパーセンテージです。"
     },
     {
-      "label":"Questions",
+      "label":"質問",
       "widgets":[
         {
-          "label":"Default"
+          "label":"デフォルト"
         },
         {
-          "label":"Textual"
+          "label":"原文"
         }
       ],
-      "entity":"question",
+      "entity":"質問",
       "field":{
-        "label":"Question type",
-        "description":"Library for this question."
+        "label":"質問タイプ",
+        "description":"この質問のライブラリ。"
       }
     },
     {
