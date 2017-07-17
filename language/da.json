@@ -66,46 +66,46 @@
       "fields":[
         {
           "label":"Back button",
-          "default":"Previous question"
+          "default":"Forrige spørgsmål"
         },
         {
           "label":"Next button",
-          "default":"Next question"
+          "default":"Næste spørgsmål"
         },
         {
           "label":"Finish button",
-          "default":"Finish"
+          "default":"Færdig"
         },
         {
           "label":"Progress text",
           "description":"Text used if textual progress is selected.",
-          "default":"Question: @current of @total questions"
+          "default":"Spørgsmål:nummer @current ud af @spørgsmål"
         },
         {
           "label":"Label for jumping to a certain question",
           "description":"You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default":"Question %d of %total"
+          "default":"Spørgsmål %d ud af %total"
         },
         {
           "label":"Copyright dialog question label",
-          "default":"Question"
+          "default":"Spørgsmål"
         },
         {
           "label":"Readspeaker progress",
           "description":"May use @current and @total question variables",
-          "default":"Question @current of @total"
+          "default":"Spørgsmål @current ud af @total"
         },
         {
           "label":"Unanswered question text",
-          "default":"Unanswered"
+          "default":"Ubesvaret"
         },
         {
           "label":"Answered question text",
-          "default":"Answered"
+          "default":"Besvaret"
         },
         {
           "label":"Current question text",
-          "default":"Current question"
+          "default":"Aktuel spørgsmål"
         }
       ]
     },
