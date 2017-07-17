@@ -184,37 +184,37 @@
             },
             {
               "label":"不合格コメント",
-              "description":"This comment will be displayed after the score if the user has failed the quiz."
+              "description":"このコメントは、クイズに不合格となった場合、スコアの後に表示されます。"
             }
           ]
         },
         {
-          "label":"Solution button label",
-          "default":"Show solution",
-          "description":"Text for the solution button."
+          "label":"解ボタンのラベル",
+          "default":"解を表示",
+          "description":"解ボタンのテキスト"
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
-          "description":"Text for the retry button."
+          "label":"リトライボタンのラベル",
+          "default":"リトライ",
+          "description":"リトライボタンのテキスト"
         },
         {
-          "label":"Finish button text",
-          "default":"Finish"
+          "label":"完了ボタンのテキスト",
+          "default":"完了"
         },
         {
-          "label":"Display video before quiz results"
+          "label":"クイズの結果の前にビデオを表示"
         },
         {
-          "label":"Enable skip video button"
+          "label":"ビデオスキップボタンを有効化"
         },
         {
-          "label":"Skip video button label",
-          "default":"Skip video"
+          "label":"ビデオスをスキップボタンのラベル",
+          "default":"ビデオをスキップ"
         },
         {
-          "label":"Passed video",
-          "description":"This video will be played if the user successfully passed the quiz."
+          "label":"合格ビデオ",
+          "description":"ユーザーがクイズの合格に成功した場合にこのビデオが表示されます。"
         },
         {
           "label":"Fail video",
