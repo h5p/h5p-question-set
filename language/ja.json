@@ -20,29 +20,29 @@
         },
         {
           "label":"背景画像",
-          "description":"An optional background image for the introduction."
+          "description":"概要のオプションの背景画像"
         }
       ]
     },
     {
-      "label":"Background image",
-      "description":"An optional background image for the Question set."
+      "label":"背景画像",
+      "description":"質問集のオプションの背景画像"
     },
     {
-      "label":"Progress indicator",
-      "description":"Question set progress indicator style.",
+      "label":"進行状況インジケーター",
+      "description":"質問集の進捗状況インジケータースタイル",
       "options":[
         {
-          "label":"Textual"
+          "label":"本文"
         },
         {
-          "label":"Dots"
+          "label":"ドット"
         }
       ],
       "default":"dots"
     },
     {
-      "label":"Pass percentage",
+      "label":"合格パーセンテージ",
       "description":"Percentage of Total score required for passing the quiz."
     },
     {
