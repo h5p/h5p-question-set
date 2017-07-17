@@ -62,27 +62,27 @@
       }
     },
     {
-      "label":"Interface texts in quiz",
+      "label":"クイズ内のインターフェイステキスト",
       "fields":[
         {
-          "label":"Back button",
-          "default":"Previous question"
+          "label":"戻るボタン",
+          "default":"前の質問"
         },
         {
-          "label":"Next button",
-          "default":"Next question"
+          "label":"次へボタン",
+          "default":"次の質問"
         },
         {
-          "label":"Finish button",
-          "default":"Finish"
+          "label":"完了ボタン",
+          "default":"完了"
         },
         {
-          "label":"Progress text",
-          "description":"Text used if textual progress is selected.",
-          "default":"Question: @current of @total questions"
+          "label":"進行状況のテキスト",
+          "description":"テキストによる進行状況を選択した場合に使用するテキスト。",
+          "default":"質問: @current \/ @total"
         },
         {
-          "label":"Label for jumping to a certain question",
+          "label":"特定の質問にジャンプするラベル",
           "description":"You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
           "default":"Question %d of %total"
         },
