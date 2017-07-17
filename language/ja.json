@@ -119,13 +119,13 @@
     },
     {
       "label":"表示される質問の数:",
-      "description":"Create a randomized batch of questions from the total."
+      "description":"全体からランダム化したに質問集を作成します。"
     },
     {
-      "label":"Quiz finished",
+      "label":"クイズ完了",
       "fields":[
         {
-          "label":"Display results"
+          "label":"結果を表示"
         },
         {
           "label":"Display solution button"
