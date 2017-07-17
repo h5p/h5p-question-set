@@ -4,22 +4,22 @@
       "label":"クイズ概要",
       "fields":[
         {
-          "label":"Display introduction"
+          "label":"概要を表示"
         },
         {
-          "label":"Title",
-          "description":"This title will be displayed above the introduction text."
+          "label":"タイトル",
+          "description":"このタイトルは、概要文の上に表示されます。"
         },
         {
-          "label":"Introduction text",
-          "description":"This text will be displayed before the quiz starts."
+          "label":"概要文",
+          "description":"このテキストは、クイズが始まる前に表示されます。"
         },
         {
-          "label":"Start button text",
-          "default":"Start Quiz"
+          "label":"スタート ボタンのテキスト",
+          "default":"クイズをスタート"
         },
         {
-          "label":"Background image",
+          "label":"背景画像",
           "description":"An optional background image for the introduction."
         }
       ]
