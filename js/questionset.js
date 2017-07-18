@@ -119,6 +119,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       showAnimations: false,
       skipButtonText: 'Skip video'
     },
+    override: {},
     disableBackwardsNavigation: false
   };
 
