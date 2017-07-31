@@ -154,7 +154,7 @@
         },
         {
           "label": "Kopfzeile für nicht bestandenes Quiz",
-          "default": "Diese Mal hast du nicht bestanden.",
+          "default": "Dieses Mal hast du nicht bestanden.",
           "description": "Dieser Text wird oberhalb der Punkte angezeigt, wenn der Nutzer das Quiz nicht bestanden hat."
         },
         {
