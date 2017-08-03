@@ -53,6 +53,52 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
         delete parameters.questionLabel;
 
         finished(null, parameters);
+      },
+
+      /**
+       * Asynchronous content upgrade hook.
+       *
+       * Upgrade params to support overall feedback
+       *
+       * @param  {Object} parameters
+       * @param  {function} finished
+       */
+      13: function (parameters, finished) {
+
+        parameters.endGame = parameters.endGame || {};
+        parameters.endGame.overallFeedback = [];
+
+        if (parameters.endGame.scoreString) {
+          parameters.endGame.overallFeedback.push({
+            from: 0,
+            to: 100,
+            feedback: parameters.endGame.scoreString
+          });
+
+          delete parameters.endGame.scoreString;
+        }
+
+        // Group old feedback fields
+        if (parameters.endGame.successGreeting ||
+            parameters.endGame.successComment ||
+            parameters.endGame.failGreeting ||
+            parameters.endGame.failComment) {
+          parameters.endGame.oldFeedback = {};
+          if (parameters.endGame.successGreeting) {
+            parameters.endGame.oldFeedback.successGreeting = parameters.endGame.successGreeting;
+          }
+          if (parameters.endGame.successComment) {
+            parameters.endGame.oldFeedback.successComment = parameters.endGame.successComment;
+          }
+          if (parameters.endGame.failGreeting) {
+            parameters.endGame.oldFeedback.failGreeting = parameters.endGame.failGreeting;
+          }
+          if (parameters.endGame.failComment) {
+            parameters.endGame.oldFeedback.failComment = parameters.endGame.failComment;
+          }
+        }
+
+        finished(null, parameters);
       }
     }
   };

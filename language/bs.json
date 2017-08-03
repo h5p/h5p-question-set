@@ -1,0 +1,229 @@
+{
+  "semantics": [
+    {
+      "label": "Uvod u kviz",
+      "fields": [
+        {
+          "label": "Prikaži uvod"
+        },
+        {
+          "label": "Naziv",
+          "description": "Ovaj će naziv biti prikazan iznad uvodnog teksta."
+        },
+        {
+          "label": "Tekst uvoda",
+          "description": "Ovaj će naziv biti prikazan prije početka kviza."
+        },
+        {
+          "label": "Oznaka za dugme \"Start\"",
+          "default": "Start"
+        },
+        {
+          "label": "Slika pozadine",
+          "description": "Slika pozadine na početku. (opcionalno)."
+        }
+      ]
+    },
+    {
+      "label": "Slika pozadine",
+      "description": "Slika pozadine seta pitanja. (opcionalno)."
+    },
+    {
+      "label": "Prikaz napredovanja",
+      "description": "Prikazivanje napredovanja",
+      "options": [
+        {
+          "label": "Tekst"
+        },
+        {
+          "label": "Bodovi"
+        }
+      ]
+    },
+    {
+      "label": "Minimalno procenata za prolaz",
+      "description": "Minimalno osvojenih procenata da bi se kviz smatrao uspješno prođenim."
+    },
+    {
+      "label": "Pitanja",
+      "widgets": [
+        {
+          "label": "Standard"
+        },
+        {
+          "label": "Tekst"
+        }
+      ],
+      "entity": "Pitanje",
+      "field": {
+        "label": "Vrsta pitanja",
+        "description": "Biblioteka za ovo pitanje."
+      }
+    },
+    {
+      "label": "Prikaz teksta u kvizu",
+      "fields": [
+        {
+          "label": "Oznaka za dugme \"Nazad\"",
+          "default": "Zurück"
+        },
+        {
+          "label": "Oznaka za dugme \"Naprijed\"",
+          "default": "Weiter"
+        },
+        {
+          "label": "Oznaka za dugme \"Završi\"",
+          "default": "Završi"
+        },
+        {
+          "label": "Tekst o napredovanju",
+          "description": "Koristi tekst ako je izabran za napredak u pisanom obliku.",
+          "default": "Aktuelno pitanje: @current od @total pitanja"
+        },
+        {
+          "label": "Označavanje za skakanje do određene tačke",
+          "description": "Koristi mjesto '%d' za redoslijed pitanja i %total za ukupan broj pitanja.",
+          "default": "Pitanje %d od %total"
+        },
+        {
+          "label": "Opis pitanja u vezi sa vezi s autorom",
+          "default": "Pitanje"
+        },
+        {
+          "label": "Napredno \"Readspeaker\"",
+          "description": "Varijable: @current i @total",
+          "default": "Pitanje @current od @total"
+        },
+        {
+          "label": "Tekst za neodgovorena pitanja",
+          "default": "Neodgovoreno"
+        },
+        {
+          "label": "Tekst za odgovorena pitanja",
+          "default": "Odgovoreno"
+        },
+        {
+          "label": "Tekst za trenutno pitanja",
+          "default": "Trenutno pitanje"
+        }
+      ]
+    },
+    {
+      "label": "Deaktivirati mogućnost povratka unazad",
+      "description": "Ako je aktivirano, korisnik će moći ići samo naprijed u odgovaranju na pitanja."
+    },
+    {
+      "label": "Izmješati pitanja",
+      "description": "Ako je aktivirano, pitanja će kod svakog učitavanja kviza imati drugi raspored."
+    },
+    {
+      "label": "Broj pitanja za prikaz:",
+      "description": "Može se koristiti kod odabira slučajnog pitanja."
+    },
+    {
+      "label": "Završi kviz",
+      "fields": [
+        {
+          "label": "Prikaz rezultata"
+        },
+        {
+          "label": "Napomena ako nema rezultata",
+          "description": "Tekst koji će biti prikazan u slučaju da je \"Prikaz rezultata\" deaktiviran",
+          "default": "Završi"
+        },
+        {
+          "label": "Oznaka za povratne informacije",
+          "default": "Tvoj rezultat:",
+          "description": "Ovaj tekst će biti prikazan na kraju kviza kada korisnik odgovori na pitanja."
+        },
+        {
+          "label": "Tekst za prikaz broj odova",
+          "description": "Ovaj tekst će se koristiti da prikaže ukupan broj bodova korisnika. \"@score\" će biti zamjenjen sa osvojenim bodovima, \"@total\" će biti zamjenjeno sa maksimalnim brojem bodova.",
+          "default": "Osvojeno @score bodova od @total mogućih."
+        },
+        {
+          "label": "Oznaka za \"Kviz položen\"",
+          "placeholder": "BRAVO!",
+          "default": "BRAVO!",
+          "description": "Ovaj tekst će biti prikazan iznad broja bodova kada je korisnik uspješno završio kviz."
+        },
+        {
+          "label": "Komentar za uspješno završen kviz",
+          "default": "Nije loše!",
+          "description": "Ovaj tekst će biti prikazan iznad broja bodova kada je korisnik uspješno završio kviz."
+        },
+        {
+          "label": "Oznaka kod neuspješnog završetka kviza",
+          "default": "Ovoga puta nije dovoljno dobro.",
+          "description": "Ovaj tekst će biti prikazan iznad broja bodova kada je korisnik nije uspješno završio kviz."
+        },
+        {
+          "label": "Oznaka kod neuspješnog završetka kviza",
+          "default": "Pokušaj još jednom!",
+          "description": "Ovaj komentar će se pokazati nakon što korisnik nije sakupio dovoljan broj bodova za uspješan završetak kviza."
+        },
+        {
+          "label": "Oznaka za dugme \"Prikaži rješenje\"",
+          "default": "Prikaži rješenje",
+          "description": "Oznaka za dugme \"Prikaži rješenje\""
+        },
+        {
+          "label": "Oznaka za dugme \"Ponovi\"",
+          "default": "Ponovi",
+          "description": "Oznaka za dugme \"Ponovi\""
+        },
+        {
+          "label": "Oznaka za dugme \"Završi\"",
+          "default": "Završi"
+        },
+        {
+          "label": "Prikaži video prije rezultata kviza"
+        },
+        {
+          "label": "Aktiviraj dugme \"Preskoči vidio\""
+        },
+        {
+          "label": "Oznaka za dugme \"Preskoči video\"",
+          "default": "Preskoči video"
+        },
+        {
+          "label": "Video nakon položenog kviza",
+          "description": "Ovaj video se prikazuje nakon što korisnik uspješno položi kviz."
+        },
+        {
+          "label": "Video nakon nepoloženog kviza",
+          "description": "Ovaj video se prikazuje nakon što korisnik neuspješno završi kviz."
+        }
+      ]
+    },
+    {
+      "label": "Podešavanje dugmeta \"Prikaži rješenje\" i \"Ponovi\".",
+      "fields": [
+        {
+          "label": "Poništi dugme \"Prikaži rješenje\"",
+          "description": "Ova opcija podešava prikazivanje dugmeta \"Prikaži rješenje\" za sva pitanja ili da bude za svako posebno pitanje konfigurirano.",
+          "options": [
+            {
+              "label": "Prikaži"
+            },
+            {
+              "label": "Nemoj prikazati"
+            }
+          ]
+        },
+        {
+          "label": "Poništi dugme \"Ponovi\"",
+          "description": "Ova opcija podešava prikazivanje dugmeta \"Ponovi\" za sva pitanja ili da bude za svako posebno pitanje konfigurirano.",
+          "options": [
+            {
+              "label": "Prikaži"
+            },
+            {
+              "label": "Nemoj prikazati"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
