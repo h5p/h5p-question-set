@@ -772,7 +772,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           scoreBar = H5P.JoubelUI.createScoreBar(totals);
         }
         scoreBar.appendTo($('.feedback-scorebar', $myDom));
-        scoreBar.setScore(finals);
         $('.feedback-text', $myDom).html(scoreString);
 
         // Announce that the question set is complete
@@ -783,6 +782,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                   eparams.comment + '.' +
                   eparams.resulttext)
             .show().focus();
+          scoreBar.setScore(finals);
         }, 0);
       }
       else {
