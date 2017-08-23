@@ -16,7 +16,7 @@
         },
         {
           "label":"Testo pulsante Start",
-          "default":"Start Quiz"
+          "default":"Inizia il quiz"
         },
         {
           "label":"Immagine di sfondo",
@@ -66,29 +66,29 @@
       "fields":[
         {
           "label":"Pulsante Indietro",
-          "default":"Previous question"
+          "default":"Domanda precedente"
         },
         {
           "label":"Pulsante Prossimo",
-          "default":"Next question"
+          "default":"Prossima domanda"
         },
         {
           "label":"Pulsante Fine",
-          "default":"Finish"
+          "default":"Finito"
         },
         {
           "label":"Testo Avanzamento",
           "description":"esto utilizzato se il testo Avanzamento è selezionato.",
-          "default":"Question: @current of @total questions"
+          "default":"Domanda: @current di @total domande totali"
         },
         {
-          "label":"Label for jumping to a certain question",
-          "description":"You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default":"Question %d of %total"
+          "label":"Etichetta per saltare a una determinata domanda",
+          "description":"Devi usare il segnaposto '%d' anziché il numero di domanda, e %total invece del numero totale delle domande.",
+          "default":"Domanda %d di %total"
         },
         {
-          "label":"Copyright dialog question label",
-          "default":"Question"
+          "label":"Etichetta della domanda nella finestra sul diritto d'autore",
+          "default":"Domanda"
         },
         {
           "label":"Readspeaker progress",
