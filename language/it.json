@@ -91,26 +91,26 @@
           "default":"Domanda"
         },
         {
-          "label":"Readspeaker progress",
-          "description":"May use @current and @total question variables",
-          "default":"Question @current of @total"
+          "label":"Progresso del dispositvo di riproduzione vocale",
+          "description":"Puoi utilizzare le variabili di domanda @current e @total",
+          "default":"Domanda @current di @total"
         },
         {
-          "label":"Unanswered question text",
-          "default":"Unanswered"
+          "label":"Testo della domanda senza risposta",
+          "default":"Senza risposta"
         },
         {
-          "label":"Answered question text",
-          "default":"Answered"
+          "label":"Testo della domanda con risposta",
+          "default":"Risposta"
         },
         {
-          "label":"Current question text",
-          "default":"Current question"
+          "label":"Testo della domanda corrente",
+          "default":"Domanda corrente"
         }
       ]
     },
     {
-      "label":"Disable backwards navigation",
+      "label":"Disattiva la navigazione all'indietro",
       "description":"This option will only allow you to move forward in Question Set"
     },
     {
