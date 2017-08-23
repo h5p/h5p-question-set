@@ -77,8 +77,8 @@
           "default":"Finito"
         },
         {
-          "label":"Testo Avanzamento",
-          "description":"esto utilizzato se il testo Avanzamento è selezionato.",
+          "label":"Testo di avanzamento",
+          "description":"Testo usate se il testo di avanzamento è selezionato.",
           "default":"Domanda: @current di @total domande totali"
         },
         {
@@ -125,7 +125,7 @@
       "label":"Quiz terminato",
       "fields":[
         {
-          "label":"Visualizza risultati"
+          "label":"Visualizza i risultati"
         },
         {
           "label":"Pulsante visualizza soluzione"
@@ -176,25 +176,25 @@
             },
             {
               "label":"Commento di superamento del quiz",
-              "description":"This comment will be displayed after the score if the user has successfully passed the quiz."
+              "description":"Questo commento sarà visualizzato dopo il punteggio se l'utente ha superato il quiz con successo."
             },
             {
-              "label":"Quiz failed title",
-              "description":"This text will be displayed above the score if the user has failed the quiz."
+              "label":"Titolo quiz fallito",
+              "description":"Questo testo sarà visualizzato sopra il punteggio se l'utente non ha superato il quiz."
             },
             {
-              "label":"Failed comment",
-              "description":"This comment will be displayed after the score if the user has failed the quiz."
+              "label":"Commento su quiz fallito",
+              "description":"Questo commento sarà visualizzato dopo il punteggio se l'utente non ha superato il quiz."
             }
           ]
         },
         {
-          "label":"Solution button label",
-          "default":"Show solution",
-          "description":"Text for the solution button."
+          "label":"Etichetta del pulsante di soluzione",
+          "default":"Mostra la soluzione",
+          "description":"Testo per il pulsante di soluzione."
         },
         {
-          "label":"Retry button label",
+          "label":"Etichetta del pulsante Riprova",
           "default":"Retry",
           "description":"Text for the retry button."
         },
