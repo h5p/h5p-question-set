@@ -136,9 +136,9 @@
           "default":"Finito"
         },
         {
-          "label":"Intestazione Feedback",
+          "label":"Intestazione di feedback",
           "default":"Il tuo risultato:",
-          "description":"Questa intestazione verrà visualizzata alla fine del quiz, dopo che l'utente avrà risposto a tutte le domande."
+          "description":"Questa intestazione sarà visualizzata alla fine del quiz, dopo che l'utente avrà risposto a tutte le domande."
         },
         {
           "label":"Feedback generale",
