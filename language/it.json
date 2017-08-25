@@ -1,21 +1,21 @@
 {
   "semantics":[
     {
-      "label":"Introduzione quiz",
+      "label":"Introduzione al quiz",
       "fields":[
         {
-          "label":"Visualizza introduzione"
+          "label":"Visualizza l'introduzione"
         },
         {
           "label":"Titolo",
-          "description":"Questo titolo verrà visualizzato sopra il testo introduttivo."
+          "description":"Questo titolo sarà visualizzato sopra il testo introduttivo."
         },
         {
           "label":"Testo introduttivo",
-          "description":"Questo testo verrà visualizzato prima dell'inizio del quiz."
+          "description":"Questo testo sarà visualizzato prima dell'inizio del quiz."
         },
         {
-          "label":"Testo pulsante Start",
+          "label":"Testo pulsante di avvio",
           "default":"Inizia il quiz"
         },
         {
@@ -26,11 +26,11 @@
     },
     {
       "label":"Immagine di sfondo",
-      "description":"Immagine di sfondo facoltativa per il set di domande."
+      "description":"Immagine di sfondo facoltativa per il gruppo di domande."
     },
     {
       "label":"Indicatore di avanzamento",
-      "description":"Stile dell'indicatore di avanzamento del set di domande.",
+      "description":"Stile dell'indicatore di avanzamento del gruppo di domande.",
       "options":[
         {
           "label":"Testuale"
@@ -43,7 +43,7 @@
     },
     {
       "label":"Percentuale superamento quiz",
-      "description":"Percentuale minima del punteggio totale richiesto per passare il quiz."
+      "description":"Percentuale del punteggio totale necessaria al superamento del quiz."
     },
     {
       "label":"Domande",
@@ -58,7 +58,7 @@
       "entity":"domanda",
       "field":{
         "label":"Tipo di domanda",
-        "description":"Biblioteca per questa domanda."
+        "description":"Libreria per questa domanda."
       }
     },
     {
@@ -69,7 +69,7 @@
           "default":"Domanda precedente"
         },
         {
-          "label":"Pulsante Prossimo",
+          "label":"Pulsante Avanti",
           "default":"Prossima domanda"
         },
         {
@@ -119,7 +119,7 @@
     },
     {
       "label":"Numero di domande da mostrare:",
-      "description":"Creare un raggruppamento casuale di domande dal totale."
+      "description":"Crea un raggruppamento casuale dal totale delle domande."
     },
     {
       "label":"Quiz terminato",
@@ -242,10 +242,10 @@
           "description":"Questa opzione determina se il pulsante \"Riprova\" sarà visualizzato per tutte le domande, disabilitato per tutti o configurato individualmente per ogni domanda.",
           "options":[
             {
-              "label":"Enabled"
+              "label":"Attivo"
             },
             {
-              "label":"Disabled"
+              "label":"Disattivato"
             }
           ]
         }
