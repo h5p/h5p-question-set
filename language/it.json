@@ -195,30 +195,30 @@
         },
         {
           "label":"Etichetta del pulsante Riprova",
-          "default":"Retry",
-          "description":"Text for the retry button."
+          "default":"Riprova",
+          "description":"Testo per il pulsante Riprova."
         },
         {
-          "label":"Finish button text",
-          "default":"Finish"
+          "label":"Testo del pulsante di chiusura",
+          "default":"Finito"
         },
         {
-          "label":"Display video before quiz results"
+          "label":"Visualizza il video prima dei risultati del quiz"
         },
         {
-          "label":"Enable skip video button"
+          "label":"Abilita il pulsante Salta video"
         },
         {
-          "label":"Skip video button label",
-          "default":"Skip video"
+          "label":"Etichetta del pulsante Salta video",
+          "default":"Salta video"
         },
         {
-          "label":"Passed video",
-          "description":"This video will be played if the user successfully passed the quiz."
+          "label":"Video superato",
+          "description":"Questo video si avvierà se l'utente ha superato il quiz con successo."
         },
         {
-          "label":"Fail video",
-          "description":"This video will be played if the user failes the quiz."
+          "label":"Video non superato",
+          "description":"Questo video si avvierà se l'utente non ha superato il quiz."
         }
       ]
     },
@@ -226,20 +226,20 @@
       "label":"Impostazioni per i pulsanti \"Mostra soluzione\" e \"Riprova\".",
       "fields":[
         {
-          "label":"Override \"Show Solution\" button",
-          "description":"This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"Sovrascrivi il pulsante \"Mostra soluzione\"",
+          "description":"Questa opzione determina se il pulsante \"Mostra soluzione\" sarà visualizzato per tutte le domande, disabilitato per tutti o configurato individualmente per ogni domanda.",
           "options":[
             {
-              "label":"Enabled"
+              "label":"Attivo"
             },
             {
-              "label":"Disabled"
+              "label":"Disattivato"
             }
           ]
         },
         {
-          "label":"Override \"Retry\" button",
-          "description":"This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"Sovrascrivi il pulsante \"Riprova\"",
+          "description":"Questa opzione determina se il pulsante \"Riprova\" sarà visualizzato per tutte le domande, disabilitato per tutti o configurato individualmente per ogni domanda.",
           "options":[
             {
               "label":"Enabled"
