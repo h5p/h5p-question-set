@@ -114,12 +114,12 @@
       "description":"Slå på for å nekte å gå tilbake i Question Set"
     },
     {
-      "label":"Randomize questions",
+      "label":"Stokk spørsmålene",
       "description":"Slå på for å vise alternativene i tilfeldig rekkefølge."
     },
     {
-      "label":"Number of questions to be shown:",
-      "description":"Create a randomized batch of questions from the total."
+      "label":"Antall spørsmål som skal vises:",
+      "description":"Lag et tilfeldig sett med spørsmål."
     },
     {
       "label":"Spørsmålssett avslutning",
@@ -147,8 +147,8 @@
               "widgets":[
                 
               ],
-              "label":"Define custom feedback for any score range",
-              "description":"Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+              "label":"Spesifiser en egendefinert tilbakemelding for et poengintervall",
+              "description":"Eksempel: 0-20% dårlig poengsum, 21-91% gjennomsnittlig poengsum, 91-100% God poengsum!",
               "entity":"intervall",
               "field":{
                 "fields":[
