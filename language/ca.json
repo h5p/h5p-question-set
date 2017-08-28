@@ -11,7 +11,7 @@
           "description":"This title will be displayed above the introduction text."
         },
         {
-          "label":"Introduction text",
+          "label":"Text d'introducció",
           "description":"This text will be displayed before the quiz starts."
         },
         {
@@ -19,13 +19,13 @@
           "default":"Start Quiz"
         },
         {
-          "label":"Background image",
+          "label":"Imatge de fons",
           "description":"An optional background image for the introduction."
         }
       ]
     },
     {
-      "label":"Background image",
+      "label":"Imatge de fons",
       "description":"An optional background image for the Question set."
     },
     {
@@ -42,14 +42,14 @@
       "default":"dots"
     },
     {
-      "label":"Pass percentage",
+      "label":"Percentatge per passar",
       "description":"Percentage of Total score required for passing the quiz."
     },
     {
       "label":"Questions",
       "widgets":[
         {
-          "label":"Default"
+          "label":"Per defecte"
         },
         {
           "label":"Textual"
@@ -74,7 +74,7 @@
         },
         {
           "label":"Finish button",
-          "default":"Finish"
+          "default":"Acabar"
         },
         {
           "label":"Progress text",
@@ -88,7 +88,7 @@
         },
         {
           "label":"Copyright dialog question label",
-          "default":"Question"
+          "default":"Pregunta"
         },
         {
           "label":"Readspeaker progress",
@@ -190,17 +190,17 @@
         },
         {
           "label":"Solution button label",
-          "default":"Show solution",
+          "default":"Mostrar solució",
           "description":"Text for the solution button."
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
+          "label":"Etiqueta del botó \"Tornar-ho a provar\"",
+          "default":"Tornar-ho a provar",
           "description":"Text for the retry button."
         },
         {
           "label":"Finish button text",
-          "default":"Finish"
+          "default":"Acabar"
         },
         {
           "label":"Display video before quiz results"

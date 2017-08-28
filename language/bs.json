@@ -42,8 +42,8 @@
       "default":"dots"
     },
     {
-      "label":"Minimalno procenata za prolaz",
-      "description":"Minimalno osvojenih procenata da bi se kviz smatrao uspješno prođenim."
+      "label":"Procenat za uspješan prolaz",
+      "description":"Procenat tačnih odgovora kao preduvijet da je kviz\/zadatak uspješno završen."
     },
     {
       "label":"Pitanja",
@@ -55,7 +55,7 @@
           "label":"Tekst"
         }
       ],
-      "entity":"Pitanje",
+      "entity":"pitanje",
       "field":{
         "label":"Vrsta pitanja",
         "description":"Biblioteka za ovo pitanje."
@@ -74,10 +74,10 @@
         },
         {
           "label":"Oznaka za dugme \"Završi\"",
-          "default":"Završi"
+          "default":"Kraj"
         },
         {
-          "label":"Tekst o napredovanju",
+          "label":"Početni tekst",
           "description":"Koristi tekst ako je izabran za napredak u pisanom obliku.",
           "default":"Aktuelno pitanje: @current od @total pitanja"
         },
@@ -141,7 +141,7 @@
           "description":"Ovaj tekst će se koristiti da prikaže ukupan broj bodova korisnika. \"@score\" će biti zamjenjen sa osvojenim bodovima, \"@total\" će biti zamjenjeno sa maksimalnim brojem bodova."
         },
         {
-          "label":"Overall Feedback",
+          "label":"Pozadinska zamućenost za elemente za uzimanje",
           "fields":[
             {
               "widgets":[
@@ -171,50 +171,50 @@
           "label":"Old Feedback",
           "fields":[
             {
-              "label":"Quiz passed greeting",
-              "description":"This text will be displayed above the score if the user has successfully passed the quiz."
+              "label":"Komentar za uspješno završen kviz",
+              "description":"Ovaj tekst će biti prikazan iznad broja bodova kada je korisnik uspješno završio kviz."
             },
             {
-              "label":"Passed comment",
-              "description":"This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label":"Oznaka kod neuspješnog završetka kviza",
+              "description":"Ovaj tekst će biti prikazan iznad broja bodova kada je korisnik nije uspješno završio kviz."
             },
             {
-              "label":"Quiz failed title",
-              "description":"This text will be displayed above the score if the user has failed the quiz."
+              "label":"Oznaka kod neuspješnog završetka kviza",
+              "description":"Ovaj komentar će se pokazati nakon što korisnik nije sakupio dovoljan broj bodova za uspješan završetak kviza."
             },
             {
-              "label":"Failed comment",
-              "description":"This comment will be displayed after the score if the user has failed the quiz."
+              "label":"Oznaka za dugme \"Prikaži rješenje\"",
+              "description":"Oznaka za dugme \"Prikaži rješenje\""
             }
           ]
         },
         {
-          "label":"Solution button label",
-          "default":"Show solution",
-          "description":"Text for the solution button."
+          "label":"Oznaka za dugme \"Ponovi\"",
+          "default":"Prikaži rješenje",
+          "description":"Oznaka za dugme \"Ponovi\""
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
+          "label":"Oznaka za dugme \"Završi\"",
+          "default":"Ponovi",
           "description":"Text for the retry button."
         },
         {
-          "label":"Finish button text",
-          "default":"Finish"
+          "label":"Prikaži video prije rezultata kviza",
+          "default":"Kraj"
         },
         {
-          "label":"Display video before quiz results"
+          "label":"Aktiviraj dugme \"Preskoči vidio\""
         },
         {
-          "label":"Enable skip video button"
+          "label":"Oznaka za dugme \"Preskoči video\""
         },
         {
-          "label":"Skip video button label",
+          "label":"Video nakon položenog kviza",
           "default":"Skip video"
         },
         {
-          "label":"Passed video",
-          "description":"This video will be played if the user successfully passed the quiz."
+          "label":"Video nakon nepoloženog kviza",
+          "description":"Ovaj video se prikazuje nakon što korisnik neuspješno završi kviz."
         },
         {
           "label":"Fail video",

@@ -11,7 +11,7 @@
           "description":"This title will be displayed above the introduction text."
         },
         {
-          "label":"Introduction text",
+          "label":"Giriş metni",
           "description":"This text will be displayed before the quiz starts."
         },
         {
@@ -33,7 +33,7 @@
       "description":"Question set progress indicator style.",
       "options":[
         {
-          "label":"Textual"
+          "label":"Metin"
         },
         {
           "label":"Dots"
@@ -42,17 +42,17 @@
       "default":"dots"
     },
     {
-      "label":"Pass percentage",
-      "description":"Percentage of Total score required for passing the quiz."
+      "label":"Geçiş yüzdesi",
+      "description":"Quizi geçmek için gerekli toplam puan yüzdesi."
     },
     {
       "label":"Questions",
       "widgets":[
         {
-          "label":"Default"
+          "label":"Varsayılan"
         },
         {
-          "label":"Textual"
+          "label":"Metin"
         }
       ],
       "entity":"question",
@@ -74,7 +74,7 @@
         },
         {
           "label":"Finish button",
-          "default":"Finish"
+          "default":"Bitir"
         },
         {
           "label":"Progress text",
@@ -88,7 +88,7 @@
         },
         {
           "label":"Copyright dialog question label",
-          "default":"Question"
+          "default":"Soru"
         },
         {
           "label":"Readspeaker progress",
@@ -115,7 +115,7 @@
     },
     {
       "label":"Randomize questions",
-      "description":"Enable to randomize the order of questions on display."
+      "description":"Soruları sırasını ekranda rasgele gelmesi için etkinleştirin."
     },
     {
       "label":"Number of questions to be shown:",
@@ -190,17 +190,17 @@
         },
         {
           "label":"Solution button label",
-          "default":"Show solution",
+          "default":"Çözümü göster",
           "description":"Text for the solution button."
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
+          "label":"Yeniden dene buton etiketi",
+          "default":"Yeniden dene",
           "description":"Text for the retry button."
         },
         {
           "label":"Finish button text",
-          "default":"Finish"
+          "default":"Bitir"
         },
         {
           "label":"Display video before quiz results"
