@@ -8,7 +8,7 @@
         },
         {
           "label":"Tittel",
-          "description":"Tittel for intoduksjonssiden."
+          "description":"Denne tittelen vil bli vist over introduksjonsteksten."
         },
         {
           "label":"Introduksjonstekst",
@@ -20,23 +20,23 @@
         },
         {
           "label":"Bakgrunnsbilde",
-          "description":"Bakgrunnsbilde for introduksjonssiden"
+          "description":"Et valgfritt bakgrunnsbilde for introduksjonssiden."
         }
       ]
     },
     {
       "label":"Bakgrunnsbilde",
-      "description":"Bakgrunnsbilde for spørsmålssettet(ikke obligatorisk)."
+      "description":"Bakgrunnsbilde for spørsmålssettet (ikke obligatorisk)."
     },
     {
       "label":"Fremdriftsindikator",
-      "description":"Velg om fremdriften skal angis som prikker(få spørsmål) eller som tekst(mange spørsmål).",
+      "description":"Velg om fremdriften skal angis som prikker (få spørsmål) eller som tekst (mange spørsmål).",
       "options":[
         {
           "label":"Tekstlig"
         },
         {
-          "label":"Angi fremdrift med prikker"
+          "label":"Prikker"
         }
       ],
       "default":"dots"
@@ -65,7 +65,7 @@
       "label":"Ledetekster",
       "fields":[
         {
-          "label":"Tilbakeknapp",
+          "label":"Forrige-knappen",
           "default":"Forrige spørsmål"
         },
         {
@@ -74,7 +74,7 @@
         },
         {
           "label":"Avslutt-knappen",
-          "default":"Bekreft"
+          "default":"Avslutt"
         },
         {
           "label":"Fremgangstekst",
@@ -149,18 +149,18 @@
               ],
               "label":"Define custom feedback for any score range",
               "description":"Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity":"range",
+              "entity":"intervall",
               "field":{
                 "fields":[
                   {
-                    "label":"Score Range"
+                    "label":"Poengintervall"
                   },
                   {
                     
                   },
                   {
-                    "label":"Feedback for defined score range",
-                    "placeholder":"Fill in the feedback"
+                    "label":"Tilbakemelding for spesifisert poengintervall",
+                    "placeholder":"Fyll inn tilbakemelding"
                   }
                 ]
               }
@@ -168,7 +168,7 @@
           ]
         },
         {
-          "label":"Old Feedback",
+          "label":"Gammel tilbakemelding",
           "fields":[
             {
               "label":"Tittel ved bestått",
@@ -190,13 +190,13 @@
         },
         {
           "label":"Tekst til \"Fasit\" knapp",
-          "default":"Fasit",
-          "description":"Text for the solution button."
+          "default":"Vis svar",
+          "description":"Tekst for \"Fasit\" knapp."
         },
         {
           "label":"Tekst til \"Prøv igjen\" knapp",
           "default":"Prøv igjen",
-          "description":"Text for the retry button."
+          "description":"Tekst til \"Prøv igjen\"-knappen."
         },
         {
           "label":"Avslutt knappetekst",
