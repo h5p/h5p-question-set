@@ -195,7 +195,7 @@
         },
         {
           "label":"Retry button label",
-          "default":"Retry",
+          "default":"Επανάληψη",
           "description":"Text for the retry button."
         },
         {
