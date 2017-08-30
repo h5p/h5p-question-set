@@ -20,6 +20,52 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var self = this;
   this.contentId = contentId;
 
+  var defaults = {
+    initialQuestion: 0,
+    progressType: 'dots',
+    passPercentage: 50,
+    questions: [],
+    introPage: {
+      showIntroPage: false,
+      title: '',
+      introduction: '',
+      startButtonText: 'Start'
+    },
+    texts: {
+      prevButton: 'Previous question',
+      nextButton: 'Next question',
+      finishButton: 'Finish',
+      textualProgress: 'Question: @current of @total questions',
+      jumpToQuestion: 'Question %d of %total',
+      questionLabel: 'Question',
+      readSpeakerProgress: 'Question @current of @total',
+      unansweredText: 'Unanswered',
+      answeredText: 'Answered',
+      currentQuestionText: 'Current question'
+    },
+    endGame: {
+      showResultPage: true,
+      noResultMessage: 'Finished',
+      message: 'Your result:',
+      oldFeedback: {
+        successGreeting: '',
+        successComment: '',
+        failGreeting: '',
+        failComment: ''
+      },
+      overallFeedback: [],
+      finishButtonText: 'Finish',
+      solutionButtonText: 'Show solution',
+      retryButtonText: 'Retry',
+      showAnimations: false,
+      skipButtonText: 'Skip video',
+      showSolutionButton: true
+    },
+    override: {},
+    disableBackwardsNavigation: false
+  };
+  var params = $.extend(true, {}, defaults, options);
+
   var texttemplate =
           '<% if (introPage.showIntroPage) { %>' +
           '<div class="intro-page">' +
@@ -61,7 +107,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  </div>' +
           '</div>';
 
-  var solutionButtonTemplate = options.endGame.showSolutionButton ?
+  var solutionButtonTemplate = params.endGame.showSolutionButton ?
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
           '';
 
@@ -85,53 +131,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  </div>' +
           '</div>';
 
-  var defaults = {
-    initialQuestion: 0,
-    progressType: 'dots',
-    passPercentage: 50,
-    questions: [],
-    introPage: {
-      showIntroPage: false,
-      title: '',
-      introduction: '',
-      startButtonText: 'Start'
-    },
-    texts: {
-      prevButton: 'Previous question',
-      nextButton: 'Next question',
-      finishButton: 'Finish',
-      textualProgress: 'Question: @current of @total questions',
-      jumpToQuestion: 'Question %d of %total',
-      questionLabel: 'Question',
-      readSpeakerProgress: 'Question @current of @total',
-      unansweredText: 'Unanswered',
-      answeredText: 'Answered',
-      currentQuestionText: 'Current question'
-    },
-    endGame: {
-      showResultPage: true,
-      noResultMessage: 'Finished',
-      message: 'Your result:',
-      oldFeedback: {
-        successGreeting: '',
-        successComment: '',
-        failGreeting: '',
-        failComment: ''
-      },
-      overallFeedback: [],
-      finishButtonText: 'Finish',
-      solutionButtonText: 'Show solution',
-      retryButtonText: 'Retry',
-      showAnimations: false,
-      skipButtonText: 'Skip video'
-    },
-    override: {},
-    disableBackwardsNavigation: false
-  };
-
   var template = new EJS({text: texttemplate});
   var endTemplate = new EJS({text: resulttemplate});
-  var params = $.extend(true, {}, defaults, options);
+
 
   var initialParams = $.extend(true, {}, defaults, options);
   var poolOrder; // Order of questions in a pool
