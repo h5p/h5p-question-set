@@ -65,7 +65,7 @@
       "label":"Textes de l'interface du quiz",
       "fields":[
         {
-          "label":"Bouton précédent",
+          "label":"Bouton Retour",
           "default":"Retour"
         },
         {
@@ -74,7 +74,7 @@
         },
         {
           "label":"Bouton fin",
-          "default":"Terminer"
+          "default":"Confirmer"
         },
         {
           "label":"Texte de progression",
@@ -115,7 +115,7 @@
     },
     {
       "label":"Afficher les question dans un ordre aléatoire",
-      "description":"Ceci permet d'afficher les questions dans un ordre aléatoire."
+      "description":"Les réponses possibles seront affichées dans l'ordre aléatoire."
     },
     {
       "label":"Nombre de questions à afficher:",
@@ -141,7 +141,7 @@
           "description":"Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
-          "label":"Overall Feedback",
+          "label":"Opacité des étiquettes",
           "fields":[
             {
               "widgets":[
@@ -171,54 +171,54 @@
           "label":"Old Feedback",
           "fields":[
             {
-              "label":"Quiz passed greeting",
-              "description":"This text will be displayed above the score if the user has successfully passed the quiz."
+              "label":"Commentaire de félicitation",
+              "description":"Ce commentaire sera affiché au-dessus du score de l'utilisateur si celui-ci réussit le quiz."
             },
             {
-              "label":"Passed comment",
-              "description":"This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label":"Commentaire en cas de succès",
+              "description":"Commentaire affiché lors du passage du quiz avec succès."
             },
             {
-              "label":"Quiz failed title",
-              "description":"This text will be displayed above the score if the user has failed the quiz."
+              "label":"Commentaire en cas d'échec",
+              "description":"Ce commentaire sera affiché au-dessus du score de l'utilisateur si celui-ci échoue au quiz."
             },
             {
-              "label":"Failed comment",
-              "description":"This comment will be displayed after the score if the user has failed the quiz."
+              "label":"Commentaire additionnel en cas d'échec",
+              "description":"Commentaire additionnel affiché lors de l'échec au quiz."
             }
           ]
         },
         {
-          "label":"Solution button label",
-          "default":"Show solution",
-          "description":"Text for the solution button."
+          "label":"Texte du bouton \"Solution\"",
+          "default":"Voir la solution",
+          "description":"Texte pour le bouton de solution."
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
-          "description":"Text for the retry button."
+          "label":"Texte du bouton \"Recommencer\"",
+          "default":"Recommencer",
+          "description":"Texte pour le bouton Recommencer."
         },
         {
-          "label":"Finish button text",
-          "default":"Finish"
+          "label":"Texte pour le bouton de fin",
+          "default":"Confirmer"
         },
         {
-          "label":"Display video before quiz results"
+          "label":"Afficher une vidéo avant l'affichage des résultats du quiz"
         },
         {
-          "label":"Enable skip video button"
+          "label":"Activer le bouton \"Passer la vidéo\""
         },
         {
-          "label":"Skip video button label",
-          "default":"Skip video"
+          "label":"Texte du bouton \"Passer la vidéo\"",
+          "default":"Passer la vidéo"
         },
         {
-          "label":"Passed video",
-          "description":"This video will be played if the user successfully passed the quiz."
+          "label":"Vidéo en cas de succès",
+          "description":"Vidéo affichée si l'utilisateur réussit le quiz."
         },
         {
-          "label":"Fail video",
-          "description":"This video will be played if the user failes the quiz."
+          "label":"Vidéo en cas d'échec",
+          "description":"Vidéo affichée si l'utilisateur échoue au quiz."
         }
       ]
     },
@@ -226,8 +226,8 @@
       "label":"Options pour les boutons \"Montrer la solution\" et \"Recommencer\".",
       "fields":[
         {
-          "label":"Ecraser le bouton \"Voir la solution\"",
-          "description":"Cette option détermine si le bouton \"Voir la solution\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
+          "label":"Ecraser le bouton \"Voir la correction\"",
+          "description":"Cette option détermine si le bouton \"Voir la correction\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
           "options":[
             {
               "label":"Activé"

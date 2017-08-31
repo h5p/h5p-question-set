@@ -8,7 +8,7 @@
         },
         {
           "label":"Tittel",
-          "description":"Tittel for intoduksjonssiden."
+          "description":"Denne tittelen vil bli vist over introduksjonsteksten."
         },
         {
           "label":"Introduksjonstekst",
@@ -20,23 +20,23 @@
         },
         {
           "label":"Bakgrunnsbilde",
-          "description":"Bakgrunnsbilde for introduksjonssiden"
+          "description":"Et valgfritt bakgrunnsbilde for introduksjonssiden."
         }
       ]
     },
     {
       "label":"Bakgrunnsbilde",
-      "description":"Bakgrunnsbilde for spørsmålssettet(ikke obligatorisk)."
+      "description":"Bakgrunnsbilde for spørsmålssettet (ikke obligatorisk)."
     },
     {
       "label":"Fremdriftsindikator",
-      "description":"Velg om fremdriften skal angis som prikker(få spørsmål) eller som tekst(mange spørsmål).",
+      "description":"Velg om fremdriften skal angis som prikker (få spørsmål) eller som tekst (mange spørsmål).",
       "options":[
         {
-          "label":"Angi fremdrift med tekst"
+          "label":"Tekstlig"
         },
         {
-          "label":"Angi fremdrift med prikker"
+          "label":"Prikker"
         }
       ],
       "default":"dots"
@@ -77,7 +77,7 @@
           "default":"Avslutt"
         },
         {
-          "label":"Fremdriftstekst",
+          "label":"Fremgangstekst",
           "description":"Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total",
           "default":"Deloppgave @current av @total"
         },
@@ -110,16 +110,16 @@
       ]
     },
     {
-      "label":"Slå av bakoverknapp",
+      "label":"Slå av tilbakenavigering",
       "description":"Slå på for å nekte å gå tilbake i Question Set"
     },
     {
-      "label":"Randomize questions",
-      "description":"Enable to randomize the order of questions on display."
+      "label":"Stokk spørsmålene",
+      "description":"Slå på for å vise alternativene i tilfeldig rekkefølge."
     },
     {
-      "label":"Number of questions to be shown:",
-      "description":"Create a randomized batch of questions from the total."
+      "label":"Antall spørsmål som skal vises:",
+      "description":"Lag et tilfeldig sett med spørsmål."
     },
     {
       "label":"Spørsmålssett avslutning",
@@ -141,26 +141,26 @@
           "description":"Denne overskriften vises over tilbakemeldingene på slutten av spørsmålssettet."
         },
         {
-          "label":"Overall Feedback",
+          "label":"Samlet tilbakemelding",
           "fields":[
             {
               "widgets":[
                 
               ],
-              "label":"Define custom feedback for any score range",
-              "description":"Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity":"range",
+              "label":"Spesifiser en egendefinert tilbakemelding for et poengintervall",
+              "description":"Eksempel: 0-20% dårlig poengsum, 21-91% gjennomsnittlig poengsum, 91-100% God poengsum!",
+              "entity":"intervall",
               "field":{
                 "fields":[
                   {
-                    "label":"Score Range"
+                    "label":"Poengintervall"
                   },
                   {
                     
                   },
                   {
-                    "label":"Feedback for defined score range",
-                    "placeholder":"Fill in the feedback"
+                    "label":"Tilbakemelding for spesifisert poengintervall",
+                    "placeholder":"Fyll inn tilbakemelding"
                   }
                 ]
               }
@@ -168,57 +168,57 @@
           ]
         },
         {
-          "label":"Old Feedback",
+          "label":"Gammel tilbakemelding",
           "fields":[
             {
-              "label":"Quiz passed greeting",
-              "description":"This text will be displayed above the score if the user has successfully passed the quiz."
+              "label":"Tittel ved bestått",
+              "description":"Denne tittelen vises dersom brukeren har bestått spørsmålssettet."
             },
             {
-              "label":"Passed comment",
-              "description":"This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label":"Kommentar ved bestått",
+              "description":"Denne kommentaren vises dersom brukeren har bestått spørsmålssettet."
             },
             {
-              "label":"Quiz failed title",
-              "description":"This text will be displayed above the score if the user has failed the quiz."
+              "label":"Tittel ved ikke bestått",
+              "description":"Denne tittelen vises dersom brukeren ikke har bestått spørsmålssettet."
             },
             {
-              "label":"Failed comment",
-              "description":"This comment will be displayed after the score if the user has failed the quiz."
+              "label":"Kommentar ved ikke bestått",
+              "description":"Denne kommentaren vises dersom brukeren ikke har bestått spørsmålssettet."
             }
           ]
         },
         {
-          "label":"Solution button label",
-          "default":"Show solution",
-          "description":"Text for the solution button."
+          "label":"Tekst til \"Fasit\" knapp",
+          "default":"Vis svar",
+          "description":"Tekst for \"Fasit\" knapp."
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
-          "description":"Text for the retry button."
+          "label":"Tekst til \"Prøv igjen\" knapp",
+          "default":"Prøv igjen",
+          "description":"Tekst til \"Prøv igjen\"-knappen."
         },
         {
-          "label":"Finish button text",
-          "default":"Finish"
+          "label":"Avslutt knappetekst",
+          "default":"Bekreft"
         },
         {
-          "label":"Display video before quiz results"
+          "label":"Vis video før resultatene"
         },
         {
-          "label":"Enable skip video button"
+          "label":"Tillat å hoppe over video"
         },
         {
-          "label":"Skip video button label",
-          "default":"Skip video"
+          "label":"Tekst til \"Hopp over video\" knapp",
+          "default":"Hopp over"
         },
         {
-          "label":"Passed video",
-          "description":"This video will be played if the user successfully passed the quiz."
+          "label":"Video ved bestått",
+          "description":"Denne videoen vil bli vist dersom brukeren består spørsmålssettet."
         },
         {
-          "label":"Fail video",
-          "description":"This video will be played if the user failes the quiz."
+          "label":"Video ved ikke bestått",
+          "description":"Denne videoen vil bli vist dersom brukeren ikke består spørsmålssettet."
         }
       ]
     },
@@ -226,8 +226,8 @@
       "label":"Innstillinger for «Fasit»- og «Prøv igjen»-knapp",
       "fields":[
         {
-          "label":"Overstyr «Fasit»-knapp",
-          "description":"Dette valget avgjør om «Fasit»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "label":"Overstyr «Vis svar»-knapp",
+          "description":"Dette valget avgjør om «Vis svar»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
           "options":[
             {
               "label":"Aktivert"

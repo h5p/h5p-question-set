@@ -7,11 +7,11 @@
           "label":"Display introduction"
         },
         {
-          "label":"Title",
+          "label":"Titel",
           "description":"This title will be displayed above the introduction text."
         },
         {
-          "label":"Introduction text",
+          "label":"Inleidende tekst",
           "description":"This text will be displayed before the quiz starts."
         },
         {
@@ -19,13 +19,13 @@
           "default":"Start Quiz"
         },
         {
-          "label":"Background image",
+          "label":"Achtergrondafbeelding",
           "description":"An optional background image for the introduction."
         }
       ]
     },
     {
-      "label":"Background image",
+      "label":"Achtergrondafbeelding",
       "description":"An optional background image for the Question set."
     },
     {
@@ -33,7 +33,7 @@
       "description":"Question set progress indicator style.",
       "options":[
         {
-          "label":"Textual"
+          "label":"Tekstueel"
         },
         {
           "label":"Dots"
@@ -42,17 +42,17 @@
       "default":"dots"
     },
     {
-      "label":"Pass percentage",
-      "description":"Percentage of Total score required for passing the quiz."
+      "label":"Slagingspercentage",
+      "description":"Percentage van de Totale score die vereist is om te slagen."
     },
     {
       "label":"Questions",
       "widgets":[
         {
-          "label":"Default"
+          "label":"Standaard"
         },
         {
-          "label":"Textual"
+          "label":"Tekstueel"
         }
       ],
       "entity":"question",
@@ -65,7 +65,7 @@
       "label":"Interface texts in quiz",
       "fields":[
         {
-          "label":"Back button",
+          "label":"Terugknop",
           "default":"Previous question"
         },
         {
@@ -74,10 +74,10 @@
         },
         {
           "label":"Finish button",
-          "default":"Finish"
+          "default":"Beëindigen"
         },
         {
-          "label":"Progress text",
+          "label":"Tekst bij voortgang",
           "description":"Text used if textual progress is selected.",
           "default":"Question: @current of @total questions"
         },
@@ -88,7 +88,7 @@
         },
         {
           "label":"Copyright dialog question label",
-          "default":"Question"
+          "default":"Vraag"
         },
         {
           "label":"Readspeaker progress",
@@ -110,12 +110,12 @@
       ]
     },
     {
-      "label":"Disable backwards navigation",
+      "label":"Achteruit navigeren uitschakelen",
       "description":"This option will only allow you to move forward in Question Set"
     },
     {
       "label":"Randomize questions",
-      "description":"Enable to randomize the order of questions on display."
+      "description":"Vragen in willekeurige volgorde inschakelen."
     },
     {
       "label":"Number of questions to be shown:",
@@ -190,17 +190,17 @@
         },
         {
           "label":"Solution button label",
-          "default":"Show solution",
+          "default":"Toon oplossing",
           "description":"Text for the solution button."
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
+          "label":"Tekst van de Opnieuw proberen knop",
+          "default":"Opnieuw proberen",
           "description":"Text for the retry button."
         },
         {
           "label":"Finish button text",
-          "default":"Finish"
+          "default":"Beëindigen"
         },
         {
           "label":"Display video before quiz results"
@@ -226,26 +226,26 @@
       "label":"Settings for \"Show solution\" and \"Retry\" buttons",
       "fields":[
         {
-          "label":"Override \"Show Solution\" button",
-          "description":"This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"\"Toon oplossing\" knop instellen",
+          "description":"Deze optie bepaalt of de \"Toon oplossing\" knop voor alle vragen wordt getoond, uitgeschakeld of voor iedere vraag afzonderlijk wordt geconfigureerd.",
           "options":[
             {
-              "label":"Enabled"
+              "label":"Ingeschakeld"
             },
             {
-              "label":"Disabled"
+              "label":"Uitgeschakeld"
             }
           ]
         },
         {
-          "label":"Override \"Retry\" button",
-          "description":"This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"\"Opnieuw proberen\" knop instellen",
+          "description":"Deze optie bepaalt of de \"Opnieuw proberen\" knop voor alle vragen wordt getoond, uitgeschakeld of voor iedere vraag afzonderlijk wordt geconfigureerd.",
           "options":[
             {
-              "label":"Enabled"
+              "label":"Ingeschakeld"
             },
             {
-              "label":"Disabled"
+              "label":"Uitgeschakeld"
             }
           ]
         }

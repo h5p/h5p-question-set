@@ -7,7 +7,7 @@
           "label":"Display introduction"
         },
         {
-          "label":"Title",
+          "label":"Otsikko",
           "description":"This title will be displayed above the introduction text."
         },
         {
@@ -195,7 +195,7 @@
         },
         {
           "label":"Retry button label",
-          "default":"Retry",
+          "default":"Yritä uudelleen",
           "description":"Text for the retry button."
         },
         {
@@ -226,26 +226,26 @@
       "label":"Settings for \"Show solution\" and \"Retry\" buttons",
       "fields":[
         {
-          "label":"Override \"Show Solution\" button",
-          "description":"This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"\"Näytä vastaus\"-painike",
+          "description":"Ota käyttöön kaikissa kysymyksissä, ei yhdessäkään, tai jätä tyhjäksi käyttääksesi tehtäväkohtaisia asetuksia",
           "options":[
             {
-              "label":"Enabled"
+              "label":"Käytössä kaikissa"
             },
             {
-              "label":"Disabled"
+              "label":"Pois käytöstä"
             }
           ]
         },
         {
-          "label":"Override \"Retry\" button",
-          "description":"This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label":"\"Yritä uudelleen\"-painike",
+          "description":"Ota käyttöön kaikissa kysymyksissä, ei yhdessäkään, tai jätä tyhjäksi käyttääksesi tehtäväkohtaisia asetuksia.",
           "options":[
             {
-              "label":"Enabled"
+              "label":"Käytössä kaikissa"
             },
             {
-              "label":"Disabled"
+              "label":"Pois käytöstä"
             }
           ]
         }

@@ -195,7 +195,7 @@
         },
         {
           "label":"Retry button label",
-          "default":"Retry",
+          "default":"Försök på nytt",
           "description":"Text for the retry button."
         },
         {

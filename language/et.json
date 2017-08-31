@@ -88,7 +88,7 @@
         },
         {
           "label":"Copyright dialog question label",
-          "default":"Question"
+          "default":"Küsimus"
         },
         {
           "label":"Readspeaker progress",
@@ -190,12 +190,12 @@
         },
         {
           "label":"Solution button label",
-          "default":"Show solution",
+          "default":"Õige vastus",
           "description":"Text for the solution button."
         },
         {
-          "label":"Retry button label",
-          "default":"Retry",
+          "label":"Proovi uuesti nupu silt",
+          "default":"Proovi uuesti",
           "description":"Text for the retry button."
         },
         {
