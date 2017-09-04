@@ -1,84 +1,84 @@
 {
   "semantics":[
     {
-      "label":"مقدمة المسابقة",
+      "label":"Quiz introduction",
       "fields":[
         {
-          "label":"عرض المقدمة"
+          "label":"Display introduction"
         },
         {
-          "label":"العنوان",
-          "description":"سيتم عرض هذا العنوان فوق النص المقدمة"
+          "label":"Title",
+          "description":"This title will be displayed above the introduction text."
         },
         {
-          "label":"مقدمة النص",
-          "description":"سيتم عرض هذا النص قبل أن تبدأ هذه المسابقة"
+          "label":"Text d'introducció",
+          "description":"This text will be displayed before the quiz starts."
         },
         {
-          "label":"بدء زر النص",
+          "label":"Start button text",
           "default":"Start Quiz"
         },
         {
-          "label":"صورة الخلفية",
-          "description":"إدخال صورة خلفية اختيارية"
+          "label":"Imatge de fons",
+          "description":"An optional background image for the introduction."
         }
       ]
     },
     {
-      "label":"صورة الخلفية",
-      "description":"صورة خلفية اختيارية لأسئلة"
+      "label":"Imatge de fons",
+      "description":"An optional background image for the Question set."
     },
     {
-      "label":"مؤشر التقدم",
-      "description":"أسئلة لتعيين نمط مؤشر التقدم",
+      "label":"Progress indicator",
+      "description":"Question set progress indicator style.",
       "options":[
         {
-          "label":"النصية"
+          "label":"Textual"
         },
         {
-          "label":"النقاط"
+          "label":"Dots"
         }
       ],
       "default":"dots"
     },
     {
-      "label":"نسبة النجاح",
-      "description":"النسبة المئوية لمجموع النقاط المطلوبة لاجتياز الاختبار"
+      "label":"Percentatge per passar",
+      "description":"Percentage of Total score required for passing the quiz."
     },
     {
-      "label":"الأسئلة",
+      "label":"Questions",
       "widgets":[
         {
-          "label":"الافتراضي"
+          "label":"Per defecte"
         },
         {
-          "label":"النصية"
+          "label":"Textual"
         }
       ],
-      "entity":"السؤال",
+      "entity":"question",
       "field":{
-        "label":"نوع السؤال",
-        "description":"مكتبة لهذا السؤال"
+        "label":"Question type",
+        "description":"Library for this question."
       }
     },
     {
-      "label":"واجهة النصوص لهذه المسابقة",
+      "label":"Interface texts in quiz",
       "fields":[
         {
-          "label":"زر العودة",
+          "label":"Back button",
           "default":"Previous question"
         },
         {
-          "label":"زر التقدم",
+          "label":"Next button",
           "default":"Next question"
         },
         {
-          "label":"زر الانتهاء",
-          "default":"Finish"
+          "label":"Finish button",
+          "default":"Acabar"
         },
         {
-          "label":"نص التقدم",
-          "description":"النص المستخدم إذا تم تحديد التقدم نصيا",
+          "label":"Progress text",
+          "description":"Text used if textual progress is selected.",
           "default":"Question: @current of @total questions"
         },
         {
@@ -88,7 +88,7 @@
         },
         {
           "label":"Copyright dialog question label",
-          "default":"السؤال"
+          "default":"Pregunta"
         },
         {
           "label":"Readspeaker progress",
@@ -115,17 +115,17 @@
     },
     {
       "label":"Randomize questions",
-      "description":"تمكين العرض بطريقة عشوائية وترتيب الأسئلة على الشاشة"
+      "description":"Enable to randomize the order of questions on display."
     },
     {
       "label":"Number of questions to be shown:",
       "description":"Create a randomized batch of questions from the total."
     },
     {
-      "label":"انتهاء المسابقة",
+      "label":"Quiz finished",
       "fields":[
         {
-          "label":"عرض النتائج"
+          "label":"Display results"
         },
         {
           "label":"Display solution button"
@@ -136,12 +136,12 @@
           "default":"Finished"
         },
         {
-          "label":"نص راس الملاحظات",
+          "label":"Feedback heading",
           "default":"Your result:",
-          "description":"سيتم عرض هذا العنوان في نهاية هذه المسابقة حيثما أجاب المستخدم على جميع الأسئلة المستعملة"
+          "description":"This heading will be displayed at the end of the quiz when the user has answered all questions."
         },
         {
-          "label":"شفافية خلفية العناصر",
+          "label":"Overall Feedback",
           "fields":[
             {
               "widgets":[
@@ -171,59 +171,59 @@
           "label":"Old Feedback",
           "fields":[
             {
-              "label":"تعليق النجاح بالمسابقة",
-              "description":"سيتم عرض هذا النص أعلاه النتيجة إذا انقضى المستخدم بنجاح هذه المسابقة"
+              "label":"Quiz passed greeting",
+              "description":"This text will be displayed above the score if the user has successfully passed the quiz."
             },
             {
-              "label":"ملاحظة النجاح",
-              "description":"سيتم عرض هذه الملاحظة بعد النتيجة إذا انقضى المستخدم بنجاح هذه المسابقة"
+              "label":"Passed comment",
+              "description":"This comment will be displayed after the score if the user has successfully passed the quiz."
             },
             {
-              "label":"تعليق الرسوب بالمسابقة",
-              "description":"سيتم عرض هذا النص أعلاه النتيجة إذا كان المستخدم قد فشلت في المسابقة"
+              "label":"Quiz failed title",
+              "description":"This text will be displayed above the score if the user has failed the quiz."
             },
             {
-              "label":"ملاحظة الرسوب",
-              "description":"سيتم عرض هذه الملاحظة بعد النتيجة إذا كان المستخدم قد فشلت في المسابقة"
+              "label":"Failed comment",
+              "description":"This comment will be displayed after the score if the user has failed the quiz."
             }
           ]
         },
         {
-          "label":"تسمية زر اظهار الحل",
-          "default":"مشاهدة الحل",
-          "description":"نص زر الحل"
+          "label":"Solution button label",
+          "default":"Mostrar solució",
+          "description":"Text for the solution button."
         },
         {
-          "label":"تسمية زر إعادة المحاولة",
-          "default":"إعادة المحاولة",
-          "description":"نص زر إعادة المحاولة"
+          "label":"Etiqueta del botó \"Tornar-ho a provar\"",
+          "default":"Tornar-ho a provar",
+          "description":"Text for the retry button."
         },
         {
-          "label":"نص زر الانتهاء",
-          "default":"Finish"
+          "label":"Finish button text",
+          "default":"Acabar"
         },
         {
-          "label":"عرض الفيديو قبل نتائج المسابقة"
+          "label":"Display video before quiz results"
         },
         {
-          "label":"تفعيل زر  تخطى الفيديو"
+          "label":"Enable skip video button"
         },
         {
-          "label":"تسمية زر  تخطى الفيديو",
+          "label":"Skip video button label",
           "default":"Skip video"
         },
         {
-          "label":"فيديو النجاح بالمسابقة",
-          "description":"سيتم تشغيل هذا الفيديو إذا كان المستخدم ناجحا بهذه المسابقة"
+          "label":"Passed video",
+          "description":"This video will be played if the user successfully passed the quiz."
         },
         {
-          "label":"فيديو الرسوب بالمسابقة",
-          "description":"سيتم تشغيل هذا الفيديو إذا كان المستخدم راسبا بهذه المسابقة"
+          "label":"Fail video",
+          "description":"This video will be played if the user failes the quiz."
         }
       ]
     },
     {
-      "label":"إعدادات زر \"مشاهدة حل \" وزر \"إعادة المحاولة\" ",
+      "label":"Settings for \"Show solution\" and \"Retry\" buttons",
       "fields":[
         {
           "label":"Override \"Show Solution\" button",
