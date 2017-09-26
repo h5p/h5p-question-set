@@ -1,166 +1,166 @@
 {
   "semantics":[
     {
-      "label":"Quiz introduction",
+      "label":"Tietovisan johdanto",
       "fields":[
         {
-          "label":"Display introduction"
+          "label":"Näytä johdanto"
         },
         {
           "label":"Otsikko",
-          "description":"This title will be displayed above the introduction text."
+          "description":"Johdanto-osion otsikko."
         },
         {
-          "label":"Introduction text",
-          "description":"This text will be displayed before the quiz starts."
+          "label":"Johdantoteksti",
+          "description":"Teksti näytetään ennen visan alkua."
         },
         {
-          "label":"Start button text",
-          "default":"Start Quiz"
+          "label":"Aloita -painikkeen teksti",
+          "default":"Aloita"
         },
         {
-          "label":"Background image",
-          "description":"An optional background image for the introduction."
+          "label":"Taustakuva",
+          "description":"Valinnainen taustakuva johdantoon."
         }
       ]
     },
     {
-      "label":"Background image",
-      "description":"An optional background image for the Question set."
+      "label":"Taustakuva",
+      "description":"Valinnainen taustakuva kysymyksille."
     },
     {
-      "label":"Progress indicator",
-      "description":"Question set progress indicator style.",
+      "label":"Edistymisen näyttäminen",
+      "description":"Miten edistyminen tehtävässä näytetään tekijälle.",
       "options":[
         {
-          "label":"Textual"
+          "label":"Teksti"
         },
         {
-          "label":"Dots"
+          "label":"Täplät"
         }
       ],
       "default":"dots"
     },
     {
-      "label":"Pass percentage",
-      "description":"Percentage of Total score required for passing the quiz."
+      "label":"Läpäisyprosentti",
+      "description":"Kuinka monta prosenttia maksimipisteistä vaaditaan tehtävän läpäisyyn."
     },
     {
-      "label":"Questions",
+      "label":"Kysymykset",
       "widgets":[
         {
-          "label":"Default"
+          "label":"Oletus"
         },
         {
-          "label":"Textual"
+          "label":"Teksti"
         }
       ],
-      "entity":"question",
+      "entity":"kysymys",
       "field":{
-        "label":"Question type",
-        "description":"Library for this question."
+        "label":"Kysymyksen tyyppi",
+        "description":"Tarjolla olevat kysymystyypit."
       }
     },
     {
-      "label":"Interface texts in quiz",
+      "label":"Käyttöliittymän tekstit",
       "fields":[
         {
-          "label":"Back button",
-          "default":"Previous question"
+          "label":"Painikkeen Edellinen teksti",
+          "default":"Edellinen kysymys"
         },
         {
-          "label":"Next button",
-          "default":"Next question"
+          "label":"Painikkeen Seuraava teksti",
+          "default":"Seuraava kysymys"
         },
         {
-          "label":"Finish button",
-          "default":"Finish"
+          "label":"Painikkeen Lopeta teksti",
+          "default":"Lopeta"
         },
         {
-          "label":"Progress text",
-          "description":"Text used if textual progress is selected.",
-          "default":"Question: @current of @total questions"
+          "label":"Edistyminen",
+          "description":"Tekstiä käytetään mikäli tekstimuotoinen edistymisen näyttäminen on valittuna.",
+          "default":"Kysymys @current\/@total"
         },
         {
-          "label":"Label for jumping to a certain question",
-          "description":"You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default":"Question %d of %total"
+          "label":"Teksti kun hypätään tiettyyn kysymykseen",
+          "description":"Käytettävissä olevat muuttujat: '%d' kysymyksen numerolle ja %total kysymysten kokonaismäärälle.",
+          "default":"Kysymys %d\/%total"
         },
         {
-          "label":"Copyright dialog question label",
-          "default":"Question"
+          "label":"Kysymyksen selite tekijänoikeusvalinnoissa",
+          "default":"Kysymys"
         },
         {
-          "label":"Readspeaker progress",
-          "description":"May use @current and @total question variables",
-          "default":"Question @current of @total"
+          "label":"Ruudunlukijan teksti edistymiselle",
+          "description":"Käytettävissä olevat muuttujat: @current ja @total",
+          "default":"Kysymys @current\/@total"
         },
         {
-          "label":"Unanswered question text",
-          "default":"Unanswered"
+          "label":"Teksti vastaamattomalle kysymykselle",
+          "default":"Ei vastattu"
         },
         {
-          "label":"Answered question text",
-          "default":"Answered"
+          "label":"Teksti vastatulle kysymykselle",
+          "default":"Vastattu"
         },
         {
-          "label":"Current question text",
-          "default":"Current question"
+          "label":"Teksti meneillään olevalle kysymykselle",
+          "default":"Meneillään oleva kysymys"
         }
       ]
     },
     {
-      "label":"Disable backwards navigation",
-      "description":"This option will only allow you to move forward in Question Set"
+      "label":"Estä paluu",
+      "description":"Tämä valinta sallii vain eteenpäin siirtymisen tehtävässä"
     },
     {
-      "label":"Randomize questions",
-      "description":"Enable to randomize the order of questions on display."
+      "label":"Sekoita kysymykset",
+      "description":"Kysymykset näytetään satunnaisessa järjestyksessä."
     },
     {
-      "label":"Number of questions to be shown:",
-      "description":"Create a randomized batch of questions from the total."
+      "label":"Näytettävien kysymyksien määrä:",
+      "description":"Näytetään  annettu lukumäärä kysymyksiä kokonaismäärästä."
     },
     {
-      "label":"Quiz finished",
+      "label":"Tehtävän päätyttyä",
       "fields":[
         {
-          "label":"Display results"
+          "label":"Näytä tulokset"
         },
         {
-          "label":"Display solution button"
+          "label":"Salli painike \"Katso vastaus\""
         },
         {
-          "label":"No results message",
-          "description":"Text displayed on end page when \"Display results\" is disabled",
-          "default":"Finished"
+          "label":"Teksti kun ei tuloksia",
+          "description":"Teksti näytetään, kun \"Näytä tulokset\" ei ole valittuna",
+          "default":"Valmis"
         },
         {
-          "label":"Feedback heading",
-          "default":"Your result:",
-          "description":"This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label":"Palautteet otsikko",
+          "default":"Tuloksesi:",
+          "description":"Otsikko näytetään tehtävän lopussa, kun käyttäjä on vastannut kaikkiin kysymyksiin."
         },
         {
-          "label":"Overall Feedback",
+          "label":"Yleispalaute",
           "fields":[
             {
               "widgets":[
                 
               ],
-              "label":"Define custom feedback for any score range",
-              "description":"Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity":"range",
+              "label":"Määritä muokattu palaute pisterajojen mukaan.",
+              "description":"Klikkaa \"Lisää alue\" painiketta lisätäksesi niin monta pisterajaa kuin tarvit. Esimerkiksi: 0-20% Huono tulos, 21-91% Kelpo tulos, 91-100% Mahtava tulos!",
+              "entity":"alue",
               "field":{
                 "fields":[
                   {
-                    "label":"Score Range"
+                    "label":"Pisteraja"
                   },
                   {
-                    
+
                   },
                   {
-                    "label":"Feedback for defined score range",
-                    "placeholder":"Fill in the feedback"
+                    "label":"Palaute määritellylle pisterajalle",
+                    "placeholder":"Kirjoita palaute"
                   }
                 ]
               }
@@ -189,41 +189,41 @@
           ]
         },
         {
-          "label":"Solution button label",
-          "default":"Show solution",
-          "description":"Text for the solution button."
+          "label":"Painikkeen \"Katso vastaus\" nimi",
+          "default":"Katso vastaus",
+          "description":"Teksti \"Katso vastaus\" painikkeelle."
         },
         {
-          "label":"Retry button label",
+          "label":"Painikkeen \"Yritä uudelleen\" nimi",
           "default":"Yritä uudelleen",
-          "description":"Text for the retry button."
+          "description":"Teksti \"Yritä uudelleen\" painikkeelle."
         },
         {
-          "label":"Finish button text",
-          "default":"Finish"
+          "label":"Painikkeen \"Lopeta\" teksti",
+          "default":"Lopeta"
         },
         {
-          "label":"Display video before quiz results"
+          "label":"Näytä video ennen tuloksia"
         },
         {
-          "label":"Enable skip video button"
+          "label":"Salli videon ohittaminen"
         },
         {
-          "label":"Skip video button label",
-          "default":"Skip video"
+          "label":"Teksti painikkeelle Ohita video",
+          "default":"Ohita video"
         },
         {
-          "label":"Passed video",
-          "description":"This video will be played if the user successfully passed the quiz."
+          "label":"Video, kun suoritettu",
+          "description":"Tämä video näytetään, kun tehtävä on suoritettu onnistuneesti."
         },
         {
-          "label":"Fail video",
-          "description":"This video will be played if the user failes the quiz."
+          "label":"Video, kun ei suoritettu",
+          "description":"Tämä video näytetään, kun tehtävää ei ole suoritettu onnistuneesti."
         }
       ]
     },
     {
-      "label":"Settings for \"Show solution\" and \"Retry\" buttons",
+      "label":"Asetukset \"Näytä vastaus\" ja \"Yritä uudelleen\" painikkeille",
       "fields":[
         {
           "label":"\"Näytä vastaus\"-painike",
