@@ -231,7 +231,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Set overrides for questions
   var override;
-  if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton) {
+  if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton === false) {
     override = {};
     if (params.override.showSolutionButton) {
       // Force "Show solution" button to be on or off for all interactions
@@ -245,10 +245,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           (params.override.retryButton === 'on' ? true : false);
     }
 
-    if (params.override.checkButton) {
-      // Force "Retry" button to be on or off for all interactions
-      override.enableCheckButton =
-          (params.override.checkButton === 'on' ? true : false);
+    if (params.override.checkButton === false) {
+      // Force "Check" button to be on or off for all interactions
+      override.enableCheckButton = params.override.checkButton;
     }
   }
 

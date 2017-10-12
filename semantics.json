@@ -512,21 +512,12 @@
       },
       {
         "name": "checkButton",
-        "type": "select",
-        "label": "Override \"Check\" button",
+        "type": "boolean",
+        "label": "Show \"Check\" buttons",
         "importance": "low",
-        "description": "This option determines if the \"Check\" button will be shown for all questions, disabled for all or configured for each question individually.",
+        "description": "This option determines if the \"Check\" button will be shown for all questions.",
         "optional": true,
-        "options": [
-          {
-            "value": "on",
-            "label": "Enabled"
-          },
-          {
-            "value": "off",
-            "label": "Disabled"
-          }
-        ]
+        "default": true
       }
     ]
   }
