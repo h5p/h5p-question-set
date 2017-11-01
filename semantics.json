@@ -470,7 +470,7 @@
   {
     "name": "override",
     "type": "group",
-    "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+    "label": "Settings for \"Check\", \"Show solution\" and \"Retry\"",
     "importance": "low",
     "optional": true,
     "fields": [
