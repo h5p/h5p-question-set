@@ -1,166 +1,165 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Tietovisan johdanto",
-      "fields":[
+      "label": "Tietovisan johdanto",
+      "fields": [
         {
-          "label":"Näytä johdanto"
+          "label": "Näytä johdanto"
         },
         {
-          "label":"Otsikko",
-          "description":"Johdanto-osion otsikko."
+          "label": "Otsikko",
+          "description": "Johdanto-osion otsikko."
         },
         {
-          "label":"Johdantoteksti",
-          "description":"Teksti näytetään ennen visan alkua."
+          "label": "Johdantoteksti",
+          "description": "Teksti näytetään ennen visan alkua."
         },
         {
-          "label":"Aloita -painikkeen teksti",
-          "default":"Aloita"
+          "label": "Aloita -painikkeen teksti",
+          "default": "Aloita"
         },
         {
-          "label":"Taustakuva",
-          "description":"Valinnainen taustakuva johdantoon."
+          "label": "Taustakuva",
+          "description": "Valinnainen taustakuva johdantoon."
         }
       ]
     },
     {
-      "label":"Taustakuva",
-      "description":"Valinnainen taustakuva kysymyksille."
+      "label": "Taustakuva",
+      "description": "Valinnainen taustakuva kysymyksille."
     },
     {
-      "label":"Edistymisen näyttäminen",
-      "description":"Miten edistyminen tehtävässä näytetään tekijälle.",
-      "options":[
+      "label": "Edistymisen näyttäminen",
+      "description": "Miten edistyminen tehtävässä näytetään tekijälle.",
+      "options": [
         {
-          "label":"Teksti"
+          "label": "Teksti"
         },
         {
-          "label":"Täplät"
+          "label": "Täplät"
         }
-      ],
-      "default":"dots"
+      ]
     },
     {
-      "label":"Läpäisyprosentti",
-      "description":"Kuinka monta prosenttia maksimipisteistä vaaditaan tehtävän läpäisyyn."
+      "label": "Läpäisyprosentti",
+      "description": "Kuinka monta prosenttia maksimipisteistä vaaditaan tehtävän läpäisyyn."
     },
     {
-      "label":"Kysymykset",
-      "widgets":[
+      "label": "Kysymykset",
+      "widgets": [
         {
-          "label":"Oletus"
+          "label": "Oletus"
         },
         {
-          "label":"Teksti"
+          "label": "Teksti"
         }
       ],
-      "entity":"kysymys",
-      "field":{
-        "label":"Kysymyksen tyyppi",
-        "description":"Tarjolla olevat kysymystyypit."
+      "entity": "kysymys",
+      "field": {
+        "label": "Kysymyksen tyyppi",
+        "description": "Tarjolla olevat kysymystyypit."
       }
     },
     {
-      "label":"Käyttöliittymän tekstit",
-      "fields":[
+      "label": "Käyttöliittymän tekstit",
+      "fields": [
         {
-          "label":"Painikkeen Edellinen teksti",
-          "default":"Edellinen kysymys"
+          "label": "Painikkeen Edellinen teksti",
+          "default": "Edellinen kysymys"
         },
         {
-          "label":"Painikkeen Seuraava teksti",
-          "default":"Seuraava kysymys"
+          "label": "Painikkeen Seuraava teksti",
+          "default": "Seuraava kysymys"
         },
         {
-          "label":"Painikkeen Lopeta teksti",
-          "default":"Lopeta"
+          "label": "Painikkeen Lopeta teksti",
+          "default": "Lopeta"
         },
         {
-          "label":"Edistyminen",
-          "description":"Tekstiä käytetään mikäli tekstimuotoinen edistymisen näyttäminen on valittuna.",
-          "default":"Kysymys @current\/@total"
+          "label": "Edistyminen",
+          "description": "Tekstiä käytetään mikäli tekstimuotoinen edistymisen näyttäminen on valittuna.",
+          "default": "Kysymys @current/@total"
         },
         {
-          "label":"Teksti kun hypätään tiettyyn kysymykseen",
-          "description":"Käytettävissä olevat muuttujat: '%d' kysymyksen numerolle ja %total kysymysten kokonaismäärälle.",
-          "default":"Kysymys %d\/%total"
+          "label": "Teksti kun hypätään tiettyyn kysymykseen",
+          "description": "Käytettävissä olevat muuttujat: '%d' kysymyksen numerolle ja %total kysymysten kokonaismäärälle.",
+          "default": "Kysymys %d/%total"
         },
         {
-          "label":"Kysymyksen selite tekijänoikeusvalinnoissa",
-          "default":"Kysymys"
+          "label": "Kysymyksen selite tekijänoikeusvalinnoissa",
+          "default": "Kysymys"
         },
         {
-          "label":"Ruudunlukijan teksti edistymiselle",
-          "description":"Käytettävissä olevat muuttujat: @current ja @total",
-          "default":"Kysymys @current\/@total"
+          "label": "Ruudunlukijan teksti edistymiselle",
+          "description": "Käytettävissä olevat muuttujat: @current ja @total",
+          "default": "Kysymys @current/@total"
         },
         {
-          "label":"Teksti vastaamattomalle kysymykselle",
-          "default":"Ei vastattu"
+          "label": "Teksti vastaamattomalle kysymykselle",
+          "default": "Ei vastattu"
         },
         {
-          "label":"Teksti vastatulle kysymykselle",
-          "default":"Vastattu"
+          "label": "Teksti vastatulle kysymykselle",
+          "default": "Vastattu"
         },
         {
-          "label":"Teksti meneillään olevalle kysymykselle",
-          "default":"Meneillään oleva kysymys"
+          "label": "Teksti meneillään olevalle kysymykselle",
+          "default": "Meneillään oleva kysymys"
         }
       ]
     },
     {
-      "label":"Estä paluu",
-      "description":"Tämä valinta sallii vain eteenpäin siirtymisen tehtävässä"
+      "label": "Estä paluu",
+      "description": "Tämä valinta sallii vain eteenpäin siirtymisen tehtävässä"
     },
     {
-      "label":"Sekoita kysymykset",
-      "description":"Kysymykset näytetään satunnaisessa järjestyksessä."
+      "label": "Sekoita kysymykset",
+      "description": "Kysymykset näytetään satunnaisessa järjestyksessä."
     },
     {
-      "label":"Näytettävien kysymyksien määrä:",
-      "description":"Näytetään  annettu lukumäärä kysymyksiä kokonaismäärästä."
+      "label": "Näytettävien kysymyksien määrä:",
+      "description": "Näytetään  annettu lukumäärä kysymyksiä kokonaismäärästä."
     },
     {
-      "label":"Tehtävän päätyttyä",
-      "fields":[
+      "label": "Tehtävän päätyttyä",
+      "fields": [
         {
-          "label":"Näytä tulokset"
+          "label": "Näytä tulokset"
         },
         {
-          "label":"Salli painike \"Katso vastaus\""
+          "label": "Salli painike \"Katso vastaus\""
         },
         {
-          "label":"Teksti kun ei tuloksia",
-          "description":"Teksti näytetään, kun \"Näytä tulokset\" ei ole valittuna",
-          "default":"Valmis"
+          "label": "Teksti kun ei tuloksia",
+          "description": "Teksti näytetään, kun \"Näytä tulokset\" ei ole valittuna",
+          "default": "Valmis"
         },
         {
-          "label":"Palautteet otsikko",
-          "default":"Tuloksesi:",
-          "description":"Otsikko näytetään tehtävän lopussa, kun käyttäjä on vastannut kaikkiin kysymyksiin."
+          "label": "Palautteet otsikko",
+          "default": "Tuloksesi:",
+          "description": "Otsikko näytetään tehtävän lopussa, kun käyttäjä on vastannut kaikkiin kysymyksiin."
         },
         {
-          "label":"Yleispalaute",
-          "fields":[
+          "label": "Yleispalaute",
+          "fields": [
             {
-              "widgets":[
-                
+              "widgets": [
+                {
+                  "label": "Default"
+                }
               ],
-              "label":"Määritä muokattu palaute pisterajojen mukaan.",
-              "description":"Klikkaa \"Lisää alue\" painiketta lisätäksesi niin monta pisterajaa kuin tarvit. Esimerkiksi: 0-20% Huono tulos, 21-91% Kelpo tulos, 91-100% Mahtava tulos!",
-              "entity":"alue",
-              "field":{
-                "fields":[
+              "label": "Määritä muokattu palaute pisterajojen mukaan.",
+              "description": "Klikkaa \"Lisää alue\" painiketta lisätäksesi niin monta pisterajaa kuin tarvit. Esimerkiksi: 0-20% Huono tulos, 21-91% Kelpo tulos, 91-100% Mahtava tulos!",
+              "entity": "alue",
+              "field": {
+                "fields": [
                   {
-                    "label":"Pisteraja"
+                    "label": "Pisteraja"
                   },
+                  {},
                   {
-
-                  },
-                  {
-                    "label":"Palaute määritellylle pisterajalle",
-                    "placeholder":"Kirjoita palaute"
+                    "label": "Palaute määritellylle pisterajalle",
+                    "placeholder": "Kirjoita palaute"
                   }
                 ]
               }
@@ -168,84 +167,88 @@
           ]
         },
         {
-          "label":"Old Feedback",
-          "fields":[
+          "label": "Old Feedback",
+          "fields": [
             {
-              "label":"Quiz passed greeting",
-              "description":"This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Quiz passed greeting",
+              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
             },
             {
-              "label":"Passed comment",
-              "description":"This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Passed comment",
+              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
             },
             {
-              "label":"Quiz failed title",
-              "description":"This text will be displayed above the score if the user has failed the quiz."
+              "label": "Quiz failed title",
+              "description": "This text will be displayed above the score if the user has failed the quiz."
             },
             {
-              "label":"Failed comment",
-              "description":"This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Failed comment",
+              "description": "This comment will be displayed after the score if the user has failed the quiz."
             }
           ]
         },
         {
-          "label":"Painikkeen \"Katso vastaus\" nimi",
-          "default":"Katso vastaus",
-          "description":"Teksti \"Katso vastaus\" painikkeelle."
+          "label": "Painikkeen \"Katso vastaus\" nimi",
+          "default": "Katso vastaus",
+          "description": "Teksti \"Katso vastaus\" painikkeelle."
         },
         {
-          "label":"Painikkeen \"Yritä uudelleen\" nimi",
-          "default":"Yritä uudelleen",
-          "description":"Teksti \"Yritä uudelleen\" painikkeelle."
+          "label": "Painikkeen \"Yritä uudelleen\" nimi",
+          "default": "Yritä uudelleen",
+          "description": "Teksti \"Yritä uudelleen\" painikkeelle."
         },
         {
-          "label":"Painikkeen \"Lopeta\" teksti",
-          "default":"Lopeta"
+          "label": "Painikkeen \"Lopeta\" teksti",
+          "default": "Lopeta"
         },
         {
-          "label":"Näytä video ennen tuloksia"
+          "label": "Näytä video ennen tuloksia"
         },
         {
-          "label":"Salli videon ohittaminen"
+          "label": "Salli videon ohittaminen"
         },
         {
-          "label":"Teksti painikkeelle Ohita video",
-          "default":"Ohita video"
+          "label": "Teksti painikkeelle Ohita video",
+          "default": "Ohita video"
         },
         {
-          "label":"Video, kun suoritettu",
-          "description":"Tämä video näytetään, kun tehtävä on suoritettu onnistuneesti."
+          "label": "Video, kun suoritettu",
+          "description": "Tämä video näytetään, kun tehtävä on suoritettu onnistuneesti."
         },
         {
-          "label":"Video, kun ei suoritettu",
-          "description":"Tämä video näytetään, kun tehtävää ei ole suoritettu onnistuneesti."
+          "label": "Video, kun ei suoritettu",
+          "description": "Tämä video näytetään, kun tehtävää ei ole suoritettu onnistuneesti."
         }
       ]
     },
     {
-      "label":"Asetukset \"Näytä vastaus\" ja \"Yritä uudelleen\" painikkeille",
-      "fields":[
+      "label": "Asetukset \"Näytä vastaus\" ja \"Yritä uudelleen\" painikkeille",
+      "fields": [
         {
-          "label":"\"Näytä vastaus\"-painike",
-          "description":"Ota käyttöön kaikissa kysymyksissä, ei yhdessäkään, tai jätä tyhjäksi käyttääksesi tehtäväkohtaisia asetuksia",
-          "options":[
+          "label": "Show \"Check\" buttons",
+          "description": "This option determines if the \"Check\" button will be shown for all questions."
+        },
+        {
+          "label": "\"Näytä vastaus\"-painike",
+          "description": "Ota käyttöön kaikissa kysymyksissä, ei yhdessäkään, tai jätä tyhjäksi käyttääksesi tehtäväkohtaisia asetuksia",
+          "options": [
             {
-              "label":"Käytössä kaikissa"
+              "label": "Käytössä kaikissa"
             },
             {
-              "label":"Pois käytöstä"
+              "label": "Pois käytöstä"
             }
           ]
         },
         {
-          "label":"\"Yritä uudelleen\"-painike",
-          "description":"Ota käyttöön kaikissa kysymyksissä, ei yhdessäkään, tai jätä tyhjäksi käyttääksesi tehtäväkohtaisia asetuksia.",
-          "options":[
+          "label": "\"Yritä uudelleen\"-painike",
+          "description": "Ota käyttöön kaikissa kysymyksissä, ei yhdessäkään, tai jätä tyhjäksi käyttääksesi tehtäväkohtaisia asetuksia.",
+          "options": [
             {
-              "label":"Käytössä kaikissa"
+              "label": "Käytössä kaikissa"
             },
             {
-              "label":"Pois käytöstä"
+              "label": "Pois käytöstä"
             }
           ]
         }

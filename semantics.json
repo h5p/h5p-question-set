@@ -470,10 +470,19 @@
   {
     "name": "override",
     "type": "group",
-    "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+    "label": "Settings for \"Check\", \"Show solution\" and \"Retry\"",
     "importance": "low",
     "optional": true,
     "fields": [
+      {
+        "name": "checkButton",
+        "type": "boolean",
+        "label": "Show \"Check\" buttons",
+        "importance": "low",
+        "description": "This option determines if the \"Check\" button will be shown for all questions.",
+        "optional": true,
+        "default": true
+      },
       {
         "name": "showSolutionButton",
         "type": "select",
@@ -481,6 +490,15 @@
         "importance": "low",
         "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
         "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "checkButton",
+              "equals": true
+            }
+          ]
+        },
         "options": [
           {
             "value": "on",
@@ -499,6 +517,15 @@
         "importance": "low",
         "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
         "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "checkButton",
+              "equals": true
+            }
+          ]
+        },
         "options": [
           {
             "value": "on",
