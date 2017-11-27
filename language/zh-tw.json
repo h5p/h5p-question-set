@@ -1,146 +1,146 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "問題簡介",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "顯示簡介"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "標題",
+          "description": "標題將顯示在簡介內容中."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "簡介文字",
+          "description": "文字將顯示於問題開始進行前."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "開始功能鈕名稱",
+          "default": "開始測驗"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "背景圖示",
+          "description": "選填。可選擇一張圖示做為簡介的背景畫面."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "背景圖示",
+      "description": "選填。可選擇一張圖示做為問題集的畫面背景."
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "進度指示",
+      "description": "設定問題進度顯示樣式.",
       "options": [
         {
-          "label": "Textual"
+          "label": "文字"
         },
         {
-          "label": "Dots"
+          "label": "點狀"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "通過率",
+      "description": "通過測驗所需總分的百分比."
     },
     {
-      "label": "Questions",
+      "label": "問題",
       "widgets": [
         {
-          "label": "Default"
+          "label": "預設值"
         },
         {
-          "label": "Textual"
+          "label": "文字方式"
         }
       ],
-      "entity": "question",
+      "entity": "問題",
       "field": {
-        "label": "Question type",
+        "label": "問題類型",
         "description": "Library for this question."
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "測驗之使用界面",
       "fields": [
         {
-          "label": "Back button",
-          "default": "Previous question"
+          "label": "返回功能鈕名稱",
+          "default": "上一個問題"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "下一題功能鈕名稱",
+          "default": "下一個問題"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "完成功能鈕名稱",
+          "default": "完成"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "進度",
+          "description": "若進度指示選擇以文字方式呈現，則以文字方式顯示.",
+          "default": "問題:第 @current 題，共 @total 題"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "跳到某個問題",
+          "description": "請使用 %d 作為跳題標示，並不是使用問題編號。以 %total 表示總問題數.",
+          "default": "跳至 %d 問題，共 %total 題"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "問題之版權標示",
+          "default": "問題"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "閱讀器導讀進度",
+          "description": "使用@current 及@total 作為問題的變數",
+          "default": "第 @current題，共 @total 題"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "未回答問題顯示文字",
+          "default": "未回答"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "已回答問題顯示文字",
+          "default": "已回答"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "當前問題顯示文字",
+          "default": "當前問題"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "禁用逆向引導",
+      "description": "勾選本選項後將僅允許在問題集中向前移動"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "隨機問答",
+      "description": "啟用隨機顯示問題順序."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "要顯示的問題數量:",
+      "description": "可在總問題集中隨機建立一批隨機問答."
     },
     {
-      "label": "Quiz finished",
+      "label": "測驗完成",
       "fields": [
         {
-          "label": "Display results"
+          "label": "顯示結果"
         },
         {
-          "label": "Display solution button"
+          "label": "顯示查看解法功能鈕"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "沒有結果顯示資訊",
+          "description": "當未啟用顯示結果時，結束頁面所顯示的文字",
+          "default": "完成"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "回饋標題文字",
+          "default": "您的測驗結果:",
+          "description": "當使用者完成作答後所顯示的標題."
         },
         {
-          "label": "Overall Feedback",
+          "label": "整體回饋",
           "fields": [
             {
               "widgets": [
@@ -148,18 +148,18 @@
                   "label": "Default"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "定義任意分數範圍的回饋",
+              "description": "點擊＂新增範圍＂功能鈕以添加您所需要的範圍. 例如: 0-20% 低分, 21-91% 平均得分, 91-100% 高分!",
+              "entity": "範圍",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "得分範圍"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "回饋定義的得分範圍",
+                    "placeholder": "填寫回饋"
                   }
                 ]
               }
@@ -188,67 +188,67 @@
           ]
         },
         {
-          "label": "Solution button label",
-          "default": "Show solution",
-          "description": "Text for the solution button."
+          "label": "解法功能鈕名稱",
+          "default": "查看解法",
+          "description": "解法功能鈕名稱."
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "重試功能鈕名稱",
+          "default": "重試",
+          "description": "重試功能鈕名稱."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "完成功能鈕名稱",
+          "default": "完成"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "在測驗結果前撥放影片"
         },
         {
-          "label": "Enable skip video button"
+          "label": "啟用略過影片撥放功能鈕"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "略過影片撥放功能鈕名稱",
+          "default": "略過影片"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "通過測驗影片",
+          "description": "當使用者通過測驗後所播放的影片."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user failes the quiz."
+          "label": "測驗失敗影片",
+          "description": "當使用者測驗失敗時所播放的影片."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "設定＂查看解法＂和＂重試＂功能鈕",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "顯示”檢查”功能鈕",
+          "description": "設定此選項後將使問題集中皆顯示”檢查”功能鈕."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "“查看解法”功能鈕",
+          "description": "設定此選項後將使問題集中皆顯示”查看解法”功能鈕.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "啟用"
             },
             {
-              "label": "Disabled"
+              "label": "禁用"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "”重試”功能鈕",
+          "description": "設定此選項後將使問題集中皆顯示”重試”功能鈕.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "啟用"
             },
             {
-              "label": "Disabled"
+              "label": "禁用"
             }
           ]
         }
