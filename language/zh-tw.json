@@ -57,7 +57,7 @@
       "entity": "問題",
       "field": {
         "label": "問題類型",
-        "description": "Library for this question."
+        "description": "問題元件."
       }
     },
     {
@@ -91,7 +91,7 @@
         },
         {
           "label": "閱讀器導讀進度",
-          "description": "使用@current 及@total 作為問題的變數",
+          "description": "使用 @current 及 @total 作為問題的變數",
           "default": "第 @current題，共 @total 題"
         },
         {
@@ -145,7 +145,7 @@
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "預設值"
                 }
               ],
               "label": "定義任意分數範圍的回饋",
@@ -167,23 +167,23 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "舊的回饋",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "完成測驗後的回饋訊息",
+              "description": "當使用者完成測驗後，此段文字將顯示於分數的上方."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "通過測驗",
+              "description": "當使用者已成功通過測驗時，此段文字將顯示於分數之後."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "測驗失敗的標題",
+              "description": "當使用者未通過測驗時，此段文字將顯示於分數的上方."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "測驗失敗的回饋訊息",
+              "description": "當使用者未通過測驗時，此段文字將顯示於分數之後."
             }
           ]
         },
