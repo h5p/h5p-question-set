@@ -1,165 +1,165 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "מבוא לחידון",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "יש להציג מבוא"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "כותרת",
+          "description": "כותרת זו תוצג מעל תיאור המבוא"
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "תיאור מבוא",
+          "description": "תיאור זה יוצג לפני שהחידון מתחיל"
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "תיאור כפתור ההתחלה ",
+          "default": "התחילו את החידון"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "תמונת רקע",
+          "description": "תמונת רקע אפשרית למבוא"
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "תמונת רקע",
+      "description": "תמונת רקע אפשרית עבור הגדרות השאלה"
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "מחוון התקדמות",
+      "description": "הגדרות שאלה מסוג מחוון התקדמות",
       "options": [
         {
-          "label": "Textual"
+          "label": "מילולי"
         },
         {
-          "label": "Dots"
+          "label": "נקודות"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "אחוז נדרש למעבר",
+      "description": "אחוז ניקוד כללי הנדרש כדי לעבור את החידון."
     },
     {
-      "label": "Questions",
+      "label": "שאלות",
       "widgets": [
         {
-          "label": "Default"
+          "label": "ברירת מחדל"
         },
         {
-          "label": "Textual"
+          "label": "מילולי"
         }
       ],
-      "entity": "question",
+      "entity": "שאלה",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "סוג שאלה",
+        "description": "ספריה עבור שאלה זו"
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "ממשק תכנים בחידון",
       "fields": [
         {
-          "label": "Back button",
-          "default": "Previous question"
+          "label": "כפתור חזרה אחורה",
+          "default": "שאלה קודמת"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "כפתור הבא",
+          "default": "שאלה הבאה"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "כפתור סיום",
+          "default": "סיום"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "תוכן מתקדם",
+          "description": "תוכן שבו נעשה שימוש אם תוכן מתקדם נבחר",
+          "default": ""
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "תווית עבור קפיצה לשאלה מסוימת",
+          "description": "יש להשתמש במציין המיקום '% d' במקום במספר השאלה, וב % סה\"כ   במקום בסכום הכולל של השאלות.",
+          "default": "שאלה %d מתוך %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "תווית שאלת שיח זכויות יוצרים",
+          "default": "שאלה"
         },
         {
           "label": "Readspeaker progress",
           "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "default": "שאלה @current מתוך @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "תיאור שאלות של תשובות שלא נענו",
+          "default": "לא נענה"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "תיאור שאלה שנענתה",
+          "default": "נענה"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "תיאור שאלה נוכחית",
+          "default": "שאלה נוכחית"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "ניווט קדימה בלבד",
+      "description": "הגדרה מאפשרת התקדמות ומעבר לשאלה הבאה בלבד."
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "שאלות אקראיות",
+      "description": "מאפשר תצוגת סדר השאלות באופן אקראי"
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "מספר השאלות שיוצגו:",
+      "description": "יצירת סדרה של שאלות אקראיות מסך כל השאלות"
     },
     {
-      "label": "Quiz finished",
+      "label": "החידון הסתיים",
       "fields": [
         {
-          "label": "Display results"
+          "label": "הציגו תוצאות"
         },
         {
-          "label": "Display solution button"
+          "label": "כפתור הצגת הפתרון"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "אין הודעת תוצאות",
+          "description": "תוכן מוצג בסוף העמוד כאשר מוצג \"הציגו תוצאות\"",
+          "default": "הסתיים"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "כותרת המשוב",
+          "default": "התוצאה שלכם:",
+          "description": "כותרת זו תוצג בסיום החידון כאשר הנבחן ענה על כל השאלות"
         },
         {
-          "label": "Overall Feedback",
+          "label": "משוב כולל",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "ברירת מחדל"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "יש להגדיר משוב מותאם אישית לכל טווח ניקוד",
+              "description": "לדוגמא:0-20% ציון לא טוב,21-91% ציון ממוצע,91-100% ציון מעולה!\"",
+              "entity": "טווח",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "טווח ניקוד"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "משוב עבור הגדרת טווח ניקוד",
+                    "placeholder": "יש למלא את המשוב"
                   }
                 ]
               }
@@ -167,88 +167,87 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "משוב ישן",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "ברכת הצלחה בחידון",
+              "description": "תוכן זה יוצג מעל הניקוד אם הנבחן עבר בהצלחה את החידון"
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "הערה עבור הצלחה בחידון ",
+              "description": "הערה זו תוצג מעל הניקוד, אם הנבחן עבר בהצלחה את החידון"
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "כותרת כשלון בחידון",
+              "description": "תוכן זה יוצג מעל הניקוד אם הנבחן נכשל בחידון"
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "הערה עבור כשלון בחידון",
+              "description": "הערה זו תוצג מעל הניקוד, אם הנבחן נכשל בחידון"
             }
           ]
         },
         {
-          "label": "Solution button label",
-          "default": "Show solution",
-          "description": "Text for the solution button."
+          "label": "\"תווית כפתור \"הפתרון",
+          "default": "הציגו פתרון",
+          "description": "\"תוכן עבור כפתור \"הפתרון"
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "תווית כפתור נסו שוב",
+          "default": "נסו בשנית",
+          "description": "\"תוכן עבור כפתור \"נסו שוב"
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "\"תוכן כפתור \"סיום",
+          "default": "סיום"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "יש להציג וידאו לפני תוצאות החידון"
         },
         {
-          "label": "Enable skip video button"
+          "label": "הפעילו את הכפתור \"דלגו על הסרטון\""
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "תווית כפתור דלגו על הסרטון",
+          "default": "דלגו על הוידאו"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "וידאו של הצלחה בחידון",
+          "description": "וידאו זה יופעל במידה והנבחן יעבור בהצלחה את החידון"
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user failes the quiz."
+          "label": "וידאו של כישלון בחידון",
+          "description": "וידאו זה יופעל במידה והנבחן יכשל בחידון"
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "הגדרות עבור כפתורי  \"הציגו פתרון\" ו \"נסו בשנית\"",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "הציגו כפתורי \"נבחר\" ",
+          "description": "אפשרות זו קובעת אם הכפתור \"נבחר\" יוצג עבור כל השאלות."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "עדכון כפתור \"תצוגת פתרון\"",
           "options": [
             {
-              "label": "Enabled"
+              "label": "עדכון כפתור \"נסו שוב\"",
+              "description": "אפשרות זו קובעת אם הכפתור \"נסו שוב\" יוצג עבור כל השאלות, יושבת עבור כל השאלות או יוגדר עבור כל שאלה בנפרד.\n",
+              "options": [
+                {
+                  "label": "פעיל"
+                },
+                {
+                  "label": "כבוי"
+                }
+              ]
             },
             {
-              "label": "Disabled"
-            }
-          ]
-        },
-        {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
-          "options": [
-            {
-              "label": "Enabled"
+              "label": "פעיל"
             },
             {
-              "label": "Disabled"
+              "label": "כבוי"
             }
           ]
         }
