@@ -1054,6 +1054,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   this.getCopyrights = function () {
     var info = new H5P.ContentCopyrights();
 
+    // IntroPage Background
+    if (params.introPage !== undefined && params.introPage.backgroundImage !== undefined && params.introPage.backgroundImage.copyright !== undefined) {
+      var introBackground = new H5P.MediaCopyright(params.introPage.backgroundImage.copyright);
+      introBackground.setThumbnail(new H5P.Thumbnail(H5P.getPath(params.introPage.backgroundImage.path, contentId), params.introPage.backgroundImage.width, params.introPage.backgroundImage.height));
+      info.addMedia(introBackground);
+    }
+
     // Background
     if (params.backgroundImage !== undefined && params.backgroundImage.copyright !== undefined) {
       var background = new H5P.MediaCopyright(params.backgroundImage.copyright);
