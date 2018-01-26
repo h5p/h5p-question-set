@@ -230,19 +230,20 @@
         },
         {
           "label": "עדכון כפתור \"תצוגת פתרון\"",
+          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
-              "label": "עדכון כפתור \"נסו שוב\"",
-              "description": "אפשרות זו קובעת אם הכפתור \"נסו שוב\" יוצג עבור כל השאלות, יושבת עבור כל השאלות או יוגדר עבור כל שאלה בנפרד.\n",
-              "options": [
-                {
-                  "label": "פעיל"
-                },
-                {
-                  "label": "כבוי"
-                }
-              ]
+              "label": "פעיל"
             },
+            {
+              "label": "כבוי"
+            }
+          ]
+        },
+        {
+          "label": "עדכון כפתור \"נסו שוב\"",
+          "description": "אפשרות זו קובעת אם הכפתור \"נסו שוב\" יוצג עבור כל השאלות, יושבת עבור כל השאלות או יוגדר עבור כל שאלה בנפרד.\n",
+          "options": [
             {
               "label": "פעיל"
             },
