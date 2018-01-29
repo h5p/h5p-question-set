@@ -4,7 +4,7 @@
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 13,
-  "patchVersion": 3,
+  "patchVersion": 4,
   "embedTypes": [
     "iframe"
   ],
@@ -64,6 +64,11 @@
       "machineName": "H5PEditor.QuestionSetTextualEditor",
       "majorVersion": 1,
       "minorVersion": 2
+    },
+    {
+      "machineName": "H5PEditor.ShowWhen",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ]
 }

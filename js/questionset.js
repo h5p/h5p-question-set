@@ -231,7 +231,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Set overrides for questions
   var override;
-  if (params.override.showSolutionButton || params.override.retryButton) {
+  if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton === false) {
     override = {};
     if (params.override.showSolutionButton) {
       // Force "Show solution" button to be on or off for all interactions
@@ -243,6 +243,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Force "Retry" button to be on or off for all interactions
       override.enableRetry =
           (params.override.retryButton === 'on' ? true : false);
+    }
+
+    if (params.override.checkButton === false) {
+      // Force "Check" button to be on or off for all interactions
+      override.enableCheckButton = params.override.checkButton;
     }
   }
 
@@ -1048,6 +1053,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   this.getCopyrights = function () {
     var info = new H5P.ContentCopyrights();
+
+    // IntroPage Background
+    if (params.introPage !== undefined && params.introPage.backgroundImage !== undefined && params.introPage.backgroundImage.copyright !== undefined) {
+      var introBackground = new H5P.MediaCopyright(params.introPage.backgroundImage.copyright);
+      introBackground.setThumbnail(new H5P.Thumbnail(H5P.getPath(params.introPage.backgroundImage.path, contentId), params.introPage.backgroundImage.width, params.introPage.backgroundImage.height));
+      info.addMedia(introBackground);
+    }
 
     // Background
     if (params.backgroundImage !== undefined && params.backgroundImage.copyright !== undefined) {
