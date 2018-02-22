@@ -75,7 +75,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a class="qs-startbutton h5p-joubelui-button h5p-button" type="button" tabindex=0, aria-label="' + this.startButtonText +'"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><a href="#" class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
           '<div tabindex="-1" class="qs-progress-announcer"></div>' +
@@ -957,6 +957,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         $(this).parents('.intro-page').hide();
         $('.questionset', $myDom).show();
         _showQuestion(params.initialQuestion);
+        event.preventDefault();
       })
       .keydown(function (event) {
         switch (event.which) {
