@@ -75,7 +75,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><a href="#" class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
           '<div tabindex="-1" class="qs-progress-announcer"></div>' +
@@ -767,6 +767,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           if ($intro.length) {
             // Show intro
             $('.intro-page', $myDom).show();
+            $('.qs-startbutton', $myDom).focus();
           }
           else {
             // Show first question
@@ -951,11 +952,23 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Allow other libraries to add transitions after the questions have been inited
     $('.questionset', $myDom).addClass('started');
 
-    $('.qs-startbutton', $myDom).click(function () {
-      $(this).parents('.intro-page').hide();
-      $('.questionset', $myDom).show();
-      _showQuestion(params.initialQuestion);
-    });
+    $('.qs-startbutton', $myDom)
+      .click(function () {
+        $(this).parents('.intro-page').hide();
+        $('.questionset', $myDom).show();
+        _showQuestion(params.initialQuestion);
+        event.preventDefault();
+      })
+      .keydown(function (event) {
+        switch (event.which) {
+          case 13: // Enter
+          case 32: // Space
+            $(this).parents('.intro-page').hide();
+            $('.questionset', $myDom).show();
+            _showQuestion(params.initialQuestion);
+            event.preventDefault();
+          }
+      });
 
     /**
      * Triggers changing the current question.
