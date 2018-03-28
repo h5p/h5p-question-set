@@ -1,5 +1,12 @@
 var H5PPresave = H5PPresave || {};
 
+/**
+ * Resolve the presave logic for the content type Question Set
+ *
+ * @param {object} content
+ * @param finished
+ * @constructor
+ */
 H5PPresave['H5P.QuestionSet'] = function (content, finished) {
   var presave = H5PEditor.Presave;
 
@@ -27,6 +34,10 @@ H5PPresave['H5P.QuestionSet'] = function (content, finished) {
     finished({maxScore: score});
   }
 
+  /**
+   * Check if required parameters is present
+   * @return {boolean}
+   */
   function isContentInValid() {
     return !presave.checkNestedRequirements(content, 'content.questions') || !Array.isArray(content.questions);
   }
