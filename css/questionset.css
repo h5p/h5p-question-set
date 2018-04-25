@@ -120,10 +120,6 @@
   content: "\f01e";
 }
 
-.qs-footer > .next, .qs-footer > .finish, .qs-finishbutton {
-  float: right;
-}
-
 /* Need to disable max-height animation stuff, since this will
    make resizing of iframe in Safari not work! */
 .questionset .h5p-question-buttons.h5p-question-visible {
@@ -176,10 +172,6 @@
   padding-right: 0;
   position: relative;
   left: -2px;
-}
-
-.questionset-results .qs-finishbutton {
-  display: none;
 }
 
 .h5p-question .h5p-question-finish:before {

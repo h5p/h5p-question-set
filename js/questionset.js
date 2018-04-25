@@ -125,7 +125,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <div class="result-text"><%= resulttext %></div>' +
           '  <% } %>' +
           '  <div class="buttons">' +
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></button>' +
           solutionButtonTemplate +
           '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>' +
           '  </div>' +
@@ -795,7 +794,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
       else {
         // Remove buttons and feedback section
-        $('.qs-finishbutton, .qs-solutionbutton, .qs-retrybutton, .feedback-section', $myDom).remove();
+        $('.qs-solutionbutton, .qs-retrybutton, .feedback-section', $myDom).remove();
       }
 
       self.trigger('resize');
