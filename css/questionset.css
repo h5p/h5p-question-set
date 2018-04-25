@@ -180,7 +180,8 @@
 
 .questionset-results button.h5p-button.qs-solutionbutton:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f06e   "; /* TODO: Use margin not whitespace, spacing is not content! */
+  padding-right: 0.5em;
+  content: "\f06e";
 }
 
 .video-container {
