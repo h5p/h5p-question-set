@@ -230,7 +230,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Set overrides for questions
   var override;
-  if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton === false) {
+  if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton === false) {
     override = {};
     if (params.override.showSolutionButton) {
       // Force "Show solution" button to be on or off for all interactions
