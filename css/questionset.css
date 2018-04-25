@@ -151,15 +151,6 @@
   line-height: 2.2335em;
 }
 
-.h5p-question .h5p-question-next,
-.h5p-question .h5p-question-finish {
-  margin: 0 0 1.5em 0.5em;
-}
-
-.h5p-question .h5p-question-prev {
-  margin: 0 0.5em 1.5em 0.5em;
-}
-
 .h5p-question .h5p-question-next:before {
   content: "\f054";
   padding-right: 0;

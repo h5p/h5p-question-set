@@ -133,7 +133,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var template = new EJS({text: texttemplate});
   var endTemplate = new EJS({text: resulttemplate});
 
-
   var initialParams = $.extend(true, {}, defaults, options);
   var poolOrder; // Order of questions in a pool
   var currentQuestion = 0;
