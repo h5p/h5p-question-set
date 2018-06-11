@@ -68,12 +68,12 @@
           "default": "Retour"
         },
         {
-          "label": "Bouton suivant",
-          "default": "Suite"
+          "label": "Bouton Suivant",
+          "default": "Suivant"
         },
         {
-          "label": "Bouton fin",
-          "default": "Confirmer"
+          "label": "Bouton Fin",
+          "default": "Terminer"
         },
         {
           "label": "Texte de progression",
@@ -110,15 +110,15 @@
     },
     {
       "label": "Désactiver la possibilité de naviguer en arrière",
-      "description": "Cette option ne permettra plus que la navigation en avant au sein du module Question Set"
+      "description": "Cette option ne permettra plus que la navigation en avant au sein du module Question Set."
     },
     {
-      "label": "Afficher les question dans un ordre aléatoire",
-      "description": "Les réponses possibles seront affichées dans l'ordre aléatoire."
+      "label": "Afficher les questions dans un ordre aléatoire",
+      "description": "Activer pour choisir aléatoirement l'ordre des questions à l'affichage."
     },
     {
       "label": "Nombre de questions à afficher:",
-      "description": "Génère aléatoire un jeu de question parmi toutes les questions disponibles."
+      "description": "Génère aléatoirement un jeu de questions parmi toutes les questions disponibles."
     },
     {
       "label": "Quiz terminé",
@@ -127,7 +127,7 @@
           "label": "Afficher les résultats"
         },
         {
-          "label": "Display solution button"
+          "label": "Afficher le bouton \"Solution\"."
         },
         {
           "label": "Message si pas de résultats",
@@ -145,21 +145,21 @@
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Par défaut"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "Définir un retour personnalisé pour chaque tranche de score",
+              "description": "Exemple: 0-20% Score insuffisant, 21-91% Score moyen, 91-100% Bon score!",
+              "entity": "tranche",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Tranche de score"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Retour pour cette tranche de score",
+                    "placeholder": "Entrer le message de retour"
                   }
                 ]
               }
@@ -199,7 +199,7 @@
         },
         {
           "label": "Texte pour le bouton de fin",
-          "default": "Confirmer"
+          "default": "Terminer"
         },
         {
           "label": "Afficher une vidéo avant l'affichage des résultats du quiz"
@@ -225,11 +225,11 @@
       "label": "Options pour les boutons \"Montrer la solution\" et \"Recommencer\".",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Montrer les boutons \"Vérifier\"",
+          "description": "Cette option determine si le bouton \"Vérifier\" va apparaître pour toutes les questions."
         },
         {
-          "label": "Ecraser le bouton \"Voir la correction\"",
+          "label": "Cacher le bouton \"Voir la correction\"",
           "description": "Cette option détermine si le bouton \"Voir la correction\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
           "options": [
             {
@@ -241,7 +241,7 @@
           ]
         },
         {
-          "label": "Ecraser le bouton \"Recommencer\"",
+          "label": "Cacher le bouton \"Recommencer\"",
           "description": "Cette option détermine si le bouton \"Recommencer\" sera affiché pour toutes les questions, désactivé pour toutes ou configuré pour chaque question individuellement.",
           "options": [
             {
