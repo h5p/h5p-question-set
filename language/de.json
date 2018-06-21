@@ -124,42 +124,42 @@
       "label": "Quiz beendet",
       "fields": [
         {
-          "label": "Ergebnisanzeige"
+          "label": "Ergebnisse anzeigen"
         },
         {
-          "label": "Hinweis bei keinen Ergebnissen"
+          "label": "Den \"Lösung zeigen\"-Button anzeigen"
         },
         {
-          "label": "Kopfzeile für die Rückmeldungen",
-          "description": "diese Kopfzeile wird am Ende des Quizzes angezeigt, wenn der Nutzer alle Fragen beantwortet hat.",
-          "default": "Dein Ergebnis:"
+          "label": "Nachricht bei keinen Ergebnissen",
+          "description": "Text, der auf der Endseite angezeigt wird, wenn \"Lösung zeigen\" deaktiviert ist",
+          "default": "Beendet"
         },
         {
-          "label": "Text für die Punkteanzeige",
-          "default": "Du hast @score Punkte von @total möglichen.",
-          "description": "Dieser Text wird verwendet, um die Gesamtpunkte des Nutzers anzuzeigen. \"@score\" wird durch die errechnete Punktzahl ersetzt, \"@total\" wird durch die maximal erreichbare Punktzahl ersetzt."
+          "label": "Überschrift für die Rückmeldung",
+          "default": "Dein Ergebnis:",
+          "description": "Diese Überschrift wird am Ende angezeigt, wenn alle Fragen beantwortet wurden."
         },
         {
-          "label": "Hintergrunddeckkraft für bewegliche Elemente",
+          "label": "Rückmeldungen insgesamt",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Vorgabe"
                 }
               ],
-              "label": "Benutzerdefinierte Rückmeldung für jeden Punkte-Bereich definieren",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "Bereich",
+              "label": "Lege individuelle Rückmeldungen für Punktebereiche fest",
+              "description": "Beispiel: 0-20 % Schlechte Punktzahk, 21-91 % Durchschnittliche Punktzahl, 91-100 % Hervorragende Punktzahl!",
+              "entity": "bereich",
               "field": {
                 "fields": [
                   {
-                    "label": "Punkte-Bereich"
+                    "label": "Punktebereich"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Rückmeldung für den Punktebereich",
+                    "placeholder": "Trage die Rückmeldung ein"
                   }
                 ]
               }
@@ -167,8 +167,12 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Alte Rückmeldung",
           "fields": [
+            {
+              "label": "Kopfzeile für bestandenes Quiz",
+              "description": "Dieser Text wird oberhalb der Punkte angezeigt, wenn der Nutzer das Quiz nicht bestanden hat."
+            },
             {
               "label": "Kommentar für bestandenes Quiz",
               "description": "Dieser Kommentar wird nach den Punkten angezeigt, wenn der Nutzer das Quiz erfolgreich bestanden hat."
@@ -180,53 +184,49 @@
             {
               "label": "Kommentar für nicht bestandenes Quiz",
               "description": "Dieser Kommentar wird nach den Punkten angezeigt, wenn der Nutzer das Quiz nicht bestanden hat."
-            },
-            {
-              "label": "Beschriftung des \"Lösung zeigen\"-Buttons",
-              "description": "Beschriftung des \"Lösung zeigen\"-Buttons"
             }
           ]
         },
         {
+          "label": "Beschriftung des \"Lösung zeigen\"-Buttons",
+          "default": "Lösung zeigen",
+          "description": "Beschriftung des \"Lösung zeigen\"-Buttons"
+        },
+        {
           "label": "Beschriftung des \"Wiederholen\"-Buttons",
-          "default": "Lösung anzeigen",
+          "default": "Wiederholen",
           "description": "Beschriftung des \"Wiederholen\"-Buttons"
         },
         {
           "label": "Beschriftung des \"Beenden\"-Buttons",
-          "default": "Wiederholen",
-          "description": "Text for the retry button."
+          "default": "Beenden"
         },
         {
-          "label": "Schaltflächentext Beenden",
-          "default": "Beenden"
+          "label": "Zeige ein Video vor den Ergebnissen an"
         },
         {
           "label": "Aktiviere \"Video überspringen\"-Button"
         },
         {
-          "label": "Beschriftung des \"Video überspringen\"-Buttons"
+          "label": "Beschriftung des \"Video überspringen\"-Buttons",
+          "default": "Video überspringen"
         },
         {
           "label": "Bestanden-Video",
-          "default": "Skip video"
+          "description": "Dieses Video wird angezeigt, wenn der Nutzer das Quiz bestanden hat."
         },
         {
           "label": "Nicht-bestanden-Video",
           "description": "Dieses Video wird angezeigt, wenn der Nutzer das Quiz nicht bestanden hat."
-        },
-        {
-          "label": "Fail video",
-          "description": "This video will be played if the user failes the quiz."
         }
       ]
     },
     {
-      "label": "Einstellungen für \"Lösung zeigen\"-Button und \"Nochmal\".",
+      "label": "Einstellungen für \"Lösung zeigen\"-Button und \"Wiederholen\"-Button",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Zeige den \"Überprüfen\"-Button",
+          "description": "Diese Option legt fest, ob der \"Überprüfen\"-Button für alle Fragen angezeigt wird."
         },
         {
           "label": "Überschreiben des \"Lösungen anzeigen\"-Buttons",
@@ -241,7 +241,7 @@
           ]
         },
         {
-          "label": "Überschreiben des \"Wiederholen\"-Buttons",
+          "label": "berschreiben des \"Wiederholen\"-Buttons",
           "description": "Diese Option gibt an, ob der \"Wiederholen\" Button für alle Fragen angezeigt, ausgeblendet oder für jede Frage individuell konfiguriert wird.",
           "options": [
             {
