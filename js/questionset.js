@@ -788,6 +788,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                   eparams.comment + '.' +
                   eparams.resulttext)
             .show().focus();
+          scoreBar.setMaxScore(totals);
           scoreBar.setScore(finals);
         }, 0);
       }
