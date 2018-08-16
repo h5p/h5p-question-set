@@ -1,3 +1,9 @@
+.questionset .question-container:not(.h5p-questionset-visible){
+  position: absolute;
+  left: -100%;
+  visibility: hidden;
+}
+
 .questionset-results h2 {
   font-size: 1.2em;
   font-weight: bold;

@@ -365,7 +365,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     handleAutoPlay(currentQuestion);
 
     // Hide all questions
-    $('.question-container', $myDom).hide().eq(questionNumber).show();
+    $('.question-container', $myDom).removeClass('h5p-questionset-visible').eq(questionNumber).addClass('h5p-questionset-visible');
 
     if (questionInstances[questionNumber]) {
       // Trigger resize on question in case the size of the QS has changed.
@@ -704,12 +704,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var _displayEndGame = function () {
     $('.progress-dot.current', $myDom).removeClass('current');
     if (rendered) {
-      $myDom.children().hide().filter('.questionset-results').show();
+      $myDom.children().removeClass('h5p-questionset-visible').filter('.questionset-results').addClass('h5p-questionset-visible');
       self.trigger('resize');
       return;
     }
     //Remove old score screen.
-    $myDom.children().hide().filter('.questionset-results').remove();
+    $myDom.children().removeClass('h5p-questionset-visible').filter('.questionset-results').remove();
     rendered = true;
 
     // Get total score.
@@ -748,28 +748,28 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       };
 
       // Show result page.
-      $myDom.children().hide();
+      $myDom.children().removeClass('h5p-questionset-visible');
       $myDom.append(endTemplate.render(eparams));
 
       if (params.endGame.showResultPage) {
         hookUpButton('.qs-solutionbutton', function () {
           showSolutions();
-          $myDom.children().hide().filter('.questionset').show();
+          $myDom.children().removeClass('h5p-questionset-visible').filter('.questionset').addClass('h5p-questionset-visible');
           _showQuestion(params.initialQuestion);
         });
         hookUpButton('.qs-retrybutton', function () {
           resetTask();
-          $myDom.children().hide();
+          $myDom.children().removeClass('h5p-questionset-visible');
 
           var $intro = $('.intro-page', $myDom);
           if ($intro.length) {
             // Show intro
-            $('.intro-page', $myDom).show();
+            $('.intro-page', $myDom).addClass('h5p-questionset-visible');
             $('.qs-startbutton', $myDom).focus();
           }
           else {
             // Show first question
-            $('.questionset', $myDom).show();
+            $('.questionset', $myDom).addClass('h5p-questionset-visible');
             _showQuestion(params.initialQuestion);
           }
         });
@@ -803,7 +803,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     if (params.endGame.showAnimations) {
       var videoData = success ? params.endGame.successVideo : params.endGame.failVideo;
       if (videoData) {
-        $myDom.children().hide();
+        $myDom.children().removeClass('h5p-questionset-visible');
         var $videoContainer = $('<div class="video-container"></div>').appendTo($myDom);
 
         var video = new H5P.Video({
@@ -954,7 +954,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     $('.qs-startbutton', $myDom)
       .click(function () {
         $(this).parents('.intro-page').hide();
-        $('.questionset', $myDom).show();
+        $('.questionset', $myDom).addClass('h5p-questionset-visible');
         _showQuestion(params.initialQuestion);
         event.preventDefault();
       })
@@ -963,7 +963,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           case 13: // Enter
           case 32: // Space
             $(this).parents('.intro-page').hide();
-            $('.questionset', $myDom).show();
+            $('.questionset', $myDom).addClass('h5p-questionset-visible');
             _showQuestion(params.initialQuestion);
             event.preventDefault();
           }
