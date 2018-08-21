@@ -11,7 +11,7 @@ H5PPresave['H5P.QuestionSet'] = function (content, finished) {
   var presave = H5PEditor.Presave;
 
   if (isContentInvalid()) {
-    throw new presave.exceptions.InvalidContentSemanticsException('Invalid Question Set Error')
+    throw new presave.exceptions.InvalidContentSemanticsException('Invalid Question Set Error');
   }
 
   var score = content.questions
@@ -30,9 +30,7 @@ H5PPresave['H5P.QuestionSet'] = function (content, finished) {
 
   presave.validateScore(score);
 
-  if (finished) {
-    finished({maxScore: score});
-  }
+  finished({maxScore: score});
 
   /**
    * Check if required parameters is present
