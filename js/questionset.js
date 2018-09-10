@@ -108,8 +108,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '</div>';
 
   var solutionButtonTemplate = params.endGame.showSolutionButton ?
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
-          '';
+    '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
+    '';
 
   var resulttemplate =
           '<div class="questionset-results">' +
@@ -161,7 +161,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var randomizeQuestionOrdering = function (questions) {
 
     // Save the original order of the questions in a multidimensional array [[question0,0],[question1,1]...
-    var questionOrdering = questions.map(function (questionInstance, index) { return [questionInstance, index]; });
+    var questionOrdering = questions.map(function (questionInstance, index) {
+      return [questionInstance, index];
+    });
 
     // Shuffle the multidimensional array
     questionOrdering = H5P.shuffleArray(questionOrdering);
@@ -343,7 +345,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         questionInstances[currentQuestion].hideButton('finish');
       }
     }
- };
+  };
 
   var _stopQuestion = function (questionNumber) {
     if (questionInstances[questionNumber]) {
@@ -463,7 +465,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         questionInstances[i].showSolutions();
         questionInstances[i].toggleReadSpeaker(false);
       }
-      catch(error) {
+      catch (error) {
         H5P.error("subcontent does not contain a valid showSolutions function");
         H5P.error(error);
       }
@@ -515,7 +517,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           questionInstances[i].hideButton('prev');
         }
       }
-      catch(error) {
+      catch (error) {
         H5P.error("subcontent does not contain a valid resetTask function");
         H5P.error(error);
       }
@@ -553,7 +555,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Update buttons
       initializeQuestion();
 
-    } else if (params.randomQuestions) {
+    }
+    else if (params.randomQuestions) {
       randomizeQuestions();
     }
 
@@ -966,7 +969,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
             $('.questionset', $myDom).show();
             _showQuestion(params.initialQuestion);
             event.preventDefault();
-          }
+        }
       });
 
     /**
@@ -1084,7 +1087,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var questionCopyrights;
     for (var i = 0; i < questionInstances.length; i++) {
       var instance = questionInstances[i];
-      var qParams = params.questions[i].params;
+      var instanceParams = params.questions[i].params;
+
       questionCopyrights = undefined;
 
       if (instance.getCopyrights !== undefined) {
@@ -1094,13 +1098,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if (questionCopyrights === undefined) {
         // Create a generic flat copyright list
         questionCopyrights = new H5P.ContentCopyrights();
-        H5P.findCopyrights(questionCopyrights, qParams, contentId);
+        H5P.findCopyrights(questionCopyrights, instanceParams.params, contentId,{
+          metadata: instanceParams.metadata,
+          machineName: instanceParams.library.split(' ')[0]
+        });
       }
 
       // Determine label
       var label = (params.texts.questionLabel + ' ' + (i + 1));
-      if (qParams.contentName !== undefined) {
-        label += ': ' + qParams.contentName;
+      if (instanceParams.params.contentName !== undefined) {
+        label += ': ' + instanceParams.params.contentName;
       }
       else if (instance.getTitle !== undefined) {
         label += ': ' + instance.getTitle();
