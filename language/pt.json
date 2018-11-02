@@ -1,165 +1,165 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "Introdução ao questionário",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "Mostrar introdução"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "Título",
+          "description": "Este título vai ser mostrado acima do texto introdutório."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "Texto introdutório",
+          "description": "Este texto vai ser mostrado antes do início do questionário."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "Texto de iníco do questionário",
+          "default": "Iniciar questionário"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Imagem de fundo",
+          "description": "Uma imagem de fundo opcional para a introdução."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "Imagem de fundo",
+      "description": "Uma imagem de fundo opcional para a Série de questões."
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "Indicador de progresso",
+      "description": "Estilo do indicador da série de questões.",
       "options": [
         {
           "label": "Textual"
         },
         {
-          "label": "Dots"
+          "label": "Pontos"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "Percentagem de aprovação",
+      "description": "Percentagem necessária para aprovação no questionário."
     },
     {
-      "label": "Questions",
+      "label": "Questões",
       "widgets": [
         {
-          "label": "Default"
+          "label": "Por defeito"
         },
         {
           "label": "Textual"
         }
       ],
-      "entity": "question",
+      "entity": "questão",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "Tipo de questão",
+        "description": "Biblioteca para esta questão."
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "Textos do interface para o questionário",
       "fields": [
         {
-          "label": "Back button",
-          "default": "Previous question"
+          "label": "Botão para questão anterior",
+          "default": "Questão anterior"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Botão para questão seguinte",
+          "default": "Questão seguinte"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Botão para terminar",
+          "default": "Terminar"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "Texto do progresso",
+          "description": "Texto a utilizar se o progresso textual estiver ativo.",
+          "default": "Questão: @current de @total questões"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Etiqueta para saltar para um questão",
+          "description": "Tem de utilizar o espaço reservado (placeholder) '%d' em vez de o número da questão, e %total em vez do total de questões.",
+          "default": "Questão %d de %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Etiqueta da caixa de diálogo para direitos de autor",
+          "default": "Questão"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Progresso em texto para voz",
+          "description": "Pode utilizar @current e @total como variáveis da questão",
+          "default": "Questão @current de @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Texto para questões não respondidas",
+          "default": "Não respondida"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Texto para questões respondidas",
+          "default": "Respondida"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "Texto para pergunta atual",
+          "default": "Pergunta atual"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Desativar a opção de navegar para trás",
+      "description": "Esta opção só lhe permitirá navegar para a frente numa Série de questões"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "Tornar aleatório",
+      "description": "Ative para tornar aletória a ordem das questões."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "Número de questões a mostrar:",
+      "description": "Criar um grupo de questões aleatório de entre o total"
     },
     {
-      "label": "Quiz finished",
+      "label": "Questionário terminado",
       "fields": [
         {
-          "label": "Display results"
+          "label": "Mostrar resultados"
         },
         {
-          "label": "Display solution button"
+          "label": "Mostrar botão de solução"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Mensagem quando não existem resultados",
+          "description": "Textos a exibir no final da página quando \"Mostrar resultados\" está desabilitado",
+          "default": "Terminado"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Cabeçalho do Feedback",
+          "default": "O seu resultado:",
+          "description": "Este cabeçalho será mostrado no final questionário assim que o utilizador tiver respondido a todas as questões."
         },
         {
-          "label": "Overall Feedback",
+          "label": "Feedback Geral",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Por defeito"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "Defina feedback personalizado para cada intervalo de pontuação",
+              "description": "Exemplo: 0-20% Mau, 21-91% Mediano, 91-100% Excelente!",
+              "entity": "intervalo",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Intervalo de pontuação"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Feedback para o intervalo definido",
+                    "placeholder": "Preencha com o feedback"
                   }
                 ]
               }
@@ -167,88 +167,88 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Feedback antigo",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Saudação por avaliação positiva",
+              "description": "Este texto vai ser mostrado acima do resultado obtido se o utilizador obtiver aproveitamento positivo no questionário."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Comentário para availiação positiva",
+              "description": "Este comentário vai ser mostrado depois do resultado se o utilizador obtiver aproveitamento positivo no questionário."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Título para avaliação negativa",
+              "description": "Este texto será mostrado acima do resultado obtido se o utilizador obtiver aproveitamento negativo no questionário."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Comentário para availiação negativa",
+              "description": "Este comentário será mostrado depois do resultado se o utilizador obtiver aproveitamento negativo no questionário."
             }
           ]
         },
         {
-          "label": "Solution button label",
-          "default": "Show solution",
-          "description": "Text for the solution button."
+          "label": "Etiqueta do botão de soluções",
+          "default": "Mostrar soluções",
+          "description": "Texto para o botão de soluções."
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "Etiqueta do botão de repetir",
+          "default": "Repetir",
+          "description": "Texto para o botão de repetir."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "Texto para o botão terminar",
+          "default": "Terminar"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "Mostrar video antes dos resultados do questionário"
         },
         {
-          "label": "Enable skip video button"
+          "label": "Ativar botão de saltar vídeo"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "Etiqueta de botão de saltar vídeo",
+          "default": "Saltar vídeo"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "Vídeo de sucesso",
+          "description": "Este vídeo vai ser apresentado se o utilizador obtiver avaliação positiva no questionário."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user failes the quiz."
+          "label": "Vídeo de insucesso",
+          "description": "Este vídeo vai ser apresentado se o utilizador obtiver avaliação negativa no questionário."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Definições para os botões de \"Mostrar solução\" e \"Repetir\"",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Mostrar botões de \"Verificar\"",
+          "description": "Esta opção determina se o botão \"Verificar\" será mostrado para todas as questões."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Sobrepor botão \"Mostrar solução\"",
+          "description": "Esta opção determina se o botão \"Mostrar solução\" será mostrado para todas as questões, desativado para todas ou configurado individualmente para cada questão.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Ativado"
             },
             {
-              "label": "Disabled"
+              "label": "Desativado"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Sobrepor botão \"Repetir\"",
+          "description": "Esta opção determina se o botão \"Repetir\" será mostrado para todas as questões, desativado para todas ou configurado individualmente para cada questão.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Ativado"
             },
             {
-              "label": "Disabled"
+              "label": "Desativado"
             }
           ]
         }
