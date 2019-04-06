@@ -130,6 +130,9 @@
           "label": "Przycisk wyświetlania wyników"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Informacja dla braku wyników",
           "description": "Tekst wyświetlany na ekranie końcowym, gdy wyłączona jest opcja \"Pokaż wyniki\"",
           "default": "Koniec"

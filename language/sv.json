@@ -130,6 +130,9 @@
           "label": "Visa rätt svar-knapp"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Meddelande vid inget resultat",
           "description": "Text som visas på slutsida när \"Visa resultat\" är inaktiverat",
           "default": "Avslutat"

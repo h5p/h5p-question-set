@@ -130,6 +130,9 @@
           "label": "Toon de oplossings-knop"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Geen resultaten bericht",
           "description": "De getoonde tekst op de eindpagina wanneer \"Toon resultaten\" is uitgeschakeld",
           "default": "Voltooid"

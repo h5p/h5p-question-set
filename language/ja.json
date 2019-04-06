@@ -130,6 +130,9 @@
           "label": "解ボタンを表示"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "結果のメッセージはありません",
           "description": "「結果を表示」が無効のとき最後のページにに表示されるテキスト",
           "default": "完了"

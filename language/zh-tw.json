@@ -130,6 +130,9 @@
           "label": "顯示查看解法功能鈕"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "沒有結果顯示資訊",
           "description": "當未啟用顯示結果時，結束頁面所顯示的文字",
           "default": "完成"

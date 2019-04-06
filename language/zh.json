@@ -130,6 +130,9 @@
           "label": "顯示正解按鈕"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "不顯示測驗結果時的訊息",
           "description": "若沒有勾選「顯示測驗結果」，在結束頁面上會顯示的文字。",
           "default": "完成了！"

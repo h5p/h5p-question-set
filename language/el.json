@@ -130,6 +130,9 @@
           "label": "Display solution button"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "No results message",
           "description": "Text displayed on end page when \"Display results\" is disabled",
           "default": "Finished"

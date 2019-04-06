@@ -130,6 +130,9 @@
           "label": "Pulsante visualizza soluzione"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Messaggio di nessun risultato",
           "description": "Testo visualizzato nella pagina finale quando \"Visualizza risultati\" è disattivato",
           "default": "Finito"
