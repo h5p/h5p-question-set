@@ -1,165 +1,165 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "Введение в тест",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "Показать введение"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "Заголовок",
+          "description": "Этот заголовок будет отображаться над вводным текстом."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "Вводный текст",
+          "description": "Этот текст будет показан перед началом теста."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "Текст кнопки начала",
+          "default": "Начать тест"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Фоновое изображение",
+          "description": "Дополнительное фоновое изображение для введения."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "Фоновое изображение",
+      "description": "Необязательное фоновое изображение для набора вопросов."
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "Индикатор прогресса",
+      "description": "Установите стиль индикатора прогресса для набора вопросов.",
       "options": [
         {
-          "label": "Textual"
+          "label": "Текстовый"
         },
         {
-          "label": "Dots"
+          "label": "Точечный"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "Проходной процент",
+      "description": "Процент от общего количества баллов, необходимых для прохождения теста."
     },
     {
-      "label": "Questions",
+      "label": "Вопросы",
       "widgets": [
         {
-          "label": "Default"
+          "label": "По умолчанию"
         },
         {
-          "label": "Textual"
+          "label": "Текстовый"
         }
       ],
       "entity": "question",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "Тип вопроса",
+        "description": "Библиотека для этого вопроса."
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "Интерфейс текстов в тесте",
       "fields": [
         {
-          "label": "Back button",
-          "default": "Previous question"
+          "label": "Кнопка Назад",
+          "default": "Предыдущий вопрос"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Кнопка Далее",
+          "default": "Следующий вопрос"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Кнопка Завершить",
+          "default": "Завершить"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "Текст прогресса",
+          "description": "Текст, используемый, если выбран текстовый прогресс.",
+          "default": "Вопрос: @current из @total вопросов"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Надпись для перехода к определенному вопросу",
+          "description": "Вы должны использовать заполнитель '%d' вместо номера вопроса, и %total вместо общего количества вопросов.",
+          "default": "Вопрос %d из %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Надпись диалогового окна об авторском праве вопроса",
+          "default": "Вопрос"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Воспроизведение прогресса",
+          "description": "Можно использовать @current и @total вопрос(ов) переменные",
+          "default": "Вопрос @current из @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Текст неотвеченных вопросов",
+          "default": "Неотвечено"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Текст отвеченных вопросов",
+          "default": "Отвечено"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "Текст текущего вопроса",
+          "default": "Текущий вопрос"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Отключить обратную навигацию",
+      "description": "Эта опция позволит вам только двигаться вперед в наборе вопросов"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "Случайные вопросы",
+      "description": "Включить случайный порядок вопросов для отображения."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "Количество вопросов, которые будут показаны:",
+      "description": "Создать группу случайных вопросов из общего количества."
     },
     {
-      "label": "Quiz finished",
+      "label": "Тест завершен",
       "fields": [
         {
-          "label": "Display results"
+          "label": "Показать результаты"
         },
         {
-          "label": "Display solution button"
+          "label": "Кнопка показа ответов"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Сообщение об отсутствии результатов",
+          "description": "Текст, отображаемый на конечной странице, когда \"Показать результаты\" отключено",
+          "default": "Завершен"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Заголовок обратной связи",
+          "default": "Ваш результат:",
+          "description": "Этот заголовок будет отображаться в конце теста, когда пользователь ответит на все вопросы."
         },
         {
-          "label": "Overall Feedback",
+          "label": "Общий отзыв",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "По умолчанию"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+              "label": "Определение произвольных отзывов для каждого диапазона оценок",
+              "description": "Например: 0-20% Плохая оценка, 21-91% Средняя оценка, 91-100% Отличная оценка!",
               "entity": "range",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Диапазон баллов"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Обратная связь для определенного диапазона оценок",
+                    "placeholder": "Заполните отзыв"
                   }
                 ]
               }
@@ -167,88 +167,88 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Старый отзыв",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Приветствие прошедшего теста",
+              "description": "Этот текст будет отображаться над оценкой, если пользователь успешно прошел тест."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Комментарий для пройденного теста",
+              "description": "Этот комментарий будет отображаться после оценки, если пользователь успешно прошел тест."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Заголовок не пройденного теста",
+              "description": "Этот текст будет отображаться над оценкой, если пользователь не прошел тест."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Комментарий не пройденного теста",
+              "description": "Этот комментарий будет отображаться после оценки, если пользователь не прошел тест."
             }
           ]
         },
         {
-          "label": "Solution button label",
+          "label": "Надпись кнопки показа ответов",
           "default": "Show solution",
-          "description": "Text for the solution button."
+          "description": "Текст для кнопки показа ответов."
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "Надпись кнопки повтора",
+          "default": "Повторить",
+          "description": "Текст для кнопки повтора."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "Текст кнопки завершения",
+          "default": "Завершить"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "Показать видео до результатов теста"
         },
         {
-          "label": "Enable skip video button"
+          "label": "Включить кнопку пропуска видео"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "Надпись кнопки пропуска видео",
+          "default": "Пропустить видео"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "Видео пройденного теста",
+          "description": "Это видео будет воспроизведено, если пользователь успешно прошел тест."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user failes the quiz."
+          "label": "Видео не пройденного теста",
+          "description": "Это видео будет воспроизведено, если пользователь не прошел тест."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Настройки для кнопок \"Показать ответ\" и \"Повторить\"",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Показать кнопку \"Проверить\"",
+          "description": "Эта опция определяет, будет ли кнопка \"Проверить\" отображаться для всех вопросов."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Переопределение кнопки \"Показать ответ\"",
+          "description": "Этот параметр определяет, будет ли кнопка \"Показать ответ\" отображаться для всех вопросов, отключена для всех или настроена для каждого вопроса отдельно.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Включена"
             },
             {
-              "label": "Disabled"
+              "label": "Отключена"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Переопредление кнопки \"Повторить\"",
+          "description": "Этот параметр определяет, будет ли кнопка \"Повторить\" отображаться для всех вопросов, отключена для всех или настроена для каждого вопроса отдельно.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Включена"
             },
             {
-              "label": "Disabled"
+              "label": "Отключена"
             }
           ]
         }
