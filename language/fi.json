@@ -130,6 +130,9 @@
           "label": "Salli painike \"Katso vastaus\""
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Teksti kun ei tuloksia",
           "description": "Teksti näytetään, kun \"Näytä tulokset\" ei ole valittuna",
           "default": "Valmis"

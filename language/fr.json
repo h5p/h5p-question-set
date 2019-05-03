@@ -130,6 +130,9 @@
           "label": "Afficher le bouton \"Solution\"."
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Message si pas de résultats",
           "description": "Texte affiché sur la page finale si l'option \"Afficher les résultats\" est désactivée.",
           "default": "Terminé"

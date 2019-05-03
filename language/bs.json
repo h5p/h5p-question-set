@@ -130,6 +130,9 @@
           "label": "Napomena ako nema rezultata"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Oznaka za povratne informacije",
           "description": "Ovaj tekst će biti prikazan na kraju kviza kada korisnik odgovori na pitanja.",
           "default": "Tvoj rezultat:"

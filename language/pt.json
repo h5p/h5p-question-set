@@ -130,6 +130,9 @@
           "label": "Mostrar botão de solução"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Mensagem quando não existem resultados",
           "description": "Textos a exibir no final da página quando \"Mostrar resultados\" está desabilitado",
           "default": "Terminado"

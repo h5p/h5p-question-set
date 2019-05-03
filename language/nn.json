@@ -130,6 +130,9 @@
           "label": "Vis resultatknapp"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Melding når resultater ikke vises",
           "description": "Teksten vises på avslutnings-siden når resultater ikke vises",
           "default": "Ferdig"

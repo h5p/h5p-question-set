@@ -130,6 +130,9 @@
           "label": "Den \"Lösung zeigen\"-Button anzeigen"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Nachricht bei keinen Ergebnissen",
           "description": "Text, der auf der Endseite angezeigt wird, wenn \"Lösung zeigen\" deaktiviert ist",
           "default": "Beendet"

@@ -130,6 +130,9 @@
           "label": "Näita lahendust nupp"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Tulemusi ei ole sõnum",
           "description": "Tekst, mida näidatakse lehe lõpus, kui \"Näita tulemusi\" on keelatud",
           "default": "Lõppenud"

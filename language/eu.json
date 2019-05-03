@@ -130,6 +130,9 @@
           "label": "Bistaratu soluzioaren botoia"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "Emaitzarik ez mezua",
           "description": "Orriaren bukaeran bistaratzen den testua \"Bistaratu emaitzak\" desgaituta dagoenean",
           "default": "Bukatu da"

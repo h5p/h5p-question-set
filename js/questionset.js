@@ -59,7 +59,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       retryButtonText: 'Retry',
       showAnimations: false,
       skipButtonText: 'Skip video',
-      showSolutionButton: true
+      showSolutionButton: true,
+      showRetryButton: true
     },
     override: {},
     disableBackwardsNavigation: false
@@ -111,6 +112,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
     '';
 
+  const retryButtonTemplate = params.endGame.showRetryButton ?
+    '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>':
+    '';
+
   var resulttemplate =
           '<div class="questionset-results">' +
           '  <div class="greeting"><%= message %></div>' +
@@ -126,7 +131,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% } %>' +
           '  <div class="buttons">' +
           solutionButtonTemplate +
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>' +
+          retryButtonTemplate +
           '  </div>' +
           '</div>';
 
