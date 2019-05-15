@@ -130,6 +130,9 @@
           "label": "دکمه نمایش راه حل"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "پیام عدم وجود نتایج",
           "description": "Text displayed on end page when \"Display results\" is disabled",
           "default": "Finished"
