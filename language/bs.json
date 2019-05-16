@@ -65,11 +65,11 @@
       "fields": [
         {
           "label": "Oznaka za dugme \"Nazad\"",
-          "default": "Zurück"
+          "default": "Nazad"
         },
         {
           "label": "Oznaka za dugme \"Naprijed\"",
-          "default": "Weiter"
+          "default": "Dalje"
         },
         {
           "label": "Oznaka za dugme \"Završi\"",
@@ -130,7 +130,7 @@
           "label": "Napomena ako nema rezultata"
         },
         {
-          "label": "Display retry button"
+          "label": "Prikaži dugme ponavljanja"
         },
         {
           "label": "Oznaka za povratne informacije",
@@ -148,21 +148,21 @@
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Standardno"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+              "label": "Definiraj standardni feedback za bilo koji rezultat",
+              "description": "Primjer: 0-20% Loše, 21-91% Dobro, 91-100% Odlično!",
               "entity": "range",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Rezultat"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Feedback za definirani rezultat",
+                    "placeholder": "Unesi feedback"
                   }
                 ]
               }
@@ -170,7 +170,7 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Stari Feedback",
           "fields": [
             {
               "label": "Komentar za uspješno završen kviz",
@@ -198,7 +198,7 @@
         {
           "label": "Oznaka za dugme \"Završi\"",
           "default": "Ponovi",
-          "description": "Text for the retry button."
+          "description": "Tekst za dugme ponovi."
         },
         {
           "label": "Prikaži video prije rezultata kviza",
@@ -212,15 +212,15 @@
         },
         {
           "label": "Video nakon položenog kviza",
-          "default": "Skip video"
+          "default": "Preskoči video"
         },
         {
           "label": "Video nakon nepoloženog kviza",
           "description": "Ovaj video se prikazuje nakon što korisnik neuspješno završi kviz."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user failes the quiz."
+          "label": "Video nakon neuspjeha",
+          "description": "Ovaj video će biti prikazan ako korisnik nije uspješno riješio kviz."
         }
       ]
     },
@@ -228,8 +228,8 @@
       "label": "Podešavanje dugmeta \"Prikaži rješenje\" i \"Ponovi\".",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Prikaži \"Provjeri\" dgme",
+          "description": "Ova opcija pokazuje da li će dugme \"Provjeri\" biti prikazano za sva pitanja."
         },
         {
           "label": "Poništi dugme \"Prikaži rješenje\"",
