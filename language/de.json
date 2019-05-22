@@ -16,21 +16,21 @@
         },
         {
           "label": "Beschriftung des \"Start\"-Buttons",
-          "default": "Starte Quiz"
+          "default": "Quiz starten"
         },
         {
           "label": "Hintergrundbild",
-          "description": "Ein optionales Hintergrundbild für die Einführung."
+          "description": "Ein optionales Hintergrundbild für die Einführung"
         }
       ]
     },
     {
       "label": "Hintergrundbild",
-      "description": "Ein optionales Hintergrundbild für das Fragenset."
+      "description": "Ein optionales Hintergrundbild für den Fragensatz"
     },
     {
       "label": "Fortschrittsanzeige",
-      "description": "Anzeigestil für die Fortschrittsanzeige des Fragensets.",
+      "description": "Anzeigestil der Fortschrittsanzeige",
       "options": [
         {
           "label": "Text"
@@ -48,23 +48,23 @@
       "label": "Fragen",
       "widgets": [
         {
-          "label": "Vorgabe"
+          "label": "Eingabemaske"
         },
         {
-          "label": "Text"
+          "label": "Als Text eingeben"
         }
       ],
-      "entity": "frage",
+      "entity": "Frage",
       "field": {
         "label": "Fragentyp",
-        "description": "Bibliothek für diese Frage."
+        "description": "Inhaltstyp, der in dieser Frage verwendet wird"
       }
     },
     {
-      "label": "Anzeigetexte im Quiz",
+      "label": "Bezeichnungen und Beschriftungen",
       "fields": [
         {
-          "label": "Zurück-Button",
+          "label": "Beschriftung des \"Zurück\"-Buttons",
           "default": "Zurück"
         },
         {
@@ -76,22 +76,22 @@
           "default": "Beenden"
         },
         {
-          "label": "Fortschrittsanzeigetext",
+          "label": "Text der Fortschrittsanzeige",
           "description": "Verwendeter Text, wenn Fortschrittsanzeige in Textform gewählt wurde.",
           "default": "Aktuelle Frage: @current von @total Fragen"
         },
         {
-          "label": "Beschriftung für das Springen zu einem bestimmten Punkt",
-          "description": "Nutze den Platzhalter '%d' für die Fragennummer und %total für die Gesamtzahl der Fragen.",
+          "label": "Beschriftung für das Springen zu einer bestimmten Frage",
+          "description": "Nutze den Platzhalter %d für die Fragennummer und %total für die Gesamtzahl der Fragen.",
           "default": "Frage %d von %total"
         },
         {
-          "label": "Beschriftung für eine Frage zum Urheberrechtsdialog",
+          "label": "Beschriftung der Frage im Urheberrechtsdialog",
           "default": "Frage"
         },
         {
-          "label": "Fortschritt \"Readspeaker\"",
-          "description": "Variablen: @current und @total",
+          "label": "Text, den Vorlesewerkzeuge nutzen, um den derzeitigen Fortschritt auszugeben",
+          "description": "verwendbare Variablen: @current und @total",
           "default": "Frage @current von @total"
         },
         {
@@ -103,22 +103,22 @@
           "default": "Beantwortet"
         },
         {
-          "label": "Text fpr aktuelle Frage",
+          "label": "Text für die aktuelle Frage",
           "default": "Aktuelle Frage"
         }
       ]
     },
     {
-      "label": "Rückwärts-Navigation ausstellen",
-      "description": "Wenn aktiviert, kann der Nutzer nur vorwärts durch das Fragenset navigieren."
+      "label": "Rückwärts-Navigation deaktivieren",
+      "description": "Wenn aktiviert, kann der Nutzer nur vorwärts durch den Fragensatz navigieren."
     },
     {
       "label": "Fragen zufällig anordnen",
-      "description": "Aktivieren, um die Fragen auf dem Bildschirm zufällig anzuordnen."
+      "description": "Wenn gewählt, werden die Fragen in einer zufälligen Reihenfolge angeordnet."
     },
     {
       "label": "Anzahl der anzuzeigenden Fragen:",
-      "description": "Kann benutzt werden, um eine zufällige Auswahl auf mehreren Fragen zu treffen."
+      "description": "Kann benutzt werden, um nur eine zufällige Teilmenge von Fragen anzuzeigen."
     },
     {
       "label": "Quiz beendet",
@@ -127,33 +127,33 @@
           "label": "Ergebnisse anzeigen"
         },
         {
-          "label": "Den \"Lösung zeigen\"-Button anzeigen"
+          "label": "\"Lösung anzeigen\" ermöglichen"
         },
         {
-          "label": "Display retry button"
+          "label": "\"Wiederholen\"-Button anzeigen"
         },
         {
-          "label": "Nachricht bei keinen Ergebnissen",
-          "description": "Text, der auf der Endseite angezeigt wird, wenn \"Lösung zeigen\" deaktiviert ist",
-          "default": "Beendet"
+          "label": "Nachricht, wenn keine Ergebnisse vorliegen",
+          "description": "Text, der auf der Endseite angezeigt wird, wenn \"Lösung anzeigen\" deaktiviert ist",
+          "default": "Quiz beendet"
         },
         {
-          "label": "Überschrift für die Rückmeldung",
+          "label": "Überschrift der Rückmeldung",
           "default": "Dein Ergebnis:",
           "description": "Diese Überschrift wird am Ende angezeigt, wenn alle Fragen beantwortet wurden."
         },
         {
-          "label": "Rückmeldungen insgesamt",
+          "label": "Gesamtrückmeldung",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Vorgabe"
+                  "label": "Voreinstellung"
                 }
               ],
-              "label": "Lege individuelle Rückmeldungen für Punktebereiche fest",
-              "description": "Beispiel: 0-20 % Schlechte Punktzahk, 21-91 % Durchschnittliche Punktzahl, 91-100 % Hervorragende Punktzahl!",
-              "entity": "bereich",
+              "label": "Lege Rückmeldungen für einzelne Punktebereiche fest",
+              "description": "Klicke auf den \"Bereich hinzufügen\"-Button, um so viele Bereiche hinzuzufügen, wie du brauchst. Beispiel: 0-20% Schlechte Punktzahl, 21-91% Durchschnittliche Punktzahl, 91-100% Großartige Punktzahl!",
+              "entity": "Bereich",
               "field": {
                 "fields": [
                   {
@@ -161,7 +161,7 @@
                   },
                   {},
                   {
-                    "label": "Rückmeldung für den Punktebereich",
+                    "label": "Rückmeldung für jeweiligen Punktebereich",
                     "placeholder": "Trage die Rückmeldung ein"
                   }
                 ]
@@ -191,9 +191,9 @@
           ]
         },
         {
-          "label": "Beschriftung des \"Lösung zeigen\"-Buttons",
-          "default": "Lösung zeigen",
-          "description": "Beschriftung des \"Lösung zeigen\"-Buttons"
+          "label": "Beschriftung des \"Lösung anzeigen\"-Buttons",
+          "default": "Lösung anzeigen",
+          "description": "Beschriftung des \"Lösung anzeigen\"-Buttons"
         },
         {
           "label": "Beschriftung des \"Wiederholen\"-Buttons",
@@ -208,7 +208,7 @@
           "label": "Zeige ein Video vor den Ergebnissen an"
         },
         {
-          "label": "Aktiviere \"Video überspringen\"-Button"
+          "label": "Zeige \"Video überspringen\"-Button an"
         },
         {
           "label": "Beschriftung des \"Video überspringen\"-Buttons",
@@ -225,33 +225,33 @@
       ]
     },
     {
-      "label": "Einstellungen für \"Lösung zeigen\"-Button und \"Wiederholen\"-Button",
+      "label": "Einstellungen für \"Lösung anzeigen\"-Button und \"Wiederholen\"-Button",
       "fields": [
         {
-          "label": "Zeige den \"Überprüfen\"-Button",
+          "label": "Überschreiben der Anzeigeoptionen des \"Überprüfen\"-Buttons",
           "description": "Diese Option legt fest, ob der \"Überprüfen\"-Button für alle Fragen angezeigt wird."
         },
         {
-          "label": "Überschreiben des \"Lösungen anzeigen\"-Buttons",
+          "label": "Überschreiben der Anzeigeoptionen des \"Lösungen anzeigen\"-Buttons",
           "description": "Diese Option gibt an, ob der \"Lösung anzeigen\"-Button für alle Fragen angezeigt, ausgeblendet oder für jede Frage individuell konfiguriert wird.",
           "options": [
             {
-              "label": "Anzeigen"
+              "label": "Immer anzeigen"
             },
             {
-              "label": "Ausblenden"
+              "label": "Immer ausblenden"
             }
           ]
         },
         {
-          "label": "berschreiben des \"Wiederholen\"-Buttons",
+          "label": "Überschreiben der Anzeigeoptionen des \"Wiederholen\"-Buttons",
           "description": "Diese Option gibt an, ob der \"Wiederholen\" Button für alle Fragen angezeigt, ausgeblendet oder für jede Frage individuell konfiguriert wird.",
           "options": [
             {
-              "label": "Anzeigen"
+              "label": "Immer anzeigen"
             },
             {
-              "label": "Ausblenden"
+              "label": "Immer ausblenden"
             }
           ]
         }
