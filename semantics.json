@@ -121,12 +121,12 @@
       "importance": "high",
       "description": "Library for this question.",
       "options": [
-        "H5P.MultiChoice 1.10",
-        "H5P.DragQuestion 1.11",
-        "H5P.Blanks 1.8",
-        "H5P.MarkTheWords 1.7",
-        "H5P.DragText 1.6",
-        "H5P.TrueFalse 1.2"
+        "H5P.MultiChoice 1.13",
+        "H5P.DragQuestion 1.13",
+        "H5P.Blanks 1.11",
+        "H5P.MarkTheWords 1.9",
+        "H5P.DragText 1.8",
+        "H5P.TrueFalse 1.5"
       ]
     }
   },
@@ -259,6 +259,12 @@
         "name": "showSolutionButton",
         "type": "boolean",
         "label": "Display solution button",
+        "default": true
+      },
+      {
+        "name": "showRetryButton",
+        "type": "boolean",
+        "label": "Display retry button",
         "default": true
       },
       {
@@ -470,10 +476,19 @@
   {
     "name": "override",
     "type": "group",
-    "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+    "label": "Settings for \"Check\", \"Show solution\" and \"Retry\"",
     "importance": "low",
     "optional": true,
     "fields": [
+      {
+        "name": "checkButton",
+        "type": "boolean",
+        "label": "Show \"Check\" buttons",
+        "importance": "low",
+        "description": "This option determines if the \"Check\" button will be shown for all questions.",
+        "optional": true,
+        "default": true
+      },
       {
         "name": "showSolutionButton",
         "type": "select",
@@ -481,6 +496,15 @@
         "importance": "low",
         "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
         "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "checkButton",
+              "equals": true
+            }
+          ]
+        },
         "options": [
           {
             "value": "on",
@@ -499,6 +523,15 @@
         "importance": "low",
         "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
         "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "checkButton",
+              "equals": true
+            }
+          ]
+        },
         "options": [
           {
             "value": "on",

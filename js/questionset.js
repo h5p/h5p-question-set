@@ -59,7 +59,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       retryButtonText: 'Retry',
       showAnimations: false,
       skipButtonText: 'Skip video',
-      showSolutionButton: true
+      showSolutionButton: true,
+      showRetryButton: true
     },
     override: {},
     disableBackwardsNavigation: false
@@ -75,7 +76,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><a href="#" class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
           '</div>' +
           '<% } %>' +
           '<div tabindex="-1" class="qs-progress-announcer"></div>' +
@@ -108,8 +109,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '</div>';
 
   var solutionButtonTemplate = params.endGame.showSolutionButton ?
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
-          '';
+    '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
+    '';
+
+  const retryButtonTemplate = params.endGame.showRetryButton ?
+    '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>':
+    '';
 
   var resulttemplate =
           '<div class="questionset-results">' +
@@ -125,15 +130,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <div class="result-text"><%= resulttext %></div>' +
           '  <% } %>' +
           '  <div class="buttons">' +
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-finishbutton"><%= finishButtonText %></button>' +
           solutionButtonTemplate +
-          '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>' +
+          retryButtonTemplate +
           '  </div>' +
           '</div>';
 
   var template = new EJS({text: texttemplate});
   var endTemplate = new EJS({text: resulttemplate});
-
 
   var initialParams = $.extend(true, {}, defaults, options);
   var poolOrder; // Order of questions in a pool
@@ -163,7 +166,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var randomizeQuestionOrdering = function (questions) {
 
     // Save the original order of the questions in a multidimensional array [[question0,0],[question1,1]...
-    var questionOrdering = questions.map(function (questionInstance, index) { return [questionInstance, index]; });
+    var questionOrdering = questions.map(function (questionInstance, index) {
+      return [questionInstance, index];
+    });
 
     // Shuffle the multidimensional array
     questionOrdering = H5P.shuffleArray(questionOrdering);
@@ -231,7 +236,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Set overrides for questions
   var override;
-  if (params.override.showSolutionButton || params.override.retryButton) {
+  if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton === false) {
     override = {};
     if (params.override.showSolutionButton) {
       // Force "Show solution" button to be on or off for all interactions
@@ -243,6 +248,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Force "Retry" button to be on or off for all interactions
       override.enableRetry =
           (params.override.retryButton === 'on' ? true : false);
+    }
+
+    if (params.override.checkButton === false) {
+      // Force "Check" button to be on or off for all interactions
+      override.enableCheckButton = params.override.checkButton;
     }
   }
 
@@ -340,7 +350,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         questionInstances[currentQuestion].hideButton('finish');
       }
     }
- };
+  };
 
   var _stopQuestion = function (questionNumber) {
     if (questionInstances[questionNumber]) {
@@ -460,7 +470,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         questionInstances[i].showSolutions();
         questionInstances[i].toggleReadSpeaker(false);
       }
-      catch(error) {
+      catch (error) {
         H5P.error("subcontent does not contain a valid showSolutions function");
         H5P.error(error);
       }
@@ -512,7 +522,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           questionInstances[i].hideButton('prev');
         }
       }
-      catch(error) {
+      catch (error) {
         H5P.error("subcontent does not contain a valid resetTask function");
         H5P.error(error);
       }
@@ -550,7 +560,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Update buttons
       initializeQuestion();
 
-    } else if (params.randomQuestions) {
+    }
+    else if (params.randomQuestions) {
       randomizeQuestions();
     }
 
@@ -762,6 +773,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           if ($intro.length) {
             // Show intro
             $('.intro-page', $myDom).show();
+            $('.qs-startbutton', $myDom).focus();
           }
           else {
             // Show first question
@@ -784,12 +796,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                   eparams.comment + '.' +
                   eparams.resulttext)
             .show().focus();
+          scoreBar.setMaxScore(totals);
           scoreBar.setScore(finals);
         }, 0);
       }
       else {
         // Remove buttons and feedback section
-        $('.qs-finishbutton, .qs-solutionbutton, .qs-retrybutton, .feedback-section', $myDom).remove();
+        $('.qs-solutionbutton, .qs-retrybutton, .feedback-section', $myDom).remove();
       }
 
       self.trigger('resize');
@@ -946,11 +959,23 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Allow other libraries to add transitions after the questions have been inited
     $('.questionset', $myDom).addClass('started');
 
-    $('.qs-startbutton', $myDom).click(function () {
-      $(this).parents('.intro-page').hide();
-      $('.questionset', $myDom).show();
-      _showQuestion(params.initialQuestion);
-    });
+    $('.qs-startbutton', $myDom)
+      .click(function () {
+        $(this).parents('.intro-page').hide();
+        $('.questionset', $myDom).show();
+        _showQuestion(params.initialQuestion);
+        event.preventDefault();
+      })
+      .keydown(function (event) {
+        switch (event.which) {
+          case 13: // Enter
+          case 32: // Space
+            $(this).parents('.intro-page').hide();
+            $('.questionset', $myDom).show();
+            _showQuestion(params.initialQuestion);
+            event.preventDefault();
+        }
+      });
 
     /**
      * Triggers changing the current question.
@@ -1049,6 +1074,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   this.getCopyrights = function () {
     var info = new H5P.ContentCopyrights();
 
+    // IntroPage Background
+    if (params.introPage !== undefined && params.introPage.backgroundImage !== undefined && params.introPage.backgroundImage.copyright !== undefined) {
+      var introBackground = new H5P.MediaCopyright(params.introPage.backgroundImage.copyright);
+      introBackground.setThumbnail(new H5P.Thumbnail(H5P.getPath(params.introPage.backgroundImage.path, contentId), params.introPage.backgroundImage.width, params.introPage.backgroundImage.height));
+      info.addMedia(introBackground);
+    }
+
     // Background
     if (params.backgroundImage !== undefined && params.backgroundImage.copyright !== undefined) {
       var background = new H5P.MediaCopyright(params.backgroundImage.copyright);
@@ -1060,7 +1092,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var questionCopyrights;
     for (var i = 0; i < questionInstances.length; i++) {
       var instance = questionInstances[i];
-      var qParams = params.questions[i].params;
+      var instanceParams = params.questions[i].params;
+
       questionCopyrights = undefined;
 
       if (instance.getCopyrights !== undefined) {
@@ -1070,13 +1103,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if (questionCopyrights === undefined) {
         // Create a generic flat copyright list
         questionCopyrights = new H5P.ContentCopyrights();
-        H5P.findCopyrights(questionCopyrights, qParams, contentId);
+        H5P.findCopyrights(questionCopyrights, instanceParams.params, contentId,{
+          metadata: instanceParams.metadata,
+          machineName: instanceParams.library.split(' ')[0]
+        });
       }
 
       // Determine label
       var label = (params.texts.questionLabel + ' ' + (i + 1));
-      if (qParams.contentName !== undefined) {
-        label += ': ' + qParams.contentName;
+      if (instanceParams.params.contentName !== undefined) {
+        label += ': ' + instanceParams.params.contentName;
       }
       else if (instance.getTitle !== undefined) {
         label += ': ' + instance.getTitle();

@@ -38,8 +38,7 @@
         {
           "label": "Dots"
         }
-      ],
-      "default": "dots"
+      ]
     },
     {
       "label": "Pass percentage",
@@ -131,6 +130,9 @@
           "label": "Display solution button"
         },
         {
+          "label": "Display retry button"
+        },
+        {
           "label": "No results message",
           "description": "Text displayed on end page when \"Display results\" is disabled",
           "default": "Finished"
@@ -144,7 +146,11 @@
           "label": "Overall Feedback",
           "fields": [
             {
-              "widgets": [],
+              "widgets": [
+                {
+                  "label": "Default"
+                }
+              ],
               "label": "Define custom feedback for any score range",
               "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
               "entity": "range",
@@ -221,6 +227,10 @@
     {
       "label": "Settings for \"Show solution\" and \"Retry\" buttons",
       "fields": [
+        {
+          "label": "Show \"Check\" buttons",
+          "description": "This option determines if the \"Check\" button will be shown for all questions."
+        },
         {
           "label": "Override \"Show Solution\" button",
           "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",

@@ -1,87 +1,87 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "راهنمای سوال",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "نمایش راهنما"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "عنوان",
+          "description": "این عنوان در بالای خلاصه نمایش داده میشود."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "خلاصه متن",
+          "description": "این متن قبل از شروع آزمون نمایش داده میشود"
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "متن دکمه شروع",
+          "default": "شروع آزمون"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "تصویر پس زمینه",
+          "description": "یک تصویر انتخابی برای قرارگرفتن در پس زمینه خلاصه"
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "تصویر پس زمینه",
+      "description": "یک تصویر انتخابی برای قرار گرفتن در پس زمینه گروه سوالات"
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "جداکننده فرآیند",
+      "description": "حالت نمایش جداکننده سوالات",
       "options": [
         {
-          "label": "Textual"
+          "label": "متنی"
         },
         {
-          "label": "Dots"
+          "label": "نقطه ای"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "درصد پاس شدن",
+      "description": "درصدی که برای پاس شدن این آزمون مورد نیاز است"
     },
     {
-      "label": "Questions",
+      "label": "سوالات",
       "widgets": [
         {
           "label": "Default"
         },
         {
-          "label": "Textual"
+          "label": "متنی"
         }
       ],
       "entity": "question",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "نوع سوال",
+        "description": "کتابخانه برای این سوال"
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "متن نمایشی برای این آزمون",
       "fields": [
         {
-          "label": "Tilbage-knap",
+          "label": "دکمه بازگشت",
           "default": "Previous question"
         },
         {
-          "label": "Next button",
+          "label": "دکمه بعدی",
           "default": "Next question"
         },
         {
-          "label": "Finish button",
+          "label": "دکمه پایان",
           "default": "Finish"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
+          "label": "متن پیشرفت",
+          "description": "متن مورد استفاده در صورتی که پیشرفت متنی انتخاب شده باشد",
           "default": "Question: @current of @total questions"
         },
         {
-          "label": "Label for jumping to a certain question",
+          "label": "متن برای پریدن به یک سوال خاص",
           "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
           "default": "Question %d of %total"
         },
@@ -95,45 +95,45 @@
           "default": "Question @current of @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "متن سوالات پاسخ داده نشده",
+          "default": "بدون پاسخ"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "متن سوالات پاسخ داده شده",
+          "default": "پاسخ داده شده"
         },
         {
-          "label": "Current question text",
+          "label": "متن سوال فعلی",
           "default": "Current question"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "غیرفعال کردن دکمه بازگشت",
+      "description": "این گزینه به شما اجازه میدهد که در فقط در سوالات به جلو بروید"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "سوالات تصادفی",
+      "description": "با انتخاب این گزینه سوالات به صورت تصادفی نمایش داده میشود"
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "تعداد سوالاتی که باید نمایش داده شود:",
+      "description": "تعدادی از سوالات بالا را به صورت تصادفی در آزمون نمایش میدهد"
     },
     {
-      "label": "Quiz finished",
+      "label": "آزمون به پایان رسیده",
       "fields": [
         {
-          "label": "Display results"
+          "label": "نمایش نتایج"
         },
         {
-          "label": "Display solution button"
+          "label": "دکمه نمایش راه حل"
         },
         {
           "label": "Display retry button"
         },
         {
-          "label": "No results message",
+          "label": "پیام عدم وجود نتایج",
           "description": "Text displayed on end page when \"Display results\" is disabled",
           "default": "Finished"
         },
@@ -232,26 +232,26 @@
           "description": "This option determines if the \"Check\" button will be shown for all questions."
         },
         {
-          "label": "Overskriv \"Vi svar\"-knap",
-          "description": "Dette valg afgør om \"Vis svar\"-knappen skal vises på alle spørgsmål, skjules for alle eller konfigureres individuelt til hvert spørgsmål.",
+          "label": "Override \"Show Solution\" button",
+          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
-              "label": "Aktiveret"
+              "label": "Enabled"
             },
             {
-              "label": "Deaktiveret"
+              "label": "Disabled"
             }
           ]
         },
         {
-          "label": "Overskriv \"Prøv igen\"-knap",
-          "description": "Dette valg afgør om \"Prøv igen\"-knappen skal vises på alle spørgsmål, skjules for alle eller konfigureres individuelt til hvert spørgsmål.",
+          "label": "Override \"Retry\" button",
+          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
           "options": [
             {
-              "label": "Aktiveret"
+              "label": "Enabled"
             },
             {
-              "label": "Deaktiveret"
+              "label": "Disabled"
             }
           ]
         }

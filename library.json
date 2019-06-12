@@ -3,8 +3,8 @@
   "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 13,
-  "patchVersion": 2,
+  "minorVersion": 16,
+  "patchVersion": 4,
   "embedTypes": [
     "iframe"
   ],
@@ -14,7 +14,7 @@
   "author": "Joubel",
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 14
+    "minorVersion": 19
   },
   "license": "MIT",
   "preloadedJs": [
@@ -41,7 +41,7 @@
     {
       "machineName": "H5P.Video",
       "majorVersion": 1,
-      "minorVersion": 3
+      "minorVersion": 5
     },
     {
       "machineName": "H5P.JoubelUI",
@@ -63,7 +63,12 @@
     {
       "machineName": "H5PEditor.QuestionSetTextualEditor",
       "majorVersion": 1,
-      "minorVersion": 2
+      "minorVersion": 3
+    },
+    {
+      "machineName": "H5PEditor.ShowWhen",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ]
 }

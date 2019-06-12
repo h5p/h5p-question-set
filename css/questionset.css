@@ -120,10 +120,6 @@
   content: "\f01e";
 }
 
-.qs-footer > .next, .qs-footer > .finish, .qs-finishbutton {
-  float: right;
-}
-
 /* Need to disable max-height animation stuff, since this will
    make resizing of iframe in Safari not work! */
 .questionset .h5p-question-buttons.h5p-question-visible {
@@ -155,15 +151,6 @@
   line-height: 2.2335em;
 }
 
-.h5p-question .h5p-question-next,
-.h5p-question .h5p-question-finish {
-  margin: 0 0 1.5em 0.5em;
-}
-
-.h5p-question .h5p-question-prev {
-  margin: 0 0.5em 1.5em 0.5em;
-}
-
 .h5p-question .h5p-question-next:before {
   content: "\f054";
   padding-right: 0;
@@ -178,17 +165,14 @@
   left: -2px;
 }
 
-.questionset-results .qs-finishbutton {
-  display: none;
-}
-
 .h5p-question .h5p-question-finish:before {
   content: "\f00c";
 }
 
 .questionset-results button.h5p-button.qs-solutionbutton:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f06e   "; /* TODO: Use margin not whitespace, spacing is not content! */
+  padding-right: 0.5em;
+  content: "\f06e";
 }
 
 .video-container {
