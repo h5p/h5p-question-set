@@ -130,7 +130,7 @@
           "label": "Salli painike \"Katso vastaus\""
         },
         {
-          "label": "Display retry button"
+          "label": "Näytä yritä uudelleen -painike"
         },
         {
           "label": "Teksti kun ei tuloksia",
@@ -170,23 +170,23 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Vanha palaute",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Otsikko onnistuneesti läpäistylle tietovisalle",
+              "description": "Tämä otsikkoteksti näytetään pisteiden yläpuolella kun käyttäjä on onnistuneesti läpäissyt tietovisan."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Läpäisykommentti",
+              "description": "Tämä kommentti näytetään pisteiden perässä jos henkilö on läpäissyt tietovisan onnistuneesti."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Otsikko epäonnistuneelle tietovisalle",
+              "description": "Tämä otsikkoteksti näytetään pisteiden yläpuolella kun käyttäjä on epäonnistunut läpäisemään tietovisan."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Epäonnistuneen yrityksen kommentti",
+              "description": "Tämä kommentti näytetään pisteiden perässä jos henkilö ei ole läpäissyt tietovisaa"
             }
           ]
         },
@@ -228,8 +228,8 @@
       "label": "Asetukset \"Näytä vastaus\" ja \"Yritä uudelleen\" painikkeille",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Näytä \"Check\" painike",
+          "description": "Tämä asetus määrittää näytetäänkö \"Check\" painike kaikkien kysymysten yhteydessä."
         },
         {
           "label": "\"Näytä vastaus\"-painike",
