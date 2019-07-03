@@ -469,7 +469,7 @@
         "label": "Fail video",
         "importance": "low",
         "optional": true,
-        "description": "This video will be played if the user failes the quiz."
+        "description": "This video will be played if the user fails the quiz."
       }
     ]
   },
