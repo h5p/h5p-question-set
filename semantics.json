@@ -22,7 +22,8 @@
           "sub",
           "sup",
           "strong",
-          "em"
+          "em",
+          "code"
         ]
       },
       {
@@ -39,7 +40,8 @@
           "sup",
           "strong",
           "em",
-          "p"
+          "p",
+          "code"
         ]
       },
       {
@@ -168,7 +170,8 @@
         "default": "Question: @current of @total questions",
         "tags": [
           "strong",
-          "em"
+          "em",
+          "code"
         ]
       },
       {
@@ -286,7 +289,8 @@
         "description": "This heading will be displayed at the end of the quiz when the user has answered all questions.",
         "tags": [
           "strong",
-          "em"
+          "em",
+          "code"
         ]
       },
       {
@@ -363,7 +367,8 @@
             "description": "This text will be displayed above the score if the user has successfully passed the quiz.",
             "tags": [
               "strong",
-              "em"
+              "em",
+              "code"
             ]
           },
           {
@@ -380,7 +385,8 @@
               "strong",
               "em",
               "a",
-              "p"
+              "p",
+              "code"
             ]
           },
           {
@@ -392,7 +398,8 @@
             "description": "This text will be displayed above the score if the user has failed the quiz.",
             "tags": [
               "strong",
-              "em"
+              "em",
+              "code"
             ]
           },
           {
@@ -409,7 +416,8 @@
               "strong",
               "em",
               "a",
-              "p"
+              "p",
+              "code"
             ]
           }
         ]
