@@ -464,6 +464,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         questionInstances[i].showButton('prev');
       }
 
+      if (typeof questionInstances[i].setXAPIData === 'function') {
+        continue; // TODO: Temporary until we implement support setXAPIData...
+      }
+
       try {
         // Do not read answers
         questionInstances[i].toggleReadSpeaker(true);
@@ -1240,6 +1244,49 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       children: getXAPIDataFromChildren(this)
     };
   };
+
+  /**
+   *
+   */
+  this.setXAPIData = function (data) {
+    if (!data.subContentId || data.subContentId === this.subContentId) {
+      // This is our data
+
+      if (data.success === false) {
+        // Unable to determine data
+        console.error('Error error error 1 2 3');
+        return;
+      }
+
+      if (data.type === 'feedback') {
+        // Set score?
+      }
+      else if (data.type === 'solution') {
+        // Nothing?
+      }
+
+      // Check if we have any data for our children
+      if (data.children && data.children.length === questionInstances.length) {
+        for (let i = 0; i < questionInstances.length; i++) {
+          if (typeof questionInstances[i].setXAPIData === 'function') {
+            questionInstances[i].setXAPIData(data.children[i])
+          }
+        }
+      }
+      return true;
+    }
+    else {
+      // Someone elses data, let's try to find them.
+      for (let i = 0; i < questionInstances.length; i++) {
+        if (typeof questionInstances[i].setXAPIData === 'function') {
+          if (questionInstances[i].setXAPIData(data)) {
+            return true; // Let parent know we found the owner of the data
+          }
+        }
+      }
+    }
+  }
+
 };
 
 H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
