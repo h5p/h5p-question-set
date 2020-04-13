@@ -1,51 +1,51 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "Introducción al Examen",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "Mostrar introducción"
         },
         {
           "label": "Título",
-          "description": "This title will be displayed above the introduction text."
+          "description": "Este título será mostrado arriba del texto introductorio."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "Texto introductorio",
+          "description": "Este texto será mostrado antes de que inicie el examen."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "Texto botón Comenzar",
+          "default": "Comenzar Examen"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Imagen de Fondo",
+          "description": "Una imagen de fondo opcional para la introducción."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "Imagen de fondo",
+      "description": "Una imagen de fondo opcional para el Conjunto de pregunta."
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "Indicador del Progreso",
+      "description": "Estilo del indicador del progreso de Conjunto de pregunta.",
       "options": [
         {
           "label": "Textual"
         },
         {
-          "label": "Dots"
+          "label": "Puntos"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "Porcentaje aprobatorio",
+      "description": "Percentaje del puntaje total requerido para pasar el examen."
     },
     {
-      "label": "Questions",
+      "label": "Preguntas",
       "widgets": [
         {
           "label": "Predeterminado"
@@ -54,115 +54,115 @@
           "label": "Textual"
         }
       ],
-      "entity": "question",
+      "entity": "pregunta",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "Tipo de pregunta",
+        "description": "Librería para esta pregunta."
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "Textos de interfase en examen",
       "fields": [
         {
           "label": "Botón de retroceso",
-          "default": "Previous question"
+          "default": "Pregunta anterior"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Botón siguiente",
+          "default": "Pregunta siguiente"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Botón terminar",
+          "default": "Terminar"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "Texto del progreso",
+          "description": "Texto usado si progreso textual es seleccionado.",
+          "default": "Pregunta: @current de @total preguntas"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Etiqueta para saltar a una pregunta dada",
+          "description": "Usted debe usar el remplazable '%d' en sustitución del número de la pregunta, y %total en lugar de cantidad total de preguntas.",
+          "default": "Pregunta %d de %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Etiqueta de diálogo de Copyright de pregunta",
+          "default": "Pregunta"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Progreso para Lector de voz",
+          "description": "Puede usar @current y @total como variables de preguntas",
+          "default": "Pregunta @current de @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Texto de pregunta no contestada",
+          "default": "No contestada"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Texto de pregunta contestada",
+          "default": "Contestada"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "Texto de pregunta actual",
+          "default": "Pregunta actual"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Deshabilitar navegación hacia atrás",
+      "description": "Esta opción solamente le permitirá mover hacia adelante en Conjunto de pregunta"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "Barajear preguntas",
+      "description": "Habilitar aleatorizar el orden de preguntas mostradas."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "Número de preguntas a mostrar:",
+      "description": "Crear un lote aleatorizado de preguntas a partir del total."
     },
     {
-      "label": "Quiz finished",
+      "label": "Examen terminado",
       "fields": [
         {
-          "label": "Display results"
+          "label": "Mostrar resultados"
         },
         {
-          "label": "Display solution button"
+          "label": "Mostrar botón Solución"
         },
         {
-          "label": "Display retry button"
+          "label": "Mostrar botón Reintentar"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Mensaje para Sin resultados",
+          "description": "Texto mostrado en página final cuando está deshabilitado el \"Mostrar resultados\" ",
+          "default": "Terminado"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Encabezado de Realimentación",
+          "default": "Su resultado:",
+          "description": "Este encabezado será mostrado al final del examen cuando el usuario haya contestado todas las preguntas."
         },
         {
-          "label": "Overall Feedback",
+          "label": "Realimentación Global",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Predeterminado"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "Definir realimentación personalizada para cualquier rango de puntaje",
+              "description": "Ejemplo: 0-20% Mal Puntaje, 21-91% Puntaje Promedio, 91-100% ¡Magnífico Puntaje!",
+              "entity": "rango",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Rango de Puntaje"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Realimentación para rango definido de puntaje",
+                    "placeholder": "Escriba la realimentación"
                   }
                 ]
               }
@@ -170,66 +170,66 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Realimentación antigua",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Felicitación examen pasado",
+              "description": "Este texto será mostrado arriba del puntaje si el usuario ha pasado exitosamente el examen."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Comentario para Pasado",
+              "description": "Este comentario será mostrado después del puntaje si el usuario ha pasado exitosamente el examen."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Título para examen reprobado",
+              "description": "Este texto será mostrado arriba del puntaje si el usuario ha reprobado el examen."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Comentario para Reprobado",
+              "description": "Este comentario será mostrado después del puntaje si el usuario ha reprobado el examen."
             }
           ]
         },
         {
-          "label": "Solution button label",
+          "label": "Etiqueta botón Solución",
           "default": "Mostrar solución",
-          "description": "Text for the solution button."
+          "description": "Texto para el botón de Solución."
         },
         {
-          "label": "Retry button label",
+          "label": "Etiqueta botón Reintentar",
           "default": "Reintentar",
-          "description": "Text for the retry button."
+          "description": "Texto para el botón Reintentar."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "Texto botón Terminar",
+          "default": "Terminar"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "Mostrar video antes de resultados del examen"
         },
         {
-          "label": "Enable skip video button"
+          "label": "Botón habilitar saltar video"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "Etiqueta botón Saltar video",
+          "default": "Saltar video"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "Video pasado",
+          "description": "Este video será reproducido si el usuario ha pasado exitosamente el examen."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user fails the quiz."
+          "label": "Video reprobado",
+          "description": "Este video será reproducido si el usuario reprueba el examen."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Configuraciones para botones \"Mostrar solución\" y \"Reintentar\" ",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Botones Mostrar \"Revisar\" ",
+          "description": "Esta opción determina si el botón para \"Revisar\" será mostrado para todas las preguntas."
         },
         {
           "label": "Ocultar el botón \"Mostrar solución\"",
