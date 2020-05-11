@@ -1,168 +1,168 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "Úvod do testu",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "Zobrazit úvod"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "Nadpis",
+          "description": "Tento nadpis se zobrazí nad úvodním textem."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "Úvodní text",
+          "description": "Tento text se zobrazí před spuštěním testu."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "Text tlačítka Start",
+          "default": "Start testu"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Obrázek na pozadí",
+          "description": "Volitelný obrázek na pozadí pro úvod."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "Obrázek na pozadí",
+      "description": "Volitelný obrázek na pozadí pro sadu otázek."
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "Ukazatel průběhu",
+      "description": "Styl ukazatele průběhu testu.",
       "options": [
         {
-          "label": "Textual"
+          "label": "Textový"
         },
         {
-          "label": "Dots"
+          "label": "Tečky"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "Procento úspěšnosti",
+      "description": "Procento z celkového skóre požadovaného pro absolvování testu."
     },
     {
-      "label": "Questions",
+      "label": "Otázky",
       "widgets": [
         {
-          "label": "Default"
+          "label": "Výchozí"
         },
         {
-          "label": "Textual"
+          "label": "Textové"
         }
       ],
-      "entity": "question",
+      "entity": "otázka",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "Typ otázky",
+        "description": "Knihovna pro tuto otázku."
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "Rozhraní v testu",
       "fields": [
         {
-          "label": "Back button",
-          "default": "Previous question"
+          "label": "Tlačítko Zpět",
+          "default": "Předchozí otázka"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Tlačítko Další",
+          "default": "Další otázka"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Tlačítko Dokončit",
+          "default": "Dokončit"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "Text průběhu",
+          "description": "Text použitý, pokud je vybrán textový průběh.",
+          "default": "Otázka: @current z @total otázek"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Popisek pro skok na určitou otázku",
+          "description": "Musíte použít zástupný symbo '%d' namísto čísla otázky, a %total namísto celkového počtu otázek.",
+          "default": "Otázka %d z %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Popisek s otázkou dialogového okna autorských práv",
+          "default": "Otázka"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Průběh čtení čtečky",
+          "description": "Mohou používat proměnné otázek @current a @total",
+          "default": "Otázka @current z @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Text nezodpovězené otázky",
+          "default": "Nezodpovězeno"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Text odpovězené otázky",
+          "default": "Odpovězeno"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "Text aktuální otázky",
+          "default": "Aktuální otázka"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Zakázat navigaci zpět",
+      "description": "Tato možnost vám umožní postupovat v sadě otázek pouze vpřed"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "Náhodné otázky",
+      "description": "Povolit náhodný výběr pořadí zobrazovaných otázek."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "Počet otázek, které se mají zobrazit:",
+      "description": "Vytvořte náhodnou dávku otázek z celkového počtu."
     },
     {
-      "label": "Quiz finished",
+      "label": "Test skončil",
       "fields": [
         {
-          "label": "Display results"
+          "label": "Zobrazit výsledky"
         },
         {
-          "label": "Display solution button"
+          "label": "Zobrazit tlačítko řešení"
         },
         {
-          "label": "Display retry button"
+          "label": "Zobrazit tlačítko opakování"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Žádná zpráva o výsledcích",
+          "description": "Text zobrazený na konci stránky, když je zakázáno \"Display results\" ",
+          "default": "Dokončeno"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Zpětná vazba",
+          "default": "Váš výsledek:",
+          "description": "Tento nadpis se zobrazí na konci testu, když uživatel odpoví na všechny otázky."
         },
         {
-          "label": "Overall Feedback",
+          "label": "Celková zpětná vazba",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Výchozí"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "Definujte vlastní zpětnou vazbu pro libovolný rozsah skóre",
+              "description": "Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
+              "entity": "rozsah",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Rozsah skóra"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Zpětná vazba pro definovaný rozsah skóre",
+                    "placeholder": "Vyplňte zpětnou vazbu"
                   }
                 ]
               }
@@ -170,88 +170,88 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Stará zpětná vazba",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Pozdrav úspěšného testu",
+              "description": "Tento text se zobrazí nad skóre, pokud uživatel úspěšně prošel testem."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Úspěšný komentář",
+              "description": "Tento komentář se zobrazí po skóre, pokud uživatel úspěšně prošel testem."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Test se nezdařil",
+              "description": "Tento text se zobrazí nad skóre, pokud uživatel byl v testu neúspěšný."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Komentář při neúspěchu",
+              "description": "Tento komentář se zobrazí po skóre, pokud uživatel byl v testu neúspěšný."
             }
           ]
         },
         {
-          "label": "Solution button label",
-          "default": "Show solution",
-          "description": "Text for the solution button."
+          "label": "Popisek tlačítka řešení",
+          "default": "Zobrazit řešení",
+          "description": "Text tlačítka řešení."
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "Popisek tlačítka opakovat",
+          "default": "Opakovat",
+          "description": "Text tlačítka opakovat."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "Popisek tlačítka dokončit",
+          "default": "Dokončit"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "Zobrazit video před výsledky testu"
         },
         {
-          "label": "Enable skip video button"
+          "label": "Povolit tlačítko přeskočit video"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "Popisek tlačítka Přeskočit video",
+          "default": "Přeskočit video"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "Přehrát video",
+          "description": "Toto video se přehraje, pokud uživatel úspěšně prošel testem."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user fails the quiz."
+          "label": "Video při neúspěchu",
+          "description": "Toto video se přehraje, pokud uživatel byl v testu neúspěšný."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Nastavení tlačítek \"Show solution\" a \"Retry\" ",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Zobrazit tlačítko \"Check\" ",
+          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Check\" ."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Přepsat tlačítko \"Show Solution\" ",
+          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Show Solution\" , nebo bude zakázané pro všechny nebo nakonfigurované pro každou otázku samostatně.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Povoleno"
             },
             {
-              "label": "Disabled"
+              "label": "Zakázáno"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Přepsat tlačítko \"Retry\" ",
+          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Retry\" , nebo bude zakázané pro všechny nebo nakonfigurované pro každou otázku samostatně.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Povoleno"
             },
             {
-              "label": "Disabled"
+              "label": "Zakázáno"
             }
           ]
         }

@@ -130,7 +130,7 @@
           "label": "Visa rätt svar-knapp"
         },
         {
-          "label": "Display retry button"
+          "label": "Visa försök igen-knapp"
         },
         {
           "label": "Meddelande vid inget resultat",
@@ -161,7 +161,7 @@
                   },
                   {},
                   {
-                    "label": "Feedback för definierat poängintervall",
+                    "label": "Feedback för detta poängintervall",
                     "placeholder": "Fyll i feedback"
                   }
                 ]
