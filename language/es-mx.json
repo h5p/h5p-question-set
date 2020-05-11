@@ -138,12 +138,12 @@
           "default": "Terminado"
         },
         {
-          "label": "Encabezado de Realimentación",
+          "label": "Encabezado de Retroalimentación",
           "default": "Su resultado:",
           "description": "Este encabezado será mostrado al final del examen cuando el usuario haya contestado todas las preguntas."
         },
         {
-          "label": "Realimentación Global",
+          "label": "Retroalimentación Global",
           "fields": [
             {
               "widgets": [
@@ -151,7 +151,7 @@
                   "label": "Predeterminado"
                 }
               ],
-              "label": "Definir realimentación personalizada para cualquier rango de puntaje",
+              "label": "Definir retroalimentación personalizada para cualquier rango de puntaje",
               "description": "Ejemplo: 0-20% Mal Puntaje, 21-91% Puntaje Promedio, 91-100% ¡Magnífico Puntaje!",
               "entity": "rango",
               "field": {
@@ -161,8 +161,8 @@
                   },
                   {},
                   {
-                    "label": "Realimentación para rango definido de puntaje",
-                    "placeholder": "Escriba la realimentación"
+                    "label": "Retroalimentación para rango definido de puntaje",
+                    "placeholder": "Escriba la retroalimentación"
                   }
                 ]
               }
@@ -170,7 +170,7 @@
           ]
         },
         {
-          "label": "Realimentación antigua",
+          "label": "Retroalimentación antigua",
           "fields": [
             {
               "label": "Felicitación examen pasado",

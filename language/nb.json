@@ -15,7 +15,7 @@
           "description": "Denne teksten vises før spørsmålssettet starter."
         },
         {
-          "label": "Tekst til \"Start\" knappen",
+          "label": "Tekst på \"Start\" knappen",
           "default": "Start"
         },
         {
@@ -57,7 +57,7 @@
       "entity": "spørsmål",
       "field": {
         "label": "Spørsmåltype",
-        "description": "Velg spørsmålstype for dette spørsmålet"
+        "description": "Velg spørsmålstype for dette spørsmålet."
       }
     },
     {
@@ -77,11 +77,11 @@
         },
         {
           "label": "Fremgangstekst",
-          "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total",
+          "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total.",
           "default": "Deloppgave @current av @total"
         },
         {
-          "label": "Merkelapp ved hopping til spørsmål",
+          "label": "Merkelapp for hopping til spørsmål",
           "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret, og '%total' istedet for totalt antall spørsmål.",
           "default": "Spørsmål %d av %total"
         },
@@ -130,7 +130,7 @@
           "label": "Vis resultatknapp"
         },
         {
-          "label": "Display retry button"
+          "label": "Vis \"Prøv igjen\" knappen"
         },
         {
           "label": "Melding når resultater ikke vises",
@@ -148,7 +148,7 @@
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Standard"
                 }
               ],
               "label": "Spesifiser en egendefinert tilbakemelding for et poengintervall",
