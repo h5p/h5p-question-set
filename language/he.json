@@ -91,7 +91,7 @@
         },
         {
           "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
+          "description": "ניתן להשתמש במשתני השאלה current@ ו- total@",
           "default": "שאלה @current מתוך @total"
         },
         {
@@ -233,7 +233,7 @@
         },
         {
           "label": "עדכון כפתור \"תצוגת פתרון\"",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "description": "אפשרות זו קובעת האם הכפתור \"הצגת פתרון\" יוצג עבור כל השאלות, יכובה לכולן או יוגדר לכל שאלה בנפרד.",
           "options": [
             {
               "label": "פעיל"
