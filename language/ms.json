@@ -1,0 +1,261 @@
+{
+  "semantics": [
+    {
+      "label": "",
+      "fields": [
+        {
+          "label": ""
+        },
+        {
+          "label": "Tajuk",
+          "description": ""
+        },
+        {
+          "label": "",
+          "description": ""
+        },
+        {
+          "label": "",
+          "default": ""
+        },
+        {
+          "label": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "",
+      "description": ""
+    },
+    {
+      "label": "",
+      "description": "",
+      "options": [
+        {
+          "label": ""
+        },
+        {
+          "label": ""
+        }
+      ]
+    },
+    {
+      "label": "",
+      "description": ""
+    },
+    {
+      "label": "Soalan",
+      "widgets": [
+        {
+          "label": ""
+        },
+        {
+          "label": ""
+        }
+      ],
+      "entity": "soalan",
+      "field": {
+        "label": "Jenis soalan",
+        "description": ""
+      }
+    },
+    {
+      "label": "",
+      "fields": [
+        {
+          "label": "Butang kembali",
+          "default": "Soalan sebelumnya"
+        },
+        {
+          "label": "Butang seterusnya",
+          "default": "Soalan seterusnya"
+        },
+        {
+          "label": "Butang selesai",
+          "default": "Selesai"
+        },
+        {
+          "label": "",
+          "description": "",
+          "default": ""
+        },
+        {
+          "label": "",
+          "description": "",
+          "default": ""
+        },
+        {
+          "label": "",
+          "default": "Soalan"
+        },
+        {
+          "label": "",
+          "description": "",
+          "default": ""
+        },
+        {
+          "label": "",
+          "default": "Tidak terjawab"
+        },
+        {
+          "label": "",
+          "default": "Dijawab"
+        },
+        {
+          "label": "",
+          "default": "Soalan semasa"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "description": ""
+    },
+    {
+      "label": "",
+      "description": ""
+    },
+    {
+      "label": "",
+      "description": ""
+    },
+    {
+      "label": "",
+      "fields": [
+        {
+          "label": ""
+        },
+        {
+          "label": ""
+        },
+        {
+          "label": ""
+        },
+        {
+          "label": "",
+          "description": "",
+          "default": "Selesai"
+        },
+        {
+          "label": "",
+          "default": "",
+          "description": ""
+        },
+        {
+          "label": "",
+          "fields": [
+            {
+              "widgets": [
+                {
+                  "label": ""
+                }
+              ],
+              "label": "",
+              "description": "",
+              "entity": "",
+              "field": {
+                "fields": [
+                  {
+                    "label": ""
+                  },
+                  {},
+                  {
+                    "label": "",
+                    "placeholder": ""
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "",
+          "fields": [
+            {
+              "label": "",
+              "description": ""
+            },
+            {
+              "label": "",
+              "description": ""
+            },
+            {
+              "label": "",
+              "description": ""
+            },
+            {
+              "label": "",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "label": "",
+          "default": "Tunjukkan penyelesaian",
+          "description": ""
+        },
+        {
+          "label": "",
+          "default": "Cuba lagi",
+          "description": ""
+        },
+        {
+          "label": "",
+          "default": ""
+        },
+        {
+          "label": ""
+        },
+        {
+          "label": ""
+        },
+        {
+          "label": "",
+          "default": ""
+        },
+        {
+          "label": "",
+          "description": ""
+        },
+        {
+          "label": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "label": "",
+      "fields": [
+        {
+          "label": "",
+          "description": ""
+        },
+        {
+          "label": "",
+          "description": "",
+          "options": [
+            {
+              "label": ""
+            },
+            {
+              "label": ""
+            }
+          ]
+        },
+        {
+          "label": "",
+          "description": "",
+          "options": [
+            {
+              "label": ""
+            },
+            {
+              "label": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
