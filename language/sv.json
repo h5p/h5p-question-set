@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduktion",
+      "label": "Introduktion",
       "fields": [
         {
           "label": "Visa introduktion"
@@ -220,7 +220,7 @@
         },
         {
           "label": "Ej godkänt-video",
-          "description": "Denna video kommer att visas om användaren har misslyckats med att nå godkänt på denna quiz."
+          "description": "Denna video kommer att  spelas upp om användaren misslyckas med denna quiz."
         }
       ]
     },
@@ -244,7 +244,7 @@
           ]
         },
         {
-          "label": "Ignorera knapp \"Försök igen\" ",
+          "label": "Ignorera knapp \"Försök igen\"",
           "description": "Denna inställning avgör om knappen \"Försök igen\" ska visas på alla frågor, vara inaktiverad för alla frågor, eller konfigureras individuellt per fråga",
           "options": [
             {
