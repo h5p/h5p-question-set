@@ -247,3 +247,9 @@
 .h5p-no-frame .questionset .h5p-question > *:last-child {
   margin-bottom: 0;
 }
+
+/* Hide the fullscreen button rendered by H5P.DragQuestion */
+.questionset .h5p-question.h5p-dragquestion .h5p-my-fullscreen-button-enter,
+.questionset .h5p-question.h5p-dragquestion .h5p-my-fullscreen-button-exit {
+  display: none;
+}
