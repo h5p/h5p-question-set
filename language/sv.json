@@ -220,7 +220,7 @@
         },
         {
           "label": "Ej godkänt-video",
-          "description": "Denna video kommer att  spelas upp om användaren misslyckas med denna quiz."
+          "description": "Denna video kommer att visas om användaren har misslyckas med denna quiz."
         }
       ]
     },
