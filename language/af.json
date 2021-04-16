@@ -1,168 +1,168 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "Vasvra inleiding",
       "fields": [
         {
           "label": "Vertoon inleiding"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "Titel",
+          "description": "Hierdie titel sal bo die inleidende teks vertoon word."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "Inleidende teks",
+          "description": "Hierdie teks sal vertoon word voor die vasvra begin."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "Beginknoppie teks",
+          "default": "Begin vasvra"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Agtergrondprent",
+          "description": "'n Opsionele agtergrondprent vir die inleiding."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "Agtergrondprent",
+      "description": "'n Vrywillige agtergrondprent vir die vraagstel."
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "Vorderingaanwyser",
+      "description": "Vraagstel vorderingaanwyser styl.",
       "options": [
         {
-          "label": "Textual"
+          "label": "Tekstueel"
         },
         {
-          "label": "Dots"
+          "label": "Kolletjies"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "Slaag persentasie",
+      "description": "Persentasie van totale telling wat vereis word om vasvra te slaag."
     },
     {
-      "label": "Questions",
+      "label": "Vrae",
       "widgets": [
         {
-          "label": "Default"
+          "label": "Verstek"
         },
         {
-          "label": "Textual"
+          "label": "Tekstueel"
         }
       ],
-      "entity": "question",
+      "entity": "vraag",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "Vraagtipe",
+        "description": "Biblioteek vir hierdie vraag."
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "Koppelvlaktekste in vasvra",
       "fields": [
         {
-          "label": "Back button",
-          "default": "Previous question"
+          "label": "Terug knoppie",
+          "default": "Vorige vraag"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Volgende knoppie",
+          "default": "Volgende vraag"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Klaar knoppie",
+          "default": "Klaar"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "Vordering teks",
+          "description": "Teks gebruik indien tektuele vordering gekies is.",
+          "default": "Vraag: @current van @total vrae"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Etiket om te spring tot 'n bepaalde vraag",
+          "description": "Jy moet die plekhouer '%d' in stede van die vraagnommer, en %total in stede van die totale aantal vrae gebruik.",
+          "default": "Vraag %d van %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Kopiereg dialoog vraagetiket",
+          "default": "Vraag"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Spreekleser vordering",
+          "description": "Mag @current en @total vraagveranderlikes gebruik",
+          "default": "Vraag @current uit @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Onbeantwoorde vraagteks",
+          "default": "Onbeantwoord"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Beantwoorde vraagteks",
+          "default": "Beantwoord"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "Huidige vraagteks",
+          "default": "Huidige vraag"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Verbied agteruitnavigasie",
+      "description": "Hierdie keuse laat jou slegs toe om vorentoe te beweeg met die vraagstel"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "Skommel vrae",
+      "description": "Aktiveer ewekansige orde van vrae op vooraansig."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "Aantal vrae om te wys:",
+      "description": "Skep 'n ewekansige bondel vrae uit die somtotaal."
     },
     {
-      "label": "Quiz finished",
+      "label": "Vasvra klaar",
       "fields": [
         {
-          "label": "Display results"
+          "label": "Vertoon uitslae"
         },
         {
-          "label": "Display solution button"
+          "label": "Vertoon oplossing knoppie"
         },
         {
-          "label": "Display retry button"
+          "label": "Vertoon probeer weer knoppie"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Geen uitslae boodskap",
+          "description": "Teks word op die eindblad vertoon wanneer 'Vertoonresultate' gedeaktiveer is",
+          "default": "Klaar"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Terugvoer opskrif",
+          "default": "Jou uitslae:",
+          "description": "Hierdie opskrif sal aan die einde van die vasvra vertoon wanneer die gebruiker al die vrae beantwoord het."
         },
         {
-          "label": "Overall Feedback",
+          "label": "Algehele terugvoer",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Verstek"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "Bepaal verstekterugvoer vir enige reeks tellings",
+              "description": "Voorbeeld: 0-20% Swak telling, 21-91% Gemiddelde telling, 91-100% Uitstekende telling!",
+              "entity": "reeks",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Telreeks"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Terugvoer vir gedefinieerde telreeks",
+                    "placeholder": "Vul die terugvoer in"
                   }
                 ]
               }
@@ -170,88 +170,88 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Ou terugvoer",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Vasvra geslaag begroeting",
+              "description": "Hierdie teks sal bo die telling vertoon word sodra die gebruiker die vasvra suksesvol geslaag het."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Geslaag kommentaar",
+              "description": "Hierdie opmerking sal na die telling vertoon word as die gebruiker die vasvra suksesvol geslaag het."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Vasvra misluk titel",
+              "description": "Hierdie teks sal bo die telling vertoon word as die gebruiker nie die vasvra het nie."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Gedruip kommentaar",
+              "description": "Hierdie opmerking sal na die telling vertoon word as die gebruiker die vasvra gedruip het."
             }
           ]
         },
         {
-          "label": "Solution button label",
-          "default": "Show solution",
-          "description": "Text for the solution button."
+          "label": "Antwoord knoppie-etiket",
+          "default": "Wys antwoord",
+          "description": "Teks vir die antwoord knoppie."
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "Probeer weer knoppie etiket",
+          "default": "Probeer weer",
+          "description": "Teks vir die probeer weer knoppie."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "Klaar knoppieteks",
+          "default": "Klaar"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "Vertoon video voor vasvra uitslae"
         },
         {
-          "label": "Enable skip video button"
+          "label": "Aktiveer slaan video oor knoppie"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "Slaan video oor etiket",
+          "default": "Slaan video oor"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "Video geslaag",
+          "description": "Hierdie video sal gespeel word indien die gebruiker die vasvra geslaag het."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user fails the quiz."
+          "label": "Druip video",
+          "description": "Hierdie video sal gespeel word indien die gebruiker die vasvra gedruip het."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Instellings vir die \"Wys antwoord\" en \"Probeer weer\" knoppies",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Wys \"Toets\" knoppies",
+          "description": "Hierdie opsie bepaal of die \"Toets\" knoppie vir alle vrae gewys sal word."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Oorskry \"Wys oplossing\" knoppie",
+          "description": "Hierdie opsie bepaal of die \"Wys antwoord\" -knoppie vir alle vrae getoon word, vir almal uitgeskakel of afsonderlik vir elke vraag ingestel word.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Aktiveer"
             },
             {
-              "label": "Disabled"
+              "label": "Deaktiveer"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Oorskry \"Probeer weer\" knoppie",
+          "description": "Hierdie opsie bepaal of die \"Probeer weer\" -knoppie vir alle vrae getoon word, vir almal uitgeskakel of afsonderlik vir elke vraag ingestel word.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Aktiveer"
             },
             {
-              "label": "Disabled"
+              "label": "Deaktiveer"
             }
           ]
         }

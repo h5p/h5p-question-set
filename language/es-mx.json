@@ -26,11 +26,11 @@
     },
     {
       "label": "Imagen de fondo",
-      "description": "Una imagen de fondo opcional para el Conjunto de pregunta."
+      "description": "Una imagen de fondo opcional para el Conjunto de preguntas."
     },
     {
       "label": "Indicador del Progreso",
-      "description": "Estilo del indicador del progreso de Conjunto de pregunta.",
+      "description": "Estilo del indicador del progreso de Conjunto de preguntas.",
       "options": [
         {
           "label": "Textual"
@@ -42,7 +42,7 @@
     },
     {
       "label": "Porcentaje aprobatorio",
-      "description": "Percentaje del puntaje total requerido para pasar el examen."
+      "description": "Porcentaje del puntaje total requerido para pasar el examen."
     },
     {
       "label": "Preguntas",
@@ -61,22 +61,22 @@
       }
     },
     {
-      "label": "Textos de interfase en examen",
+      "label": "Textos de interfaz en examen",
       "fields": [
         {
-          "label": "Botón de retroceso",
+          "label": "Botón de Retroceso",
           "default": "Pregunta anterior"
         },
         {
-          "label": "Botón siguiente",
+          "label": "Botón Siguiente",
           "default": "Pregunta siguiente"
         },
         {
-          "label": "Botón terminar",
+          "label": "Botón Terminar",
           "default": "Terminar"
         },
         {
-          "label": "Texto del progreso",
+          "label": "Texto del Progreso",
           "description": "Texto usado si progreso textual es seleccionado.",
           "default": "Pregunta: @current de @total preguntas"
         },
@@ -90,7 +90,7 @@
           "default": "Pregunta"
         },
         {
-          "label": "Progreso para Lector de voz",
+          "label": "Progreso para Lector de texto en voz alta",
           "description": "Puede usar @current y @total como variables de preguntas",
           "default": "Pregunta @current de @total"
         },
@@ -110,11 +110,11 @@
     },
     {
       "label": "Deshabilitar navegación hacia atrás",
-      "description": "Esta opción solamente le permitirá mover hacia adelante en Conjunto de pregunta"
+      "description": "Esta opción solamente le permitirá mover hacia adelante en Conjunto de Preguntas"
     },
     {
       "label": "Barajear preguntas",
-      "description": "Habilitar aleatorizar el orden de preguntas mostradas."
+      "description": "Habilitar para aleatorizar el orden de preguntas mostradas."
     },
     {
       "label": "Número de preguntas a mostrar:",
@@ -134,7 +134,7 @@
         },
         {
           "label": "Mensaje para Sin resultados",
-          "description": "Texto mostrado en página final cuando está deshabilitado el \"Mostrar resultados\" ",
+          "description": "Texto mostrado en página final cuando está deshabilitado el \"Mostrar resultados\"",
           "default": "Terminado"
         },
         {
@@ -162,7 +162,7 @@
                   {},
                   {
                     "label": "Retroalimentación para rango definido de puntaje",
-                    "placeholder": "Escriba la retroalimentación"
+                    "placeholder": "Complete la retroalimentación"
                   }
                 ]
               }
@@ -170,15 +170,15 @@
           ]
         },
         {
-          "label": "Retroalimentación antigua",
+          "label": "Retroalimentación Antigua",
           "fields": [
             {
-              "label": "Felicitación examen pasado",
-              "description": "Este texto será mostrado arriba del puntaje si el usuario ha pasado exitosamente el examen."
+              "label": "Felicitación examen aprobado",
+              "description": "Este texto será mostrado arriba del puntaje si el usuario ha aprobado exitosamente el examen."
             },
             {
-              "label": "Comentario para Pasado",
-              "description": "Este comentario será mostrado después del puntaje si el usuario ha pasado exitosamente el examen."
+              "label": "Comentario para Aprobado",
+              "description": "Este comentario será mostrado después del puntaje si el usuario ha aprobado exitosamente el examen."
             },
             {
               "label": "Título para examen reprobado",
@@ -215,25 +215,25 @@
           "default": "Saltar video"
         },
         {
-          "label": "Video pasado",
-          "description": "Este video será reproducido si el usuario ha pasado exitosamente el examen."
+          "label": "Video para aprobado",
+          "description": "Este video será reproducido si el usuario ha aprobado exitosamente el examen."
         },
         {
-          "label": "Video reprobado",
+          "label": "Video para reprobado",
           "description": "Este video será reproducido si el usuario reprueba el examen."
         }
       ]
     },
     {
-      "label": "Configuraciones para botones \"Mostrar solución\" y \"Reintentar\" ",
+      "label": "Configuraciones para botones \"Mostrar solución\" y \"Reintentar\"",
       "fields": [
         {
-          "label": "Botones Mostrar \"Revisar\" ",
-          "description": "Esta opción determina si el botón para \"Revisar\" será mostrado para todas las preguntas."
+          "label": "Botones Mostrar \"Comprobar\"",
+          "description": "Esta opción determina si el botón para \"Comprobar\" será mostrado para todas las preguntas."
         },
         {
-          "label": "Ocultar el botón \"Mostrar solución\"",
-          "description": "Esta opción determina si el botón \"Mostrar solución\" se muestra en todas las preguntas, se desactiva para todas, o se configura para cada pregunta individualmente.",
+          "label": "Anular el botón \"Mostrar Solución\"",
+          "description": "Esta opción determina si el botón \"Mostrar Solución\" será mostrado en todas las preguntas, desactivado para todas, o configurado para cada pregunta individualmente.",
           "options": [
             {
               "label": "Habilitado"
@@ -244,8 +244,8 @@
           ]
         },
         {
-          "label": "Ocultar el botón de \"Reintentar\"",
-          "description": "Esta opción determina si el botón \"Reintentar\" se muestra en todas las preguntas, se desactiva para todas, o se configura para cada pregunta individualmente.",
+          "label": "Anular el botón de \"Reintentar\"",
+          "description": "Esta opción determina si el botón \"Reintentar\" será mostrado para todas las preguntas, deshabilitado para todas, o configurado para cada pregunta individualmente.",
           "options": [
             {
               "label": "Habilitado"

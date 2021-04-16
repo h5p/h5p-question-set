@@ -1,168 +1,168 @@
 {
   "semantics": [
     {
-      "label": "راهنمای سوال",
+      "label": "مقدمه آزمون",
       "fields": [
         {
-          "label": "نمایش راهنما"
+          "label": "نمایش مقدمه"
         },
         {
           "label": "عنوان",
-          "description": "این عنوان در بالای خلاصه نمایش داده میشود."
+          "description": "این عنوان در بالای متن مقدمه نمایش داده خواهد شد."
         },
         {
-          "label": "خلاصه متن",
-          "description": "این متن قبل از شروع آزمون نمایش داده میشود"
+          "label": "متن مقدمه",
+          "description": "این متن قبل از شروع آزمون نمایش داده خواهد شد."
         },
         {
           "label": "متن دکمه شروع",
           "default": "شروع آزمون"
         },
         {
-          "label": "تصویر پس زمینه",
-          "description": "یک تصویر انتخابی برای قرارگرفتن در پس زمینه خلاصه"
+          "label": "تصویر پس‌زمینه",
+          "description": "یک تصویر انتخابی برای قرارگرفتن در پس‌زمینه مقدمه."
         }
       ]
     },
     {
-      "label": "تصویر پس زمینه",
-      "description": "یک تصویر انتخابی برای قرار گرفتن در پس زمینه گروه سوالات"
+      "label": "تصویر پس‌زمینه",
+      "description": "یک تصویر انتخابی برای قرار گرفتن در پس‌زمینه مجموعه سوالات."
     },
     {
-      "label": "جداکننده فرآیند",
-      "description": "حالت نمایش جداکننده سوالات",
+      "label": "شاخص پیشرفت",
+      "description": "حالت نمایش شاخص پیشرفت مجموعه سؤالات.",
       "options": [
         {
           "label": "متنی"
         },
         {
-          "label": "نقطه ای"
+          "label": "نقطه‌ای"
         }
       ]
     },
     {
-      "label": "درصد پاس شدن",
-      "description": "درصدی که برای پاس شدن این آزمون مورد نیاز است"
+      "label": "درصد قبولی",
+      "description": "درصد از نمره کل که برای قبولی در این آزمون مورد نیاز است."
     },
     {
-      "label": "سوالات",
+      "label": "سؤالات",
       "widgets": [
         {
-          "label": "Default"
+          "label": "پیش‌فرض"
         },
         {
           "label": "متنی"
         }
       ],
-      "entity": "question",
+      "entity": "سؤال",
       "field": {
         "label": "نوع سوال",
-        "description": "کتابخانه برای این سوال"
+        "description": "کتابخانه برای این سؤال."
       }
     },
     {
-      "label": "متن نمایشی برای این آزمون",
+      "label": "متون نمایشی برای آزمون",
       "fields": [
         {
-          "label": "دکمه بازگشت",
-          "default": "Previous question"
+          "label": "دکمه برگشت",
+          "default": "سؤال قبل"
         },
         {
           "label": "دکمه بعدی",
-          "default": "Next question"
+          "default": "سؤال بعدی"
         },
         {
           "label": "دکمه پایان",
-          "default": "Finish"
+          "default": "پایان"
         },
         {
           "label": "متن پیشرفت",
-          "description": "متن مورد استفاده در صورتی که پیشرفت متنی انتخاب شده باشد",
-          "default": "Question: @current of @total questions"
+          "description": "متن مورد استفاده در صورتی که پیشرفت متنی انتخاب شده باشد.",
+          "default": "سؤال: @current از @total سؤال"
         },
         {
           "label": "متن برای پریدن به یک سوال خاص",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "description": "شما باید به جای شماره سؤال، از جانگه‌دار '‎%d' استفاده کنید، و به جای تعداد کل سؤالات از ‎%total استفاده کنید.",
+          "default": "سؤال ‎%d از ‎%total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "برچسب سؤال دیالوگ حق نشر",
+          "default": "سؤال"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "پیشرفت تبدیل متن به گفتار",
+          "description": "می‌توان از متغیرهای سؤال ‎@current و ‎@total استفاده کرد",
+          "default": "سؤال ‎‎@current از ‎@total"
         },
         {
-          "label": "متن سوالات پاسخ داده نشده",
+          "label": "متن سؤال پاسخ داده نشده",
           "default": "بدون پاسخ"
         },
         {
-          "label": "متن سوالات پاسخ داده شده",
+          "label": "متن سؤال پاسخ داده شده",
           "default": "پاسخ داده شده"
         },
         {
-          "label": "متن سوال فعلی",
-          "default": "Current question"
+          "label": "متن سؤال فعلی",
+          "default": "سؤال کنونی"
         }
       ]
     },
     {
-      "label": "غیرفعال کردن دکمه بازگشت",
-      "description": "این گزینه به شما اجازه میدهد که در فقط در سوالات به جلو بروید"
+      "label": "غیرفعال کردن پیمایش به عقب",
+      "description": "این گزینه به شما اجازه می‌دهد که در مجموعه سؤالات به جلو بروید"
     },
     {
-      "label": "سوالات تصادفی",
-      "description": "با انتخاب این گزینه سوالات به صورت تصادفی نمایش داده میشود"
+      "label": "تصادفی کردن سؤالات",
+      "description": "با انتخاب این گزینه سؤالات به صورت تصادفی نمایش داده می‌شوند."
     },
     {
-      "label": "تعداد سوالاتی که باید نمایش داده شود:",
-      "description": "تعدادی از سوالات بالا را به صورت تصادفی در آزمون نمایش میدهد"
+      "label": "تعداد سؤالاتی که باید نمایش داده شوند:",
+      "description": "دسته‌ای از سؤالات را به صورت تصادفی در آزمون نمایش می‌دهد."
     },
     {
-      "label": "آزمون به پایان رسیده",
+      "label": "آزمون به پایان رسید",
       "fields": [
         {
           "label": "نمایش نتایج"
         },
         {
-          "label": "دکمه نمایش راه حل"
+          "label": "نمایش دکمه پاسخ صحیح"
         },
         {
-          "label": "Display retry button"
+          "label": "نمایش دکمه تلاش مجدد"
         },
         {
           "label": "پیام عدم وجود نتایج",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "description": "متن نمایش داده شده در صفحه آخر، وقتی «نمایش نتایج» غیرفعال است",
+          "default": "به پایان رسید"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "سرصفحه بازخورد",
+          "default": "نتیجه شما:",
+          "description": "این سرصفحه در انتهای آزمون، وقتی کاربر به همه سؤالات پاسخ داد، نمایش داده خواهد شد."
         },
         {
-          "label": "Overall Feedback",
+          "label": "بازخورد سراسری",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "پیش‌فرض"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "label": "برای هر بازه نمره، بازخورد سفارشی تعریف کن",
+              "description": "مثال: ۰ - ۲۰ ٪ نمره بد، ۲۱ - ۹۱٪ نمره متوسط، ۹۱ - ۱۰۰ ٪ نمره عالی!",
+              "entity": "بازه",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "بازه نمره"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "بازخورد برای بازه نمره تعریف شده",
+                    "placeholder": "بازخورد را پر کنید"
                   }
                 ]
               }
@@ -170,88 +170,88 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "بازخورد پیشین",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "تبریک قبولی در آزمون",
+              "description": "اگر کاربر با موفقیت در آزمون قبول شده باشد، این متن در بالای نمره نمایش خواهد شد."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "یادداشت قبولی",
+              "description": "اگر کاربر با موفقیت در آزمون قبول شده باشد، این یادداشت بعد از نمره نمایش داده خواهد شد."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "عنوان مردودی در آزمون",
+              "description": "اگر کاربر در آزمون مردود شود، این متن بالای نمره نمایش داده خواهد شد."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "یادداشت مردودی",
+              "description": "اگر کاربر در آزمون مردود شده باشد، این یادداشت بعد از نمره نمایش داده خواهد شد."
             }
           ]
         },
         {
-          "label": "Solution button label",
-          "default": "Show solution",
-          "description": "Text for the solution button."
+          "label": "برچسب دکمه پاسخ صحیح",
+          "default": "پاسخ صحیح را نشان بده",
+          "description": "متن برای دکمه پاسخ صحیح."
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "برچسب دکمه تلاش مجدد",
+          "default": "تلاش مجدد",
+          "description": "متن برای دکمه تلاش مجدد."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "متن دکمه پایان",
+          "default": "پایان"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "ویدئو را پیش از نتایج آزمون نمایش بده"
         },
         {
-          "label": "Enable skip video button"
+          "label": "دکمه پرش از ویدئو را فعال کن"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "برچسب دکمه پرش از ویدئو",
+          "default": "پرش از ویدئو"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "ویدئو قبولی",
+          "description": "اگر کاربر با موفقیت در آزمون قبول شود، این ویدئو پخش خواهد شد."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user fails the quiz."
+          "label": "ویدئو مردودی",
+          "description": "اگر کاربر در آزمون مردود شود، این ویدئو پخش خواهد شد."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "تنظیمات برای «نمایش پاسخ صحیح» و «تلاش مجدد»",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "نمایش دکمه «بررسی»",
+          "description": "این گزینه تعیین می‌کند که آیا دکمه «بررسی» برای همه سؤال‌ها نمایش داده خواهد شد."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "حذف دکمه «نمایش پاسخ صحیح»",
+          "description": "این گزینه تعیین می‌کند که آیا دکمه «نمایش پاسخ صحیح» برای همه سؤال‌ها نشان داده خواهد شد، برای همه غیرفعال خواهد شد یا برای هر سؤال تنظیم خواهد شد.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "فعال"
             },
             {
-              "label": "Disabled"
+              "label": "غیرفعال"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "حذف دکمه «تلاش مجدد»",
+          "description": "این گزینه تعیین می‌کند که آیا دکمه «تلاش مجدد» برای همه سؤال‌ها نشان داده خواهد شد، برای همه غیرفعال خواهد شد یا برای هر سؤال تنظیم خواهد شد.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "فعال"
             },
             {
-              "label": "Disabled"
+              "label": "غیرفعال"
             }
           ]
         }
