@@ -82,7 +82,7 @@
         },
         {
           "label": "Popisek pro skok na určitou otázku",
-          "description": "Musíte použít zástupný symbo '%d' namísto čísla otázky, a %total namísto celkového počtu otázek.",
+          "description": "Musíte použít zástupný symbol \"%d\" namísto čísla otázky, a %total namísto celkového počtu otázek.",
           "default": "Otázka %d z %total"
         },
         {
@@ -134,7 +134,7 @@
         },
         {
           "label": "Žádná zpráva o výsledcích",
-          "description": "Text zobrazený na konci stránky, když je zakázáno \"Display results\" ",
+          "description": "Text zobrazený na konci stránky, když je zakázáno \"Zobrazit výsledky\"",
           "default": "Dokončeno"
         },
         {
@@ -157,7 +157,7 @@
               "field": {
                 "fields": [
                   {
-                    "label": "Rozsah skóra"
+                    "label": "Rozsah skóre"
                   },
                   {},
                   {
@@ -225,15 +225,15 @@
       ]
     },
     {
-      "label": "Nastavení tlačítek \"Show solution\" a \"Retry\" ",
+      "label": "Nastavení tlačítek \"Zobrazit výsledek\" a \"Opakovat\"",
       "fields": [
         {
-          "label": "Zobrazit tlačítko \"Check\" ",
-          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Check\" ."
+          "label": "Zobrazit tlačítko \"Zkontrolovat\"",
+          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Zkontrolovat\" ."
         },
         {
-          "label": "Přepsat tlačítko \"Show Solution\" ",
-          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Show Solution\" , nebo bude zakázané pro všechny nebo nakonfigurované pro každou otázku samostatně.",
+          "label": "Přepsat tlačítko \"Zobrazit řešení\"",
+          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Zobrazit řešení\" , nebo bude zakázané pro všechny nebo nakonfigurované pro každou otázku samostatně.",
           "options": [
             {
               "label": "Povoleno"
@@ -244,8 +244,8 @@
           ]
         },
         {
-          "label": "Přepsat tlačítko \"Retry\" ",
-          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Retry\" , nebo bude zakázané pro všechny nebo nakonfigurované pro každou otázku samostatně.",
+          "label": "Přepsat tlačítko \"Opakovat\"",
+          "description": "Tato volba určuje, zda se u všech otázek zobrazí tlačítko \"Opakovat\" , nebo bude zakázané pro všechny nebo nakonfigurované pro každou otázku samostatně.",
           "options": [
             {
               "label": "Povoleno"
