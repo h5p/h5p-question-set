@@ -456,6 +456,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (var i = 0; i < questionInstances.length; i++) {
 
       // Enable back and forth navigation in solution mode
+      toggleAnsweredDot(i, questionInstances[i].getAnswerGiven());
       toggleDotsNavigation(true);
       if (i < questionInstances.length - 1) {
         questionInstances[i].showButton('next');
