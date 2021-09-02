@@ -1240,6 +1240,18 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       children: getXAPIDataFromChildren(this)
     };
   };
+
+  /**
+   * Get context data.
+   * Contract used for confusion report.
+   */
+  this.getContext = function () {
+    // Get question index and add 1, count starts from 0
+    return {
+      type: 'question',
+      value: (currentQuestion + 1)
+    };
+  };
 };
 
 H5P.QuestionSet.prototype = Object.create(H5P.EventDispatcher.prototype);
