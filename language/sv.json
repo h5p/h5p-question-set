@@ -228,8 +228,8 @@
       "label": "Inställningar för knapparna \"Visa lösning\" och \"Försök igen\"",
       "fields": [
         {
-          "label": "Visa \"Rätta\"-knappar",
-          "description": "Denna inställning avgör om knappen \"Rätta\" ska visas på alla frågor."
+          "label": "Visa \"Svara\"-knappar",
+          "description": "Denna inställning avgör om knappen \"Svara\" (som visar om svaret var korrekt eller ej) ska visas på alla frågor."
         },
         {
           "label": "Ignorera knapp \"Visa rätt svar\"",
