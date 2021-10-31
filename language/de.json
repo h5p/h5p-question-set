@@ -110,7 +110,7 @@
     },
     {
       "label": "Rückwärts-Navigation deaktivieren",
-      "description": "Wenn aktiviert, kann der Nutzer nur vorwärts durch den Fragensatz navigieren."
+      "description": "Wenn aktiviert, kann der Nutzer nur vorwärts durch den Fragensatz navigieren"
     },
     {
       "label": "Fragen zufällig anordnen",
