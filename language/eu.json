@@ -48,7 +48,7 @@
       "label": "Galderak",
       "widgets": [
         {
-          "label": "Lehenetsia"
+          "label": "Lehenetsitakoa"
         },
         {
           "label": "Testuala"
@@ -151,7 +151,7 @@
                   "label": "Lehenetsia"
                 }
               ],
-              "label": "Definitu feedback pertsonalizatua edozein puntuazio tarterako",
+              "label": "Zehaztu ezazu edozein puntuazio-tarterako feedback pertsonalizatua",
               "description": "Adibidez: 0-2%0 Puntuazio txarra, %21-%91 Tarteko puntuazioa, %91-%100 Puntuazio bikaina!",
               "entity": "tartea",
               "field": {
@@ -161,8 +161,8 @@
                   },
                   {},
                   {
-                    "label": "Definitutako puntuazio tarterako feedbacka",
-                    "placeholder": "Bete feedbacka"
+                    "label": "Zehaztutako tartearentzako feedbacka",
+                    "placeholder": "Idatzi ezazu feedbacka"
                   }
                 ]
               }
