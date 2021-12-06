@@ -76,6 +76,10 @@
           "default": "סיום"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "תוכן מתקדם",
           "description": "תוכן שבו נעשה שימוש אם תוכן מתקדם נבחר.",
           "default": "שאלה: current@ מתוך total@ שאלות"
@@ -203,6 +207,10 @@
         {
           "label": "\"תוכן כפתור \"סיום",
           "default": "סיום"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "יש להציג וידאו לפני תוצאות החידון"

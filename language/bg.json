@@ -76,6 +76,10 @@
           "default": "Край"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Текст за напредък",
           "description": "Текст, който се използва в случай, че е избран да се показва напредъка.",
           "default": "Въпрос: @current от @total въпроси"
@@ -203,6 +207,10 @@
         {
           "label": "Текст за бутон Край",
           "default": "Край"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Показване на видео преди резултатите от теста"

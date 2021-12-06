@@ -76,6 +76,10 @@
           "default": "Bitir"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "İlerleme metni",
           "description": "İlerleme göstergesi olarak metin seçildiyse kullanılacak metin.",
           "default": "Soru: @current / @total"
@@ -204,6 +208,10 @@
         {
           "label": "Bitir butonu için etiket",
           "default": "Bitir"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Sınav sonuçlarından önce videoyu göster"

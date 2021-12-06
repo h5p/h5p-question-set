@@ -76,6 +76,10 @@
           "default": "Завершить"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Текст прогресса",
           "description": "Текст, используемый, если выбран текстовый прогресс.",
           "default": "Вопрос: @current из @total вопросов"
@@ -203,6 +207,10 @@
         {
           "label": "Текст кнопки завершения",
           "default": "Завершить"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Показать видео до результатов теста"

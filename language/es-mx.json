@@ -76,6 +76,10 @@
           "default": "Terminar"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Texto del Progreso",
           "description": "Texto usado si progreso textual es seleccionado.",
           "default": "Pregunta: @current de @total preguntas"
@@ -203,6 +207,10 @@
         {
           "label": "Texto botón Terminar",
           "default": "Terminar"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Mostrar video antes de resultados del examen"

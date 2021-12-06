@@ -76,6 +76,10 @@
           "default": "Potrdi"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Besedilo o napredku",
           "description": "Besedilo v primeru izbire tekstovnega indikatorja napredka.",
           "default": "Vprašanje: @current od @total"
@@ -203,6 +207,10 @@
         {
           "label": "Besedilo gumba \"Potrdi\"",
           "default": "Potrdi"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Predvajaj videoposnetek ob zaključku kviza"

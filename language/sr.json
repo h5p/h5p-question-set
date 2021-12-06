@@ -76,6 +76,10 @@
           "default": "Заврши"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Текст напретка",
           "description": "Текст који се користи ако је одабран текстуални напредак.",
           "default": "Питање: @current од @total питања"
@@ -203,6 +207,10 @@
         {
           "label": "Текст дугмета - Заврши",
           "default": "Заврши"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Прикажите видео пре резултата квиза"

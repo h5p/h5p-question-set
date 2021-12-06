@@ -76,6 +76,10 @@
           "default": "완료"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "진행률 텍스트",
           "description": "텍스트형 진행률을 선택한 경우 사용되는 글자.",
           "default": "Question: 총 @total 질문 중 현재 @current"
@@ -203,6 +207,10 @@
         {
           "label": "완료 버튼 텍스트",
           "default": "완료"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "퀴즈 결과 전에 비디오 표시"

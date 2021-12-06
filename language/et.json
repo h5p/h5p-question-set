@@ -76,6 +76,10 @@
           "default": "Valmis"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Edenemise tekst",
           "description": "Test, mida kasutatakse, kui valitud on tekstiline edenemisosuti.",
           "default": "Küsimus: @current kokku @total küsimusest"
@@ -203,6 +207,10 @@
         {
           "label": "Valmis nupu tekst",
           "default": "Valmis"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Kuva videot enne viktoriini tulemusi"

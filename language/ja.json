@@ -76,6 +76,10 @@
           "default": "完了"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "進行状況のテキスト",
           "description": "テキストによる進行状況を選択した場合に使用するテキスト。",
           "default": "設問: @current / @total"
@@ -203,6 +207,10 @@
         {
           "label": "完了ボタンのテキスト",
           "default": "完了"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "クイズの結果の前にビデオを表示"

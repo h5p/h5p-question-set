@@ -76,6 +76,10 @@
           "default": "Finalitza"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Text del progrés",
           "description": "Text que s’utilitza si se selecciona el progrés textual.",
           "default": "Pregunta: @current de @total"
@@ -203,6 +207,10 @@
         {
           "label": "Text del botó \"Finalitza\"",
           "default": "Finalitza"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Mostra el vídeo abans dels resultats del qüestionari"

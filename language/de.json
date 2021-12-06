@@ -76,6 +76,10 @@
           "default": "Beenden"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Text der Fortschrittsanzeige",
           "description": "Verwendeter Text, wenn Fortschrittsanzeige in Textform gewählt wurde.",
           "default": "Aktuelle Frage: @current von @total Fragen"
@@ -203,6 +207,10 @@
         {
           "label": "Beschriftung des \"Beenden\"-Buttons",
           "default": "Beenden"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Zeige ein Video vor den Ergebnissen an"

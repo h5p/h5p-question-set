@@ -76,6 +76,10 @@
           "default": "完成"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "進度",
           "description": "若進度指示選擇以文字方式呈現，則以文字方式顯示.",
           "default": "問題:第 @current 題，共 @total 題"
@@ -203,6 +207,10 @@
         {
           "label": "完成功能鈕名稱",
           "default": "完成"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "在測驗結果前撥放影片"

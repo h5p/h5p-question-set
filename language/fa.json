@@ -76,6 +76,10 @@
           "default": "پایان"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "متن پیشرفت",
           "description": "متن مورد استفاده در صورتی که پیشرفت متنی انتخاب شده باشد.",
           "default": "سؤال: @current از @total سؤال"
@@ -203,6 +207,10 @@
         {
           "label": "متن دکمه پایان",
           "default": "پایان"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "ویدئو را پیش از نتایج آزمون نمایش بده"

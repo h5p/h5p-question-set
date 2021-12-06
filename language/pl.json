@@ -76,6 +76,10 @@
           "default": "Zakończ"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Tekst postępu",
           "description": "Ten tekst zostanie wyświetlony, jeśli wybrana zostanie opcja wyświetlania postępu tekstowo.",
           "default": "Pytanie @current z @total"
@@ -203,6 +207,10 @@
         {
           "label": "Etykieta przycisku zakończenia",
           "default": "Zakończ"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Odtwórz wideo przed ekranem wyników"

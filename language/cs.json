@@ -76,6 +76,10 @@
           "default": "Dokončit"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Text průběhu",
           "description": "Text použitý, pokud je vybrán textový průběh.",
           "default": "Otázka: @current z @total otázek"
@@ -203,6 +207,10 @@
         {
           "label": "Popisek tlačítka dokončit",
           "default": "Dokončit"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Zobrazit video před výsledky testu"

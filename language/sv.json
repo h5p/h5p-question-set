@@ -76,6 +76,10 @@
           "default": "Avsluta"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Text för framsteg",
           "description": "Text som används om textuella framsteg är valt.",
           "default": "Fråga: @current av @total frågor"
@@ -203,6 +207,10 @@
         {
           "label": "Text för knappen Avsluta",
           "default": "Avsluta"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Visa video före resultat från denna quiz"
