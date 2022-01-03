@@ -193,12 +193,12 @@
         {
           "label": "Besedilo za gumb \"Prikaži rešitev\"",
           "default": "Prikaži rešitev",
-          "description": ""
+          "description": "Text for the solution button."
         },
         {
           "label": "Besedilo za gumb \"Poskusi ponovno\"",
           "default": "Poskusi ponovno",
-          "description": ""
+          "description": "Text for the retry button."
         },
         {
           "label": "Besedilo gumba \"Potrdi\"",
