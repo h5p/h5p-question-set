@@ -76,6 +76,10 @@
           "default": "Críochnaigh"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Progress text",
           "description": "Text used if textual progress is selected.",
           "default": "Ceist: @current as @total"
@@ -203,6 +207,10 @@
         {
           "label": "Finish button text",
           "default": "Críochnaigh"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Display video before quiz results"

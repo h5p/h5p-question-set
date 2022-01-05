@@ -76,6 +76,10 @@
           "default": "Finish"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Progress text",
           "description": "Text used if textual progress is selected.",
           "default": "Question: @current of @total questions"
@@ -203,6 +207,14 @@
         {
           "label": "Finish button text",
           "default": "Finish"
+        },
+        {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Display video before quiz results"

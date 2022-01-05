@@ -35,6 +35,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       prevButton: 'Previous question',
       nextButton: 'Next question',
       finishButton: 'Finish',
+      submitButton: 'Submit',
       textualProgress: 'Question: @current of @total questions',
       jumpToQuestion: 'Question %d of %total',
       questionLabel: 'Question',
@@ -55,6 +56,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       },
       overallFeedback: [],
       finishButtonText: 'Finish',
+      submitButtonText: 'Submit',
       solutionButtonText: 'Show solution',
       retryButtonText: 'Retry',
       showAnimations: false,
@@ -65,6 +67,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     override: {},
     disableBackwardsNavigation: false
   };
+  this.isSubmitting = contentData
+         && (contentData.isScoringEnabled || contentData.isReportingEnabled);
   var params = $.extend(true, {}, defaults, options);
 
   var texttemplate =
@@ -750,7 +754,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         message: params.endGame.showResultPage ? params.endGame.message : params.endGame.noResultMessage,
         comment: params.endGame.showResultPage ? (success ? params.endGame.oldFeedback.successGreeting : params.endGame.oldFeedback.failGreeting) : undefined,
         resulttext: params.endGame.showResultPage ? (success ? params.endGame.oldFeedback.successComment : params.endGame.oldFeedback.failComment) : undefined,
-        finishButtonText: params.endGame.finishButtonText,
+        finishButtonText: (self.isSubmitting) ? params.endGame.submitButtonText : params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText,
         retryButtonText: params.endGame.retryButtonText
       };
@@ -873,7 +877,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       registerImageLoadedListener(question);
 
       // Add finish button
-      question.addButton('finish', params.texts.finishButton,
+      const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.endGame.finishButton
+      question.addButton('finish', finishButtonText,
         moveQuestion.bind(this, 1), false);
 
       // Add next button

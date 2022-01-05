@@ -76,6 +76,10 @@
           "default": "Завершити"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Текст прогресу",
           "description": "Текст, який використовується якщо обрано текстовий прогрес.",
           "default": "Запитання: @current із @total запитань"
@@ -203,6 +207,10 @@
         {
           "label": "Текст кнопки завершення",
           "default": "Завершити"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Показати відео до результатів тесту"

@@ -76,6 +76,10 @@
           "default": "បញ្ចប់"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Progress text",
           "description": "Text used if textual progress is selected.",
           "default": "សំណួរ: @current ចំណោម @total សំណួរ"
@@ -203,6 +207,10 @@
         {
           "label": "Finish button text",
           "default": "បញ្ចប់"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Display video before quiz results"

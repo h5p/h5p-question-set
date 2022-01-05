@@ -76,6 +76,10 @@
           "default": "Kraj"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Početni tekst",
           "description": "Koristi tekst ako je izabran za napredak u pisanom obliku.",
           "default": "Aktuelno pitanje: @current od @total pitanja"
@@ -203,6 +207,10 @@
         {
           "label": "Prikaži video prije rezultata kviza",
           "default": "Kraj"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Aktiviraj dugme \"Preskoči vidio\""

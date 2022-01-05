@@ -76,6 +76,10 @@
           "default": "Klaar"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Tekst bij voortgang",
           "description": "Deze tekst wordt gebruikt als 'Tekst' als voortgangsindicator is geselecteerd.",
           "default": "Vraag: @current van @total vragen"
@@ -203,6 +207,10 @@
         {
           "label": "Tekst voor de beëindigings-knop",
           "default": "Klaar"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Toon video voor de quizresultaten"

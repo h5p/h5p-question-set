@@ -76,6 +76,10 @@
           "default": "Finish"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "نص التقدم",
           "description": "النص المستخدم إذا تم تحديد التقدم نصيا",
           "default": "Question: @current of @total questions"
@@ -203,6 +207,10 @@
         {
           "label": "نص زر الانتهاء",
           "default": "Finish"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "عرض الفيديو قبل نتائج المسابقة"

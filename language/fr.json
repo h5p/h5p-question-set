@@ -76,6 +76,10 @@
           "default": "Terminer"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Texte de progression",
           "description": "Texte utilisé si la progression textuelle a été sélectionnée.",
           "default": "Question @current sur @total"
@@ -203,6 +207,10 @@
         {
           "label": "Texte pour le bouton de fin",
           "default": "Terminer"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Afficher une vidéo avant l'affichage des résultats du quiz"

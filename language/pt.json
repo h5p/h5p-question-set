@@ -76,6 +76,10 @@
           "default": "Terminar"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Texto do progresso",
           "description": "Texto a utilizar se o progresso textual estiver ativo.",
           "default": "Questão: @current de @total questões"
@@ -203,6 +207,10 @@
         {
           "label": "Texto para o botão terminar",
           "default": "Terminar"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Mostrar video antes dos resultados do questionário"

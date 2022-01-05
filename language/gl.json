@@ -76,6 +76,10 @@
           "default": "Rematar"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Texto de progreso",
           "description": "Texto usado ao seleccionar progreso textual.",
           "default": "Pregunta: @current de @total preguntas"
@@ -203,6 +207,10 @@
         {
           "label": "Texto para o botón rematar",
           "default": "Rematar"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Amosar vídeo antes dos resultados do cuestionario"

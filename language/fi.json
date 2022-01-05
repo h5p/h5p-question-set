@@ -76,6 +76,10 @@
           "default": "Lopeta"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Edistyminen",
           "description": "Tekstiä käytetään mikäli tekstimuotoinen edistymisen näyttäminen on valittuna.",
           "default": "Kysymys @current/@total"
@@ -203,6 +207,10 @@
         {
           "label": "Painikkeen \"Lopeta\" teksti",
           "default": "Lopeta"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Näytä video ennen tuloksia"

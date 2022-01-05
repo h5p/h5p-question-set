@@ -76,6 +76,10 @@
           "default": "Bukatu"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Aurrerapenaren testua",
           "description": "Testu-aurrerapena hautatuta badago erabiltzen den testua.",
           "default": "Galdera: @total galderetatik @current -garrena"
@@ -203,6 +207,10 @@
         {
           "label": "Bukatu botoiaren testua",
           "default": "Bukatu"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Bistaratu bideoa galdetegiaren emaitzen aurretik"

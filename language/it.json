@@ -76,6 +76,10 @@
           "default": "Finito"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Testo di avanzamento",
           "description": "Testo usato se è selezionato l'avanzamento testuale",
           "default": "Domanda: @current di @total domande totali"
@@ -203,6 +207,10 @@
         {
           "label": "Testo del pulsante di fine prova",
           "default": "Finito"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Mostra il video prima dei risultati della prova"

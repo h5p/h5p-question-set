@@ -76,6 +76,10 @@
           "default": "Klaar"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Vordering teks",
           "description": "Teks gebruik indien tektuele vordering gekies is.",
           "default": "Vraag: @current van @total vrae"
@@ -203,6 +207,10 @@
         {
           "label": "Klaar knoppieteks",
           "default": "Klaar"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Vertoon video voor vasvra uitslae"
