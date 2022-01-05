@@ -766,7 +766,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           _showQuestion(params.initialQuestion);
         });
         hookUpButton('.qs-retrybutton', function () {
-          resetTask();
+          self.resetTask();
           $myDom.children().hide();
 
           var $intro = $('.intro-page', $myDom);
