@@ -496,7 +496,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * Used for contracts with integrated content.
    * @public
    */
-  var resetTask = function () {
+  this.resetTask = function () {
 
     // Clear previous state to ensure questions are created cleanly
     contentData.previousState = [];
