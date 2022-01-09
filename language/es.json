@@ -76,7 +76,7 @@
           "default": "Terminar"
         },
         {
-          "label": "Submit button",
+          "label": "Botón Enviar",
           "default": "Submit"
         },
         {
@@ -86,7 +86,7 @@
         },
         {
           "label": "Etiqueta para saltar a una pregunta dada",
-          "description": "Usted debe usar el remplazable '%d' en sustitución del número de la pregunta, y %total en lugar de cantidad total de preguntas.",
+          "description": "Usted debe usar el reemplazable '%d' en sustitución del número de la pregunta, y %total en lugar de cantidad total de preguntas.",
           "default": "Pregunta %d de %total"
         },
         {
@@ -209,8 +209,8 @@
           "default": "Terminar"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Texto del botón Enviar",
+          "default": "Enviar"
         },
         {
           "label": "Mostrar video antes de resultados del examen"
