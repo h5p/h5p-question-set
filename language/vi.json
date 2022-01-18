@@ -209,10 +209,6 @@
           "default": "Finish"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
-        },
-        {
           "label": "Submit button text",
           "default": "Submit"
         },
