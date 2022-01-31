@@ -77,7 +77,7 @@
         },
         {
           "label": "Submit button",
-          "default": "Submit"
+          "default": "Vérifier"
         },
         {
           "label": "Texte de progression",
