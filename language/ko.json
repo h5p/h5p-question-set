@@ -76,8 +76,8 @@
           "default": "완료"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "제출하기 버튼",
+          "default": "제출하기"
         },
         {
           "label": "진행률 텍스트",
