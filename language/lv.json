@@ -77,8 +77,7 @@
         },
         {
           "label": "Poga Iesniegt",
-          "default": "Iesniegt",
-          "description": "Teksts tiek izmantots, ja ir izvēlēta progresa atspoguļošana tekstā."
+          "default": "Iesniegt"
         },
         {
           "label": "Progresa teksts",
@@ -92,7 +91,6 @@
         },
         {
           "label": "Autortiesību dialoga jautājuma etiķete",
-          "description": "Var izmantot @current un @total jautājumu mainīgos",
           "default": "Jautājums"
         },
         {
@@ -218,12 +216,10 @@
           "label": "Parādīt video pirms testa rezultātiem"
         },
         {
-          "label": "Iespējot video izlaišanas pogu",
-          "default": "Izlaist video"
+          "label": "Iespējot video izlaišanas pogu"
         },
         {
           "label": "Video izlaišanas pogas etiķete",
-          "description": "Šis videoklips tiks atskaņots, ja lietotājs sekmīgi nokārtos testu.",
           "default": "Izlaist video"
         },
         {
