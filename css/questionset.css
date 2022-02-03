@@ -253,3 +253,7 @@
 .questionset .h5p-question.h5p-dragquestion .h5p-my-fullscreen-button-exit {
   display: none;
 }
+
+.questionset .h5p-essay .h5p-essay-input-field-message-wrapper {
+  display: none;
+}

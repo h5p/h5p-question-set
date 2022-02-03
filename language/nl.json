@@ -1,10 +1,10 @@
 {
   "semantics": [
     {
-      "label": "Quiz introductie",
+      "label": "Quiz inleiding",
       "fields": [
         {
-          "label": "Toon de introductie"
+          "label": "Toon inleiding"
         },
         {
           "label": "Titel",
@@ -15,12 +15,12 @@
           "description": "Deze tekst zal worden getoond voordat de quiz begint."
         },
         {
-          "label": "Tekst van de startknop",
-          "default": "Start"
+          "label": "Tekst van \"Start\"-knop",
+          "default": "Start quiz"
         },
         {
           "label": "Achtergrondafbeelding",
-          "description": "Een optionele achtergrondafbeelding voor de introductie."
+          "description": "Een optionele achtergrondafbeelding voor de inleiding."
         }
       ]
     },
@@ -30,10 +30,10 @@
     },
     {
       "label": "Voortgangsindicator",
-      "description": "Lay-out voortgangsindicator van de vragenreeks.",
+      "description": "Stijl van voortgangsindicator van de vragenreeks.",
       "options": [
         {
-          "label": "Tekst"
+          "label": "Tekstueel"
         },
         {
           "label": "Punten"
@@ -42,7 +42,7 @@
     },
     {
       "label": "Slagingspercentage",
-      "description": "Percentage van de totale score dat vereist is om te slagen."
+      "description": "Percentage van totale score dat vereist is om te slagen voor quiz."
     },
     {
       "label": "Vragen",
@@ -73,11 +73,11 @@
         },
         {
           "label": "Beëindigings-knop",
-          "default": "Klaar"
+          "default": "Stoppen"
         },
         {
           "label": "Submit button",
-          "default": "Submit"
+          "default": "Controleer"
         },
         {
           "label": "Tekst bij voortgang",
@@ -85,40 +85,40 @@
           "default": "Vraag: @current van @total vragen"
         },
         {
-          "label": "Label voor naar een bepaalde vraag te springen",
+          "label": "Label om naar een bepaalde vraag te springen",
           "description": "Je moet de plaatsaanduiding '%d' gebruiken in plaats van het vraagnummer, en %total in plaats van het totaal aantal vragen.",
           "default": "Vraag %d van %total"
         },
         {
-          "label": "Label van copyright dialoogvraag",
+          "label": "Label van vraag in copyrightdialoog",
           "default": "Vraag"
         },
         {
-          "label": "Readspeaker voortgang",
+          "label": "Schermlezer voortgang",
           "description": "Je mag @current gebruiken en @total als vraagvariabelen",
           "default": "Vraag @current van @total"
         },
         {
-          "label": "Tekst van de onbeantwoorde vraag",
-          "default": "Onbeantwoord"
+          "label": "Tekst van niet-beantwoorde vraag",
+          "default": "Niet-beantwoord"
         },
         {
-          "label": "Tekst van de beantwoorde vraag",
+          "label": "Tekst van beantwoorde vraag",
           "default": "Beantwoord"
         },
         {
-          "label": "Tekst van de huidige vraag",
+          "label": "Tekst van huidige vraag",
           "default": "Huidige vraag"
         }
       ]
     },
     {
-      "label": "Achteruit navigeren uitschakelen",
+      "label": "Achterwaarts navigeren uitschakelen",
       "description": "Deze optie staat je alleen toe voorwaarts te navigeren in de vragenreeks"
     },
     {
-      "label": "Vragen willekeurig indelen",
-      "description": "Vragen in willekeurige volgorde inschakelen."
+      "label": "Vragen willekeurig ordenen",
+      "description": "Vragen bij weergave in willekeurige volgorde inschakelen."
     },
     {
       "label": "Het aantal te tonen vragen:",
@@ -131,20 +131,20 @@
           "label": "Toon de resultaten"
         },
         {
-          "label": "Toon de oplossings-knop"
+          "label": "Toon \"Oplossing\"-knop"
         },
         {
-          "label": "Toon opnieuw proberen-knop"
+          "label": "Toon \"Opnieuw\"-knop"
         },
         {
           "label": "Geen resultaten bericht",
-          "description": "De getoonde tekst op de eindpagina wanneer \"Toon resultaten\" is uitgeschakeld",
+          "description": "Getoonde tekst op de eindpagina wanneer \"Toon resultaten\" is uitgeschakeld",
           "default": "Voltooid"
         },
         {
           "label": "Feedback koptekst",
           "default": "Je resultaat:",
-          "description": "Deze koptekst verschijnt aan het einde van de test wanneer de deelnemer alle vragen heeft beantwoord."
+          "description": "Deze koptekst verschijnt aan het einde van de quiz wanneer de deelnemer alle vragen heeft beantwoord."
         },
         {
           "label": "Algehele feedback",
@@ -166,7 +166,7 @@
                   {},
                   {
                     "label": "Feedback voor de gedefinieerde scorereeks",
-                    "placeholder": "Vul de aangepaste feedback in"
+                    "placeholder": "Vul de feedback in"
                   }
                 ]
               }
@@ -178,11 +178,11 @@
           "fields": [
             {
               "label": "Begroeting bij een geslaagde quiz",
-              "description": "Deze tekst wordt boven de score weergegeven als de deelnemer de test met goed gevolg heeft afgelegd."
+              "description": "Deze tekst wordt boven de score getoond als de deelnemer de test met goed gevolg heeft afgelegd."
             },
             {
               "label": "Commentaar bij geslaagd",
-              "description": "Deze opmerking wordt weergegeven na de score als de deelnemer de test met goed gevolg heeft afgelegd."
+              "description": "Dit commentaar wordt getoond na de score als de deelnemer de test met goed gevolg heeft afgelegd."
             },
             {
               "label": "Titel bij niet behaalde quiz",
@@ -190,23 +190,23 @@
             },
             {
               "label": "Commentaar bij niet behaald",
-              "description": "Deze opmerking wordt weergegeven na de score als de deelnemer de test niet heeft gehaald."
+              "description": "Dit commentaar wordt getoond na de score als de deelnemer de test niet heeft gehaald."
             }
           ]
         },
         {
-          "label": "Label van de oplossings-knop",
+          "label": "Label van \"Oplossing\"-knop",
           "default": "Toon oplossing",
-          "description": "Tekst voor de oplossings-knop."
+          "description": "Tekst voor \"Oplossing\"-knop."
         },
         {
-          "label": "Label van de opnieuw proberen-knop",
-          "default": "Opnieuw proberen",
-          "description": "Tekst voor de opnieuw proberen-knop."
+          "label": "Label van \"Opnieuw\"-knop",
+          "default": "Opnieuw",
+          "description": "Tekst voor \"Opnieuw\"-knop."
         },
         {
-          "label": "Tekst voor de beëindigings-knop",
-          "default": "Klaar"
+          "label": "Tekst voor \"Stoppen\"-knop",
+          "default": "Stoppen"
         },
         {
           "label": "Submit button text",
@@ -216,11 +216,11 @@
           "label": "Toon video voor de quizresultaten"
         },
         {
-          "label": "Activeer sla de video over-knop"
+          "label": "Schakel \"Sla video over\"-knop in"
         },
         {
-          "label": "Label sla de video over-knop",
-          "default": "Sla de video over"
+          "label": "Label van \"Sla video over\"-knop",
+          "default": "Sla video over"
         },
         {
           "label": "Video bij een geslaagde quiz",
@@ -233,15 +233,15 @@
       ]
     },
     {
-      "label": "Instellingen voor \"Toon oplossing\" en \"Opnieuw\" -knoppen",
+      "label": "Instellingen voor \"Toon oplossing\" en \"Opnieuw\"-knoppen",
       "fields": [
         {
           "label": "Toon \"Controleer\"-knoppen",
           "description": "Deze optie bepaalt of de knop \"Controleer\" wordt getoond voor alle vragen."
         },
         {
-          "label": "\"Toon oplossing\" knop instellen",
-          "description": "Deze optie bepaalt of de \"Toon oplossing\" knop voor alle vragen wordt getoond, uitgeschakeld of voor iedere vraag afzonderlijk wordt geconfigureerd.",
+          "label": "Overschrijf \"Toon oplossing\"-knop",
+          "description": "Deze optie bepaalt of de \"Toon oplossing\"-knop voor alle vragen wordt getoond, uitgeschakeld of voor iedere vraag afzonderlijk wordt geconfigureerd.",
           "options": [
             {
               "label": "Ingeschakeld"
@@ -252,8 +252,8 @@
           ]
         },
         {
-          "label": "\"Opnieuw proberen\"-knop instellen",
-          "description": "Deze optie bepaalt of de \"Opnieuw proberen\"-knop voor alle vragen wordt getoond, uitgeschakeld of voor iedere vraag afzonderlijk wordt geconfigureerd.",
+          "label": "Overschrijf \"Opnieuw\"-knop",
+          "description": "Deze optie bepaalt of de \"Opnieuw\"-knop voor alle vragen wordt getoond, uitgeschakeld of voor iedere vraag afzonderlijk wordt geconfigureerd.",
           "options": [
             {
               "label": "Ingeschakeld"

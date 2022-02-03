@@ -134,7 +134,7 @@
           "label": "Bistaratu soluzioaren botoia"
         },
         {
-          "label": "Erakutsi berriz saiatu botoia"
+          "label": "Erakutsi saiatu berriro botoia"
         },
         {
           "label": "Emaitzarik ez mezua",
@@ -196,7 +196,7 @@
         },
         {
           "label": "Soluzioaren botoiaren etiketa",
-          "default": "Erakutsi soluzioa",
+          "default": "Erakutsi emaitza",
           "description": "Soluzioaren botoiaren testua."
         },
         {
@@ -233,15 +233,15 @@
       ]
     },
     {
-      "label": "\"Erakutsi soluzioa\" eta \"Saiatu berriro \" ezarpenak",
+      "label": "\"Erakutsi emaitza\" eta \"Saiatu berriro\" ezarpenak",
       "fields": [
         {
           "label": "Erakutsi \"Egiaztatu\" botoiak",
           "description": "Aukera honek zehazten du \"Egiaztatu\" botoia galdera guztietan erakutsiko den."
         },
         {
-          "label": "Utzi \"Erakutsi soluzioa\" botoia",
-          "description": "Aukera honek zehazten du \"Bistaratu soluzioa\" botoia erakutsi behar den galdera guztietan, guztientzat desgaitua edo galdera bakoitzerako banaka ezarrita dagoela.",
+          "label": "Baliogabetu \"Erakutsi emaitza\" botoia",
+          "description": "Aukera honek zehazten du \"Erakutsi emaitza\" botoia erakutsi behar den galdera guztietan, guztientzat desgaitua edo galdera bakoitzerako banaka ezarrita dagoela.",
           "options": [
             {
               "label": "Gaitua"
@@ -252,8 +252,8 @@
           ]
         },
         {
-          "label": "Utzi \"Saiatu berriro \" botoia",
-          "description": "Aukera honek zehazten du \"Osatu berriro\" botoia erakutsi behar den galdera guztietarako, denetarako desgaitua edo galdera bakoitzean ezarrita.",
+          "label": "Baliogabetu \"Saiatu berriro\" botoia",
+          "description": "Aukera honek zehazten du \"Saiatu berriro\" botoia erakutsi behar den galdera guztietarako, denetarako desgaitua edo galdera bakoitzean ezarrita.",
           "options": [
             {
               "label": "Gaitua"

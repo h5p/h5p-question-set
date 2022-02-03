@@ -72,7 +72,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var params = $.extend(true, {}, defaults, options);
 
   var texttemplate =
-          '<% if (introPage.showIntroPage) { %>' +
+          '<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %>' +
           '<div class="intro-page">' +
           '  <% if (introPage.title) { %>' +
           '    <div class="title"><span><%= introPage.title %></span></div>' +
@@ -84,7 +84,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '</div>' +
           '<% } %>' +
           '<div tabindex="-1" class="qs-progress-announcer"></div>' +
-          '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
+          '<div class="questionset<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %> hidden<% } %>">' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
           '    <div class="question-container"></div>' +
           '  <% } %>' +
@@ -235,9 +235,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   }
 
-  // Create the html template for the question container
-  var $template = $(template.render(params));
-
   // Set overrides for questions
   var override;
   if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton === false) {
@@ -306,6 +303,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Create question instances from questions given by params
   questionInstances = createQuestionInstancesFromQuestions(params.questions);
+  params.noOfQuestionAnswered = 0;
+  if (contentData.previousState) {
+    // get numbers of questions answered by user
+    if (contentData.previousState.answers) {
+      for (var i = 0; i < questionInstances.length; i++) {
+        let answered = questionInstances[i].getAnswerGiven();
+        if (answered){
+          params.noOfQuestionAnswered++;
+        }
+      }
+    }
+  }
+
+  // Create the html template for the question container
+  var $template = $(template.render(params));
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
