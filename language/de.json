@@ -76,7 +76,7 @@
           "default": "Beenden"
         },
         {
-          "label": "Submit button",
+          "label": "\"Absenden\"-Button",
           "default": "Submit"
         },
         {
@@ -209,8 +209,8 @@
           "default": "Beenden"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Beschriftung des \"Absenden\"-Buttons",
+          "default": "Absenden"
         },
         {
           "label": "Zeige ein Video vor den Ergebnissen an"
