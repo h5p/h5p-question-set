@@ -76,7 +76,7 @@
           "default": "Bukatu"
         },
         {
-          "label": "Submit button",
+          "label": "Bidaltzeko botoia",
           "default": "Submit"
         },
         {
@@ -209,8 +209,8 @@
           "default": "Bukatu"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Bidaltzeko botoiaren testua",
+          "default": "Bidali"
         },
         {
           "label": "Bistaratu bideoa galdetegiaren emaitzen aurretik"
