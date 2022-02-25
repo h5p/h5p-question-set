@@ -64,20 +64,20 @@
       "label": "Interface teksten in de quiz",
       "fields": [
         {
-          "label": "Vorige-knop",
+          "label": "Tekst van \"Terug\"-knop",
           "default": "Vorige vraag"
         },
         {
-          "label": "Volgende-knop",
+          "label": "Tekst van \"Volgende\"-knop",
           "default": "Volgende vraag"
         },
         {
-          "label": "Beëindigings-knop",
+          "label": "Tekst van \"Afsluiten\"-knop",
           "default": "Stoppen"
         },
         {
-          "label": "Submit button",
-          "default": "Controleer"
+          "label": "Tekst voor \"Verzend\"-knop",
+          "default": "Verzend"
         },
         {
           "label": "Tekst bij voortgang",
@@ -209,8 +209,8 @@
           "default": "Stoppen"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Tekst van \"Verzend\"-knop",
+          "default": "Verzend"
         },
         {
           "label": "Toon video voor de quizresultaten"
@@ -220,7 +220,7 @@
         },
         {
           "label": "Label van \"Sla video over\"-knop",
-          "default": "Sla video over"
+          "default": "Video overslaan"
         },
         {
           "label": "Video bij een geslaagde quiz",
