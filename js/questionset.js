@@ -1264,10 +1264,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   this.getContext = function () {
     // Get question index and add 1, count starts from 0
-    return {
+    let contextObject = {
       type: 'question',
       value: (currentQuestion + 1)
     };
+
+    // Send actual index of the question if questions are randomized
+    if (params.randomQuestions) {
+      contextObject.actual = questionOrder[currentQuestion] + 1;
+    }
+    return contextObject;
   };
 };
 
