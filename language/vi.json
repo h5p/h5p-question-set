@@ -216,13 +216,11 @@
           "label": "Display video before quiz results"
         },
         {
-          "label": "Enable skip video button",
-          "default": "Skip video"
+          "label": "Enable skip video button"
         },
         {
           "label": "Skip video button label",
-          "default": "Skip video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "default": "Skip video"
         },
         {
           "label": "Passed video",
