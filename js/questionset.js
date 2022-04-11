@@ -368,12 +368,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   };
 
-  var _stopQuestion = function (questionNumber) {
-    if (questionInstances[questionNumber]) {
-      pauseMedia(questionInstances[questionNumber]);
-    }
-  };
-
   var _showQuestion = function (questionNumber, preventAnnouncement) {
     // Sanitize input.
     if (questionNumber < 0) {
@@ -384,8 +378,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
 
     currentQuestion = questionNumber;
-
-    handleAutoPlay(currentQuestion);
 
     // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
@@ -436,31 +428,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.trigger('resize');
     return currentQuestion;
   };
-
-  /**
-   * Handle autoplays, limit to one at a time
-   *
-   * @param {number} currentQuestionIndex
-   */
-  var handleAutoPlay = function (currentQuestionIndex) {
-    for (var i = 0; i < questionInstances.length; i++) {
-      questionInstances[i].pause();
-    }
-
-    var currentQuestion = params.questions[currentQuestionIndex];
-
-    var hasAutoPlay = currentQuestion &&
-        currentQuestion.params.media &&
-        currentQuestion.params.media.params &&
-        currentQuestion.params.media.params.playback &&
-        currentQuestion.params.media.params.playback.autoplay;
-
-    if (hasAutoPlay && typeof questionInstances[currentQuestionIndex].play === 'function') {
-      questionInstances[currentQuestionIndex].play();
-    }
-  };
-
-
 
   /**
    * Show solutions for subcontent, and hide subcontent buttons.
@@ -662,7 +629,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       return;
     }
 
-    _stopQuestion(currentQuestion);
     if (currentQuestion + direction >= questionInstances.length) {
       _displayEndGame();
     }
@@ -1006,7 +972,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if (params.disableBackwardsNavigation && !showingSolutions) {
         return;
       }
-      _stopQuestion(currentQuestion);
       _showQuestion($(this).parent().index());
     };
 
@@ -1164,25 +1129,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
   this.showSolutions = function () {
     renderSolutions = true;
-  };
-
-  /**
-   * Stop the given element's playback if any.
-   *
-   * @param {object} instance
-   */
-  var pauseMedia = function (instance) {
-    try {
-      if (instance.pause !== undefined &&
-        (instance.pause instanceof Function ||
-        typeof instance.pause === 'function')) {
-        instance.pause();
-      }
-    }
-    catch (err) {
-      // Prevent crashing, log error.
-      H5P.error(err);
-    }
   };
 
   /**
