@@ -3,8 +3,8 @@
   "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 19,
-  "patchVersion": 1,
+  "minorVersion": 20,
+  "patchVersion": 0,
   "embedTypes": [
     "iframe"
   ],
@@ -41,7 +41,7 @@
     {
       "machineName": "H5P.Video",
       "majorVersion": 1,
-      "minorVersion": 5
+      "minorVersion": 6
     },
     {
       "machineName": "H5P.JoubelUI",
