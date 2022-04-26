@@ -359,7 +359,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     if (currentQuestion === (params.questions.length - 1) &&
         questionInstances[currentQuestion]) {
-      if (answered) {
+      if (answered && !showingSolutions) {
         questionInstances[currentQuestion].showButton('finish');
       }
       else {
