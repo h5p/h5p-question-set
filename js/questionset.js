@@ -320,7 +320,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var $template = $(template.render(params));
 
   // Randomize questions only on instantiation
-  if (params.randomQuestions && contentData.previousState === undefined) {
+  const previousstateNotAvailable = (contentData.previousState === undefined || Object.keys(contentData.previousState).length === 0) ?? false;
+  if (params.randomQuestions && previousstateNotAvailable) {
     var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
