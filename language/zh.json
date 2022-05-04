@@ -147,6 +147,11 @@
           "description": "當用戶回答了所有問題後，在結束頁面上會顯示的標題文字。"
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "總結回饋",
           "fields": [
             {

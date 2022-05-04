@@ -707,7 +707,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var finals = self.getScore();
     var totals = self.getMaxScore();
 
-    var scoreString = H5P.Question.determineOverallFeedback(params.endGame.overallFeedback, finals / totals).replace('@score', finals).replace('@total', totals) ?? undefined;
+    var scoreString = H5P.Question.determineOverallFeedback(params.endGame.overallFeedback, finals / totals).replace('@score', finals).replace('@total', totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
 
     /**
@@ -770,7 +770,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         }
         scoreBar.appendTo($('.feedback-scorebar', $myDom));
         $('.feedback-text', $myDom).html(scoreString);
-        
+
         // Announce that the question set is complete
         setTimeout(function () {
           $('.qs-progress-announcer', $myDom)

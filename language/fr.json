@@ -147,6 +147,11 @@
           "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "Opacité des étiquettes",
           "fields": [
             {

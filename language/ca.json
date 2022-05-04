@@ -147,6 +147,11 @@
           "description": "Aquest títol es mostrarà al final del qüestionari quan l’usuari hagi respost a totes les preguntes."
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "Suggeriment general",
           "fields": [
             {

@@ -147,6 +147,11 @@
           "description": "Deze koptekst verschijnt aan het einde van de quiz wanneer de deelnemer alle vragen heeft beantwoord."
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "Algehele feedback",
           "fields": [
             {

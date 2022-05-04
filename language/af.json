@@ -147,6 +147,11 @@
           "description": "Hierdie opskrif sal aan die einde van die vasvra vertoon wanneer die gebruiker al die vrae beantwoord het."
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "Algehele terugvoer",
           "fields": [
             {

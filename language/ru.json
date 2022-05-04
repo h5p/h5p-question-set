@@ -147,6 +147,11 @@
           "description": "Этот заголовок будет отображаться в конце теста, когда пользователь ответит на все вопросы."
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "Общий отзыв",
           "fields": [
             {
