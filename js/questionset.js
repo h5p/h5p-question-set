@@ -48,6 +48,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       showResultPage: true,
       noResultMessage: 'Finished',
       message: 'Your result:',
+      scoreBarLabel: 'You got @finals out of @totals points',
       oldFeedback: {
         successGreeting: '',
         successComment: '',
@@ -706,7 +707,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var finals = self.getScore();
     var totals = self.getMaxScore();
 
-    var scoreString = H5P.Question.determineOverallFeedback(params.endGame.overallFeedback, finals / totals).replace('@score', finals).replace('@total', totals);
+    var scoreString = H5P.Question.determineOverallFeedback(params.endGame.overallFeedback, finals / totals).replace('@score', finals).replace('@total', totals) ?? undefined;
     var success = ((100 * finals / totals) >= params.passPercentage);
 
     /**
@@ -769,12 +770,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         }
         scoreBar.appendTo($('.feedback-scorebar', $myDom));
         $('.feedback-text', $myDom).html(scoreString);
-
+        
         // Announce that the question set is complete
         setTimeout(function () {
           $('.qs-progress-announcer', $myDom)
-            .html(eparams.message + '.' +
+            .html(eparams.message + 
                   scoreString + '.' +
+                  (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
                   eparams.resulttext)
             .show().focus();

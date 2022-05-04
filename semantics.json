@@ -294,6 +294,14 @@
         ]
       },
       {
+        "name": "scoreBarLabel",
+        "type": "text",
+        "label": "Score announcer",
+        "importance": "low",
+        "description": "This text will be announced at the end of the quiz after the user has submitted the attempts",
+        "default": "You got @finals out of @totals points"
+      },
+      {
         "name": "overallFeedback",
         "type": "group",
         "label": "Overall Feedback",
