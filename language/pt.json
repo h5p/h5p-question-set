@@ -147,6 +147,11 @@
           "description": "Este cabeçalho será mostrado no final do teste assim que o utilizador tiver respondido a todas as perguntas."
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "Feedback global",
           "fields": [
             {

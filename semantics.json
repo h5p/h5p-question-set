@@ -162,6 +162,13 @@
         "default": "Finish"
       },
       {
+        "name": "submitButton",
+        "type": "text",
+        "label": "Submit button",
+        "importance": "low",
+        "default": "Submit"
+      },
+      {
         "name": "textualProgress",
         "type": "text",
         "label": "Progress text",
@@ -292,6 +299,14 @@
           "em",
           "code"
         ]
+      },
+      {
+        "name": "scoreBarLabel",
+        "type": "text",
+        "label": "Score announcer",
+        "importance": "low",
+        "description": "This label will be used for announcing the final score to the user on the end screen",
+        "default": "You got @finals out of @totals points"
       },
       {
         "name": "overallFeedback",
@@ -444,6 +459,13 @@
         "label": "Finish button text",
         "importance": "low",
         "default": "Finish"
+      },
+      {
+        "name": "submitButtonText",
+        "type": "text",
+        "label": "Submit button text",
+        "importance": "low",
+        "default": "Submit"
       },
       {
         "name": "showAnimations",

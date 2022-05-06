@@ -81,13 +81,13 @@
         },
         {
           "label": "Progresa teksts",
-          "default": "Jautājums: @current no @total jautājumiem",
-          "description": "Teksts tiek izmantots, ja ir izvēlēta progresa atspoguļošana tekstā."
+          "description": "Teksts tiek izmantots, ja ir izvēlēta progresa atspoguļošana tekstā.",
+          "default": "Jautājums: @current no @total jautājumiem"
         },
         {
           "label": "Etiķete, lai pārietu uz noteiktu jautājumu",
-          "default": "Jautājums %d no %total",
-          "description": "Jautājuma numura vietā jāizmanto vietturis '%d', bet kopējā jautājumu skaita vietā – %total."
+          "description": "Jautājuma numura vietā jāizmanto vietturis '%d', bet kopējā jautājumu skaita vietā – %total.",
+          "default": "Jautājums %d no %total"
         },
         {
           "label": "Autortiesību dialoga jautājuma etiķete",
@@ -95,16 +95,16 @@
         },
         {
           "label": "Asistīvo tehnoloģiju progress",
-          "default": "Jautājums @current no @total",
-          "description": "Var izmantot jautājumu mainīgos @current un @total"
+          "description": "Var izmantot jautājumu mainīgos @current un @total",
+          "default": "Jautājums @current no @total"
         },
         {
           "label": "Neatbildēta jautājuma teksts",
           "default": "Neatbildēts"
         },
         {
-          "default": "Atbildēts",
-          "label": "Atbildēta jautājuma teksts"
+          "label": "Atbildēta jautājuma teksts",
+          "default": "Atbildēts"
         },
         {
           "label": "Pašreizējā jautājuma teksts",
@@ -113,8 +113,8 @@
       ]
     },
     {
-      "description": "Šī opcija ļaus jautājumu kopā virzīties tikai uz priekšu",
-      "label": "Atspējot navigāciju atpakaļ"
+      "label": "Atspējot navigāciju atpakaļ",
+      "description": "Šī opcija ļaus jautājumu kopā virzīties tikai uz priekšu"
     },
     {
       "label": "Jautājumus izkārtot jaukti",
@@ -138,13 +138,18 @@
         },
         {
           "label": "Nav rezultātu ziņojums",
-          "default": "Pabeigts",
-          "description": "Teksts tiek rādīts beigu lapā, ja ir atspējota opcija “Rādīt rezultātus”"
+          "description": "Teksts tiek rādīts beigu lapā, ja ir atspējota opcija “Rādīt rezultātus”",
+          "default": "Pabeigts"
         },
         {
           "label": "Atgriezeniskās saites virsraksts",
           "default": "Tavs rezultāts:",
           "description": "Šis virsraksts tiks parādīts testa beigās, kad lietotājs būs atbildējis uz visiem jautājumiem."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Kopējā atgriezeniskā saite",
@@ -156,6 +161,7 @@
                 }
               ],
               "label": "Iestatiet pielāgotu atgriezenisko saiti katram rezultātu diapazonam",
+              "description": "Piemērs: 0–20% Slikts rezultāts, 21–91% Viduvējs rezultāts, 91–100% Lielisks rezultāts!",
               "entity": "diapazons",
               "field": {
                 "fields": [
@@ -168,8 +174,7 @@
                     "placeholder": "Aizpildiet atgriezenisko saiti"
                   }
                 ]
-              },
-              "description": "Piemērs: 0–20% Slikts rezultāts, 21–91% Viduvējs rezultāts, 91–100% Lielisks rezultāts!"
+              }
             }
           ]
         },
@@ -195,8 +200,8 @@
           ]
         },
         {
-          "default": "Rādīt risinājumu",
           "label": "Rādīt risinājumu pogas etiķete",
+          "default": "Rādīt risinājumu",
           "description": "Pogas \"Parādīt risinājumu\" teksts."
         },
         {

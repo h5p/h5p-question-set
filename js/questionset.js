@@ -48,6 +48,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       showResultPage: true,
       noResultMessage: 'Finished',
       message: 'Your result:',
+      scoreBarLabel: 'You got @finals out of @totals points',
       oldFeedback: {
         successGreeting: '',
         successComment: '',
@@ -773,8 +774,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         // Announce that the question set is complete
         setTimeout(function () {
           $('.qs-progress-announcer', $myDom)
-            .html(eparams.message + '.' +
+            .html(eparams.message + 
                   scoreString + '.' +
+                  (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
                   eparams.resulttext)
             .show().focus();
