@@ -147,9 +147,9 @@
           "description": "Este encabezado será mostrado al final del examen cuando el usuario haya contestado todas las preguntas."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Anunciador del puntaje",
+          "description": "Esta etiqueta será usada para anunciar el puntaje final al usuario en la pantalla final",
+          "default": "Usted obtuvo @finals de @totals puntos"
         },
         {
           "label": "Retroalimentación Global",
