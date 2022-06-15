@@ -76,7 +76,7 @@
           "default": "Dokončit"
         },
         {
-          "label": "Submit button",
+          "label": "Tlačítko odeslat",
           "default": "Submit"
         },
         {
@@ -147,9 +147,9 @@
           "description": "Tento nadpis se zobrazí na konci testu, když uživatel odpoví na všechny otázky."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Ukazatel skóre",
+          "description": "Tento popisek bude použit pro oznámení konečného skóre uživateli na závěrečné obrazovce",
+          "default": "Získali jste @finals z @totals bodů"
         },
         {
           "label": "Celková zpětná vazba",
@@ -214,8 +214,8 @@
           "default": "Dokončit"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Text tlačítka Odeslat",
+          "default": "Odeslat"
         },
         {
           "label": "Zobrazit video před výsledky testu"
