@@ -147,9 +147,9 @@
           "description": "Goiburu hau erakutsiko da galdetegiaren bukaeran erabiltzaileak galdera guztiak erantzun dituenean."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Puntuazio iragarkia",
+          "description": "Etiketa hau erabiltzaileari pantailan amaierako puntuazioa erakusteko erabiliko da",
+          "default": "@finals puntu lortu duzu guztirako @totals puntutik"
         },
         {
           "label": "Feedback orokorra",
