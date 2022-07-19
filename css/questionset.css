@@ -66,12 +66,11 @@
 }
 
 .intro-page .title {
-  font-size: 2em;
-  line-height: 2em;
+  line-height: 1.5;
   font-weight: bold;
   text-align: center;
 }
-.intro-page .title > span {
+.intro-page .title > h1 {
   padding: 0.125em 0.5em;
   border-radius: 0.125em;
   background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */

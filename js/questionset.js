@@ -77,7 +77,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %>' +
           '<div class="intro-page">' +
           '  <% if (introPage.title) { %>' +
-          '    <div class="title"><span><%= introPage.title %></span></div>' +
+          '    <div class="title"><h1><%= introPage.title %></h1></div>' +
           '  <% } %>' +
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
