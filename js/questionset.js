@@ -81,7 +81,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a href="#" class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><button class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></button></div>' +
           '</div>' +
           '<% } %>' +
           '<div tabindex="-1" class="qs-progress-announcer"></div>' +
