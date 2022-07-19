@@ -32,13 +32,13 @@
 }
 .progress-dot {
   display: inline-block;
-  width: 0.6em;
-  height: 0.6em;
+  width: 0.55em;
+  height: 0.55em;
   border-radius: 50%;
   margin: 0 0.25em;
   cursor: pointer;
-  background: #fff;
-  background: #929292;
+  border: 1px solid #1356a3;
+  outline: none;
 }
 
 .progress-dot.disabled {
@@ -49,20 +49,19 @@
   box-shadow: 0 0 0.5em #c7c7c7;
 }
 .progress-dot.answered {
-  background: #73a2d5;
+  background: #1356a3;
 }
 .progress-dot.current {
-  background: #285585;
+  outline: 2px solid #285585;
+  outline-offset: 3px;
 }
 
-.progress-dot.disabled:focus {
+.progress-dot.disabled:focus-visible {
   outline: none
 }
 
-.progress-dot:focus {
-  outline-color: rgb(40, 130, 211);
-  outline-width: thin;
-  outline-style: solid;
+.progress-dot:focus-visible {
+  box-shadow: 0px 0px 0px 1px #000;
 }
 
 .intro-page .title {
