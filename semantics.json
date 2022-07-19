@@ -224,6 +224,13 @@
         "label": "Current question text",
         "importance": "low",
         "default": "Current question"
+      },
+      {
+        "name": "navigationLabel",
+        "type": "text",
+        "label": "Navigation label for readspeakers",
+        "importance": "low",
+        "default": "Questions"
       }
     ]
   },

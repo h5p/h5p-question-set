@@ -109,6 +109,10 @@
         {
           "label": "Текст тренутног питања",
           "default": "Тренутно питање"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

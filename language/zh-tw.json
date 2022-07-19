@@ -109,6 +109,10 @@
         {
           "label": "當前問題顯示文字",
           "default": "當前問題"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

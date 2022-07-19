@@ -109,6 +109,10 @@
         {
           "label": "תיאור שאלה נוכחית",
           "default": "שאלה נוכחית"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

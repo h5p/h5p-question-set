@@ -109,6 +109,10 @@
         {
           "label": "Jooksva küsimuse tekst",
           "default": "Jooksev küsimus"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

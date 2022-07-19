@@ -109,6 +109,10 @@
         {
           "label": "Текст поточного запитання",
           "default": "Поточне запитання"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

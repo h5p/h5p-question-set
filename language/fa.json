@@ -109,6 +109,10 @@
         {
           "label": "متن سؤال فعلی",
           "default": "سؤال کنونی"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

@@ -109,6 +109,10 @@
         {
           "label": "Etykieta bieżącego pytania",
           "default": "Bieżące pytanie"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

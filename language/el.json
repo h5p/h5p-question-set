@@ -109,6 +109,10 @@
         {
           "label": "Κείμενο τρέχουσας ερώτησης",
           "default": "Τρέχουσα ερώτηση"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

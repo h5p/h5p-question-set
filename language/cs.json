@@ -109,6 +109,10 @@
         {
           "label": "Text aktuální otázky",
           "default": "Aktuální otázka"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

@@ -109,6 +109,10 @@
         {
           "label": "Texto para pergunta atual",
           "default": "Pergunta atual"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

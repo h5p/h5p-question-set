@@ -109,6 +109,10 @@
         {
           "label": "Text för nuvarande fråga",
           "default": "Nuvarande fråga"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

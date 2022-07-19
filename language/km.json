@@ -109,6 +109,10 @@
         {
           "label": "Current question text",
           "default": "សំណួរបច្ចុប្បន្ន"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

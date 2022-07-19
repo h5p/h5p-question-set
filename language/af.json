@@ -109,6 +109,10 @@
         {
           "label": "Huidige vraagteks",
           "default": "Huidige vraag"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

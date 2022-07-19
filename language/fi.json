@@ -109,6 +109,10 @@
         {
           "label": "Teksti meneillään olevalle kysymykselle",
           "default": "Meneillään oleva kysymys"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

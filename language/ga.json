@@ -109,6 +109,10 @@
         {
           "label": "Current question text",
           "default": "An cheist seo"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

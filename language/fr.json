@@ -109,6 +109,10 @@
         {
           "label": "Texte de la question en cours",
           "default": "Question en cours"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

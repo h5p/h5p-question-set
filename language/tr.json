@@ -109,6 +109,10 @@
         {
           "label": "Geçerli soru için metin",
           "default": "Geçerli soru"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

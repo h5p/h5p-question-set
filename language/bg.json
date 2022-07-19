@@ -109,6 +109,10 @@
         {
           "label": "Текст за настоящ въпрос",
           "default": "Настоящ въпрос"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

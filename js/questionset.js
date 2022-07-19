@@ -42,7 +42,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       readSpeakerProgress: 'Question @current of @total',
       unansweredText: 'Unanswered',
       answeredText: 'Answered',
-      currentQuestionText: 'Current question'
+      currentQuestionText: 'Current question',
+      navigationLabel: 'Questions'
     },
     endGame: {
       showResultPage: true,
@@ -90,9 +91,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '    <div class="question-container"></div>' +
           '  <% } %>' +
           '  <div class="qs-footer">' +
-          '    <div class="qs-progress">' +
+          '    <div class="qs-progress" role="navigation" aria-label="<%= texts.navigationLabel %>">' +
           '      <% if (progressType == "dots") { %>' +
-          '        <ul class="dots-container" role="navigation">' +
+          '        <ul class="dots-container">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
           '           <li class="progress-item">' +
           '             <a href="#" ' +

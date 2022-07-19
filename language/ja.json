@@ -109,6 +109,10 @@
         {
           "label": "現在の設問テキスト",
           "default": "現在の設問"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

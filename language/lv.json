@@ -109,6 +109,10 @@
         {
           "label": "Pašreizējā jautājuma teksts",
           "default": "Pašreizējais jautājums"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },

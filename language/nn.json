@@ -109,6 +109,10 @@
         {
           "label": "Aktivt spørsmål-tekst",
           "default": "Aktivt spørsmål"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
