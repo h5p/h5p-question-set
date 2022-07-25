@@ -76,8 +76,8 @@
           "default": "Potrdi"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Besedilo gumba \"Oddaj\"",
+          "default": "Oddaj"
         },
         {
           "label": "Besedilo o napredku",
@@ -111,8 +111,8 @@
           "default": "Trenutno vprašanje"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Besedilo za navigacijo bralnikov zaslona",
+          "default": "Vprašanja"
         }
       ]
     },
@@ -151,9 +151,9 @@
           "description": "Besedilo se izpiše na koncu kviza, ko udeleženec reši vsa vprašanja."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Sporočilo o doseženem rezultatu",
+          "description": "Besedilo se izpiše na končnem zaslonu kviza in udeleženca obvesti o doseženih točkah.",
+          "default": "Dosežene točke: @finals od @totals"
         },
         {
           "label": "Splošna povratna informacija",
@@ -218,8 +218,8 @@
           "default": "Potrdi"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Besedilo gumba \"Oddaj\"",
+          "default": "Oddaj"
         },
         {
           "label": "Predvajaj videoposnetek ob zaključku kviza"
