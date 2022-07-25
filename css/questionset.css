@@ -32,13 +32,14 @@
 }
 .progress-dot {
   display: inline-block;
-  width: 0.55em;
-  height: 0.55em;
+  width: 0.5625em;
+  height: 0.5625em;
   border-radius: 50%;
   margin: 0 0.25em;
   cursor: pointer;
   border: 1px solid #1356a3;
-  outline: none;
+  position: relative;
+  transition: transform 0.2s;
 }
 
 .progress-dot.disabled {
@@ -46,22 +47,35 @@
 }
 
 .progress-dot:not(.disabled):hover {
-  box-shadow: 0 0 0.5em #c7c7c7;
+  transform: scale(1.25);
 }
 .progress-dot.answered {
   background: #1356a3;
 }
-.progress-dot.current {
-  outline: 2px solid #285585;
-  outline-offset: 3px;
+.progress-dot:before {
+  display: block;
+  content: "";
+  border: 2px solid transparent;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: border-box;
+  left: -5px;
+  top: -5px;
+  transition: border-color 0.5s;
+}
+
+.progress-dot.current:before {
+  border-color: #285585;
 }
 
 .progress-dot.disabled:focus-visible {
   outline: none
 }
 
-.progress-dot:focus-visible {
-  box-shadow: 0px 0px 0px 1px #000;
+.progress-dot:focus {
+  transform: scale(1.15);
 }
 
 .intro-page .title {
