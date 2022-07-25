@@ -858,7 +858,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       registerImageLoadedListener(question);
 
       // Add finish button
-      const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.endGame.finishButton
+      const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.texts.finishButton
       question.addButton('finish', finishButtonText,
         moveQuestion.bind(this, 1), false);
 
@@ -872,7 +872,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Add previous button
       question.addButton('prev', '', moveQuestion.bind(this, -1),
         !(questionInstances[0] === question || params.disableBackwardsNavigation), {
-          href: '#', // Use href since this is a navigation button
+          href: '#', // Use href since this is a navigation buttonq
           'aria-label': params.texts.prevButton
         });
 
