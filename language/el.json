@@ -76,8 +76,8 @@
           "default": "Ολοκλήρωση"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Κουμπί υποβολής",
+          "default": "Υποβολή"
         },
         {
           "label": "Κείμενο προόδου",
@@ -111,8 +111,8 @@
           "default": "Τρέχουσα ερώτηση"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Ετικέτα πλοήγησης για αναγνώστες",
+          "default": "Ερωτήσεις"
         }
       ]
     },
@@ -151,9 +151,9 @@
           "description": "Αυτή η επικεφαλίδα θα εμφανίζεται στο τέλος του κουίζ όταν ο χρήστης θα έχει απαντήσει σε όλες τις ερωτήσεις."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Εκφωνητής βαθμολογίας",
+          "description": "Αυτή η ετικέτα θα χρησιμοποιηθεί για την ανακοίνωση της τελικής βαθμολογίας στον χρήστη στην τελική οθόνη",
+          "default": "Έχετε @finals από @totals πόντους"
         },
         {
           "label": "Συνολική ανατροφοδότηση",
@@ -218,8 +218,8 @@
           "default": "Ολοκλήρωση"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Ετικέτα κουμπιού υποβολής",
+          "default": "Υποβολή"
         },
         {
           "label": "Εμφάνιση βίντεο πριν τα αποτελέσματα του κουίζ"
