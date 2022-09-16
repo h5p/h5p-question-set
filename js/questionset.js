@@ -114,35 +114,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  </div>' +
           '</div>';
 
-  var solutionButtonTemplate = params.endGame.showSolutionButton ?
-    '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
-    '';
-
-  const retryButtonTemplate = params.endGame.showRetryButton ?
-    '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>':
-    '';
-
-  var resulttemplate =
-          '<div class="questionset-results">' +
-          '  <div class="greeting"><%= message %></div>' +
-          '  <div class="feedback-section">' +
-          '    <div class="feedback-scorebar"></div>' +
-          '    <div class="feedback-text"></div>' +
-          '  </div>' +
-          '  <% if (comment) { %>' +
-          '  <div class="result-header"><%= comment %></div>' +
-          '  <% } %>' +
-          '  <% if (resulttext) { %>' +
-          '  <div class="result-text"><%= resulttext %></div>' +
-          '  <% } %>' +
-          '  <div class="buttons">' +
-          solutionButtonTemplate +
-          retryButtonTemplate +
-          '  </div>' +
-          '</div>';
-
   var template = new EJS({text: texttemplate});
-  var endTemplate = new EJS({text: resulttemplate});
 
   var initialParams = $.extend(true, {}, defaults, options);
   var poolOrder; // Order of questions in a pool
@@ -740,8 +712,69 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       };
 
       // Show result page.
+      // $myDom.children().hide();
+
+      self.$endTemplate = $('<div>', {
+        'class': 'questionset-results'
+      });
+    
+      $('<div>', {
+        class: 'greeting',
+        html: eparams.message,
+        appendTo: self.$endTemplate
+      });
+    
+      $('<div>', {
+        class: 'feedback-section',
+        html: '<div class="feedback-scorebar"></div>' +
+              '<div class="feedback-text"></div>',
+        appendTo: self.$endTemplate
+      });
+    
+      if (params.comment) {
+        $('<div>', {
+          'class': 'result-header',
+          html: eparams.comment,
+          appendTo: self.$endTemplate
+        });
+      }
+    
+      if (params.resulttext) {
+        $('<div>', {
+          class: 'result-text',
+          html: eparams.resulttext,
+          appendTo: self.$endTemplate
+        });
+      }
+      
+      console.log(self.$solutionButtonTemplate)
+      self.$solutionButton = $('<div>', {
+        class: 'buttons',
+        appendTo: self.$endTemplate
+      });
+
+      if (params.endGame.showSolutionButton) {
+        $('<button>', {
+          class: 'h5p-joubelui-button h5p-button qs-solutionbutton',
+          type: 'button',
+          html: eparams.solutionButtonText,
+          appendTo: self.$solutionButton
+        });
+      }
+
+      if (params.endGame.showRetryButton) {
+        $('<button>', {
+          class: 'h5p-joubelui-button h5p-button qs-retrybutton',
+          type: 'button',
+          html: eparams.retryButtonText,
+          appendTo: self.$solutionButton
+        })
+      }
+
+      console.log(eparams.solutionButtonText)
+
       $myDom.children().hide();
-      $myDom.append(endTemplate.render(eparams));
+      $myDom.append(self.$endTemplate);
 
       if (params.endGame.showResultPage) {
         hookUpButton('.qs-solutionbutton', function () {
