@@ -767,7 +767,6 @@ else if (params.progressType == "textual") {
       };
 
       // Show result page.
-      // $myDom.children().hide();
 
       self.$endTemplate = $('<div>', {
         'class': 'questionset-results'
