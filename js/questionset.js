@@ -766,8 +766,7 @@ else if (params.progressType == "textual") {
         retryButtonText: params.endGame.retryButtonText
       };
 
-      // Show result page.
-
+      // Create html template for end screen
       self.$endTemplate = $('<div>', {
         'class': 'questionset-results'
       });
@@ -825,6 +824,7 @@ else if (params.progressType == "textual") {
         })
       }
 
+      // Show result page.
       $myDom.children().hide();
       $myDom.append(self.$endTemplate);
 
