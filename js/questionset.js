@@ -73,49 +73,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
          && (contentData.isScoringEnabled || contentData.isReportingEnabled);
   var params = $.extend(true, {}, defaults, options);
 
-  var texttemplate =
-          '<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %>' +
-          '<div class="intro-page">' +
-          '  <% if (introPage.title) { %>' +
-          '    <div class="title"><h1><%= introPage.title %></h1></div>' +
-          '  <% } %>' +
-          '  <% if (introPage.introduction) { %>' +
-          '    <div class="introduction"><%= introPage.introduction %></div>' +
-          '  <% } %>' +
-          '  <div class="buttons"><button class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></button></div>' +
-          '</div>' +
-          '<% } %>' +
-          '<div tabindex="-1" class="qs-progress-announcer"></div>' +
-          '<div class="questionset<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %> hidden<% } %>">' +
-          '  <% for (var i=0; i<questions.length; i++) { %>' +
-          '    <div class="question-container"></div>' +
-          '  <% } %>' +
-          '  <div class="qs-footer">' +
-          '    <div class="qs-progress" role="navigation" aria-label="<%= texts.navigationLabel %>">' +
-          '      <% if (progressType == "dots") { %>' +
-          '        <ul class="dots-container">' +
-          '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '           <li class="progress-item">' +
-          '             <a href="#" ' +
-          '               class="progress-dot unanswered<%' +
-          '               if (disableBackwardsNavigation) { %> disabled <% } %>"' +
-          '               aria-label="<%=' +
-          '               texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
-          '               + ", " + texts.unansweredText %>" tabindex="-1" ' +
-          '               <% if (disableBackwardsNavigation) { %> aria-disabled="true" <% } %>' +
-          '             ></a>' +
-          '           </li>' +
-          '          <% } %>' +
-          '        </div>' +
-          '      <% } else if (progressType == "textual") { %>' +
-          '        <span class="progress-text"></span>' +
-          '      <% } %>' +
-          '    </div>' +
-          '  </div>' +
-          '</div>';
-
-  var template = new EJS({text: texttemplate});
-
   var initialParams = $.extend(true, {}, defaults, options);
   var poolOrder; // Order of questions in a pool
   var currentQuestion = 0;
@@ -290,8 +247,106 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   }
 
-  // Create the html template for the question container
-  var $template = $(template.render(params));
+  // Create html template for intro page layout
+  self.$introTemplate = '';
+  if (params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) {
+    self.$introTemplate = $('<div>', {
+      class: 'intro-page'
+    });
+  
+    if (params.introPage.title) {
+      $('<div>', {
+        class: 'title',
+        html: '<h1>' + 
+              params.introPage.title + 
+              '</h1>',
+        appendTo: self.$introTemplate
+      });
+    }
+
+    if (params.introPage.introduction) {
+      $('<div>', {
+        class: 'introduction',
+        html: params.introPage.introduction,
+        appendTo: self.$introTemplate
+      });
+    }
+
+    self.$introButton = $('<div>', {
+      class: 'buttons',
+      appendTo: self.$introTemplate
+    });
+  
+    $('<button>', {
+      class: 'qs-startbutton h5p-joubelui-button h5p-button',
+      html: params.introPage.startButtonText,
+      appendTo: self.$introButton
+    });
+  }
+
+  // Create html template for progress
+  self.$progressAnnouncerTemplate = $('<div>', {
+    class: 'qs-progress-announcer',
+    tabindex: '-1'
+  });
+
+  // Create html template for questionset
+  self.$qsTemplate = $('<div>', {
+    class: 'questionset ' + 
+    ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
+  });
+
+  for (let i=0; i<params.questions.length; i++) {
+    $('<div>', {
+      class: 'question-container',
+      appendTo: self.$qsTemplate
+    });
+  }
+
+  self.$footerTemplate = $('<div>', {
+    class: 'qs-footer',
+    appendTo: self.$qsTemplate
+  });
+
+  self.$progressTemplate = $('<div>', {
+    class: 'qs-progress',
+    role: 'navigation',
+    'aria-label': params.texts.navigationLabel,
+    appendTo: self.$footerTemplate 
+  });
+
+  if (params.progressType == "dots") {
+    self.$dotsContainerTemplate = $('<ul>', {
+      class: 'dots-container',
+      appendTo: self.$progressTemplate
+    });
+
+    for (let i=0; i<params.questions.length; i++) {
+      $('<li>', {
+        class: 'progress-item',
+        html: '<a href="#" class= "progress-dot unanswered ' + 
+              (params.disableBackwardsNavigation ? 'disabled" ' : '') +
+              '" ' +
+              'aria-label=' +
+                '"' +
+                params.texts.jumpToQuestion.replace("%d", i + 1).replace("%total", params.questions.length) +
+                ', ' +
+                params.texts.unansweredText +
+                '" ' +
+              'tabindex="-1" ' +
+              (params.disableBackwardsNavigation ? 'aria-disabled="true"' : '') +
+              '></a>',
+        appendTo: self.$dotsContainerTemplate
+      })
+    }
+  }
+
+else if (params.progressType == "textual") {
+  $('<span>', {
+    class: 'progress-text',
+    appendTo: self.$progressTemplate
+  })
+}
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
@@ -771,8 +826,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         })
       }
 
-      console.log(eparams.solutionButtonText)
-
       $myDom.children().hide();
       $myDom.append(self.$endTemplate);
 
@@ -951,7 +1004,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Render own DOM into target.
     $myDom.children().remove();
-    $myDom.append($template);
+    $myDom.append(self.$introTemplate, self.$progressAnnouncerTemplate, self.$qsTemplate);
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
