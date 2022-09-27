@@ -291,7 +291,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   });
 
   // Create html for questionset
-  self.$questionSetContainer = $('<div>', {
+  self.$questionsContainer = $('<div>', {
     class: 'questionset ' + 
     ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
   });
@@ -299,13 +299,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   for (let i=0; i<params.questions.length; i++) {
     $('<div>', {
       class: 'question-container',
-      appendTo: self.$questionSetContainer
+      appendTo: self.$questionsContainer
     });
   }
 
   self.$footer = $('<div>', {
     class: 'qs-footer',
-    appendTo: self.$questionSetContainer
+    appendTo: self.$questionsContainer
   });
 
   self.$progressBar = $('<div>', {
@@ -1002,7 +1002,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Render own DOM into target.
     $myDom.children().remove();
-    $myDom.append(self.$introPage, self.$progressAnnouncer, self.$questionSetContainer);
+    $myDom.append(self.$introPage, self.$progressAnnouncer, self.$questionsContainer);
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
