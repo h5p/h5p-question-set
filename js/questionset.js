@@ -272,7 +272,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       });
     }
 
-    self.$introButton = $('<div>', {
+    self.$introButtonsContainer = $('<div>', {
       class: 'buttons',
       appendTo: self.$introPage
     });
@@ -280,7 +280,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     $('<button>', {
       class: 'qs-startbutton h5p-joubelui-button h5p-button',
       html: params.introPage.startButtonText,
-      appendTo: self.$introButton
+      appendTo: self.$introButtonsContainer
     });
   }
 
