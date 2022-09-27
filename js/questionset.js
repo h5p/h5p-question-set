@@ -247,10 +247,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   }
 
-  // Create html template for intro page layout
-  self.$introTemplate = '';
+  // Create html for intro page layout
+  self.$introPage = '';
   if (params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) {
-    self.$introTemplate = $('<div>', {
+    self.$introPage = $('<div>', {
       class: 'intro-page'
     });
   
@@ -260,7 +260,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         html: '<h1>' + 
               params.introPage.title + 
               '</h1>',
-        appendTo: self.$introTemplate
+        appendTo: self.$introPage
       });
     }
 
@@ -268,13 +268,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       $('<div>', {
         class: 'introduction',
         html: params.introPage.introduction,
-        appendTo: self.$introTemplate
+        appendTo: self.$introPage
       });
     }
 
     self.$introButton = $('<div>', {
       class: 'buttons',
-      appendTo: self.$introTemplate
+      appendTo: self.$introPage
     });
   
     $('<button>', {
@@ -284,14 +284,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     });
   }
 
-  // Create html template for progress
-  self.$progressAnnouncerTemplate = $('<div>', {
+  // Create html for progress announcer
+  self.$progressAnnouncer = $('<div>', {
     class: 'qs-progress-announcer',
     tabindex: '-1'
   });
 
-  // Create html template for questionset
-  self.$qsTemplate = $('<div>', {
+  // Create html for questionset
+  self.$questionSetContainer = $('<div>', {
     class: 'questionset ' + 
     ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
   });
@@ -299,33 +299,33 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   for (let i=0; i<params.questions.length; i++) {
     $('<div>', {
       class: 'question-container',
-      appendTo: self.$qsTemplate
+      appendTo: self.$questionSetContainer
     });
   }
 
-  self.$footerTemplate = $('<div>', {
+  self.$footer = $('<div>', {
     class: 'qs-footer',
-    appendTo: self.$qsTemplate
+    appendTo: self.$questionSetContainer
   });
 
-  self.$progressTemplate = $('<div>', {
+  self.$progressBar = $('<div>', {
     class: 'qs-progress',
     role: 'navigation',
     'aria-label': params.texts.navigationLabel,
-    appendTo: self.$footerTemplate 
+    appendTo: self.$footer
   });
 
   if (params.progressType == "dots") {
-    self.$dotsContainerTemplate = $('<ul>', {
+    self.$dotsContainer = $('<ul>', {
       class: 'dots-container',
-      appendTo: self.$progressTemplate
+      appendTo: self.$progressBar
     });
 
     for (let i=0; i<params.questions.length; i++) {
       $('<li>', {
         class: 'progress-item',
         html: '<a href="#" class= "progress-dot unanswered ' + 
-              (params.disableBackwardsNavigation ? 'disabled" ' : '') +
+              (params.disableBackwardsNavigation ? 'disabled' : '') +
               '" ' +
               'aria-label=' +
                 '"' +
@@ -336,16 +336,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
               'tabindex="-1" ' +
               (params.disableBackwardsNavigation ? 'aria-disabled="true"' : '') +
               '></a>',
-        appendTo: self.$dotsContainerTemplate
+        appendTo: self.$dotsContainer
       })
     }
   }
 
-else if (params.progressType == "textual") {
-  $('<span>', {
-    class: 'progress-text',
-    appendTo: self.$progressTemplate
-  })
+  else if (params.progressType == "textual") {
+    $('<span>', {
+      class: 'progress-text',
+      appendTo: self.$progressBar
+    })
 }
 
   // Randomize questions only on instantiation
@@ -766,29 +766,29 @@ else if (params.progressType == "textual") {
         retryButtonText: params.endGame.retryButtonText
       };
 
-      // Create html template for end screen
-      self.$endTemplate = $('<div>', {
+      // Create html for end screen
+      self.$resultPage = $('<div>', {
         'class': 'questionset-results'
       });
     
       $('<div>', {
         class: 'greeting',
         html: eparams.message,
-        appendTo: self.$endTemplate
+        appendTo: self.$resultPage
       });
     
       $('<div>', {
         class: 'feedback-section',
         html: '<div class="feedback-scorebar"></div>' +
               '<div class="feedback-text"></div>',
-        appendTo: self.$endTemplate
+        appendTo: self.$resultPage
       });
     
       if (params.comment) {
         $('<div>', {
           'class': 'result-header',
           html: eparams.comment,
-          appendTo: self.$endTemplate
+          appendTo: self.$resultPage
         });
       }
     
@@ -796,14 +796,13 @@ else if (params.progressType == "textual") {
         $('<div>', {
           class: 'result-text',
           html: eparams.resulttext,
-          appendTo: self.$endTemplate
+          appendTo: self.$resultPage
         });
       }
       
-      console.log(self.$solutionButtonTemplate)
-      self.$solutionButton = $('<div>', {
+      self.$buttonsContainer = $('<div>', {
         class: 'buttons',
-        appendTo: self.$endTemplate
+        appendTo: self.$resultPage
       });
 
       if (params.endGame.showSolutionButton) {
@@ -811,7 +810,7 @@ else if (params.progressType == "textual") {
           class: 'h5p-joubelui-button h5p-button qs-solutionbutton',
           type: 'button',
           html: eparams.solutionButtonText,
-          appendTo: self.$solutionButton
+          appendTo: self.$buttonsContainer
         });
       }
 
@@ -820,13 +819,13 @@ else if (params.progressType == "textual") {
           class: 'h5p-joubelui-button h5p-button qs-retrybutton',
           type: 'button',
           html: eparams.retryButtonText,
-          appendTo: self.$solutionButton
+          appendTo: self.$buttonsContainer
         })
       }
 
       // Show result page.
       $myDom.children().hide();
-      $myDom.append(self.$endTemplate);
+      $myDom.append(self.$resultPage);
 
       if (params.endGame.showResultPage) {
         hookUpButton('.qs-solutionbutton', function () {
@@ -1003,7 +1002,7 @@ else if (params.progressType == "textual") {
 
     // Render own DOM into target.
     $myDom.children().remove();
-    $myDom.append(self.$introTemplate, self.$progressAnnouncerTemplate, self.$qsTemplate);
+    $myDom.append(self.$introPage, self.$progressAnnouncer, self.$questionSetContainer);
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
