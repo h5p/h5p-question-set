@@ -1,32 +1,32 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "Quizzens introduktion",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "Vis introduktionen"
         },
         {
           "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "description": "Titlen vises over introduktionsteksten."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "introduktionstekst",
+          "description": "Denne tekst vises før quizzen starter."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "Teksten på startknappen",
+          "default": "Start quizzen"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Baggrundsbillede",
+          "description": "Et valgfrit baggrundsbillde til introduktionen."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "Baggrundsbillede",
+      "description": "Et valgfrit baggrundsbillde til quizzen."
     },
     {
       "label": "Progress indicator",
@@ -41,11 +41,11 @@
       ]
     },
     {
-      "label": "Pass percentage",
+      "label": "Beståelsesprocent",
       "description": "Percentage of Total score required for passing the quiz."
     },
     {
-      "label": "Questions",
+      "label": "Spørgsmål",
       "widgets": [
         {
           "label": "Default"
@@ -54,9 +54,9 @@
           "label": "Textual"
         }
       ],
-      "entity": "question",
+      "entity": "Spørgsmål",
       "field": {
-        "label": "Question type",
+        "label": "Spørgsmålstype",
         "description": "Library for this question."
       }
     },
@@ -68,16 +68,16 @@
           "default": "Previous question"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Fremad-knap",
+          "default": "Næste spørgsmål"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Færdiggør-Knap",
+          "default": "Færdig"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Aflever-knap",
+          "default": "Aflever"
         },
         {
           "label": "Progress text",
@@ -91,7 +91,7 @@
         },
         {
           "label": "Copyright dialog question label",
-          "default": "Question"
+          "default": "Spørgsmål"
         },
         {
           "label": "Readspeaker progress",
@@ -100,11 +100,11 @@
         },
         {
           "label": "Unanswered question text",
-          "default": "Unanswered"
+          "default": "Ubesvarede"
         },
         {
           "label": "Answered question text",
-          "default": "Answered"
+          "default": "Besvarede"
         },
         {
           "label": "Current question text",
@@ -112,7 +112,7 @@
         },
         {
           "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "default": "Spørgsmål"
         }
       ]
     },
