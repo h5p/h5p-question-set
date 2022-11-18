@@ -73,77 +73,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
          && (contentData.isScoringEnabled || contentData.isReportingEnabled);
   var params = $.extend(true, {}, defaults, options);
 
-  var texttemplate =
-          '<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %>' +
-          '<div class="intro-page">' +
-          '  <% if (introPage.title) { %>' +
-          '    <div class="title"><h1><%= introPage.title %></h1></div>' +
-          '  <% } %>' +
-          '  <% if (introPage.introduction) { %>' +
-          '    <div class="introduction"><%= introPage.introduction %></div>' +
-          '  <% } %>' +
-          '  <div class="buttons"><button class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></button></div>' +
-          '</div>' +
-          '<% } %>' +
-          '<div tabindex="-1" class="qs-progress-announcer"></div>' +
-          '<div class="questionset<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %> hidden<% } %>">' +
-          '  <% for (var i=0; i<questions.length; i++) { %>' +
-          '    <div class="question-container"></div>' +
-          '  <% } %>' +
-          '  <div class="qs-footer">' +
-          '    <div class="qs-progress" role="navigation" aria-label="<%= texts.navigationLabel %>">' +
-          '      <% if (progressType == "dots") { %>' +
-          '        <ul class="dots-container">' +
-          '          <% for (var i=0; i<questions.length; i++) { %>' +
-          '           <li class="progress-item">' +
-          '             <a href="#" ' +
-          '               class="progress-dot unanswered<%' +
-          '               if (disableBackwardsNavigation) { %> disabled <% } %>"' +
-          '               aria-label="<%=' +
-          '               texts.jumpToQuestion.replace("%d", i + 1).replace("%total", questions.length)' +
-          '               + ", " + texts.unansweredText %>" tabindex="-1" ' +
-          '               <% if (disableBackwardsNavigation) { %> aria-disabled="true" <% } %>' +
-          '             ></a>' +
-          '           </li>' +
-          '          <% } %>' +
-          '        </div>' +
-          '      <% } else if (progressType == "textual") { %>' +
-          '        <span class="progress-text"></span>' +
-          '      <% } %>' +
-          '    </div>' +
-          '  </div>' +
-          '</div>';
-
-  var solutionButtonTemplate = params.endGame.showSolutionButton ?
-    '    <button type="button" class="h5p-joubelui-button h5p-button qs-solutionbutton"><%= solutionButtonText %></button>':
-    '';
-
-  const retryButtonTemplate = params.endGame.showRetryButton ?
-    '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>':
-    '';
-
-  var resulttemplate =
-          '<div class="questionset-results">' +
-          '  <div class="greeting"><%= message %></div>' +
-          '  <div class="feedback-section">' +
-          '    <div class="feedback-scorebar"></div>' +
-          '    <div class="feedback-text"></div>' +
-          '  </div>' +
-          '  <% if (comment) { %>' +
-          '  <div class="result-header"><%= comment %></div>' +
-          '  <% } %>' +
-          '  <% if (resulttext) { %>' +
-          '  <div class="result-text"><%= resulttext %></div>' +
-          '  <% } %>' +
-          '  <div class="buttons">' +
-          solutionButtonTemplate +
-          retryButtonTemplate +
-          '  </div>' +
-          '</div>';
-
-  var template = new EJS({text: texttemplate});
-  var endTemplate = new EJS({text: resulttemplate});
-
   var initialParams = $.extend(true, {}, defaults, options);
   var poolOrder; // Order of questions in a pool
   var currentQuestion = 0;
@@ -318,8 +247,106 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   }
 
-  // Create the html template for the question container
-  var $template = $(template.render(params));
+  // Create html for intro page layout
+  self.$introPage = '';
+  if (params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) {
+    self.$introPage = $('<div>', {
+      class: 'intro-page'
+    });
+  
+    if (params.introPage.title) {
+      $('<div>', {
+        class: 'title',
+        html: '<h1>' + 
+              params.introPage.title + 
+              '</h1>',
+        appendTo: self.$introPage
+      });
+    }
+
+    if (params.introPage.introduction) {
+      $('<div>', {
+        class: 'introduction',
+        html: params.introPage.introduction,
+        appendTo: self.$introPage
+      });
+    }
+
+    self.$introButtonsContainer = $('<div>', {
+      class: 'buttons',
+      appendTo: self.$introPage
+    });
+  
+    $('<button>', {
+      class: 'qs-startbutton h5p-joubelui-button h5p-button',
+      html: params.introPage.startButtonText,
+      appendTo: self.$introButtonsContainer
+    });
+  }
+
+  // Create html for progress announcer
+  self.$progressAnnouncer = $('<div>', {
+    class: 'qs-progress-announcer',
+    tabindex: '-1'
+  });
+
+  // Create html for questionset
+  self.$questionsContainer = $('<div>', {
+    class: 'questionset ' + 
+    ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
+  });
+
+  for (let i=0; i<params.questions.length; i++) {
+    $('<div>', {
+      class: 'question-container',
+      appendTo: self.$questionsContainer
+    });
+  }
+
+  self.$footer = $('<div>', {
+    class: 'qs-footer',
+    appendTo: self.$questionsContainer
+  });
+
+  self.$progressBar = $('<div>', {
+    class: 'qs-progress',
+    role: 'navigation',
+    'aria-label': params.texts.navigationLabel,
+    appendTo: self.$footer
+  });
+
+  if (params.progressType == "dots") {
+    self.$dotsContainer = $('<ul>', {
+      class: 'dots-container',
+      appendTo: self.$progressBar
+    });
+
+    for (let i=0; i<params.questions.length; i++) {
+      $('<li>', {
+        class: 'progress-item',
+        html: '<a href="#" class= "progress-dot unanswered ' + 
+              (params.disableBackwardsNavigation ? 'disabled' : '') +
+              '" ' +
+              'aria-label=' +
+                '"' +
+                params.texts.jumpToQuestion.replace("%d", i + 1).replace("%total", params.questions.length) +
+                ', ' +
+                params.texts.unansweredText +
+                '" ' +
+              'tabindex="-1" ' +
+              (params.disableBackwardsNavigation ? 'aria-disabled="true"' : '') +
+              '></a>',
+        appendTo: self.$dotsContainer
+      })
+    }
+  }
+
+  else if (params.progressType == "textual") {
+    $('<span>', {
+      class: 'progress-text',
+      appendTo: self.$progressBar
+    })
+}
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
@@ -739,9 +766,66 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         retryButtonText: params.endGame.retryButtonText
       };
 
+      // Create html for end screen
+      self.$resultPage = $('<div>', {
+        'class': 'questionset-results'
+      });
+    
+      $('<div>', {
+        class: 'greeting',
+        html: eparams.message,
+        appendTo: self.$resultPage
+      });
+    
+      $('<div>', {
+        class: 'feedback-section',
+        html: '<div class="feedback-scorebar"></div>' +
+              '<div class="feedback-text"></div>',
+        appendTo: self.$resultPage
+      });
+    
+      if (params.comment) {
+        $('<div>', {
+          'class': 'result-header',
+          html: eparams.comment,
+          appendTo: self.$resultPage
+        });
+      }
+    
+      if (params.resulttext) {
+        $('<div>', {
+          class: 'result-text',
+          html: eparams.resulttext,
+          appendTo: self.$resultPage
+        });
+      }
+      
+      self.$buttonsContainer = $('<div>', {
+        class: 'buttons',
+        appendTo: self.$resultPage
+      });
+
+      if (params.endGame.showSolutionButton) {
+        $('<button>', {
+          class: 'h5p-joubelui-button h5p-button qs-solutionbutton',
+          type: 'button',
+          html: eparams.solutionButtonText,
+          appendTo: self.$buttonsContainer
+        });
+      }
+
+      if (params.endGame.showRetryButton) {
+        $('<button>', {
+          class: 'h5p-joubelui-button h5p-button qs-retrybutton',
+          type: 'button',
+          html: eparams.retryButtonText,
+          appendTo: self.$buttonsContainer
+        })
+      }
+
       // Show result page.
       $myDom.children().hide();
-      $myDom.append(endTemplate.render(eparams));
+      $myDom.append(self.$resultPage);
 
       if (params.endGame.showResultPage) {
         hookUpButton('.qs-solutionbutton', function () {
@@ -918,7 +1002,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Render own DOM into target.
     $myDom.children().remove();
-    $myDom.append($template);
+    $myDom.append(self.$introPage, self.$progressAnnouncer, self.$questionsContainer);
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
