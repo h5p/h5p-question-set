@@ -111,8 +111,8 @@
           "default": "Uneko galdera"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Irakurgailuentzako nabigazio etiketa",
+          "default": "Galderak"
         }
       ]
     },
@@ -165,7 +165,7 @@
                 }
               ],
               "label": "Zehaztu ezazu edozein puntuazio-tarterako feedback pertsonalizatua",
-              "description": "Adibidez: 0-2%0 Puntuazio txarra, %21-%91 Tarteko puntuazioa, %91-%100 Puntuazio bikaina!",
+              "description": "Egin klik \"Gehitu tartea\" botoian behar adina tarte gehitzeko. Adibidez: 0-2%0 Puntuazio txarra, %21-%91 Tarteko puntuazioa, %91-%100 Puntuazio bikaina!",
               "entity": "tartea",
               "field": {
                 "fields": [
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "\"Erakutsi emaitza\" eta \"Saiatu berriro\" ezarpenak",
+      "label": "\"Egiaztatu\", \"Erakutsi emaitza\" eta \"Saiatu berriro\" ezarpenak",
       "fields": [
         {
           "label": "Erakutsi \"Egiaztatu\" botoiak",
