@@ -152,11 +152,11 @@
         },
         {
           "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "description": "Cette vignette sera utilisée pour annoncer la note finale à l'utilisateur sur l'écran de fin",
+          "default": "Vous avez obtenu @finals sur @totals points"
         },
         {
-          "label": "Opacité des étiquettes",
+          "label": "Feedback général",
           "fields": [
             {
               "widgets": [
@@ -165,7 +165,7 @@
                 }
               ],
               "label": "Définir un retour personnalisé pour chaque tranche de score",
-              "description": "Exemple: 0-20% Score insuffisant, 21-91% Score moyen, 91-100% Bon score!",
+              "description": "Exemple : 0-20 % mauvaise note, 21-91 % note moyenne, 91-100 % excellente note !",
               "entity": "tranche",
               "field": {
                 "fields": [
@@ -219,7 +219,7 @@
         },
         {
           "label": "Submit button text",
-          "default": "Submit"
+          "default": "Soumettre"
         },
         {
           "label": "Afficher une vidéo avant l'affichage des résultats du quiz"
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "Options pour les boutons \"Montrer la solution\" et \"Recommencer\".",
+      "label": "Paramètres pour les touches « Montrer la solution » et « Réessayer »",
       "fields": [
         {
           "label": "Montrer les boutons \"Vérifier\"",
