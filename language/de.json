@@ -77,7 +77,7 @@
         },
         {
           "label": "\"Absenden\"-Button",
-          "default": "Submit"
+          "default": "Absenden"
         },
         {
           "label": "Text der Fortschrittsanzeige",
