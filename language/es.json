@@ -111,8 +111,8 @@
           "default": "Pregunta actual"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Etiqueta de navegación para lectores de pantalla",
+          "default": "Preguntas"
         }
       ]
     },
@@ -165,7 +165,7 @@
                 }
               ],
               "label": "Definir retroalimentación personalizada para cualquier rango de puntuación",
-              "description": "Ejemplo: 0-20 % Puntuación mala, 21-91 % Puntuación media, 91-100 % Puntuación excelente!",
+              "description": "Haz clic en el botón \"Agregar rango\" para agregar tantos rangos como necesites. Ejemplo: 0-20% puntuación mala, 21-91% puntuación media, 91-100% puntuación excelente!",
               "entity": "rango",
               "field": {
                 "fields": [
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "Configuraciones para botones \"Mostrar solución\" y \"Intentar de nuevo\"",
+      "label": "Configuración para los botones \"Comprobar\", \"Mostrar solución\" e \"Intentar de nuevo\"",
       "fields": [
         {
           "label": "Mostrar botones \"Comprobar\"",
