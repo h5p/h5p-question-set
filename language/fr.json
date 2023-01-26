@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Introduction du Quiz ",
+      "label": "Introduction du Quiz",
       "fields": [
         {
           "label": "Afficher l'introduction"
@@ -76,7 +76,7 @@
           "default": "Terminer"
         },
         {
-          "label": "Submit button",
+          "label": "Button Vérifier",
           "default": "Vérifier"
         },
         {
@@ -111,7 +111,7 @@
           "default": "Question en cours"
         },
         {
-          "label": "Navigation label for readspeakers",
+          "label": "Texte de navigation pour la synthèse vocale",
           "default": "Questions"
         }
       ]
@@ -125,7 +125,7 @@
       "description": "Activer pour choisir aléatoirement l'ordre des questions à l'affichage."
     },
     {
-      "label": "Nombre de questions à afficher:",
+      "label": "Nombre de questions à afficher :",
       "description": "Génère aléatoirement un jeu de questions parmi toutes les questions disponibles."
     },
     {
@@ -138,7 +138,7 @@
           "label": "Afficher le bouton \"Solution\"."
         },
         {
-          "label": "Display retry button"
+          "label": "Afficher le bouton \"Recommencer\"."
         },
         {
           "label": "Message si pas de résultats",
@@ -151,6 +151,7 @@
           "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
+
           "label": "Score announcer",
           "description": "Cette vignette sera utilisée pour annoncer la note finale à l'utilisateur sur l'écran de fin",
           "default": "Vous avez obtenu @finals sur @totals points"
@@ -183,7 +184,7 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Anciens retours",
           "fields": [
             {
               "label": "Commentaire de félicitation",
@@ -214,7 +215,7 @@
           "description": "Texte pour le bouton Recommencer."
         },
         {
-          "label": "Texte pour le bouton de fin",
+          "label": "Texte pour le bouton \"Terminer\"",
           "default": "Terminer"
         },
         {
