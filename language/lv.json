@@ -111,8 +111,8 @@
           "default": "Pašreizējais jautājums"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Navigācijas etiķete ekrānlasītājiem",
+          "default": "Jautājumi"
         }
       ]
     },
@@ -165,7 +165,7 @@
                 }
               ],
               "label": "Iestatiet pielāgotu atgriezenisko saiti katram rezultātu diapazonam",
-              "description": "Piemērs: 0–20% Slikts rezultāts, 21–91% Viduvējs rezultāts, 91–100% Lielisks rezultāts!",
+              "description": "Klikšķiniet pogu \"Pievienot diapazonu\", lai pievienotu tik diapazonus cik vēlaties. Piemēram, 0-20% Slikts rezultāts, 21-91% Viduvējs rezultāts, 91-100% Lielisks rezultāts!",
               "entity": "diapazons",
               "field": {
                 "fields": [
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "Iestatījumi pogām \"Rādīt risinājumu\" un \"Mēģināt vēlreiz\"",
+      "label": "\"Pārbaudīt\", \"Rādīt risinājumu\" un \"Mēģināt vēlreiz\" iestatījumi",
       "fields": [
         {
           "label": "Rādīt pogas \"Pārbaudīt\"",
