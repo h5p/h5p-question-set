@@ -152,6 +152,11 @@
         },
         {
           "label": "Locutor de pontuação",
+          "description": "Este rótulo será usado para anunciar a pontuação final ao usuário na tela final",
+          "default": "Você conseguiu @finals dos pontos @totals"
+        },
+        {
+          "label": "Locutor de pontuação",
           "fields": [
             {
               "widgets": [
@@ -175,53 +180,10 @@
                 ]
               }
             }
-          ],
-          "description": "Este rótulo será usado para anunciar a pontuação final ao usuário na tela final",
-          "default": "Você conseguiu @finals dos pontos @totals"
-        },
-        {
-          "label": "Feedback geral",
-          "fields": [
-            {
-              "label": "Definir feedback personalizado para qualquer intervalo de pontuação",
-              "description": "Exemplo: 0-20% Pontuação Ruim, 21-91% Pontuação Média, 91-100% Pontuação Ótima!",
-              "widgets": [
-                {
-                  "label": "Padrão"
-                }
-              ],
-              "field": {
-                "fields": [
-                  {
-                    "label": "Faixa de pontuação"
-                  },
-                  {},
-                  {
-                    "label": "Feedback para o intervalo de pontuação definido",
-                    "placeholder": "Preencha o feedback"
-                  }
-                ]
-              },
-              "entity": "faixa"
-            },
-            {
-              "label": "Comentário aprovado",
-              "description": "Este comentário será exibido após a pontuação se o usuário tiver sido aprovado no questionário."
-            },
-            {
-              "label": "Título para eprovado no Quiz",
-              "description": "Este texto será exibido acima da pontuação se o usuário for reprovado no questionário."
-            },
-            {
-              "label": "Comentário de falha no Quiz",
-              "description": "Este comentário será exibido após a pontuação se o usuário tiver falhado no questionário."
-            }
           ]
         },
         {
           "label": "Feedback antigo",
-          "default": "Mostrar Solução",
-          "description": "Texto para o botão de solução.",
           "fields": [
             {
               "description": "Este texto será exibido acima da pontuação se o usuário for aprovado no questionário.",
@@ -263,13 +225,11 @@
           "label": "Exibir vídeo antes dos resultados do quiz"
         },
         {
-          "label": "Ativar botão de pular vídeo",
-          "default": "Pular Vídeo"
+          "label": "Enable skip video button"
         },
         {
-          "label": "Rótulo do botão Pular Vídeo",
-          "description": "Este vídeo será reproduzido se o usuário for aprovado no Quiz.",
-          "default": "Pular vídeo"
+          "label": "Ativar botão de pular vídeo",
+          "default": "Pular Vídeo"
         },
         {
           "label": "Vídeo aprovado",
