@@ -111,8 +111,8 @@
           "default": "Nuvarande fråga"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Navigationsetikett för skärmläsare",
+          "default": "Frågor"
         }
       ]
     },
@@ -152,8 +152,8 @@
         },
         {
           "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "description": "Denna etikett kommer att användas för att visa slutgiltig poäng för användaren på slutskärmen",
+          "default": "Du fick @finals av @totals poäng"
         },
         {
           "label": "Samlad feedback",
@@ -165,7 +165,7 @@
                 }
               ],
               "label": "Definiera anpassad feedback för valfria poängintervall",
-              "description": "Exempel: 0-20% Inte så bra, 21-91% Medel, 91-100% Jättebra!",
+              "description": "Klicka på knappen \"Lägg till intervall\" för att lägga till så många intervall som du behöver. Exempel: 0-20% Inte så bra, 21-91% Medel, 91-100% Jättebra!",
               "entity": "intervall",
               "field": {
                 "fields": [
@@ -219,7 +219,7 @@
         },
         {
           "label": "Submit button text",
-          "default": "Submit"
+          "default": "Skicka in"
         },
         {
           "label": "Visa video före resultat från denna quiz"
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "Inställningar för knapparna \"Visa lösning\" och \"Försök igen\"",
+      "label": "Inställningar för knapparna \"Svara\", \"Visa lösning\" och \"Försök igen\"",
       "fields": [
         {
           "label": "Visa \"Svara\"-knappar",
