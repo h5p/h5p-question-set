@@ -111,8 +111,8 @@
           "default": "Aktuální otázka"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Navigační popisek pro čtecí zařízení",
+          "default": "Otázky"
         }
       ]
     },
@@ -165,7 +165,7 @@
                 }
               ],
               "label": "Definujte vlastní zpětnou vazbu pro libovolný rozsah skóre",
-              "description": "Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
+              "description": "Klepnutím na tlačítko \"Přidat rozsah\" přidáte libovolný počet rozsahů. Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
               "entity": "rozsah",
               "field": {
                 "fields": [
@@ -190,7 +190,7 @@
               "description": "Tento text se zobrazí nad skóre, pokud uživatel úspěšně prošel testem."
             },
             {
-              "label": "Úspěšný komentář",
+              "label": "Komentář po úspěšném ukončení",
               "description": "Tento komentář se zobrazí po skóre, pokud uživatel úspěšně prošel testem."
             },
             {
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "Nastavení tlačítek \"Zobrazit výsledek\" a \"Opakovat\"",
+      "label": "Nastavení tlačítek \"Zkontrolovat\", \"Zobrazit výsledek\" a \"Opakovat\"",
       "fields": [
         {
           "label": "Zobrazit tlačítko \"Zkontrolovat\"",
