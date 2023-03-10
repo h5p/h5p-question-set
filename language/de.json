@@ -77,7 +77,7 @@
         },
         {
           "label": "\"Absenden\"-Button",
-          "default": "Submit"
+          "default": "Absenden"
         },
         {
           "label": "Text der Fortschrittsanzeige",
@@ -111,8 +111,8 @@
           "default": "Aktuelle Frage"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Beschriftung für Vorlesewerkzeuge",
+          "default": "Fragen"
         }
       ]
     },
@@ -151,9 +151,9 @@
           "description": "Diese Überschrift wird am Ende angezeigt, wenn alle Fragen beantwortet wurden."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Verkündung der Punktzahl",
+          "description": "Dieser Text wird dafür genutzt, um den Nutzenden das Endergebnis auf dem Schlussbildschirm zu verkünden.",
+          "default": "Du hast @score von @total Punkten erreicht."
         },
         {
           "label": "Gesamtrückmeldung",
@@ -211,7 +211,7 @@
         {
           "label": "Beschriftung des \"Wiederholen\"-Buttons",
           "default": "Wiederholen",
-          "description": "Beschriftung des \"Wiederholen\"-Buttons"
+          "description": "Beschriftung des \"Wiederholen\"-Buttons."
         },
         {
           "label": "Beschriftung des \"Beenden\"-Buttons",
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "Einstellungen für \"Lösung anzeigen\"-Button und \"Wiederholen\"-Button",
+      "label": "Einstellungen für \"Lösung anzeigen\"-Button und \"Wiederholen\"",
       "fields": [
         {
           "label": "Überschreiben der Anzeigeoptionen des \"Überprüfen\"-Buttons",

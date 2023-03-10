@@ -76,35 +76,35 @@
           "default": "Terminar"
         },
         {
-          "label": "Texto do progresso",
-          "default": "Pergunta: @current de @total perguntas"
+          "label": "Botão Enviar",
+          "default": "Enviar"
         },
         {
-          "label": "Etiqueta para saltar para uma determinada pergunta",
-          "description": "Tem de utilizar o espaço reservado '%d' em vez do número da pergunta e %total em vez do total de perguntas.",
-          "default": "Pergunta %d de %total"
+          "label": "Texto do progresso",
+          "description": "Texto usado se o progresso textual for selecionado.",
+          "default": "Questão: @current de @total questões"
         },
         {
           "label": "Etiqueta para saltar para um questão",
           "description": "Tem de utilizar o espaço reservado (placeholder) '%d' em vez de o número da questão, e %total em vez do total de questões.",
-          "default": "Pergunta"
+          "default": "Questão %d de %total"
         },
         {
-          "label": "Progresso em texto para voz",
-          "default": "Pergunta @current de @total"
+          "label": "Notificação da caixa de diálogo de direitos do autor da questão",
+          "default": "Questão"
         },
         {
-          "label": "Texto para perguntas não respondidas",
+          "label": "Progresso do ReadSpeaker",
           "description": "Pode utilizar @current e @total como variáveis da questão",
-          "default": "Não respondida"
+          "default": "Questão @current de @total"
         },
         {
-          "label": "Texto para perguntas respondidas",
+          "label": "Texto da pergunta sem resposta",
+          "default": "Sem resposta"
+        },
+        {
+          "label": "Texto da pergunta respondida",
           "default": "Respondida"
-        },
-        {
-          "label": "Texto para pergunta atual",
-          "default": "Pergunta atual"
         },
         {
           "label": "Texto para pergunta atual",
@@ -152,8 +152,8 @@
         },
         {
           "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "description": "Esta notificação será utilizada para anunciar a pontuação final ao utilizador no ecrã final",
+          "default": "Obteve @finals de @totals pontos"
         },
         {
           "label": "Feedback global",
@@ -165,7 +165,7 @@
                 }
               ],
               "label": "Defina o feedback personalizado para qualquer faixa de pontuação",
-              "description": "Exemplo: 0-20% Mau, 21-91% Mediano, 91-100% Excelente!",
+              "description": "Exemplo: 0-20% Pontuação Péssima, 21-91% Pontuação Média, 91-100% Pontuação Óptima!",
               "entity": "intervalo",
               "field": {
                 "fields": [
@@ -219,7 +219,7 @@
         },
         {
           "label": "Submit button text",
-          "default": "Submit"
+          "default": "Enviar"
         },
         {
           "label": "Mostrar vídeo antes dos resultados do teste"
@@ -242,7 +242,7 @@
       ]
     },
     {
-      "label": "Configurações para os botões \"Mostrar solução\" e \"Repetir\"",
+      "label": "Configurações para os botões \"Mostrar solução\" e \"Tentar Novamente",
       "fields": [
         {
           "label": "Mostrar botões \"Verificar\"",

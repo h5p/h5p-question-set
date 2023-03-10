@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Introduction du Quiz ",
+      "label": "Introduction du Quiz",
       "fields": [
         {
           "label": "Afficher l'introduction"
@@ -76,7 +76,7 @@
           "default": "Terminer"
         },
         {
-          "label": "Submit button",
+          "label": "Button Vérifier",
           "default": "Vérifier"
         },
         {
@@ -111,7 +111,7 @@
           "default": "Question en cours"
         },
         {
-          "label": "Navigation label for readspeakers",
+          "label": "Texte de navigation pour la synthèse vocale",
           "default": "Questions"
         }
       ]
@@ -125,7 +125,7 @@
       "description": "Activer pour choisir aléatoirement l'ordre des questions à l'affichage."
     },
     {
-      "label": "Nombre de questions à afficher:",
+      "label": "Nombre de questions à afficher :",
       "description": "Génère aléatoirement un jeu de questions parmi toutes les questions disponibles."
     },
     {
@@ -138,7 +138,7 @@
           "label": "Afficher le bouton \"Solution\"."
         },
         {
-          "label": "Display retry button"
+          "label": "Afficher le bouton \"Recommencer\"."
         },
         {
           "label": "Message si pas de résultats",
@@ -151,12 +151,13 @@
           "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
+
           "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "description": "Cette vignette sera utilisée pour annoncer la note finale à l'utilisateur sur l'écran de fin",
+          "default": "Vous avez obtenu @finals sur @totals points"
         },
         {
-          "label": "Opacité des étiquettes",
+          "label": "Feedback général",
           "fields": [
             {
               "widgets": [
@@ -165,7 +166,7 @@
                 }
               ],
               "label": "Définir un retour personnalisé pour chaque tranche de score",
-              "description": "Exemple: 0-20% Score insuffisant, 21-91% Score moyen, 91-100% Bon score!",
+              "description": "Exemple : 0-20 % mauvaise note, 21-91 % note moyenne, 91-100 % excellente note !",
               "entity": "tranche",
               "field": {
                 "fields": [
@@ -183,7 +184,7 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Anciens retours",
           "fields": [
             {
               "label": "Commentaire de félicitation",
@@ -214,12 +215,12 @@
           "description": "Texte pour le bouton Recommencer."
         },
         {
-          "label": "Texte pour le bouton de fin",
+          "label": "Texte pour le bouton \"Terminer\"",
           "default": "Terminer"
         },
         {
           "label": "Submit button text",
-          "default": "Submit"
+          "default": "Soumettre"
         },
         {
           "label": "Afficher une vidéo avant l'affichage des résultats du quiz"
@@ -242,7 +243,7 @@
       ]
     },
     {
-      "label": "Options pour les boutons \"Montrer la solution\" et \"Recommencer\".",
+      "label": "Paramètres pour les touches « Montrer la solution » et « Réessayer »",
       "fields": [
         {
           "label": "Montrer les boutons \"Vérifier\"",

@@ -33,7 +33,7 @@
       "description": "Estilo do indicador de progresso do conjunto de questões.",
       "options": [
         {
-          "label": "Textual"
+          "label": "Literal"
         },
         {
           "label": "Pontos"
@@ -51,7 +51,7 @@
           "label": "Padrão"
         },
         {
-          "label": "Textual"
+          "label": "Literal"
         }
       ],
       "entity": "questão",
@@ -151,12 +151,12 @@
           "description": "Este título será exibido no final do questionário quando o usuário tiver respondido a todas as perguntas."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Locutor de pontuação",
+          "description": "Este rótulo será usado para anunciar a pontuação final ao usuário na tela final",
+          "default": "Você conseguiu @finals dos pontos @totals"
         },
         {
-          "label": "Feedback Geral",
+          "label": "Locutor de pontuação",
           "fields": [
             {
               "widgets": [
@@ -183,61 +183,61 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Feedback antigo",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "description": "Este texto será exibido acima da pontuação se o usuário for aprovado no questionário.",
+              "label": "Saudação aprovada no teste"
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Comentário aprovado",
+              "description": "Este comentário será exibido após a pontuação se o usuário tiver passado com sucesso no questionário."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Título reprovado no quiz",
+              "description": "Este texto será exibido acima da pontuação se o usuário for reprovado no questionário."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "description": "Este comentário será exibido após a pontuação se o usuário tiver falhado no questionário.",
+              "label": "Comentário com falha"
             }
           ]
         },
         {
-          "label": "Rótulo do botão Tentar Novamente",
+          "label": "Rótulo do botão Solução",
+          "default": "Mostrar solução",
+          "description": "Texto para o botão solução."
+        },
+        {
+          "label": "Texto do botão Tentar Novamente",
           "default": "Tentar Novamente",
-          "description": "Texto para o botão Tentar Novamente."
+          "description": "Texto para o botão de repetição."
         },
         {
           "label": "Texto do botão Finalizar",
-          "default": "Finalizar",
-          "description": "Text for the retry button."
+          "default": "Finalizar"
         },
         {
           "label": "Texto do botão Enviar",
           "default": "Enviar"
         },
         {
-          "label": "Exibir vídeo antes dos resultados do Quiz",
-          "default": "Submit"
+          "label": "Exibir vídeo antes dos resultados do quiz"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "Enable skip video button"
         },
         {
-          "label": "Ativar botão de pular vídeo"
-        },
-        {
-          "label": "Rótulo do botão Pular Vídeo",
+          "label": "Ativar botão de pular vídeo",
           "default": "Pular Vídeo"
         },
         {
           "label": "Vídeo aprovado",
-          "description": "Este vídeo será reproduzido se o usuário for aprovado no Quiz."
+          "description": "Este vídeo será reproduzido se o usuário for aprovado no teste."
         },
         {
-          "label": "Vídeo de falha",
-          "description": "Este vídeo será reproduzido se o usuário falhar no Quiz."
+          "label": "Falha no vídeo",
+          "description": "Este vídeo será reproduzido se o usuário falhar no teste."
         }
       ]
     },
