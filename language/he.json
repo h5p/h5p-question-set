@@ -76,7 +76,7 @@
           "default": "סיום"
         },
         {
-          "label": "Submit button",
+          "label": "כפתור שמירה",
           "default": "Submit"
         },
         {
@@ -94,7 +94,7 @@
           "default": "שאלה"
         },
         {
-          "label": "Readspeaker progress",
+          "label": "התקדמות מנגנון הקריאה",
           "description": "ניתן להשתמש במשתני השאלה current@ ו- total@",
           "default": "שאלה @current מתוך @total"
         },
@@ -111,7 +111,7 @@
           "default": "שאלה נוכחית"
         },
         {
-          "label": "Navigation label for readspeakers",
+          "label": "תווית ניווט להקראה",
           "default": "שאלות"
         }
       ]
@@ -152,8 +152,8 @@
         },
         {
           "label": "הודעת ניקוד",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "description": "תווית זו תשמש להכרזה על הציון הסופי למשתמש במסך הסיום",
+          "default": "קיבלתם @finals מתוך @totals הנקודות"
         },
         {
           "label": "משוב כולל",
@@ -218,7 +218,7 @@
           "default": "סיום"
         },
         {
-          "label": "Submit button text",
+          "label": "תווית כפתור שמירה",
           "default": "הגשה"
         },
         {
