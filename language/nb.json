@@ -8,32 +8,32 @@
         },
         {
           "label": "Tittel",
-          "description": "Denne tittelen vil bli vist over introduksjonsteksten."
+          "description": "Denne tittelen blir vist over introduksjonsteksten."
         },
         {
           "label": "Introduksjonstekst",
-          "description": "Denne teksten vises før spørsmålssettet starter."
+          "description": "Denne teksten vises før oppgavesettet starter."
         },
         {
-          "label": "Tekst på \"Start\" knappen",
+          "label": "Navn på \"Start\"-knappen",
           "default": "Start"
         },
         {
           "label": "Bakgrunnsbilde",
-          "description": "Et valgfritt bakgrunnsbilde for introduksjonssiden."
+          "description": "Valgfritt bakgrunnsbilde for introduksjonssida."
         }
       ]
     },
     {
       "label": "Bakgrunnsbilde",
-      "description": "Bakgrunnsbilde for spørsmålssettet (ikke obligatorisk)."
+      "description": "Valgfritt bakgrunnsbilde for oppgavesettet."
     },
     {
-      "label": "Fremdriftsindikator",
-      "description": "Velg om fremdriften skal angis som prikker (få spørsmål) eller som tekst (mange spørsmål).",
+      "label": "Framdriftsindikator",
+      "description": "Velg om framdriften skal vises som prikker (ved få spørsmål) eller som tekst (ved mange spørsmål).",
       "options": [
         {
-          "label": "Tekstlig"
+          "label": "Tekst"
         },
         {
           "label": "Prikker"
@@ -42,7 +42,7 @@
     },
     {
       "label": "Krav for å bestå",
-      "description": "Antall prosent riktig som kreves for å bestå spørsmålssettet."
+      "description": "Prosent riktige svar som kreves for å bestå oppgavesettet."
     },
     {
       "label": "Spørsmål",
@@ -54,65 +54,65 @@
           "label": "Tekstlig"
         }
       ],
-      "entity": "spørsmål",
+      "entity": "Oppgave",
       "field": {
-        "label": "Spørsmåltype",
-        "description": "Velg spørsmålstype for dette spørsmålet."
+        "label": "Oppgavetype",
+        "description": "Velg oppgavetype for denne sida."
       }
     },
     {
       "label": "Ledetekster",
       "fields": [
         {
-          "label": "Forrige-knappen",
-          "default": "Forrige spørsmål"
+          "label": "Navn på \"Forrige\"-knapp",
+          "default": "Forrige"
         },
         {
-          "label": "Neste-knappen",
-          "default": "Neste spørsmål"
+          "label": "Navn på \"Neste\"-knapp",
+          "default": "Neste"
         },
         {
-          "label": "Avslutt-knappen",
+          "label": "Navn på \"Avslutt\"-knapp",
           "default": "Avslutt"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "\"Send inn\"-knapp",
+          "default": "Send inn"
         },
         {
-          "label": "Fremgangstekst",
-          "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total.",
-          "default": "Deloppgave @current av @total"
+          "label": "Framdriftstekst",
+          "description": "Tekst for tekstlig angivelse av framdrift. Variabler: @current og @total.",
+          "default": "Oppgave @current av @total"
         },
         {
-          "label": "Merkelapp for hopping til spørsmål",
-          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret, og '%total' istedet for totalt antall spørsmål.",
-          "default": "Spørsmål %d av %total"
+          "label": "Merkelapp for å gå direkte til et bestemt spørsmål",
+          "description": "Du må bruke plassholderen %d i stedet for oppgavenummeret og %total i stedet for totalt antall spørsmål.",
+          "default": "Oppgave %d av %total"
         },
         {
-          "label": "Opphavsrett spørsmål-etikett",
-          "default": "Spørsmål"
+          "label": "Merkelapp for spørsmål om opphavsrett ?",
+          "default": "Spørsmål ???"
         },
         {
-          "label": "Fremdriftstekst for hjelpemiddelteknologi",
-          "description": "Kan bruke @current og @total variabler",
-          "default": "Deloppgave @current av @total"
+          "label": "Framdriftstekst for skjermlesere",
+          "description": "Du kan bruke variablene @current og @total.",
+          "default": "Oppgave @current av @total"
         },
         {
-          "label": "Ikke svart på spørsmål-tekst",
-          "default": "Ikke svart"
+          "label": "Tekst hvis oppgave er ubesvart",
+          "default": "Ubesvart"
         },
         {
           "label": "Svart på spørsmål-tekst",
-          "default": "Svar avgitt"
+          "default": "Besvart"
         },
         {
-          "label": "Aktivt spørsmål-tekst",
-          "default": "Aktivt spørsmål"
+          "label": "Tekst for aktiv oppgave",
+          "default": "Aktiv oppgave"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Merkelapp for skjermlesere",
+          "default": "Oppgaver"
         }
       ]
     },
