@@ -76,7 +76,7 @@
           "default": "Avsluta"
         },
         {
-          "label": "Submit button",
+          "label": "Skicka in-knapp",
           "default": "Submit"
         },
         {
@@ -151,7 +151,7 @@
           "description": "Denna rubrik visas på slutet av denna quiz när användaren har svarat på alla frågor."
         },
         {
-          "label": "Score announcer",
+          "label": "Poängvisare",
           "description": "Denna etikett kommer att användas för att visa slutgiltig poäng för användaren på slutskärmen",
           "default": "Du fick @finals av @totals poäng"
         },
@@ -218,7 +218,7 @@
           "default": "Avsluta"
         },
         {
-          "label": "Submit button text",
+          "label": "Text för knappen Skicka in",
           "default": "Skicka in"
         },
         {

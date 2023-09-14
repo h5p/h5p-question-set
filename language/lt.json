@@ -156,17 +156,17 @@
           "default": "You got @finals out of @totals points"
         },
         {
-          "label": "Overall Feedback",
+          "label": "Bendras atsiliepimas",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Numatytasis"
                 }
               ],
               "label": "Define custom feedback for any score range",
               "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-              "entity": "range",
+              "entity": "diapazonas",
               "field": {
                 "fields": [
                   {
@@ -174,8 +174,8 @@
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Atsiliepimas apibrėžtam balų diapazonui",
+                    "placeholder": "Užpildykite atsiliepimą"
                   }
                 ]
               }
@@ -205,12 +205,12 @@
         },
         {
           "label": "Solution button label",
-          "default": "Show solution",
+          "default": "Rodyti sprendimą",
           "description": "Text for the solution button."
         },
         {
           "label": "Retry button label",
-          "default": "Retry",
+          "default": "Bandyti dar kartą",
           "description": "Text for the retry button."
         },
         {
@@ -219,7 +219,7 @@
         },
         {
           "label": "Submit button text",
-          "default": "Submit"
+          "default": "Pateikti"
         },
         {
           "label": "Display video before quiz results"
