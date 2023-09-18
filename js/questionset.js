@@ -1224,8 +1224,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @returns {Object} current state
    */
   this.getCurrentState = function () {
+     /**
+     * If progress === 0, set it to null, otherwise H5P core would treat it as started progress
+     * and show restart button
+     */
     return {
-      progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
+      progress: showingSolutions ? questionInstances.length - 1 : (currentQuestion === 0 ? null : currentQuestion),
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
       }),
