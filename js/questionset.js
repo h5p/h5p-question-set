@@ -1229,7 +1229,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
      * and show restart button
      */
     return {
-      progress: showingSolutions ? questionInstances.length - 1 : (currentQuestion === 0 ? null : currentQuestion),
+      progress: showingSolutions ? questionInstances.length - 1 : (currentQuestion || null),
       answers: questionInstances.map(function (qi) {
         return qi.getCurrentState();
       }),
