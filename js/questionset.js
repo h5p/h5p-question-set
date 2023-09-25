@@ -577,6 +577,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       randomizeQuestions();
     }
 
+    // Reset currentQuestion
+    currentQuestion = 0;
+
   };
 
   var rendered = false;
