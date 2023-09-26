@@ -580,6 +580,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Reset currentQuestion
     currentQuestion = 0;
 
+    // Show the first question again
+    _showQuestion(params.initialQuestion);
   };
 
   var rendered = false;
