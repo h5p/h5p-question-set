@@ -1231,14 +1231,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
      * If progress === 0, set it to null, otherwise H5P core would treat it as started progress
      * and show restart button
      */
-    return {
-      progress: showingSolutions ? questionInstances.length - 1 : (currentQuestion || null),
-      answers: questionInstances.map(function (qi) {
-        return qi.getCurrentState();
-      }),
-      order: questionOrder,
-      poolOrder: poolOrder
-    };
+    return showingSolutions || currentQuestion > 0
+      ? {
+        progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
+        answers: questionInstances.map(function (qi) {
+          return qi.getCurrentState();
+        }),
+        order: questionOrder,
+        poolOrder: poolOrder
+      }
+      : undefined;
   };
 
   /**
