@@ -444,7 +444,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         $('.qs-progress-announcer', $myDom)
           .html(humanizedProgress)
-          .show().focus();
+          
+          if (this instanceof H5P.QuestionSet) {
+            $('.qs-progress-announcer', $myDom)
+              .show().focus();
+          }
 
         if (instance && instance.readFeedback) {
           instance.readFeedback();
