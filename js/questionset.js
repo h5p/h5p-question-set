@@ -445,7 +445,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         $('.qs-progress-announcer', $myDom)
           .html(humanizedProgress)
           
-          if (this instanceof H5P.QuestionSet) {
+          if (this.isRoot()) {
             $('.qs-progress-announcer', $myDom)
               .show().focus();
           }
