@@ -1229,20 +1229,23 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @returns {Object} current state
    */
   this.getCurrentState = function () {
-     /**
-     * If progress === 0, set it to null, otherwise H5P core would treat it as started progress
-     * and show restart button
-     */
-    return showingSolutions || currentQuestion > 0
-      ? {
-        progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
-        answers: questionInstances.map(function (qi) {
-          return qi.getCurrentState();
-        }),
+    const progress = showingSolutions ? questionInstances.length - 1 : currentQuestion;
+    const answers = questionInstances.map(function (qi) {
+      return qi.getCurrentState();
+    });
+
+    // If the user has moved past the first question, or if at least one of the
+    // answers to the questions are considered not empty.
+    if (progress || answers.some(answer => !H5P.isEmpty(answer))) {
+      return {
+        progress,
+        answers,
         order: questionOrder,
-        poolOrder: poolOrder
-      }
-      : undefined;
+        poolOrder,
+      };
+    }
+
+    return {};
   };
 
   /**
