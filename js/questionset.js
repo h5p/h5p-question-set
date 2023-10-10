@@ -1233,7 +1233,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
      * If progress === 0, set it to null, otherwise H5P core would treat it as started progress
      * and show restart button
      */
-    return showingSolutions || currentQuestion > 0
+    return this.getScore()
       ? {
         progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
         answers: questionInstances.map(function (qi) {
