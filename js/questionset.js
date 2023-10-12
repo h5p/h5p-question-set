@@ -152,7 +152,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
     else { // Otherwise create a new pool
       // Randomize and get the results
-      var poolResult = randomizeQuestionOrdering(params.questions);
+      var poolResult = !contentData.previousState && randomizeQuestionOrdering(params.questions);
       var poolQuestions = poolResult.questions;
       poolOrder = poolResult.questionOrder;
 
