@@ -87,7 +87,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Bring question set up to date when resuming
   if (contentData.previousState) {
-    if (contentData.previousState.progress) {
+    if (contentData.previousState.progress !== undefined) {
       currentQuestion = contentData.previousState.progress;
     }
     questionOrder = contentData.previousState.order;
@@ -511,7 +511,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   this.resetTask = function () {
 
     // Clear previous state to ensure questions are created cleanly
-    contentData.previousState = [];
+    contentData.previousState = undefined;
 
     showingSolutions = false;
 
@@ -670,6 +670,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Allow movement if backward navigation enabled or answer given
       _showQuestion(currentQuestion + direction);
     }
+
+    // Trigger xAPI
+    self.triggerXAPIProgressed();
   };
 
   /**
@@ -1065,6 +1068,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         return;
       }
       _showQuestion($(this).parent().index());
+
+      // Trigger xAPI
+      self.triggerXAPIProgressed();
     };
 
     // Set event listeners.
@@ -1234,19 +1240,32 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       return qi.getCurrentState();
     });
 
-    // If the user has moved past the first question, or if at least one of the
-    // answers to the questions are considered not empty.
-    if (progress || answers.some(answer => !H5P.isEmpty(answer))) {
+    // If the user has moved past the first question, if the content has been resumed,
+    // or if at least one of the answers to the questions are considered not empty.
+    if (progress || contentData.previousState || answers.some(answer => !H5P.isEmpty(answer))) {
       return {
-        progress,
-        answers,
+        progress: progress,
+        answers: answers,
         order: questionOrder,
-        poolOrder,
+        poolOrder: poolOrder,
       };
     }
 
-    return {};
+    return;
   };
+
+  /**
+   * Trigger the xAPI progressed event
+   */
+  this.triggerXAPIProgressed = function () {
+    const progressedEvent = this.createXAPIEventTemplate('progressed');
+    if (progressedEvent.data.statement.context.extensions === undefined) {
+      progressedEvent.data.statement.context.extensions = {};
+    }
+    
+    progressedEvent.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
+    this.trigger(progressedEvent);
+  }
 
   /**
    * Generate xAPI object definition used in xAPI statements.
