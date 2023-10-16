@@ -287,7 +287,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   // Create html for progress announcer
   self.$progressAnnouncer = $('<div>', {
     class: 'qs-progress-announcer',
-    tabindex: '-1'
+    'aria-live': 'polite',
   });
 
   // Create html for questionset
@@ -444,11 +444,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         $('.qs-progress-announcer', $myDom)
           .html(humanizedProgress)
-          
-          if (self.isRoot()) {
-            $('.qs-progress-announcer', $myDom)
-              .show().focus();
-          }
 
         if (instance && instance.readFeedback) {
           instance.readFeedback();
