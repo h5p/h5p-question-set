@@ -854,6 +854,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
             // Show first question
             $('.questionset', $myDom).show();
             _showQuestion(params.initialQuestion);
+
+            // Focus first tabbable element
+            $myDom[0].querySelectorAll(
+              'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
+            )[0].focus();
           }
         });
 
@@ -871,7 +876,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                   (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
                   eparams.resulttext)
-            .show().focus();
+            .show();
           scoreBar.setMaxScore(totals);
           scoreBar.setScore(finals);
         }, 0);
