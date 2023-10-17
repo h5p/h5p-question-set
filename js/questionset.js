@@ -442,8 +442,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           .replace('@current', (currentQuestion + 1).toString())
           .replace('@total', questionInstances.length.toString());
 
-        $('.qs-progress-announcer', $myDom)
-          .html(humanizedProgress)
+        self.$progressAnnouncer
+          .html(humanizedProgress);
 
         if (instance && instance.readFeedback) {
           instance.readFeedback();
@@ -870,13 +870,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         // Announce that the question set is complete
         setTimeout(function () {
-          $('.qs-progress-announcer', $myDom)
+          self.$progressAnnouncer
             .html(eparams.message + 
                   scoreString + '.' +
                   (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
-                  eparams.resulttext)
-            .show();
+                  eparams.resulttext);
           scoreBar.setMaxScore(totals);
           scoreBar.setScore(finals);
         }, 0);
@@ -1014,7 +1013,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Render own DOM into target.
     $myDom.children().remove();
-    $myDom.append(self.$introPage, self.$progressAnnouncer, self.$questionsContainer);
+    $myDom.append(self.$introPage, self.$questionsContainer);
+    $myDom.parent().append(self.$progressAnnouncer);
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
