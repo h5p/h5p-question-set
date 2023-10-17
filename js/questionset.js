@@ -86,10 +86,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   contentData = contentData || {};
 
   // Need to check with isEmpty, as {} == true
-  const hasPrevState = !H5P.isEmpty(contentData.previousState);
+  this.hasPrevState = !H5P.isEmpty(contentData.previousState);
 
   // Bring question set up to date when resuming
-  if (hasPrevState) {
+  if (self.hasPrevState) {
     if (contentData.previousState.progress !== undefined) {
       currentQuestion = contentData.previousState.progress;
     }
@@ -122,7 +122,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (var j = 0; j < questionOrdering.length; j++) {
 
       // Use a previous order if it exists
-      if (hasPrevState && contentData.previousState.questionOrder) {
+      if (self.hasPrevState && contentData.previousState.questionOrder) {
         newOrder[j] = questionOrder[questionOrdering[j][1]];
       }
       else {
@@ -141,7 +141,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   if (params.poolSize > 0) {
 
     // If a previous pool exists, recreate it
-    if (hasPrevState && contentData.previousState.poolOrder) {
+    if (self.hasPrevState && contentData.previousState.poolOrder) {
       poolOrder = contentData.previousState.poolOrder;
 
       // Recreate the pool from the saved data
@@ -219,7 +219,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
 
       question.params = question.params || {};
-      var hasAnswers = hasPrevState && contentData.previousState.answers;
+      var hasAnswers = self.hasPrevState && contentData.previousState.answers;
       var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
         {
           previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
@@ -238,7 +238,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   // Create question instances from questions given by params
   questionInstances = createQuestionInstancesFromQuestions(params.questions);
   params.noOfQuestionAnswered = 0;
-  if (hasPrevState) {
+  if (self.hasPrevState) {
     // get numbers of questions answered by user
     if (contentData.previousState.answers) {
       for (var i = 0; i < questionInstances.length; i++) {
@@ -352,7 +352,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 }
 
   // Randomize questions only on instantiation
-  if (params.randomQuestions && hasPrevState) {
+  if (params.randomQuestions && self.hasPrevState) {
     var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
@@ -519,6 +519,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Clear previous state to ensure questions are created cleanly
     contentData.previousState = {};
+    self.hasPrevState = false;
 
     showingSolutions = false;
 
@@ -1249,7 +1250,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // If the user has moved past the first question, if the content has been resumed,
     // or if at least one of the answers to the questions are considered not empty.
-    if (progress || hasPrevState || answers.some(answer => !H5P.isEmpty(answer))) {
+    if (progress || self.hasPrevState || answers.some(answer => !H5P.isEmpty(answer))) {
       return {
         progress: progress,
         answers: answers,
