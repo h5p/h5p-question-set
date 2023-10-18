@@ -83,6 +83,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var up;
   var renderSolutions = false;
   var showingSolutions = false;
+  var localReset = false; // determine whether content was reset via 'retry' button
   contentData = contentData || {};
 
   // Need to check with isEmpty, as {} == true
@@ -447,10 +448,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         $('.qs-progress-announcer', $myDom)
           .html(humanizedProgress)
-          
-          if (self.isRoot()) {
+          console.log('localreset + ' + localReset)
+          if (localReset || self.isRoot()) {
             $('.qs-progress-announcer', $myDom)
               .show().focus();
+
+            localReset = false;
           }
 
         if (instance && instance.readFeedback) {
@@ -850,6 +853,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           _showQuestion(params.initialQuestion);
         });
         hookUpButton('.qs-retrybutton', function () {
+          localReset = true;
           self.resetTask();
           $myDom.children().hide();
 
