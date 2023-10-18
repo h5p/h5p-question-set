@@ -448,7 +448,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         $('.qs-progress-announcer', $myDom)
           .html(humanizedProgress)
-          console.log('localreset + ' + localReset)
           if (localReset || self.isRoot()) {
             $('.qs-progress-announcer', $myDom)
               .show().focus();
