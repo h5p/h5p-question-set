@@ -400,7 +400,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   };
 
-  var _showQuestion = function (questionNumber, preventAnnouncement) {
+  var _showQuestion = function (questionNumber, preventAnnouncement, moveFocus = true) {
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
@@ -447,8 +447,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         $('.qs-progress-announcer', $myDom)
           .html(humanizedProgress)
-          
-          if (self.isRoot()) {
+          if (moveFocus || self.isRoot()) {
             $('.qs-progress-announcer', $myDom)
               .show().focus();
           }
@@ -514,8 +513,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * Resets the task and every subcontent task.
    * Used for contracts with integrated content.
    * @public
+   * @param {boolean} moveFocus True to move the focus to first option
+   * This prevents loss of focus if reset from within content
    */
-  this.resetTask = function () {
+  this.resetTask = function (moveFocus = false) {
 
     // Clear previous state to ensure questions are created cleanly
     contentData.previousState = {};
@@ -589,7 +590,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     currentQuestion = 0;
 
     // Show the first question again
-    _showQuestion(params.initialQuestion);
+    _showQuestion(params.initialQuestion, false, moveFocus);
   };
 
   var rendered = false;
@@ -850,7 +851,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           _showQuestion(params.initialQuestion);
         });
         hookUpButton('.qs-retrybutton', function () {
-          self.resetTask();
+          self.resetTask(true);
           $myDom.children().hide();
 
           var $intro = $('.intro-page', $myDom);
