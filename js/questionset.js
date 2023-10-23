@@ -102,6 +102,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @return {Object.<array, array>} questionOrdering
    */
   var randomizeQuestionOrdering = function (questions) {
+    // Use a previous order if it exists
+    if (self.hasPrevState && contentData.previousState.order) {
+      questions = questions.slice(0, questionOrder.length);
+
+      return {
+        questions: questions,
+        questionOrder: questionOrder,
+      }
+    }
 
     // Save the original order of the questions in a multidimensional array [[question0,0],[question1,1]...
     var questionOrdering = questions.map(function (questionInstance, index) {
@@ -120,14 +129,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Retrieve the new shuffled order from the second index
     var newOrder = [];
     for (var j = 0; j < questionOrdering.length; j++) {
-
-      // Use a previous order if it exists
-      if (self.hasPrevState && contentData.previousState.questionOrder) {
-        newOrder[j] = questionOrder[questionOrdering[j][1]];
-      }
-      else {
-        newOrder[j] = questionOrdering[j][1];
-      }
+      newOrder[j] = questionOrdering[j][1];
     }
 
     // Return the questions in their new order *with* their new indexes
@@ -352,7 +354,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 }
 
   // Randomize questions only on instantiation
-  if (params.randomQuestions && self.hasPrevState) {
+  if (params.randomQuestions && !self.hasPrevState) {
     var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
