@@ -523,6 +523,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Clear previous state to ensure questions are created cleanly
     contentData.previousState = {};
     self.hasPrevState = false;
+    questionOrder = undefined;
 
     showingSolutions = false;
 
@@ -605,7 +606,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * Randomizes question instances
    */
   var randomizeQuestions = function () {
+    // Recreate questioninstances in original order
+    questionInstances = createQuestionInstancesFromQuestions(params.questions);
 
+    // Scramble them
     var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
