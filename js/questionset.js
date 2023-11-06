@@ -86,7 +86,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   contentData = contentData || {};
 
   // Need to check with isEmpty, as {} == true
-  this.hasPrevState = !H5P.isEmpty(contentData.previousState);
+  this.hasPrevState = H5P.isEmpty && !H5P.isEmpty(contentData.previousState) ||
+    Object.keys(contentData.previousState || {}).length;
 
   // Bring question set up to date when resuming
   if (self.hasPrevState) {
@@ -1257,7 +1258,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // If the user has moved past the first question, if the content has been resumed,
     // or if at least one of the answers to the questions are considered not empty.
-    if (progress || self.hasPrevState || answers.some(answer => !H5P.isEmpty(answer))) {
+    if (progress || self.hasPrevState || answers.some(answer => H5P.isEmpty ? !H5P.isEmpty(answer) : answer)) {
       return {
         progress: progress,
         answers: answers,
