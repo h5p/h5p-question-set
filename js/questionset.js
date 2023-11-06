@@ -259,12 +259,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.$introPage = $('<div>', {
       class: 'intro-page'
     });
-  
+
     if (params.introPage.title) {
       $('<div>', {
         class: 'title',
-        html: '<h1>' + 
-              params.introPage.title + 
+        html: '<h1>' +
+              params.introPage.title +
               '</h1>',
         appendTo: self.$introPage
       });
@@ -282,7 +282,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       class: 'buttons',
       appendTo: self.$introPage
     });
-  
+
     $('<button>', {
       class: 'qs-startbutton h5p-joubelui-button h5p-button',
       html: params.introPage.startButtonText,
@@ -298,7 +298,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Create html for questionset
   self.$questionsContainer = $('<div>', {
-    class: 'questionset ' + 
+    class: 'questionset ' +
     ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
   });
 
@@ -330,7 +330,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (let i=0; i<params.questions.length; i++) {
       $('<li>', {
         class: 'progress-item',
-        html: '<a href="#" class= "progress-dot unanswered ' + 
+        html: '<a href="#" class= "progress-dot unanswered ' +
               (params.disableBackwardsNavigation ? 'disabled' : '') +
               '" ' +
               'aria-label=' +
@@ -794,20 +794,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       self.$resultPage = $('<div>', {
         'class': 'questionset-results'
       });
-    
+
       $('<div>', {
         class: 'greeting',
         html: eparams.message,
         appendTo: self.$resultPage
       });
-    
+
       $('<div>', {
         class: 'feedback-section',
         html: '<div class="feedback-scorebar"></div>' +
               '<div class="feedback-text"></div>',
         appendTo: self.$resultPage
       });
-    
+
       if (params.comment) {
         $('<div>', {
           'class': 'result-header',
@@ -815,7 +815,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           appendTo: self.$resultPage
         });
       }
-    
+
       if (params.resulttext) {
         $('<div>', {
           class: 'result-text',
@@ -823,7 +823,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           appendTo: self.$resultPage
         });
       }
-      
+
       self.$buttonsContainer = $('<div>', {
         class: 'buttons',
         appendTo: self.$resultPage
@@ -883,7 +883,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         // Announce that the question set is complete
         setTimeout(function () {
           $('.qs-progress-announcer', $myDom)
-            .html(eparams.message + 
+            .html(eparams.message +
                   scoreString + '.' +
                   (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
@@ -1278,7 +1278,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     if (progressedEvent.data.statement.context.extensions === undefined) {
       progressedEvent.data.statement.context.extensions = {};
     }
-    
+
     progressedEvent.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
     this.trigger(progressedEvent);
   }
