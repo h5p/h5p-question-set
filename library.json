@@ -14,7 +14,7 @@
   "author": "Joubel",
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 19
+    "minorVersion": 26
   },
   "license": "MIT",
   "preloadedJs": [
