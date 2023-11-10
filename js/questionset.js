@@ -614,64 +614,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
 
-    replaceQuestionsInDOM(questionInstances);
-
     // Update buttons
     initializeQuestion();
-  };
-
-  /**
-   * Empty the DOM of all questions, attach new questions and update buttons
-   *
-   * @param  {type} questionInstances Array of questions to be attached to the DOM
-   */
-  var replaceQuestionsInDOM = function (questionInstances) {
-
-    // Find all question containers and detach questions from them
-    $('.question-container', $myDom).each(function () {
-      $(this).children().detach();
-    });
-
-    // Reattach questions and their buttons in the new order
-    for (var i = 0; i < questionInstances.length; i++) {
-
-      var question = questionInstances[i];
-
-      // Make sure styles are not being added twice
-      $('.question-container:eq(' + i + ')', $myDom).attr('class', 'question-container');
-
-      question.attach($('.question-container:eq(' + i + ')', $myDom));
-
-      //Show buttons if necessary
-      if (questionInstances[questionInstances.length -1] === question &&
-          question.hasButton('finish')) {
-        question.showButton('finish');
-      }
-
-      if (questionInstances[questionInstances.length -1] !== question &&
-          question.hasButton('next')) {
-        question.showButton('next');
-      }
-
-      if (questionInstances[0] !== question &&
-          question.hasButton('prev') &&
-          !params.disableBackwardsNavigation) {
-        question.showButton('prev');
-      }
-
-      // Hide relevant buttons since the order has changed
-      if (questionInstances[0] === question) {
-        question.hideButton('prev');
-      }
-
-      if (questionInstances[questionInstances.length-1] === question) {
-        question.hideButton('next');
-      }
-
-      if (questionInstances[questionInstances.length-1] !== question) {
-        question.hideButton('finish');
-      }
-    }
   };
 
   var moveQuestion = function (direction) {
