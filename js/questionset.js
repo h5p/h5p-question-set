@@ -614,8 +614,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
 
-    replaceQuestionsInDOM(questionInstances);
-
     // Update buttons
     initializeQuestion();
   };
