@@ -85,9 +85,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   var showingSolutions = false;
   contentData = contentData || {};
 
+  // Need to check with isEmpty, as {} == true
+  this.hasPrevState = !H5P.isEmpty(contentData.previousState);
+
   // Bring question set up to date when resuming
-  if (contentData.previousState) {
-    if (contentData.previousState.progress) {
+  if (self.hasPrevState) {
+    if (contentData.previousState.progress !== undefined) {
       currentQuestion = contentData.previousState.progress;
     }
     questionOrder = contentData.previousState.order;
@@ -99,6 +102,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @return {Object.<array, array>} questionOrdering
    */
   var randomizeQuestionOrdering = function (questions) {
+    // Use a previous order if it exists
+    if (self.hasPrevState && contentData.previousState.order) {
+      questions = questions.slice(0, questionOrder.length);
+
+      return {
+        questions: questions,
+        questionOrder: questionOrder,
+      }
+    }
 
     // Save the original order of the questions in a multidimensional array [[question0,0],[question1,1]...
     var questionOrdering = questions.map(function (questionInstance, index) {
@@ -117,14 +129,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Retrieve the new shuffled order from the second index
     var newOrder = [];
     for (var j = 0; j < questionOrdering.length; j++) {
-
-      // Use a previous order if it exists
-      if (contentData.previousState && contentData.previousState.questionOrder) {
-        newOrder[j] = questionOrder[questionOrdering[j][1]];
-      }
-      else {
-        newOrder[j] = questionOrdering[j][1];
-      }
+      newOrder[j] = questionOrdering[j][1];
     }
 
     // Return the questions in their new order *with* their new indexes
@@ -138,7 +143,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   if (params.poolSize > 0) {
 
     // If a previous pool exists, recreate it
-    if (contentData.previousState && contentData.previousState.poolOrder) {
+    if (self.hasPrevState && contentData.previousState.poolOrder) {
       poolOrder = contentData.previousState.poolOrder;
 
       // Recreate the pool from the saved data
@@ -216,7 +221,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
 
       question.params = question.params || {};
-      var hasAnswers = contentData.previousState && contentData.previousState.answers;
+      var hasAnswers = self.hasPrevState && contentData.previousState.answers;
       var questionInstance = H5P.newRunnable(question, contentId, undefined, undefined,
         {
           previousState: hasAnswers ? contentData.previousState.answers[i] : undefined,
@@ -235,7 +240,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   // Create question instances from questions given by params
   questionInstances = createQuestionInstancesFromQuestions(params.questions);
   params.noOfQuestionAnswered = 0;
-  if (contentData.previousState) {
+  if (self.hasPrevState) {
     // get numbers of questions answered by user
     if (contentData.previousState.answers) {
       for (var i = 0; i < questionInstances.length; i++) {
@@ -349,7 +354,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 }
 
   // Randomize questions only on instantiation
-  if (params.randomQuestions && contentData.previousState === undefined) {
+  if (params.randomQuestions && !self.hasPrevState) {
     var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
@@ -397,7 +402,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   };
 
-  var _showQuestion = function (questionNumber, preventAnnouncement) {
+  var _showQuestion = function (questionNumber, preventAnnouncement, moveFocus = true) {
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
@@ -444,7 +449,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         $('.qs-progress-announcer', $myDom)
           .html(humanizedProgress)
-          .show().focus();
+          if (moveFocus || self.isRoot()) {
+            $('.qs-progress-announcer', $myDom)
+              .show().focus();
+          }
 
         if (instance && instance.readFeedback) {
           instance.readFeedback();
@@ -507,11 +515,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * Resets the task and every subcontent task.
    * Used for contracts with integrated content.
    * @public
+   * @param {boolean} moveFocus True to move the focus to first option
+   * This prevents loss of focus if reset from within content
    */
-  this.resetTask = function () {
+  this.resetTask = function (moveFocus = false) {
 
     // Clear previous state to ensure questions are created cleanly
-    contentData.previousState = [];
+    contentData.previousState = {};
+    self.hasPrevState = false;
+    questionOrder = undefined;
 
     showingSolutions = false;
 
@@ -577,6 +589,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       randomizeQuestions();
     }
 
+    // Reset currentQuestion
+    currentQuestion = 0;
+
+    // Show the first question again
+    _showQuestion(params.initialQuestion, false, moveFocus);
   };
 
   var rendered = false;
@@ -589,66 +606,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * Randomizes question instances
    */
   var randomizeQuestions = function () {
+    // Recreate questioninstances in original order
+    questionInstances = createQuestionInstancesFromQuestions(params.questions);
 
+    // Scramble them
     var result = randomizeQuestionOrdering(questionInstances);
     questionInstances = result.questions;
     questionOrder = result.questionOrder;
 
-    replaceQuestionsInDOM(questionInstances);
-  };
-
-  /**
-   * Empty the DOM of all questions, attach new questions and update buttons
-   *
-   * @param  {type} questionInstances Array of questions to be attached to the DOM
-   */
-  var replaceQuestionsInDOM = function (questionInstances) {
-
-    // Find all question containers and detach questions from them
-    $('.question-container', $myDom).each(function () {
-      $(this).children().detach();
-    });
-
-    // Reattach questions and their buttons in the new order
-    for (var i = 0; i < questionInstances.length; i++) {
-
-      var question = questionInstances[i];
-
-      // Make sure styles are not being added twice
-      $('.question-container:eq(' + i + ')', $myDom).attr('class', 'question-container');
-
-      question.attach($('.question-container:eq(' + i + ')', $myDom));
-
-      //Show buttons if necessary
-      if (questionInstances[questionInstances.length -1] === question &&
-          question.hasButton('finish')) {
-        question.showButton('finish');
-      }
-
-      if (questionInstances[questionInstances.length -1] !== question &&
-          question.hasButton('next')) {
-        question.showButton('next');
-      }
-
-      if (questionInstances[0] !== question &&
-          question.hasButton('prev') &&
-          !params.disableBackwardsNavigation) {
-        question.showButton('prev');
-      }
-
-      // Hide relevant buttons since the order has changed
-      if (questionInstances[0] === question) {
-        question.hideButton('prev');
-      }
-
-      if (questionInstances[questionInstances.length-1] === question) {
-        question.hideButton('next');
-      }
-
-      if (questionInstances[questionInstances.length-1] !== question) {
-        question.hideButton('finish');
-      }
-    }
+    // Update buttons
+    initializeQuestion();
   };
 
   var moveQuestion = function (direction) {
@@ -665,6 +632,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Allow movement if backward navigation enabled or answer given
       _showQuestion(currentQuestion + direction);
     }
+
+    // Trigger xAPI
+    self.triggerXAPIProgressed();
   };
 
   /**
@@ -834,7 +804,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           _showQuestion(params.initialQuestion);
         });
         hookUpButton('.qs-retrybutton', function () {
-          self.resetTask();
+          self.resetTask(true);
           $myDom.children().hide();
 
           var $intro = $('.intro-page', $myDom);
@@ -1060,6 +1030,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         return;
       }
       _showQuestion($(this).parent().index());
+
+      // Trigger xAPI
+      self.triggerXAPIProgressed();
     };
 
     // Set event listeners.
@@ -1224,15 +1197,37 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * @returns {Object} current state
    */
   this.getCurrentState = function () {
-    return {
-      progress: showingSolutions ? questionInstances.length - 1 : currentQuestion,
-      answers: questionInstances.map(function (qi) {
-        return qi.getCurrentState();
-      }),
-      order: questionOrder,
-      poolOrder: poolOrder
-    };
+    const progress = showingSolutions ? questionInstances.length - 1 : currentQuestion;
+    const answers = questionInstances.map(function (qi) {
+      return qi.getCurrentState();
+    });
+
+    // If the user has moved past the first question, if the content has been resumed,
+    // or if at least one of the answers to the questions are considered not empty.
+    if (progress || self.hasPrevState || answers.some(answer => !H5P.isEmpty(answer))) {
+      return {
+        progress: progress,
+        answers: answers,
+        order: questionOrder,
+        poolOrder: poolOrder,
+      };
+    }
+
+    return {};
   };
+
+  /**
+   * Trigger the xAPI progressed event
+   */
+  this.triggerXAPIProgressed = function () {
+    const progressedEvent = this.createXAPIEventTemplate('progressed');
+    if (progressedEvent.data.statement.context.extensions === undefined) {
+      progressedEvent.data.statement.context.extensions = {};
+    }
+    
+    progressedEvent.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
+    this.trigger(progressedEvent);
+  }
 
   /**
    * Generate xAPI object definition used in xAPI statements.

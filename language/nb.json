@@ -8,32 +8,32 @@
         },
         {
           "label": "Tittel",
-          "description": "Denne tittelen vil bli vist over introduksjonsteksten."
+          "description": "Denne tittelen blir vist over introduksjonsteksten."
         },
         {
           "label": "Introduksjonstekst",
-          "description": "Denne teksten vises før spørsmålssettet starter."
+          "description": "Denne teksten vises før oppgavesettet starter."
         },
         {
-          "label": "Tekst på \"Start\" knappen",
+          "label": "Navn på \"Start\"-knappen",
           "default": "Start"
         },
         {
           "label": "Bakgrunnsbilde",
-          "description": "Et valgfritt bakgrunnsbilde for introduksjonssiden."
+          "description": "Valgfritt bakgrunnsbilde for introduksjonssida."
         }
       ]
     },
     {
       "label": "Bakgrunnsbilde",
-      "description": "Bakgrunnsbilde for spørsmålssettet (ikke obligatorisk)."
+      "description": "Valgfritt bakgrunnsbilde for oppgavesettet."
     },
     {
-      "label": "Fremdriftsindikator",
-      "description": "Velg om fremdriften skal angis som prikker (få spørsmål) eller som tekst (mange spørsmål).",
+      "label": "Framdriftsindikator",
+      "description": "Velg om framdriften skal vises som prikker (ved få spørsmål) eller som tekst (ved mange spørsmål).",
       "options": [
         {
-          "label": "Tekstlig"
+          "label": "Tekst"
         },
         {
           "label": "Prikker"
@@ -42,10 +42,10 @@
     },
     {
       "label": "Krav for å bestå",
-      "description": "Antall prosent riktig som kreves for å bestå spørsmålssettet."
+      "description": "Prosent riktige svar som kreves for å bestå oppgavesettet."
     },
     {
-      "label": "Spørsmål",
+      "label": "Oppgaver",
       "widgets": [
         {
           "label": "Standard"
@@ -54,119 +54,119 @@
           "label": "Tekstlig"
         }
       ],
-      "entity": "spørsmål",
+      "entity": "Oppgave",
       "field": {
-        "label": "Spørsmåltype",
-        "description": "Velg spørsmålstype for dette spørsmålet."
+        "label": "Oppgavetype",
+        "description": "Velg oppgavetype for denne sida."
       }
     },
     {
       "label": "Ledetekster",
       "fields": [
         {
-          "label": "Forrige-knappen",
-          "default": "Forrige spørsmål"
+          "label": "Navn på \"Forrige\"-knapp",
+          "default": "Forrige"
         },
         {
-          "label": "Neste-knappen",
-          "default": "Neste spørsmål"
+          "label": "Navn på \"Neste\"-knapp",
+          "default": "Neste"
         },
         {
-          "label": "Avslutt-knappen",
+          "label": "Navn på \"Avslutt\"-knapp",
           "default": "Avslutt"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "\"Send inn\"-knapp",
+          "default": "Send inn"
         },
         {
-          "label": "Fremgangstekst",
-          "description": "Tekst brukt hvis tekstlig angivelse av fremdrift er valgt. Variabler: @current og @total.",
-          "default": "Deloppgave @current av @total"
+          "label": "Framdriftstekst",
+          "description": "Valgt tekst når framdrift skal vises som tekst. Variabler: @current og @total.",
+          "default": "Oppgave @current av @total"
         },
         {
-          "label": "Merkelapp for hopping til spørsmål",
-          "description": "Du må bruke plassholderen '%d' istedenfor spørsmålsnummeret, og '%total' istedet for totalt antall spørsmål.",
-          "default": "Spørsmål %d av %total"
+          "label": "Merkelapp for å gå direkte til et bestemt spørsmål",
+          "description": "Bruk plassholderen %d i stedet for oppgavenummeret, og %total i stedet for totalt antall oppgaver.",
+          "default": "Oppgave %d av %total"
         },
         {
-          "label": "Opphavsrett spørsmål-etikett",
-          "default": "Spørsmål"
+          "label": "Merkelapp for spørsmål om opphavsrett",
+          "default": "Oppgave"
         },
         {
-          "label": "Fremdriftstekst for hjelpemiddelteknologi",
-          "description": "Kan bruke @current og @total variabler",
-          "default": "Deloppgave @current av @total"
+          "label": "Framdriftstekst for skjermleser",
+          "description": "Du kan bruke variablene @current og @total.",
+          "default": "Oppgave @current av @total"
         },
         {
-          "label": "Ikke svart på spørsmål-tekst",
-          "default": "Ikke svart"
+          "label": "Tekst hvis oppgave er ubesvart",
+          "default": "Ubesvart"
         },
         {
-          "label": "Svart på spørsmål-tekst",
-          "default": "Svar avgitt"
+          "label": "Tekst for besvart oppgave",
+          "default": "Besvart"
         },
         {
-          "label": "Aktivt spørsmål-tekst",
-          "default": "Aktivt spørsmål"
+          "label": "Tekst for aktiv oppgave",
+          "default": "Aktiv oppgave"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Merkelapp for skjermleser",
+          "default": "Oppgaver"
         }
       ]
     },
     {
       "label": "Slå av tilbakenavigering",
-      "description": "Slå på for å nekte å gå tilbake i Question Set"
+      "description": "Slå på for å hindre at bruker kan gå tilbake i oppgavesettet."
     },
     {
-      "label": "Stokk spørsmålene",
-      "description": "Slå på for å vise alternativene i tilfeldig rekkefølge."
+      "label": "Stokk spørsmåla",
+      "description": "Slå på for å vise spørsmåla i tilfeldig rekkefølge."
     },
     {
       "label": "Antall spørsmål som skal vises:",
       "description": "Lag et tilfeldig sett med spørsmål."
     },
     {
-      "label": "Spørsmålssett avslutning",
+      "label": "Oppgavesett avslutta",
       "fields": [
         {
           "label": "Vis resultater"
         },
         {
-          "label": "Vis resultatknapp"
+          "label": "Vis \"Vis svar\"-knapp"
         },
         {
-          "label": "Vis \"Prøv igjen\" knappen"
+          "label": "Vis \"Prøv igjen\"-knapp"
         },
         {
-          "label": "Melding når resultater ikke vises",
-          "description": "Teksten vises på avslutnings-siden når resultater ikke vises",
+          "label": "Melding når resultater mangler",
+          "description": "Tekst som vises på siste side når \"Vis svar\" er deaktivert",
           "default": "Ferdig"
         },
         {
-          "label": "Overskrift over tilbakemeldinger",
+          "label": "Overskrift for tilbakemelding",
           "default": "Resultat:",
-          "description": "Denne overskriften vises over tilbakemeldingene på slutten av spørsmålssettet."
+          "description": "Denne overskriften vises over tilbakemeldinga helt sist i oppgavesettet."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Melding om poengsum",
+          "description": "Denne teksten står på siste side og forteller bruker hva sluttresultatet er.",
+          "default": "Du fikk @finals av @totals poeng."
         },
         {
-          "label": "Samlet tilbakemelding",
+          "label": "Samla tilbakemelding",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Standard"
+                  "label": "Standardinnstilling"
                 }
               ],
-              "label": "Spesifiser en egendefinert tilbakemelding for et poengintervall",
-              "description": "Eksempel: 0-20% dårlig poengsum, 21-91% gjennomsnittlig poengsum, 91-100% God poengsum!",
-              "entity": "intervall",
+              "label": "Lag egendefinerte tilbakemeldinger for poengintervallene",
+              "description": "Bruk knappen \"Legg til poengintervall\" og legg til så mange poengintervaller du trenger. Eksempel: 0–50 % Svakt resultat, 51–80 % Middels resultat, 81–100 % Flott resultat!",
+              "entity": "Intervall",
               "field": {
                 "fields": [
                   {
@@ -183,43 +183,43 @@
           ]
         },
         {
-          "label": "Gammel tilbakemelding",
+          "label": "Tidligere tilbakemelding",
           "fields": [
             {
-              "label": "Tittel ved bestått",
-              "description": "Denne tittelen vises dersom brukeren har bestått spørsmålssettet."
+              "label": "Tittel ved bestått oppgavesett",
+              "description": "Denne meldinga vises dersom brukeren har bestått oppgavesettet."
             },
             {
               "label": "Kommentar ved bestått",
-              "description": "Denne kommentaren vises dersom brukeren har bestått spørsmålssettet."
+              "description": "Denne meldinga vises etter poengsummen dersom brukeren har bestått oppgavesettet."
             },
             {
-              "label": "Tittel ved ikke bestått",
-              "description": "Denne tittelen vises dersom brukeren ikke har bestått spørsmålssettet."
+              "label": "Overskrift ved ikke bestått",
+              "description": "Denne tittelen vises før poengsummen dersom brukeren ikke har bestått oppgavesettet."
             },
             {
-              "label": "Kommentar ved ikke bestått",
-              "description": "Denne kommentaren vises dersom brukeren ikke har bestått spørsmålssettet."
+              "label": "Melding ved ikke bestått",
+              "description": "Denne meldinga vises etter poengsummen dersom brukeren ikke har bestått oppgavesettet."
             }
           ]
         },
         {
-          "label": "Tekst til \"Fasit\" knapp",
+          "label": "Navn på \"Vis svar\"-knapp",
           "default": "Vis svar",
-          "description": "Tekst for \"Fasit\" knapp."
+          "description": "Navn på \"Vis svar\"-knapp"
         },
         {
-          "label": "Tekst til \"Prøv igjen\" knapp",
+          "label": "Navn på \"Prøv igjen\"-knapp",
           "default": "Prøv igjen",
-          "description": "Tekst til \"Prøv igjen\"-knappen."
+          "description": "Navn på \"Prøv igjen\"-knapp"
         },
         {
-          "label": "Avslutt knappetekst",
-          "default": "Bekreft"
+          "label": "Navn på \"Avslutt\"-knapp",
+          "default": "Avslutt"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Navn på \"Send inn\"-knapp",
+          "default": "Send inn"
         },
         {
           "label": "Vis video før resultatene"
@@ -228,29 +228,29 @@
           "label": "Tillat å hoppe over video"
         },
         {
-          "label": "Tekst til \"Hopp over video\" knapp",
-          "default": "Hopp over"
+          "label": "Navn på \"Hopp over video\"-knapp",
+          "default": "Hopp over video"
         },
         {
           "label": "Video ved bestått",
-          "description": "Denne videoen vil bli vist dersom brukeren består spørsmålssettet."
+          "description": "Denne videoen vises dersom bruker har bestått oppgavesettet."
         },
         {
           "label": "Video ved ikke bestått",
-          "description": "Denne videoen vil bli vist dersom brukeren ikke består spørsmålssettet."
+          "description": "Denne videoen vises dersom bruker ikke har bestått oppgavesettet."
         }
       ]
     },
     {
-      "label": "Innstillinger for «Fasit»- og «Prøv igjen»-knapp",
+      "label": "Innstillinger for \"Sjekk\", \"Vis svar\" og \"Prøv igjen\"",
       "fields": [
         {
           "label": "Vis \"Sjekk\"-knapper",
-          "description": "Dette valget avgjør om «Sjekk»-knappen vil vises for alle spørsmål."
+          "description": "Dette valget avgjør om \"Sjekk\"-knappen vises for alle oppgaver."
         },
         {
-          "label": "Overstyr «Vis svar»-knapp",
-          "description": "Dette valget avgjør om «Vis svar»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "label": "Overstyr \"Vis svar\"-knapp",
+          "description": "Dette valget avgjør om \"Vis svar\"-knappen vises for alle oppgaver, skjules for alle oppgaver eller konfigureres individuelt for hver oppgave.",
           "options": [
             {
               "label": "Aktivert"
@@ -261,8 +261,8 @@
           ]
         },
         {
-          "label": "Overstyr «Prøv igjen»-knapp",
-          "description": "Dette valget avgjør om «Prøv igjen»-knappen vil vises for alle spørsmål, skjules for alle eller konfigureres individuelt for hvert spørsmål.",
+          "label": "Overstyr \"Prøv igjen\"-knapp",
+          "description": "Dette valget avgjør om \"Prøv igjen\"-knappen vises for alle oppgaver, skjules for alle oppgaver eller konfigureres individuelt for hver oppgave.",
           "options": [
             {
               "label": "Aktivert"
