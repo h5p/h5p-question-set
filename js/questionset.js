@@ -1002,7 +1002,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     $('.qs-startbutton', $myDom)
       .click(function () {
         $(this).parents('.intro-page').hide();
-        $('.questionset', $myDom).show();
+        $('.questionset', $myDom).removeClass('hidden');
         _showQuestion(params.initialQuestion);
         event.preventDefault();
       })
@@ -1011,7 +1011,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           case 13: // Enter
           case 32: // Space
             $(this).parents('.intro-page').hide();
-            $('.questionset', $myDom).show();
+            $('.questionset', $myDom).removeClass('hidden');
             _showQuestion(params.initialQuestion);
             event.preventDefault();
         }
