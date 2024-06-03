@@ -825,9 +825,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
             _showQuestion(params.initialQuestion);
 
             // Focus first tabbable element
-            // $myDom[0].querySelectorAll(
-            //   'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
-            // )[0].focus();
+            $myDom[0].querySelectorAll(
+              'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
+            )[0].focus();
           }
         });
 
