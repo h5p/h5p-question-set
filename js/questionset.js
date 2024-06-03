@@ -404,11 +404,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   var _showQuestion = function (questionNumber, preventAnnouncement, moveFocus = true) {
     
-    // Set temporary focus
-    $('title', $myDom)
-      .attr('aria-hidden', 'true')
-      .focus();
-
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
@@ -460,9 +455,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           instance.readFeedback();
         }
 
-        // Set focus to questionNumber
-        $('.question-container', $myDom).eq(questionNumber).focus();
-        $focusElement.attr('aria-hidden', 'false');
+        announceCurrentPage();
       }, 0);
     }
 
@@ -840,7 +833,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         // Announce that the question set is complete
         setTimeout(function () {
           self.$progressAnnouncer
-          $('.qs-progress-announcer', $myDom)
             .html(eparams.message + 
                   scoreString + '.' +
                   (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
@@ -984,10 +976,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Render own DOM into target.
     $myDom.children().remove();
-    $myDom.append(self.$introPage, self.$progressAnnouncer, self.$questionsContainer);
-    // $myDom.append(self.$introPage, self.$questionsContainer);
-
-    // $myDom.parent().append(self.$progressAnnouncer);
+    $myDom.append(self.$introPage, self.$questionsContainer);
+    $myDom.parent().append(self.$progressAnnouncer);
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
@@ -1095,6 +1085,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     this.trigger('resize');
 
     return this;
+  };
+
+  var announceCurrentPage = function () {
+    const pageText = params.texts.readSpeakerProgress
+      .replace('@current', (currentQuestion + 1).toString())
+      .replace('@total', params.questions.length.toString());
+    self.$progressAnnouncer.text(pageText);
   };
 
   // Get current score for questionset.
