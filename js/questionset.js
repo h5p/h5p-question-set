@@ -403,6 +403,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   var _showQuestion = function (questionNumber, preventAnnouncement, moveFocus = true) {
+    
+    // Set temporary focus
+    $('title', $myDom)
+      .attr('aria-hidden', 'true')
+      .focus();
+
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
@@ -448,11 +454,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           .replace('@total', questionInstances.length.toString());
 
         $('.qs-progress-announcer', $myDom)
-          .html(humanizedProgress)
+          .html(humanizedProgress);
 
         if (instance && instance.readFeedback) {
           instance.readFeedback();
         }
+
+        // Set focus to questionNumber
+        $('.question-container', $myDom).eq(questionNumber).focus();
+        $focusElement.attr('aria-hidden', 'false');
       }, 0);
     }
 
@@ -815,9 +825,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
             _showQuestion(params.initialQuestion);
 
             // Focus first tabbable element
-            $myDom[0].querySelectorAll(
-              'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
-            )[0].focus();
+            // $myDom[0].querySelectorAll(
+            //   'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
+            // )[0].focus();
           }
         });
 
