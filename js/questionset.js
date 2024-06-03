@@ -444,18 +444,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     if (!preventAnnouncement) {
       // Announce question number of total, must use timeout because of buttons logic
       setTimeout(function () {
-        var humanizedProgress = params.texts.readSpeakerProgress
-          .replace('@current', (currentQuestion + 1).toString())
-          .replace('@total', questionInstances.length.toString());
-
-        $('.qs-progress-announcer', $myDom)
-          .html(humanizedProgress);
-
+        announceCurrentPage();
         if (instance && instance.readFeedback) {
           instance.readFeedback();
         }
-
-        announceCurrentPage();
       }, 0);
     }
 
