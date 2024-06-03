@@ -403,7 +403,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   var _showQuestion = function (questionNumber, preventAnnouncement, moveFocus = true) {
-    
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
