@@ -292,7 +292,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   // Create html for progress announcer
   self.$progressAnnouncer = $('<div>', {
     class: 'qs-progress-announcer',
-    tabindex: '-1'
+    'aria-live': 'polite',
   });
 
   // Create html for questionset
@@ -447,12 +447,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           .replace('@current', (currentQuestion + 1).toString())
           .replace('@total', questionInstances.length.toString());
 
-        $('.qs-progress-announcer', $myDom)
-          .html(humanizedProgress)
-          if (moveFocus || self.isRoot()) {
-            $('.qs-progress-announcer', $myDom)
-              .show().focus();
-          }
+        self.$progressAnnouncer.html(humanizedProgress);
 
         if (instance && instance.readFeedback) {
           instance.readFeedback();
@@ -817,6 +812,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
             // Show first question
             $('.questionset', $myDom).show();
             _showQuestion(params.initialQuestion);
+
+            // Focus first tabbable element
+            $myDom[0].querySelectorAll(
+              'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
+            )[0].focus();
           }
         });
 
@@ -828,13 +828,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
         // Announce that the question set is complete
         setTimeout(function () {
-          $('.qs-progress-announcer', $myDom)
+          self.$progressAnnouncer
             .html(eparams.message + 
                   scoreString + '.' +
                   (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
-                  eparams.resulttext)
-            .show().focus();
+                  eparams.resulttext);
+
           scoreBar.setMaxScore(totals);
           scoreBar.setScore(finals);
         }, 0);
@@ -972,7 +972,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Render own DOM into target.
     $myDom.children().remove();
-    $myDom.append(self.$introPage, self.$progressAnnouncer, self.$questionsContainer);
+    $myDom.append(self.$introPage, self.$questionsContainer);
+    $myDom.parent().append(self.$progressAnnouncer);
+
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
