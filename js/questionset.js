@@ -402,7 +402,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   };
 
-  var _showQuestion = function (questionNumber, preventAnnouncement, moveFocus = true) {
+  var _showQuestion = function (questionNumber, preventAnnouncement) {
     // Sanitize input.
     if (questionNumber < 0) {
       questionNumber = 0;
@@ -587,8 +587,28 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Reset currentQuestion
     currentQuestion = 0;
 
-    // Show the first question again
-    _showQuestion(params.initialQuestion, false, moveFocus);
+    $myDom.children().hide();
+    var $intro = $('.intro-page', $myDom);
+
+    if ($intro.length) {
+      // Show intro
+      $('.intro-page', $myDom).show();
+      if (moveFocus) {
+        $('.qs-startbutton', $myDom).focus();
+      }
+    }
+    else {
+      // Show first question
+      $('.questionset', $myDom).show();
+      _showQuestion(params.initialQuestion);
+
+      if (moveFocus) {
+        // Focus first tabbable element
+        $myDom[0].querySelectorAll(
+          'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
+        )[0].focus();
+      }
+    }
   };
 
   var rendered = false;
@@ -800,24 +820,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         });
         hookUpButton('.qs-retrybutton', function () {
           self.resetTask(true);
-          $myDom.children().hide();
-
-          var $intro = $('.intro-page', $myDom);
-          if ($intro.length) {
-            // Show intro
-            $('.intro-page', $myDom).show();
-            $('.qs-startbutton', $myDom).focus();
-          }
-          else {
-            // Show first question
-            $('.questionset', $myDom).show();
-            _showQuestion(params.initialQuestion);
-
-            // Focus first tabbable element
-            $myDom[0].querySelectorAll(
-              'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
-            )[0].focus();
-          }
         });
 
         if (scoreBar === undefined) {
