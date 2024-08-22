@@ -641,6 +641,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
 
     if (currentQuestion + direction >= questionInstances.length) {
+      toggleCurrentDot(currentQuestion, false);
+      toggleAnsweredDot(currentQuestion, questionInstances[currentQuestion].getAnswerGiven());
       _displayEndGame();
     }
     else {
