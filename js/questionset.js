@@ -975,6 +975,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
 
     // Render own DOM into target.
+    $myDom.addClass('h5p-question-set h5p-theme');
     $myDom.children().remove();
     $myDom.append(self.$introPage, self.$questionsContainer);
     $myDom.parent().append(self.$progressAnnouncer);
