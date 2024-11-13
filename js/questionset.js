@@ -312,7 +312,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     class: 'qs-footer',
     appendTo: self.$questionsContainer
   });
-
+  
   self.$progressBar = $('<div>', {
     class: 'qs-progress',
     role: 'navigation',
@@ -348,7 +348,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   else if (params.progressType == "textual") {
     $('<span>', {
-      class: 'progress-text',
+      class: 'progress-text h5p-theme-progres',
       appendTo: self.$progressBar
     })
 }
@@ -822,7 +822,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
       if (params.endGame.showSolutionButton) {
         $('<button>', {
-          class: 'h5p-joubelui-button h5p-button qs-solutionbutton h5p-theme-secondary-cta h5p-theme-show-results',
+          class: 'h5p-joubelui-button h5p-button qs-solutionbutton h5p-theme-secondary-cta h5p-theme-show-results h5p-question-show-solution',
           type: 'button',
           html: eparams.solutionButtonText,
           appendTo: self.$buttonsContainer
@@ -831,7 +831,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
       if (params.endGame.showRetryButton) {
         $('<button>', {
-          class: 'h5p-joubelui-button h5p-button qs-retrybutton h5p-theme-secondary-cta h5p-theme-retry',
+          class: 'h5p-question-try-again h5p-theme-secondary-cta h5p-theme-retry h5p-joubelui-button',
           type: 'button',
           html: eparams.retryButtonText,
           appendTo: self.$buttonsContainer

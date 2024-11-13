@@ -159,6 +159,22 @@
 .h5p-question .h5p-question-next {
   padding: 0.5em 0;
   width: 2.1875em;
+    position: fixed;
+    bottom: 5.5%;
+
+}
+.h5p-question .h5p-question-finish{
+  position: fixed;
+    bottom: 5.5%;
+  right: var(--spacing-l);
+}
+
+.h5p-question .h5p-question-prev{
+  left: var(--spacing-l);
+  
+}
+.h5p-question .h5p-question-next{
+  right: var(--spacing-l);
 }
 
 .h5p-question .h5p-question-prev.truncated,
