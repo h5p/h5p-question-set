@@ -73,7 +73,7 @@
 }
 
 .progress-dot.current:before {
-  border-color: #285585;
+  border-color: var(--main-cta-base);
 }
 
 .progress-dot.disabled:focus-visible {
@@ -157,20 +157,6 @@
   
 }
 
-.h5p-question .h5p-question-prev,
-.h5p-question .h5p-question-next {
-  padding: 0.5em 0;
-  width: 2.1875em;
-    position: fixed;
-    bottom: 5.5%;
-
-}
-.h5p-question .h5p-question-finish{
-  position: fixed;
-    bottom: 5.5%;
-  right: var(--spacing-l);
-}
-
 .h5p-question .h5p-question-prev{
   left: var(--spacing-l);
   
@@ -222,7 +208,7 @@
 .questionset-results .greeting {
   margin-top: 1em;
   color: var(--text-third);
-  font-size: 1.25em;
+  font-size: var(--font-size-xl);
 }
 
 .questionset-results .buttons {
@@ -237,13 +223,13 @@
 }
 
 .questionset-results .result-header {
-  font-size: 2em;
+  font-size: calc (2 * var(--font-size-m));
   margin: 1em 0.5em 0.5em 0.5em;
 }
 
 .questionset-results .result-text,
 .questionset-results .feedback-section .feedback-text {
-  font-size: 1.25em;
+  font-size: var(--font-size-xl);
   line-height: 1.25em;
   margin: 1em;
 }
