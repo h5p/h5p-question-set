@@ -26,9 +26,11 @@
 }
 .dots-container {
   text-align: center;
-  line-height: 2em;
-  padding: 0;
+  padding: var(--spacing-xs) var(--spacing-s);
+  border-radius: var(--border-radius-medium);
   margin: 0;
+  background-color: var(--ui-base);
+  display: inline-flex;
 }
 .progress-item {
   list-style: none;
@@ -39,7 +41,7 @@
   width: 0.5625em;
   height: 0.5625em;
   border-radius: 50%;
-  margin: 0 0.25em;
+  margin: 0 0.35em;
   cursor: pointer;
   border: 1px solid var(--main-cta-base);
   position: relative;
@@ -201,6 +203,11 @@
   text-align: center;
   line-height: 1.5em;
 }
+
+.questionset .h5p-theme-progress{
+  display:  inline-flex;
+}
+
 
 .questionset-results {
   text-align: center;

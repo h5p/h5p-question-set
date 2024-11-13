@@ -348,7 +348,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   else if (params.progressType == "textual") {
     $('<span>', {
-      class: 'progress-text h5p-theme-progres',
+      class: 'progress-text h5p-theme-progress',
       appendTo: self.$progressBar
     })
 }
