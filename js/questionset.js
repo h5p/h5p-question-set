@@ -757,18 +757,46 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       self.$resultPage = $('<div>', {
         'class': 'questionset-results'
       });
+      
+      
+      
+      self.$resultBanner = $('<div>', {
+        class: 'h5p-theme-results-banner',
+        appendTo: self.$resultPage
+      });
+      
+      $('<div>', {
+        class: 'h5p-theme-pattern',
+        appendTo: self.$resultBanner
+      });
+      
+      $('<div>', {
+        class: 'h5p-results-title',
+        html: eparams.message,
+        appendTo: self.$resultBanner
+      });
+      
+      self.$resultsContainer = $('<div>', {
+        class: 'h5p-summary-table-holder h5p-results-list-container',
+        appendTo: self.$resultPage
+      });
+      
+      $('<div>', {
+        class: 'h5p-results-score',
+        appendTo: self.$resultsContainer
+      });
     
       $('<div>', {
         class: 'greeting',
         html: eparams.message,
-        appendTo: self.$resultPage
+        appendTo: self.$resultsContainer
       });
     
       $('<div>', {
         class: 'feedback-section',
         html: '<div class="feedback-scorebar"></div>' +
-              '<div class="feedback-text"></div>',
-        appendTo: self.$resultPage
+              '<div class="feedback-text h5p-question-feedback-content-text"></div>',
+        appendTo: self.$resultsContainer
       });
     
       if (params.comment) {
@@ -794,7 +822,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
       if (params.endGame.showSolutionButton) {
         $('<button>', {
-          class: 'h5p-joubelui-button h5p-button qs-solutionbutton',
+          class: 'h5p-joubelui-button h5p-button qs-solutionbutton h5p-theme-secondary-cta h5p-theme-show-results',
           type: 'button',
           html: eparams.solutionButtonText,
           appendTo: self.$buttonsContainer
@@ -803,7 +831,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
       if (params.endGame.showRetryButton) {
         $('<button>', {
-          class: 'h5p-joubelui-button h5p-button qs-retrybutton',
+          class: 'h5p-joubelui-button h5p-button qs-retrybutton h5p-theme-secondary-cta h5p-theme-retry',
           type: 'button',
           html: eparams.retryButtonText,
           appendTo: self.$buttonsContainer
@@ -915,25 +943,46 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Listen for image resize
       registerImageLoadedListener(question);
 
-      // Add finish button
+     // Add finish button
       const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.texts.finishButton
-      question.addButton('finish', finishButtonText,
-        moveQuestion.bind(this, 1), false);
+      question.addButton(
+        'finish',
+        finishButtonText,
+        moveQuestion.bind(this, 1),
+        false,
+        {},
+        {
+          classes: 'h5p-theme-primary-cta h5p-theme-show-results'
+        }
+      );
 
       // Add next button
-      question.addButton('next', '', moveQuestion.bind(this, 1),
-        !params.disableBackwardsNavigation || !!question.getAnswerGiven(), {
+      question.addButton('next',
+        'Next', // TODO: dynamic
+        moveQuestion.bind(this, 1),
+        !params.disableBackwardsNavigation || !!question.getAnswerGiven(),
+        {
           href: '#', // Use href since this is a navigation button
           'aria-label': params.texts.nextButton
-        });
+        },
+        {
+          classes: 'h5p-theme-nav-button h5p-theme-next'
+        }
+      );
 
       // Add previous button
-      question.addButton('prev', '', moveQuestion.bind(this, -1),
-        !(questionInstances[0] === question || params.disableBackwardsNavigation), {
+      question.addButton('prev',
+        'Previous', // TODO: dynamic
+        moveQuestion.bind(this, -1),
+        !(questionInstances[0] === question || params.disableBackwardsNavigation),
+        {
           href: '#', // Use href since this is a navigation buttonq
           'aria-label': params.texts.prevButton
-        });
-
+        },
+        {
+          classes: 'h5p-theme-nav-button h5p-theme-previous'
+        }
+      );
       // Hide next button if it is the last question
       if (questionInstances[questionInstances.length -1] === question) {
         question.hideButton('next');

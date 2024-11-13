@@ -1,3 +1,7 @@
+.questionset{
+  background-color: var(--background) !important;
+  padding: var(--spacing-m);
+}
 .questionset-results h2 {
   font-size: 1.2em;
   font-weight: bold;
@@ -37,7 +41,7 @@
   border-radius: 50%;
   margin: 0 0.25em;
   cursor: pointer;
-  border: 1px solid #1356a3;
+  border: 1px solid var(--main-cta-base);
   position: relative;
   transition: transform 0.2s;
 }
@@ -50,7 +54,7 @@
   transform: scale(1.25);
 }
 .progress-dot.answered {
-  background: #1356a3;
+  background: var(--main-cta-base);
 }
 .progress-dot:before {
   display: block;
@@ -148,7 +152,7 @@
 .h5p-question .h5p-question-prev,
 .h5p-question .h5p-question-finish,
 .h5p-question .h5p-question-next {
-  float: right;
+  
 }
 
 .h5p-question .h5p-question-prev,
@@ -163,29 +167,6 @@
   line-height: 2.2335em;
 }
 
-.h5p-question .h5p-question-next:before {
-  content: "\f054";
-  padding-right: 0;
-  position: relative;
-  left: 2px;
-}
-
-.h5p-question .h5p-question-prev:before {
-  content: "\f053";
-  padding-right: 0;
-  position: relative;
-  left: -2px;
-}
-
-.h5p-question .h5p-question-finish:before {
-  content: "\f00c";
-}
-
-.questionset-results button.h5p-button.qs-solutionbutton:before {
-  font-family: 'H5PFontAwesome4';
-  padding-right: 0.5em;
-  content: "\f06e";
-}
 
 .video-container {
   position: relative;
@@ -207,7 +188,7 @@
 
 .questionset-results {
   text-align: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--ui-base);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6FFFFFF,endColorstr=#E6FFFFFF);
 }
 
@@ -217,7 +198,7 @@
 
 .questionset-results .greeting {
   margin-top: 1em;
-  color: #777;
+  color: var(--text-third);
   font-size: 1.25em;
 }
 
@@ -227,7 +208,7 @@
 
 .questionset-results .result-header,
 .questionset-results .result-text,
-.questionset-results .feedback-section .feedback-text {
+.questionset-results .feedback-section {
   color: #1a73d9;
   font-weight: bold;
 }
