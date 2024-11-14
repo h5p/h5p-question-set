@@ -283,7 +283,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     });
   
     $('<button>', {
-      class: 'qs-startbutton h5p-joubelui-button h5p-button',
+      class: 'qs-startbutton h5p-joubelui-button h5p-button h5p-theme-primary-cta h5p-theme-check',
       html: params.introPage.startButtonText,
       appendTo: self.$introButtonsContainer
     });
@@ -1032,8 +1032,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     if (params.backgroundImage !== undefined) {
       $myDom.css({
         overflow: 'hidden',
-        background: '#fff url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
-        backgroundSize: '100% auto'
+        background: 'var(--ui-base) url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
+        backgroundSize: '90% auto'
       });
     }
 
@@ -1043,8 +1043,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         var bgImg = params.introPage.backgroundImage;
         var bgImgRatio = (bgImg.height / bgImg.width);
         $intro.css({
-          background: '#fff url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
-          backgroundSize: 'auto 100%',
+          background: 'var(--ui-base) url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
+          backgroundSize: 'auto 90%',
           minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
         });
       }

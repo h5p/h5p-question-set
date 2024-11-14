@@ -88,25 +88,27 @@
   line-height: 1.5;
   font-weight: bold;
   text-align: center;
+  color: var(--text-primary);
 }
 .intro-page .title > h1 {
   padding: 0.125em 0.5em;
   border-radius: 0.125em;
-  background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
-  background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
+  background: var(--ui-base);  /* Fallback for browsers not supporting rgba */
+  background: color-mix(in srgb, var(--ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
 }
 .intro-page .introduction {
   font-size: 1.25em;
   margin: 0 1em;
   border-radius: 0.25em;
-  background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
-  background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
+  background: var(--ui-base); /* Fallback for browsers not supporting rgba */
+   background: color-mix(in srgb, var(--ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
   padding: 0.25em 0.5em;
 }
 /* Overrides whatever margins have been set in site-CSS, to avoid too much spacing
    on description field, aswell as getting same padding on top and bottom of field */
 .intro-page .introduction > p {
   margin: 0 0 0.5em 0;
+  color: var(--text-primary);
 }
 .intro-page .introduction > p:last-child {
   margin: 0;
