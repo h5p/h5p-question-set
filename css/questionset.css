@@ -1,6 +1,6 @@
 .questionset{
-  background-color: var(--background) !important;
-  padding: var(--spacing-m);
+  background-color: var(--h5p-theme-background) !important;
+  padding: var(--h5p-theme-spacing-m);
 }
 .questionset-results h2 {
   font-size: 1.2em;
@@ -26,10 +26,10 @@
 }
 .dots-container {
   text-align: center;
-  padding: var(--spacing-xs) var(--spacing-s);
-  border-radius: var(--border-radius-medium);
+  padding: var(--h5p-theme-spacing-xs) var(--h5p-theme-spacing-s);
+  border-radius: var(--h5p-theme-border-radius-medium);
   margin: 0;
-  background-color: var(--ui-base);
+  background-color: var(--h5p-theme-ui-base);
   display: inline-flex;
 }
 .progress-item {
@@ -43,7 +43,7 @@
   border-radius: 50%;
   margin: 0 0.35em;
   cursor: pointer;
-  border: 1px solid var(--main-cta-base);
+  border: 1px solid var(--h5p-theme-main-cta-base);
   position: relative;
   transition: transform 0.2s;
 }
@@ -56,7 +56,7 @@
   transform: scale(1.25);
 }
 .progress-dot.answered {
-  background: var(--main-cta-base);
+  background: var(--h5p-theme-main-cta-base);
 }
 .progress-dot:before {
   display: block;
@@ -73,7 +73,7 @@
 }
 
 .progress-dot.current:before {
-  border-color: var(--main-cta-base);
+  border-color: var(--h5p-theme-main-cta-base);
 }
 
 .progress-dot.disabled:focus-visible {
@@ -88,27 +88,27 @@
   line-height: 1.5;
   font-weight: bold;
   text-align: center;
-  color: var(--text-primary);
+  color: var(--h5p-theme-text-primary);
 }
 .intro-page .title > h1 {
   padding: 0.125em 0.5em;
   border-radius: 0.125em;
-  background: var(--ui-base);  /* Fallback for browsers not supporting rgba */
-  background: color-mix(in srgb, var(--ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
+  background: var(--h5p-theme-ui-base);  /* Fallback for browsers not supporting rgba */
+  background: color-mix(in srgb, var(--h5p-theme-ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
 }
 .intro-page .introduction {
   font-size: 1.25em;
   margin: 0 1em;
   border-radius: 0.25em;
-  background: var(--ui-base); /* Fallback for browsers not supporting rgba */
-   background: color-mix(in srgb, var(--ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
+  background: var(--h5p-theme-ui-base); /* Fallback for browsers not supporting rgba */
+   background: color-mix(in srgb, var(--h5p-theme-ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
   padding: 0.25em 0.5em;
 }
 /* Overrides whatever margins have been set in site-CSS, to avoid too much spacing
    on description field, aswell as getting same padding on top and bottom of field */
 .intro-page .introduction > p {
   margin: 0 0 0.5em 0;
-  color: var(--text-primary);
+  color: var(--h5p-theme-text-primary);
 }
 .intro-page .introduction > p:last-child {
   margin: 0;
@@ -160,11 +160,11 @@
 }
 
 .h5p-question .h5p-question-prev{
-  left: var(--spacing-l);
+  left: var(--h5p-theme-spacing-l);
   
 }
 .h5p-question .h5p-question-next{
-  right: var(--spacing-l);
+  right: var(--h5p-theme-spacing-l);
 }
 
 .h5p-question .h5p-question-prev.truncated,
@@ -199,7 +199,7 @@
 
 .questionset-results {
   text-align: center;
-  background: var(--ui-base);
+  background: var(--h5p-theme-ui-base);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6FFFFFF,endColorstr=#E6FFFFFF);
 }
 
@@ -209,8 +209,8 @@
 
 .questionset-results .greeting {
   margin-top: 1em;
-  color: var(--text-third);
-  font-size: var(--font-size-xl);
+  color: var(--h5p-theme-text-third);
+  font-size: var(--h5p-theme-font-size-xl);
 }
 
 .questionset-results .buttons {
@@ -225,13 +225,13 @@
 }
 
 .questionset-results .result-header {
-  font-size: calc (2 * var(--font-size-m));
+  font-size: calc (2 * var(--h5p-theme-font-size-m));
   margin: 1em 0.5em 0.5em 0.5em;
 }
 
 .questionset-results .result-text,
 .questionset-results .feedback-section .feedback-text {
-  font-size: var(--font-size-xl);
+  font-size: var(--h5p-theme-font-size-xl);
   line-height: 1.25em;
   margin: 1em;
 }
