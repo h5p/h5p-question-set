@@ -30,7 +30,7 @@
     },
     {
       "label": "Indicatore di avanzamento",
-      "description": "Stile dell'indicatore di avanzamento del gruppo di domande",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Testuale"
@@ -68,8 +68,16 @@
           "default": "Domanda precedente"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Pulsante avanti",
           "default": "Prossima domanda"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Pulsante fine",

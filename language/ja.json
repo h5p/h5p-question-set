@@ -30,7 +30,7 @@
     },
     {
       "label": "進行状況インジケーター",
-      "description": "設問集の進捗状況インジケータースタイル",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "原文"
@@ -68,8 +68,16 @@
           "default": "前の設問"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "次へボタン",
           "default": "次の設問"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "完了ボタン",

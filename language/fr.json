@@ -30,7 +30,7 @@
     },
     {
       "label": "Indicateur de progression",
-      "description": "Style de l'indicateur de progression de la série de questions.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Texte"
@@ -68,8 +68,16 @@
           "default": "Retour"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Bouton Suivant",
           "default": "Suivant"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Bouton Fin",
@@ -151,7 +159,6 @@
           "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
-
           "label": "Score announcer",
           "description": "Cette vignette sera utilisée pour annoncer la note finale à l'utilisateur sur l'écran de fin",
           "default": "Vous avez obtenu @finals sur @totals points"

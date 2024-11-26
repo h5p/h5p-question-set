@@ -30,7 +30,7 @@
     },
     {
       "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textual"
@@ -68,8 +68,16 @@
           "default": "Previous question"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Next button",
           "default": "Next question"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Finish button",

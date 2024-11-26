@@ -33,7 +33,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     },
     texts: {
       prevButton: 'Previous question',
+      previous: 'Previous',
       nextButton: 'Next question',
+      next: 'Next',
       finishButton: 'Finish',
       submitButton: 'Submit',
       textualProgress: 'Question: @current of @total questions',
@@ -245,7 +247,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     if (contentData.previousState.answers) {
       for (var i = 0; i < questionInstances.length; i++) {
         let answered = questionInstances[i].getAnswerGiven();
-        if (answered){
+        if (answered) {
           params.noOfQuestionAnswered++;
         }
       }
@@ -312,7 +314,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     class: 'qs-footer',
     appendTo: self.$questionsContainer
   });
-  
+
+  self.$prevBtn = $('<button>', {
+    class: 'h5p-theme-nav-button h5p-theme-previous'
+      + (currentQuestion === 0 || params.disableBackwardsNavigation ? ' h5p-hidden' : ''),
+    'aria-label': params.texts.prevButton,
+    appendTo: self.$footer
+  }).on('click', () => this.moveQuestion(-1));
+
+  $('<span>', {
+    class: 'h5p-theme-label',
+    text: params.texts.previous,
+    appendTo: self.$prevBtn
+  });
+
   self.$progressBar = $('<div>', {
     class: 'qs-progress',
     role: 'navigation',
@@ -320,7 +335,30 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     appendTo: self.$footer
   });
 
-  if (params.progressType == "dots") {
+  self.$nextBtn = $('<button>', {
+    class: 'h5p-theme-nav-button h5p-theme-next'
+      + (currentQuestion === params.questions.length - 1 ? ' h5p-hidden' : ''),
+    'aria-label': params.texts.nextButton,
+    appendTo: self.$footer
+  }).on('click', () => this.moveQuestion(1));
+
+  $('<span>', {
+    class: 'h5p-theme-label',
+    text: params.texts.next,
+    appendTo: self.$nextBtn
+  });
+
+  // Add finish button
+  const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.texts.finishButton
+  self.$finishBtn = $('<button>', {
+    class: 'h5p-theme-primary-cta h5p-theme-show-results h5p-hidden',
+    text: finishButtonText,
+    'aria-label': finishButtonText,
+    appendTo: self.$footer
+  }).on('click', () => this.moveQuestion(1));
+
+  // If backwards navigation is disabled, we show textual progress instead
+  if (params.progressType == "dots" && !params.disableBackwardsNavigation) {
     self.$dotsContainer = $('<ul>', {
       class: 'dots-container',
       appendTo: self.$progressBar
@@ -330,7 +368,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       $('<li>', {
         class: 'progress-item',
         html: '<a href="#" class= "progress-dot unanswered ' + 
-              (params.disableBackwardsNavigation ? 'disabled' : '') +
               '" ' +
               'aria-label=' +
                 '"' +
@@ -339,19 +376,17 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                 params.texts.unansweredText +
                 '" ' +
               'tabindex="-1" ' +
-              (params.disableBackwardsNavigation ? 'aria-disabled="true"' : '') +
               '></a>',
         appendTo: self.$dotsContainer
       })
     }
   }
-
-  else if (params.progressType == "textual") {
+  else {
     $('<span>', {
       class: 'progress-text h5p-theme-progress',
       appendTo: self.$progressBar
     })
-}
+  }
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && !self.hasPrevState) {
@@ -376,13 +411,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   // Update button state.
   var _updateButtons = function () {
     // Verify that current question is answered when backward nav is disabled
-    if (params.disableBackwardsNavigation) {
+    if (params.disableBackwardsNavigation && !showingSolutions) {
       if (questionInstances[currentQuestion].getAnswerGiven() &&
           questionInstances.length-1 !== currentQuestion) {
-        questionInstances[currentQuestion].showButton('next');
+        self.$nextBtn.removeClass('h5p-hidden');
       }
       else {
-        questionInstances[currentQuestion].hideButton('next');
+        self.$nextBtn.addClass('h5p-hidden');
+      }
+    }
+    else {
+      self.$nextBtn.removeClass('h5p-hidden');
+      self.$prevBtn.removeClass('h5p-hidden');
+
+      if (currentQuestion === 0) {
+        self.$prevBtn.addClass('h5p-hidden');
       }
     }
 
@@ -393,11 +436,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     if (currentQuestion === (params.questions.length - 1) &&
         questionInstances[currentQuestion]) {
+
+      self.$nextBtn.addClass('h5p-hidden');
+
       if (answered) {
-        questionInstances[currentQuestion].showButton('finish');
+        self.$finishBtn.removeClass('h5p-hidden');
       }
       else {
-        questionInstances[currentQuestion].hideButton('finish');
+        self.$finishBtn.addClass('h5p-hidden');
       }
     }
   };
@@ -427,7 +473,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     // Update progress indicator
     // Test if current has been answered.
-    if (params.progressType === 'textual') {
+    if (params.progressType === 'textual' || params.disableBackwardsNavigation) {
       $('.progress-text', $myDom).text(params.texts.textualProgress.replace("@current", questionNumber+1).replace("@total", params.questions.length));
     }
     else {
@@ -468,16 +514,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   var showSolutions = function () {
     showingSolutions = true;
-    for (var i = 0; i < questionInstances.length; i++) {
+    self.$finishBtn.addClass('h5p-hidden');
 
-      // Enable back and forth navigation in solution mode
-      toggleDotsNavigation(true);
-      if (i < questionInstances.length - 1) {
-        questionInstances[i].showButton('next');
-      }
-      if (i > 0) {
-        questionInstances[i].showButton('prev');
-      }
+    for (var i = 0; i < questionInstances.length; i++) {
 
       try {
         // Do not read answers
@@ -532,13 +571,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
           // Check if first question is answered by default
           if (i === 0 && questionInstances[i].getAnswerGiven()) {
-            questionInstances[i].showButton('next');
+            self.$nextBtn.removeClass('h5p-hidden');
           }
           else {
-            questionInstances[i].hideButton('next');
+            self.$nextBtn.addClass('h5p-hidden');
           }
 
-          questionInstances[i].hideButton('prev');
+          self.$prevBtn.addClass('h5p-hidden');
         }
       }
       catch (error) {
@@ -548,7 +587,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
 
     // Hide finish button
-    questionInstances[questionInstances.length - 1].hideButton('finish');
+    self.$finishBtn.addClass('h5p-hidden');
 
     // Mark all tasks as unanswered:
     $('.progress-dot').each(function (idx) {
@@ -633,10 +672,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     initializeQuestion();
   };
 
-  var moveQuestion = function (direction) {
+  this.moveQuestion = function (direction) {
     if (params.disableBackwardsNavigation && !questionInstances[currentQuestion].getAnswerGiven()) {
-      questionInstances[currentQuestion].hideButton('next');
-      questionInstances[currentQuestion].hideButton('finish');
+      self.$nextBtn.addClass('h5p-hidden');
+      self.$finishBtn.addClass('h5p-hidden');
       return;
     }
 
@@ -831,7 +870,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
       if (params.endGame.showRetryButton) {
         $('<button>', {
-          class: 'h5p-question-try-again h5p-theme-secondary-cta h5p-theme-retry h5p-joubelui-button',
+          class: 'qs-retrybutton h5p-theme-secondary-cta h5p-theme-retry h5p-joubelui-button',
           type: 'button',
           html: eparams.retryButtonText,
           appendTo: self.$buttonsContainer
@@ -942,51 +981,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
       // Listen for image resize
       registerImageLoadedListener(question);
-
-     // Add finish button
-      const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.texts.finishButton
-      question.addButton(
-        'finish',
-        finishButtonText,
-        moveQuestion.bind(this, 1),
-        false,
-        {},
-        {
-          classes: 'h5p-theme-primary-cta h5p-theme-show-results'
-        }
-      );
-
-      // Add next button
-      question.addButton('next',
-        'Next', // TODO: dynamic
-        moveQuestion.bind(this, 1),
-        !params.disableBackwardsNavigation || !!question.getAnswerGiven(),
-        {
-          href: '#', // Use href since this is a navigation button
-          'aria-label': params.texts.nextButton
-        },
-        {
-          classes: 'h5p-theme-nav-button h5p-theme-next'
-        }
-      );
-
-      // Add previous button
-      question.addButton('prev',
-        'Previous', // TODO: dynamic
-        moveQuestion.bind(this, -1),
-        !(questionInstances[0] === question || params.disableBackwardsNavigation),
-        {
-          href: '#', // Use href since this is a navigation buttonq
-          'aria-label': params.texts.prevButton
-        },
-        {
-          classes: 'h5p-theme-nav-button h5p-theme-previous'
-        }
-      );
-      // Hide next button if it is the last question
-      if (questionInstances[questionInstances.length -1] === question) {
-        question.hideButton('next');
-      }
 
       question.on('xAPI', function (event) {
         var shortVerb = event.getVerb();

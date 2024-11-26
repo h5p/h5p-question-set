@@ -30,7 +30,7 @@
     },
     {
       "label": "Indikator napredka",
-      "description": "Nastavitev prikaza napredka v kvizu (npr. število trenutnega in preostalih vprašanj).",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstovni"
@@ -68,8 +68,16 @@
           "default": "Prejšnje vprašanje"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Besedilo za gumb \"Naslednje vprašanje\"",
           "default": "Naslednje vprašanje"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Besedilo gumba \"Potrdi\"",

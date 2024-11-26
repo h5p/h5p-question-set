@@ -30,7 +30,7 @@
     },
     {
       "label": "شاخص پیشرفت",
-      "description": "حالت نمایش شاخص پیشرفت مجموعه سؤالات.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "متنی"
@@ -68,8 +68,16 @@
           "default": "سؤال قبل"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "دکمه بعدی",
           "default": "سؤال بعدی"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "دکمه پایان",

@@ -30,7 +30,7 @@
     },
     {
       "label": "進度指示樣式",
-      "description": "問題集的進度指示要呈現的方式。",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "文字式"
@@ -68,8 +68,16 @@
           "default": "上一題"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "下一題按鈕顯示文字",
           "default": "下一題"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "完成按鈕顯示文字",

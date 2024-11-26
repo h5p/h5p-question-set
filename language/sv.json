@@ -30,7 +30,7 @@
     },
     {
       "label": "Framstegsindikator",
-      "description": "Stil på framstegsindikator för fråge-uppsättningen.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textuell"
@@ -68,8 +68,16 @@
           "default": "Föregående fråga"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Nästa-knapp",
           "default": "Nästa fråga"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Avsluta-knapp",

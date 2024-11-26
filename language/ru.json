@@ -30,7 +30,7 @@
     },
     {
       "label": "Индикатор прогресса",
-      "description": "Установите стиль индикатора прогресса для набора вопросов.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текстовый"
@@ -68,8 +68,16 @@
           "default": "Предыдущий вопрос"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Кнопка Далее",
           "default": "Следующий вопрос"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Кнопка Завершить",

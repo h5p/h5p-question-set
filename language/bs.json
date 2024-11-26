@@ -30,7 +30,7 @@
     },
     {
       "label": "Prikaz napredovanja",
-      "description": "Prikazivanje napredovanja",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekst"
@@ -68,8 +68,16 @@
           "default": "Nazad"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Oznaka za dugme \"Naprijed\"",
           "default": "Dalje"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Oznaka za dugme \"Završi\"",

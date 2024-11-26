@@ -30,7 +30,7 @@
     },
     {
       "label": "İlerleme göstergeleri",
-      "description": "Soru seti ilerleme göstergesi stili",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Metinsel"
@@ -68,8 +68,16 @@
           "default": "Önceki soru"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Sonraki butonu",
           "default": "Sonraki soru"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Bitir butonu",

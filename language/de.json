@@ -30,7 +30,7 @@
     },
     {
       "label": "Fortschrittsanzeige",
-      "description": "Anzeigestil der Fortschrittsanzeige",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Text"
@@ -68,8 +68,16 @@
           "default": "Zurück"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Beschriftung des \"Weiter\"-Buttons",
           "default": "Weiter"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Beschriftung des \"Beenden\"-Buttons",

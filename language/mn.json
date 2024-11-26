@@ -30,7 +30,7 @@
     },
     {
       "label": "Явцын үзүүлэлт",
-      "description": "Асуултын багцын явцын үзүүлэлтийн загвар.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текст"
@@ -68,8 +68,16 @@
           "default": "Өмнөх асуулт"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Дараагийн товчлуур",
           "default": "Дараагийн асуулт"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Дуусгах товчлуур",

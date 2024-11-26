@@ -29,14 +29,14 @@
       "description": "Una imagen de fondo opcional para el Conjunto de preguntas."
     },
     {
-      "label": "Indicador del progreso",
-      "description": "Estilo del indicador del progreso para el Conjunto de preguntas.",
+      "label": "Progress indicator",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textual"
         },
         {
-          "label": "Puntos"
+          "label": "Dots"
         }
       ]
     },
@@ -68,8 +68,16 @@
           "default": "Pregunta anterior"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Botón Siguiente",
           "default": "Pregunta siguiente"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Botón Terminar",

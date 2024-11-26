@@ -30,7 +30,7 @@
     },
     {
       "label": "Progresa indikators",
-      "description": "Jautājumu kopas progresa indikatora stils.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Teksta"
@@ -68,8 +68,16 @@
           "default": "Iepriekšējais jautājums"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Nākamā jautājuma poga",
           "default": "Nākamais jautājums"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Pabeigšanas poga",

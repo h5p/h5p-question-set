@@ -30,7 +30,7 @@
     },
     {
       "label": "Indicador de progresso",
-      "description": "Estilo do indicador de progresso do conjunto de questões.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Literal"
@@ -68,8 +68,16 @@
           "default": "Questão anterior"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Botão Próximo",
           "default": "Próxima questão"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Botão Finalizar",

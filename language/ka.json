@@ -30,7 +30,7 @@
     },
     {
       "label": "პროგრესის მაჩვენებელი",
-      "description": "კითხვების ნაკრების პროგრესის ინდიკატორის სტილი.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "ტექსტური"
@@ -67,8 +67,16 @@
           "default": "წინა შეკითხვა"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "შემდეგი ღილაკი",
           "default": "შემდეგი შეკითხვა"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "დასრულების ღილაკი",

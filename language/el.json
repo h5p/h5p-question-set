@@ -30,7 +30,7 @@
     },
     {
       "label": "Δείκτης προόδου",
-      "description": "Καθορισμός στυλ δείκτη προόδου.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Κείμενο"
@@ -68,8 +68,16 @@
           "default": "Προηγούμενη"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Κουμπί για \"επόμενο\"",
           "default": "Επόμενη"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Κουμπί ολοκλήρωσης",

@@ -30,7 +30,7 @@
     },
     {
       "label": "Pažangos indikatorius",
-      "description": "Klausimų rinkinio eigos indikatoriaus stilius.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstinis"
@@ -68,8 +68,16 @@
           "default": "Ankstesnis klausimas"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Kitas mygtukas",
           "default": "Kitas klausimas"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Mygtukas „Baigti“",

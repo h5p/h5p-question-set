@@ -30,7 +30,7 @@
     },
     {
       "label": "Індикатор прогресу",
-      "description": "Встановіть стиль індикатора прогресу для набору запитань.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текстовий"
@@ -68,8 +68,16 @@
           "default": "Попереднє запитання"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Кнопка Далі",
           "default": "Наступне запитання"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Кнопка Завершити",

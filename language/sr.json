@@ -30,7 +30,7 @@
     },
     {
       "label": "Показатељ напретка",
-      "description": "Стил индикатора напретка постављеног питања.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текстуални"
@@ -68,8 +68,16 @@
           "default": "Претходно питање"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Следеће дугме",
           "default": "Следеће питање"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Дугме Заврши",

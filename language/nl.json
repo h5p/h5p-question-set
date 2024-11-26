@@ -30,7 +30,7 @@
     },
     {
       "label": "Voortgangsindicator",
-      "description": "Stijl van voortgangsindicator van de vragenreeks.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstueel"
@@ -68,8 +68,16 @@
           "default": "Vorige vraag"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Tekst van \"Volgende\"-knop",
           "default": "Volgende vraag"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Tekst van \"Afsluiten\"-knop",

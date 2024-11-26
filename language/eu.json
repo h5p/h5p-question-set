@@ -30,7 +30,7 @@
     },
     {
       "label": "Aurrerapenaren adierazlea",
-      "description": "Galdetegiaren aurrerapen-adierazlearen estiloa.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Testuala"
@@ -68,8 +68,16 @@
           "default": "Aurreko galdera"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Hurrengoa botoia",
           "default": "Hurrengo galdera"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Bukatu botoia",

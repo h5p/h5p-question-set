@@ -30,7 +30,7 @@
     },
     {
       "label": "Kiashiria cha maendeleo",
-      "description": "Swali kuwekwa mtindo wa kiashiria cha maendeleo.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Kimaandishi"
@@ -68,8 +68,16 @@
           "default": "Swali la awali"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Kitufe kinachofuata",
           "default": "Swali linalofuata"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Kitufe cha kumaliza",

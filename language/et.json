@@ -30,7 +30,7 @@
     },
     {
       "label": "Edenemise osuti",
-      "description": "Küsimustiku edenemisosuti stiil.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstiline"
@@ -68,8 +68,16 @@
           "default": "Eelmine küsimus"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Edasi nupp",
           "default": "Järgmine küsimus"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Lõpeta nupp",

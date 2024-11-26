@@ -30,7 +30,7 @@
     },
     {
       "label": "진행률 표시",
-      "description": "문제 세트 진행률 표시 스타일.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "텍스트 유형"
@@ -68,8 +68,16 @@
           "default": "이전 질문"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "다음 버튼",
           "default": "다음 질문"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "완료 단추",

@@ -30,7 +30,7 @@
     },
     {
       "label": "Edistymisen näyttäminen",
-      "description": "Miten edistyminen tehtävässä näytetään tekijälle.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Teksti"
@@ -68,8 +68,16 @@
           "default": "Edellinen kysymys"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Painikkeen Seuraava teksti",
           "default": "Seuraava kysymys"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Painikkeen Lopeta teksti",

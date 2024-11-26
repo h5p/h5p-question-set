@@ -30,7 +30,7 @@
     },
     {
       "label": "Framdriftsindikator",
-      "description": "Velg om framdriften skal vises som prikker (ved få spørsmål) eller som tekst (ved mange spørsmål).",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekst"
@@ -68,8 +68,16 @@
           "default": "Forrige"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Navn på \"Neste\"-knapp",
           "default": "Neste"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Navn på \"Avslutt\"-knapp",

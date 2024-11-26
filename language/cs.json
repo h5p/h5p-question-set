@@ -30,7 +30,7 @@
     },
     {
       "label": "Ukazatel průběhu",
-      "description": "Styl ukazatele průběhu testu.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textový"
@@ -68,8 +68,16 @@
           "default": "Předchozí otázka"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Tlačítko Další",
           "default": "Další otázka"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Tlačítko Dokončit",

@@ -75,7 +75,7 @@
     "type": "select",
     "label": "Progress indicator",
     "importance": "low",
-    "description": "Question set progress indicator style.",
+    "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
     "options": [
       {
         "value": "textual",
@@ -149,11 +149,25 @@
         "default": "Previous question"
       },
       {
+        "name": "previous",
+        "type": "text",
+        "label": "Back button label",
+        "importance": "low",
+        "default": "Previous"
+      },
+      {
         "name": "nextButton",
         "type": "text",
         "label": "Next button",
         "importance": "low",
         "default": "Next question"
+      },
+      {
+        "name": "next",
+        "type": "text",
+        "label": "Next button label",
+        "importance": "low",
+        "default": "Next"
       },
       {
         "name": "finishButton",

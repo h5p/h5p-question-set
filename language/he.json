@@ -30,7 +30,7 @@
     },
     {
       "label": "מחוון התקדמות",
-      "description": "הגדרות שאלה מסוג מחוון התקדמות.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "מילולי"
@@ -68,8 +68,16 @@
           "default": "שאלה קודמת"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "כפתור הבא",
           "default": "שאלה הבאה"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "כפתור סיום",

@@ -30,7 +30,7 @@
     },
     {
       "label": "Wskaźnik postępu",
-      "description": "W jaki sposób ma być pokazywany postęp.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstowo"
@@ -68,8 +68,16 @@
           "default": "Poprzednie pytanie"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Przycisk dalej",
           "default": "Kolejne pytanie"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Przycisk zakończenia",

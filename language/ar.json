@@ -30,7 +30,7 @@
     },
     {
       "label": "مؤشر التقدم",
-      "description": "أسئلة لتعيين نمط مؤشر التقدم.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "النصية"
@@ -68,8 +68,16 @@
           "default": "Previous question"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "زر التقدم",
           "default": "Next question"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "زر الانتهاء",
