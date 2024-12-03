@@ -98,7 +98,7 @@
           "default": "Ερώτηση %d από %total"
         },
         {
-          "label": "Ετικέτα διαλογικού παραθύρου Πνευματικών Δικαιωμάτων",
+          "label": "Question heading",
           "default": "Ερώτηση"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Ολοκληρώθηκε"
         },
         {
-          "label": "Επικεφαλίδα ανατροφοδότησης",
-          "default": "Η βαθμολογία σου:",
-          "description": "Αυτή η επικεφαλίδα θα εμφανίζεται στο τέλος του κουίζ όταν ο χρήστης θα έχει απαντήσει σε όλες τις ερωτήσεις."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Εκφωνητής βαθμολογίας",
           "description": "Αυτή η ετικέτα θα χρησιμοποιηθεί για την ανακοίνωση της τελικής βαθμολογίας στον χρήστη στην τελική οθόνη",
           "default": "Έχετε @finals από @totals πόντους"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Συνολική ανατροφοδότηση",

@@ -98,7 +98,7 @@
           "default": "Oppgave %d av %total"
         },
         {
-          "label": "Merkelapp for spørsmål om opphavsrett",
+          "label": "Oppgave overskrift",
           "default": "Oppgave"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Ferdig"
         },
         {
-          "label": "Overskrift for tilbakemelding",
-          "default": "Resultat:",
-          "description": "Denne overskriften vises over tilbakemeldinga helt sist i oppgavesettet."
+          "label": "Resultatsoverskrift",
+          "default": "Resultat",
+          "description": "Denne overskriften blir vist på slutten av oppgavesettet når brukeren har besvart alle spørsmålene."
+        },
+        {
+          "label": "Antall korrekt overskrift",
+          "description": "Overskrift for å vise poengsummen på sluttskjermen",
+          "default": "@finals av @totals korrekt"
         },
         {
           "label": "Melding om poengsum",
           "description": "Denne teksten står på siste side og forteller bruker hva sluttresultatet er.",
           "default": "Du fikk @finals av @totals poeng."
+        },
+        {
+          "label": "Poengtittel",
+          "description": "Overskrift for poengdelen av resultatstabellen",
+          "default": "Poeng"
         },
         {
           "label": "Samla tilbakemelding",

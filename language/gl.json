@@ -98,7 +98,7 @@
           "default": "Pregunta %d de %total"
         },
         {
-          "label": "Etiqueta para o diálogo de Copyright da pregunta",
+          "label": "Question heading",
           "default": "Pregunta"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Rematado"
         },
         {
-          "label": "Cabeceira da retroalimentación",
-          "default": "O teu resultado:",
-          "description": "Amosarase esta cabeceira ao final do cuestionario cando o usuario acabe de contestar todas as preguntas."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Anunciador da puntuación",
           "description": "Usarase este etiqueta para anunciar a puntuación final do usuario na pantalla final",
           "default": "Conseguiches @finals puntos dun total de @totals"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Retroalimentación Xeral",

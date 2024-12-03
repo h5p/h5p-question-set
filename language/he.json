@@ -98,7 +98,7 @@
           "default": "שאלה %d מתוך %total"
         },
         {
-          "label": "תווית שאלת שיח זכויות יוצרים",
+          "label": "Question heading",
           "default": "שאלה"
         },
         {
@@ -154,14 +154,24 @@
           "default": "הסתיים"
         },
         {
-          "label": "כותרת המשוב",
-          "default": "התוצאה שלכם:",
-          "description": "כותרת זו תוצג בסיום החידון כאשר הנבחן ענה על כל השאלות."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "הודעת ניקוד",
           "description": "תווית זו תשמש להכרזה על הציון הסופי למשתמש במסך הסיום",
           "default": "קיבלתם @finals מתוך @totals הנקודות"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "משוב כולל",

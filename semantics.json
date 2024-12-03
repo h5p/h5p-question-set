@@ -207,7 +207,7 @@
       {
         "name": "questionLabel",
         "type": "text",
-        "label": "Copyright dialog question label",
+        "label": "Question heading",
         "importance": "low",
         "default": "Question"
       },
@@ -312,9 +312,9 @@
       {
         "name": "message",
         "type": "text",
-        "label": "Feedback heading",
+        "label": "Results heading",
         "importance": "low",
-        "default": "Your result:",
+        "default": "Results",
         "description": "This heading will be displayed at the end of the quiz when the user has answered all questions.",
         "tags": [
           "strong",
@@ -323,12 +323,28 @@
         ]
       },
       {
+        "name": "amountCorrect",
+        "type": "text",
+        "label": "Amount correct heading",
+        "importance": "low",
+        "description": "Header to show the final score to the user on the end screen",
+        "default": "@finals of @totals correct"
+      },
+      {
         "name": "scoreBarLabel",
         "type": "text",
         "label": "Score announcer",
         "importance": "low",
         "description": "This label will be used for announcing the final score to the user on the end screen",
         "default": "You got @finals out of @totals points"
+      },
+      {
+        "name": "scoreHeader",
+        "type": "text",
+        "label": "Score heading",
+        "importance": "low",
+        "description": "Header for the score part of the results table",
+        "default": "Score"
       },
       {
         "name": "overallFeedback",

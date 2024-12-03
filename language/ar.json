@@ -98,7 +98,7 @@
           "default": "Question %d of %total"
         },
         {
-          "label": "Copyright dialog question label",
+          "label": "Question heading",
           "default": "السؤال"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Finished"
         },
         {
-          "label": "نص راس الملاحظات",
-          "default": "Your result:",
-          "description": "سيتم عرض هذا العنوان في نهاية هذه المسابقة حيثما أجاب المستخدم على جميع الأسئلة المستعملة"
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "سيتم استخدام هذه التسمية لإعلان النتيجة النهائية للمستخدم على الشاشة النهائية",
           "default": "لقد حصلت على @finals من @totals"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "شفافية خلفية العناصر",

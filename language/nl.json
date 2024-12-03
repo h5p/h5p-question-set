@@ -98,7 +98,7 @@
           "default": "Vraag %d van %total"
         },
         {
-          "label": "Label van vraag in copyrightdialoog",
+          "label": "Question heading",
           "default": "Vraag"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Voltooid"
         },
         {
-          "label": "Feedback koptekst",
-          "default": "Je resultaat:",
-          "description": "Deze koptekst verschijnt aan het einde van de quiz wanneer de deelnemer alle vragen heeft beantwoord."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Algehele feedback",

@@ -98,7 +98,7 @@
           "default": "%total 중 %d 문제"
         },
         {
-          "label": "저작권 대화 문제 라벨",
+          "label": "Question heading",
           "default": "문제"
         },
         {
@@ -154,14 +154,24 @@
           "default": "완료"
         },
         {
-          "label": "피드백 제목",
-          "default": "결과:",
-          "description": "이 제목은 사용자가 모든 질문에 답했을 때 퀴즈 끝에 표시됨."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "전반적인 피드백",

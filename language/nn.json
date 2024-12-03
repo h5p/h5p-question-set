@@ -98,7 +98,7 @@
           "default": "Oppgåve %d av %total"
         },
         {
-          "label": "Merkelapp for spørsmål om opphavsrett",
+          "label": "Question heading",
           "default": "Oppgåve"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Ferdig"
         },
         {
-          "label": "Overskrift for tilbakemelding",
-          "default": "Resultat:",
-          "description": "Denne overskrifta blir vist over tilbakemeldinga heilt sist i oppgåvesettet."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Melding om poengsum",
           "description": "Denne teksten står på siste side og fortel brukaren kva sluttresultatet er.",
           "default": "Du fekk @finals av @totals poeng."
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Samla tilbakemelding",

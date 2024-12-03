@@ -98,7 +98,7 @@
           "default": "Pregunta %d de %total"
         },
         {
-          "label": "Etiqueta de diálogo de Copyright de pregunta",
+          "label": "Question heading",
           "default": "Pregunta"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Terminado"
         },
         {
-          "label": "Encabezado de Retroalimentación",
-          "default": "Su resultado:",
-          "description": "Este encabezado será mostrado al final del examen cuando el usuario haya contestado todas las preguntas."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Anunciador del puntaje",
           "description": "Esta etiqueta será usada para anunciar el puntaje final al usuario en la pantalla final",
           "default": "Usted obtuvo @finals de @totals puntos"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Retroalimentación Global",

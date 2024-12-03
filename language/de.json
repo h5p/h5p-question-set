@@ -98,7 +98,7 @@
           "default": "Frage %d von %total"
         },
         {
-          "label": "Beschriftung der Frage im Urheberrechtsdialog",
+          "label": "Question heading",
           "default": "Frage"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Quiz beendet"
         },
         {
-          "label": "Überschrift der Rückmeldung",
-          "default": "Dein Ergebnis:",
-          "description": "Diese Überschrift wird am Ende angezeigt, wenn alle Fragen beantwortet wurden."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Verkündung der Punktzahl",
           "description": "Dieser Text wird dafür genutzt, um den Nutzenden das Endergebnis auf dem Schlussbildschirm zu verkünden.",
           "default": "Du hast @score von @total Punkten erreicht."
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Gesamtrückmeldung",

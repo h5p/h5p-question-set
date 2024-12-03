@@ -98,7 +98,7 @@
           "default": "%total galderetatik %d -garren galdera"
         },
         {
-          "label": "Copyright elkarrizketa galderaren etiketa",
+          "label": "Question heading",
           "default": "Galdera"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Bukatu da"
         },
         {
-          "label": "Feedbackaren goiburua",
-          "default": "Zure emaitza:",
-          "description": "Goiburu hau erakutsiko da galdetegiaren bukaeran erabiltzaileak galdera guztiak erantzun dituenean."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Puntuazio iragarkia",
           "description": "Etiketa hau erabiltzaileari pantailan amaierako puntuazioa erakusteko erabiliko da",
           "default": "@finals puntu lortu duzu guztirako @totals puntutik"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Feedback orokorra",

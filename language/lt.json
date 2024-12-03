@@ -98,7 +98,7 @@
           "default": "Klausimas %d iš %total"
         },
         {
-          "label": "Copyright dialog question label",
+          "label": "Question heading",
           "default": "Klausimas"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Baigta"
         },
         {
-          "label": "Atsiliepimo antraštė",
-          "default": "Jūsų rezultatas:",
-          "description": "Ši antraštė bus rodoma testo pabaigoje, kai naudotojas atsakys į visus klausimus."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Balų skelbėjas",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Bendras atsiliepimas",

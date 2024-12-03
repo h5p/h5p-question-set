@@ -98,7 +98,7 @@
           "default": "Pytanie %d z %total"
         },
         {
-          "label": "Etykieta informacji o prawach autorskich",
+          "label": "Question heading",
           "default": "Pytanie"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Koniec"
         },
         {
-          "label": "Nagłówek sekcji informacji zwrotnej",
-          "default": "Twój wynik:",
-          "description": "Ten nagłówek zostanie wyświetlony na ekranie końcowym po udzieleniu odpowiedzi na wszystkie pytania."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Podsumowanie odpowiedzi",

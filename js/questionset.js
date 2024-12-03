@@ -50,8 +50,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     endGame: {
       showResultPage: true,
       noResultMessage: 'Finished',
-      message: 'Your result:',
+      message: 'Results',
+      amountCorrect: '@finals of @totals correct',
       scoreBarLabel: 'You got @finals out of @totals points',
+      scoreHeader: 'Score',
       oldFeedback: {
         successGreeting: '',
         successComment: '',
@@ -796,48 +798,74 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       self.$resultPage = $('<div>', {
         'class': 'questionset-results'
       });
-      
-      
-      
+
       self.$resultBanner = $('<div>', {
         class: 'h5p-theme-results-banner',
         appendTo: self.$resultPage
       });
-      
+
       $('<div>', {
         class: 'h5p-theme-pattern',
         appendTo: self.$resultBanner
       });
-      
+
       $('<div>', {
-        class: 'h5p-results-title',
+        class: 'h5p-theme-results-title',
         html: eparams.message,
         appendTo: self.$resultBanner
       });
-      
+
+      $('<div>', {
+        class: 'h5p-theme-results-score',
+        html: (params.endGame.amountCorrect)
+          .replace('@finals', `<span>${finals}</span>`).replace('@totals', `<span>${totals}</span>`),
+        appendTo: self.$resultBanner
+      });
+
       self.$resultsContainer = $('<div>', {
-        class: 'h5p-summary-table-holder h5p-results-list-container',
+        class: 'h5p-summary-table-holder h5p-theme-results-list-container',
         appendTo: self.$resultPage
       });
-      
-      $('<div>', {
-        class: 'h5p-results-score',
+
+      const $resultsHeaders = $('<div/>', {
+        'class': 'h5p-theme-results-list-heading'
+      }).appendTo(self.$resultsContainer);
+
+      $('<h3/>', {
+        'text': params.texts.questionLabel
+      }).appendTo($resultsHeaders);
+
+      $('<h3/>', {
+        'class': 'h5p-theme-results-list-last-header',
+        'text': params.endGame.scoreHeader,
+      }).appendTo($resultsHeaders);
+
+      // Create the results list
+      const $resultsList = $('<ul>', {
+        class: 'h5p-theme-results-list',
         appendTo: self.$resultsContainer
       });
-    
-      $('<div>', {
-        class: 'greeting',
-        html: eparams.message,
-        appendTo: self.$resultsContainer
+
+      questionInstances.forEach((instance) => {
+        const $listItem = $('<li/>', {
+          'class': 'h5p-theme-results-list-item'
+        }).appendTo($resultsList);
+
+        const $questionContainer = $('<div/>', {
+          'class': 'h5p-theme-results-question-container'
+        }).appendTo($listItem);
+
+        $('<div/>', {
+          'class': 'h5p-theme-results-question',
+          'text': instance.contentData.metadata.title
+        }).appendTo($questionContainer);
+
+        $('<div/>', {
+          'class': 'h5p-theme-results-points',
+          'text': `${instance.getScore()}/${instance.getMaxScore()}`
+        }).appendTo($listItem);
       });
-    
-      $('<div>', {
-        class: 'feedback-section',
-        html: '<div class="feedback-scorebar"></div>' +
-              '<div class="feedback-text h5p-question-feedback-content-text"></div>',
-        appendTo: self.$resultsContainer
-      });
-    
+
       if (params.comment) {
         $('<div>', {
           'class': 'result-header',

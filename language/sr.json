@@ -98,7 +98,7 @@
           "default": "Питање %d од %total"
         },
         {
-          "label": "Ознака са дијалогом о ауторским правима",
+          "label": "Question heading",
           "default": "Питање"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Готово"
         },
         {
-          "label": "Наслов повратне информације",
-          "default": "Ваш резултат:",
-          "description": "Овај наслов ће се приказати на крају квиза када корисник одговори на сва питања."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Укупне повратне информације",

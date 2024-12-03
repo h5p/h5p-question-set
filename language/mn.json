@@ -98,7 +98,7 @@
           "default": "%total ээс %d асуулт"
         },
         {
-          "label": "Зохиогчийн эрхийн харилцах цонхны асуултын шошго",
+          "label": "Question heading",
           "default": "Асуулт"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Дууслаа"
         },
         {
-          "label": "Санал хүсэлтийн гарчиг",
-          "default": "Таны үр дүн:",
-          "description": "Хэрэглэгч бүх асуултад хариулсны дараа асуулт хариултын төгсгөлд энэ гарчиг гарч ирнэ."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Онооны хөтлөгч",
           "description": "Энэ шошгыг эцсийн дэлгэц дээр хэрэглэгчдэд эцсийн оноог зарлахад ашиглана",
           "default": "Та нийт онооноос @totals финалд шалгарлаа"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Ерөнхий санал хүсэлт",

@@ -98,7 +98,7 @@
           "default": "Otázka %d z %total"
         },
         {
-          "label": "Popisek s otázkou dialogového okna autorských práv",
+          "label": "Question heading",
           "default": "Otázka"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Dokončeno"
         },
         {
-          "label": "Zpětná vazba",
-          "default": "Váš výsledek:",
-          "description": "Tento nadpis se zobrazí na konci testu, když uživatel odpoví na všechny otázky."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Ukazatel skóre",
           "description": "Tento popisek bude použit pro oznámení konečného skóre uživateli na závěrečné obrazovce",
           "default": "Získali jste @finals z @totals bodů"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Celková zpětná vazba",

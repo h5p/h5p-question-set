@@ -98,7 +98,7 @@
           "default": "Вопрос %d из %total"
         },
         {
-          "label": "Надпись диалогового окна об авторском праве вопроса",
+          "label": "Question heading",
           "default": "Вопрос"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Завершен"
         },
         {
-          "label": "Заголовок обратной связи",
-          "default": "Ваш результат:",
-          "description": "Этот заголовок будет отображаться в конце теста, когда пользователь ответит на все вопросы."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Объявитель оценок",
           "description": "Эта метка будет использоваться для объявления итоговых баллов пользователю на конечном экране",
           "default": "Вы получили @finals из @totals баллов"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Общий отзыв",
@@ -180,8 +190,7 @@
                   {
                     "label": "Диапазон баллов"
                   },
-                  {
-                  },
+                  {},
                   {
                     "label": "Обратная связь для определенного диапазона оценок",
                     "placeholder": "Заполните отзыв"

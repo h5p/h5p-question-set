@@ -98,7 +98,7 @@
           "default": "سؤال ‎%d از ‎%total"
         },
         {
-          "label": "برچسب سؤال دیالوگ حق نشر",
+          "label": "Question heading",
           "default": "سؤال"
         },
         {
@@ -154,14 +154,24 @@
           "default": "به پایان رسید"
         },
         {
-          "label": "سرصفحه بازخورد",
-          "default": "نتیجه شما:",
-          "description": "این سرصفحه در انتهای آزمون، وقتی کاربر به همه سؤالات پاسخ داد، نمایش داده خواهد شد."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "بازخورد سراسری",

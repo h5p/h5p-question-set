@@ -98,7 +98,7 @@
           "default": "%d / %total"
         },
         {
-          "label": "題目版權視窗顯示標題",
+          "label": "Question heading",
           "default": "題目"
         },
         {
@@ -154,14 +154,24 @@
           "default": "完成了！"
         },
         {
-          "label": "測驗回饋標題文字",
-          "default": "你的測驗結果為：",
-          "description": "當用戶回答了所有問題後，在結束頁面上會顯示的標題文字。"
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "總結回饋",

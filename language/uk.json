@@ -98,7 +98,7 @@
           "default": "Запитання %d із %total"
         },
         {
-          "label": "Надпис діалогового вікна про авторські права запитання",
+          "label": "Question heading",
           "default": "Запитання"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Завершено"
         },
         {
-          "label": "Заголовок зворотнього зв'язку",
-          "default": "Ваш результат:",
-          "description": "Цей заголовок буде відображатися в кінці тесту, коли користувач дасть відповіді на всі запитання."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Оголошувач балів",
           "description": "Ця мітка буде використовуватись для оголошення підсумкових балів користувачеві на кінцевому екрані",
           "default": "Ви отримали @finals з @totals балів"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Загальний відгук",
@@ -180,8 +190,7 @@
                   {
                     "label": "Діапазон балів"
                   },
-                  {
-                  },
+                  {},
                   {
                     "label": "Зворотній зв'язок для певного діапазону оцінок",
                     "placeholder": "Заповніть відгук"

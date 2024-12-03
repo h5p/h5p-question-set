@@ -98,7 +98,7 @@
           "default": "Въпрос %d от %total"
         },
         {
-          "label": "Етикет за диалогов прозорец Copyright",
+          "label": "Question heading",
           "default": "Въпрос"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Завършен"
         },
         {
-          "label": "Заглавие за обратна връзка",
-          "default": "Вашият резултат:",
-          "description": "Това заглавие ще се показва накрая на теста, когато ученикът е отговорил на всички въпроси."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Обща обратна връзка",

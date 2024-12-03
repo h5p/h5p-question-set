@@ -98,7 +98,7 @@
           "default": "Jautājums %d no %total"
         },
         {
-          "label": "Autortiesību dialoga jautājuma etiķete",
+          "label": "Question heading",
           "default": "Jautājums"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Pabeigts"
         },
         {
-          "label": "Atgriezeniskās saites virsraksts",
-          "default": "Tavs rezultāts:",
-          "description": "Šis virsraksts tiks parādīts testa beigās, kad lietotājs būs atbildējis uz visiem jautājumiem."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "Šī etiķete tiks izmantota, lai lietotājam beigu ekrānā paziņotu gala rezultātu",
           "default": "Jūs ieguvāt @finals no @totals punktiem"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Kopējā atgriezeniskā saite",

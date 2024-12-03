@@ -98,7 +98,7 @@
           "default": "Vprašanje: %d od %total"
         },
         {
-          "label": "Besedilo pogovornega okna za avtorske pravice",
+          "label": "Question heading",
           "default": "Vprašanje"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Zaključeno"
         },
         {
-          "label": "Naslov povratne informacije",
-          "default": "Rezultat reševanja:",
-          "description": "Besedilo se izpiše na koncu kviza, ko udeleženec reši vsa vprašanja."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Sporočilo o doseženem rezultatu",
           "description": "Besedilo se izpiše na končnem zaslonu kviza in udeleženca obvesti o doseženih točkah.",
           "default": "Dosežene točke: @finals od @totals"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Splošna povratna informacija",

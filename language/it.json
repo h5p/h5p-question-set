@@ -98,7 +98,7 @@
           "default": "Domanda %d di %total"
         },
         {
-          "label": "Etichetta della domanda nella finestra sul diritto d'autore",
+          "label": "Question heading",
           "default": "Domanda"
         },
         {
@@ -154,14 +154,24 @@
           "default": "Finito"
         },
         {
-          "label": "Intestazione di feedback",
-          "default": "Il tuo risultato:",
-          "description": "Questa intestazione sarà mostrata alla fine del compito, dopo che l'utente avrà risposto a tutte le domande"
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Feedback generale",

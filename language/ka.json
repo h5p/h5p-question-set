@@ -97,7 +97,7 @@
           "default": "კითხვა %d %total -დან"
         },
         {
-          "label": "საავტორო უფლებების დიალოგის კითხვის წარწერა",
+          "label": "Question heading",
           "default": "შეკითხვა"
         },
         {
@@ -153,14 +153,24 @@
           "default": "დასრულდა"
         },
         {
-          "label": "უკუკავშირის სათაური",
-          "default": "თქვენი შედეგი:",
-          "description": "ეს სათაური გამოჩნდება ქვიზის ბოლოს, როდესაც მომხმარებელი უპასუხებს ყველა კითხვას."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "ქულების გამომცხადებელი",
           "description": "ეს წარწერა გამოყენებული იქნება მომხმარებლისთვის საბოლოო ქულის გამოსაცხადებლად ბოლო ეკრანზე",
           "default": "თქვენ მიიღეთ @finals @totals ქულიდან"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "საერთო გამოხმაურება",
