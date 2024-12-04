@@ -2,6 +2,7 @@
   background-color: var(--h5p-theme-background) !important;
   padding: var(--h5p-theme-spacing-m);
 }
+
 .questionset-results h2 {
   font-size: 1.2em;
   font-weight: bold;
@@ -121,6 +122,7 @@
   display: grid;
   grid-gap: var(--h5p-theme-spacing-l);
   grid-template-columns: min-content 1fr min-content;
+      padding: var(--h5p-theme-spacing-s);
 }
 
 .qs-footer .h5p-hidden {
@@ -201,6 +203,13 @@
   background: var(--h5p-theme-ui-base);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6FFFFFF,endColorstr=#E6FFFFFF);
 }
+.questionset-results .h5p-theme-results-list{
+  max-height: 13rem;
+}
+
+.questionset-results .h5p-joubelui-button.h5p-button.qs-solutionbutton.h5p-theme-secondary-cta.h5p-theme-show-results.h5p-question-show-solution{
+  margin-right: var(--h5p-theme-spacing-xs);
+}
 
 .questionset-results .feedback-section {
   margin: 0.75em;
@@ -213,7 +222,7 @@
 }
 
 .questionset-results .buttons {
-  margin: 2em 0 1em 0;
+  margin: var(--h5p-theme-spacing-m) 0 var(--h5p-theme-spacing-m) 0;
 }
 
 .questionset-results .result-header,
