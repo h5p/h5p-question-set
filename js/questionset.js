@@ -304,6 +304,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   for (let i=0; i<params.questions.length; i++) {
     $('<div>', {
       class: 'question-container',
+      role: 'tabpanel',
       appendTo: self.$questionsContainer
     });
   }
@@ -323,6 +324,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   if (params.progressType == "dots") {
     self.$dotsContainer = $('<ul>', {
       class: 'dots-container',
+      role: 'tablist',
       appendTo: self.$progressBar
     });
 
@@ -340,7 +342,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                 '" ' +
               'tabindex="-1" ' +
               (params.disableBackwardsNavigation ? 'aria-disabled="true"' : '') +
-              '></a>',
+              ' role="tab"></a>',
         appendTo: self.$dotsContainer
       })
     }
