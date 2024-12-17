@@ -43,7 +43,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       unansweredText: 'Unanswered',
       answeredText: 'Answered',
       currentQuestionText: 'Current question',
-      navigationLabel: 'Questions'
+      navigationLabel: 'Questions',
+      questionSetInstruction: 'Choose question to display'
     },
     endGame: {
       showResultPage: true,
@@ -305,6 +306,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     $('<div>', {
       class: 'question-container',
       role: 'tabpanel',
+      id: 'qs-panel-' + (i + 1),
+      'aria-labelledby': 'qs-tab-' + (i + 1),
       appendTo: self.$questionsContainer
     });
   }
@@ -325,6 +328,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.$dotsContainer = $('<ul>', {
       class: 'dots-container',
       role: 'tablist',
+      'aria-label': params.texts.questionSetInstruction,
       appendTo: self.$progressBar
     });
 
@@ -334,6 +338,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         html: '<a href="#" class= "progress-dot unanswered ' + 
               (params.disableBackwardsNavigation ? 'disabled' : '') +
               '" ' +
+              'id="qs-tab-' +
+              (i + 1) +
+              '" ' +
               'aria-label=' +
                 '"' +
                 params.texts.jumpToQuestion.replace("%d", i + 1).replace("%total", params.questions.length) +
@@ -342,7 +349,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                 '" ' +
               'tabindex="-1" ' +
               (params.disableBackwardsNavigation ? 'aria-disabled="true"' : '') +
-              ' role="tab"></a>',
+              ' aria-controls="qs-panel-' +
+              (i + 1) +
+              '" ' +
+              'aria-selected="false" ' +
+              'role="tab"></a>',
         appendTo: self.$dotsContainer
       })
     }
@@ -706,7 +717,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var disabledTabindex = params.disableBackwardsNavigation && !showingSolutions;
     $el.toggleClass('current', isCurrent)
       .attr('aria-label', label)
-      .attr('tabindex', isCurrent && !disabledTabindex ? 0 : -1);
+      .attr('tabindex', isCurrent && !disabledTabindex ? 0 : -1)
+      .attr('aria-selected', isCurrent && !disabledTabindex);
   };
 
   var _displayEndGame = function () {
