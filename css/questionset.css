@@ -2,11 +2,14 @@
   background-color: var(--h5p-theme-background) !important;
   padding: var(--h5p-theme-spacing-m);
 }
+.questionset .h5p-question-main-content{
+  padding-top: 1px;
+}
 
 .questionset-results h2 {
-  font-size: 1.2em;
+  font-size: calc(var(--h5p-theme-spacing-s)*1.2);
   font-weight: bold;
-  padding-bottom: 0.5em;
+  padding-bottom: var(--h5p-theme-spacing-xxs);
 }
 
 .questionset, .intro-page, .questionset-results {
@@ -20,9 +23,8 @@
 }
 .h5p-multichoice > .h5p-question {
   text-align: left;
-  margin: 0.5em 0.5em 0.7em;
-  background: rgba(255, 255, 255, 0.9);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
+  margin: var(--h5p-theme-spacing-xxs) var(--h5p-theme-spacing-xxs) calc(var(--h5p-theme-spacing-s)*0.7);
+  background: var(--h5p-theme-ui-base);
   zoom: 1;
 }
 .dots-container {
@@ -42,7 +44,7 @@
   width: 0.5625em;
   height: 0.5625em;
   border-radius: 50%;
-  margin: 0 0.35em;
+  margin: 0 calc(var(--h5p-theme-spacing-s)*0.35);
   cursor: pointer;
   border: 1px solid var(--h5p-theme-main-cta-base);
   position: relative;
@@ -92,18 +94,18 @@
   color: var(--h5p-theme-text-primary);
 }
 .intro-page .title > h1 {
-  padding: 0.125em 0.5em;
-  border-radius: 0.125em;
+  padding: calc(var(--h5p-theme-spacing-xxs)/4) var(--h5p-theme-spacing-xxs);
+  border-radius: var(--h5p-theme-border-radius-small);
   background: var(--h5p-theme-ui-base);  /* Fallback for browsers not supporting rgba */
   background: color-mix(in srgb, var(--h5p-theme-ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
 }
 .intro-page .introduction {
-  font-size: 1.25em;
-  margin: 0 1em;
-  border-radius: 0.25em;
+  font-size: var(--h5p-theme-font-size-l);
+  margin: 0 var(--h5p-theme-spacing-s);
+  border-radius: var(--h5p-theme-border-radius-small);
   background: var(--h5p-theme-ui-base); /* Fallback for browsers not supporting rgba */
-   background: color-mix(in srgb, var(--h5p-theme-ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
-  padding: 0.25em 0.5em;
+  background: color-mix(in srgb, var(--h5p-theme-ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
+  padding: calc(var(--h5p-theme-spacing-xxs)/2) var(--h5p-theme-spacing-xxs);
 }
 /* Overrides whatever margins have been set in site-CSS, to avoid too much spacing
    on description field, aswell as getting same padding on top and bottom of field */
@@ -115,14 +117,14 @@
   margin: 0;
 }
 .intro-page .buttons {
-  margin: 3em auto;
+  margin: calc(3*var(--h5p-theme-spacing-s)) auto;
   text-align: center;
 }
 .qs-footer {
   display: grid;
   grid-gap: var(--h5p-theme-spacing-l);
   grid-template-columns: min-content 1fr min-content;
-      padding: var(--h5p-theme-spacing-s);
+  padding: var(--h5p-theme-spacing-s);
 }
 
 .qs-footer .h5p-hidden {
@@ -139,12 +141,6 @@
 
 .qs-footer > .qs-retrybutton {
   float: none;
-}
-
-.questionset-results button.h5p-button.qs-retrybutton:before {
-  font-family: 'H5PFontAwesome4';
-  padding-right: 0.5em;
-  content: "\f01e";
 }
 
 /* Need to disable max-height animation stuff, since this will
@@ -184,24 +180,22 @@
 }
 .video-container > .h5p-button {
   position: absolute;
-  top: 0.5em;
-  right: 0.5em;
+  top: calc(--h5p-theme-spacing-xxs);
+  right: calc(--h5p-theme-spacing-xxs);
 }
 
 .qs-progress {
   text-align: center;
-  line-height: 1.5em;
+  line-height: var(--h5p-theme-spacing-m);
 }
 
 .questionset .h5p-theme-progress{
   display:  inline-flex;
 }
 
-
 .questionset-results {
   text-align: center;
   background: var(--h5p-theme-ui-base);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6FFFFFF,endColorstr=#E6FFFFFF);
 }
 .questionset-results .h5p-theme-results-list{
   max-height: 13rem;
@@ -212,11 +206,11 @@
 }
 
 .questionset-results .feedback-section {
-  margin: 0.75em;
+  margin: calc(var(--h5p-theme-spacing-s)*0.75);
 }
 
 .questionset-results .greeting {
-  margin-top: 1em;
+  margin-top: var(--h5p-theme-spacing-s);
   color: var(--h5p-theme-text-third);
   font-size: var(--h5p-theme-font-size-xl);
 }
@@ -234,14 +228,14 @@
 
 .questionset-results .result-header {
   font-size: calc (2 * var(--h5p-theme-font-size-m));
-  margin: 1em 0.5em 0.5em 0.5em;
+  margin: var(--h5p-theme-spacing-s) var(--h5p-theme-spacing-xxs) var(--h5p-theme-spacing-xxs) var(--h5p-theme-spacing-xxs) ;
 }
 
 .questionset-results .result-text,
 .questionset-results .feedback-section .feedback-text {
   font-size: var(--h5p-theme-font-size-xl);
-  line-height: 1.25em;
-  margin: 1em;
+  line-height: var(--h5p-theme-font-size-l);
+  margin: var(--h5p-theme-spacing-s);
 }
 
 /* No margin for questions when no frame */
@@ -263,5 +257,10 @@
 /* Hide the fullscreen button rendered by H5P.DragQuestion */
 .questionset .h5p-question.h5p-dragquestion .h5p-my-fullscreen-button-enter,
 .questionset .h5p-question.h5p-dragquestion .h5p-my-fullscreen-button-exit {
+  display: none;
+}
+
+/* TODO: I added this to remove extra container but it might not be the best way to do this! Vilde should look into this */
+.qs-footer .h5p-theme-primary-cta.h5p-theme-show-results.h5p-hidden{
   display: none;
 }
