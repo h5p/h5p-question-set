@@ -113,6 +113,10 @@
         {
           "label": "Besedilo za navigacijo bralnikov zaslona",
           "default": "Vprašanja"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },

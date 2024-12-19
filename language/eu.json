@@ -113,6 +113,10 @@
         {
           "label": "Irakurgailuentzako nabigazio etiketa",
           "default": "Galderak"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },

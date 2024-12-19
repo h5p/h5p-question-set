@@ -113,6 +113,10 @@
         {
           "label": "Уншигчдад зориулсан навигацийн шошго",
           "default": "Асуултууд"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },

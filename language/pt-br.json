@@ -113,6 +113,10 @@
         {
           "label": "Navigation label for readspeakers",
           "default": "Questions"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },
@@ -186,8 +190,8 @@
           "label": "Feedback antigo",
           "fields": [
             {
-              "description": "Este texto será exibido acima da pontuação se o usuário for aprovado no questionário.",
-              "label": "Saudação aprovada no teste"
+              "label": "Saudação aprovada no teste",
+              "description": "Este texto será exibido acima da pontuação se o usuário for aprovado no questionário."
             },
             {
               "label": "Comentário aprovado",
@@ -198,8 +202,8 @@
               "description": "Este texto será exibido acima da pontuação se o usuário for reprovado no questionário."
             },
             {
-              "description": "Este comentário será exibido após a pontuação se o usuário tiver falhado no questionário.",
-              "label": "Comentário com falha"
+              "label": "Comentário com falha",
+              "description": "Este comentário será exibido após a pontuação se o usuário tiver falhado no questionário."
             }
           ]
         },

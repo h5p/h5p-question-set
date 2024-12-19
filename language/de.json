@@ -113,6 +113,10 @@
         {
           "label": "Beschriftung für Vorlesewerkzeuge",
           "default": "Fragen"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },

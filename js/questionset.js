@@ -302,12 +302,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
   });
 
+  const tabIDs = Array.from({length: params.questions.length}, () => H5P.createUUID());
+  const tabPanelIDs = Array.from({length: params.questions.length}, () => H5P.createUUID());
+
   for (let i=0; i<params.questions.length; i++) {
     $('<div>', {
       class: 'question-container',
       role: 'tabpanel',
-      id: 'qs-panel-' + (i + 1),
-      'aria-labelledby': 'qs-tab-' + (i + 1),
+      id: tabPanelIDs[i],
+      'aria-labelledby': tabIDs[i],
       appendTo: self.$questionsContainer
     });
   }
@@ -338,8 +341,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         html: '<a href="#" class= "progress-dot unanswered ' + 
               (params.disableBackwardsNavigation ? 'disabled' : '') +
               '" ' +
-              'id="qs-tab-' +
-              (i + 1) +
+              'id="' +
+              tabIDs[i] +
               '" ' +
               'aria-label=' +
                 '"' +
@@ -349,8 +352,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
                 '" ' +
               'tabindex="-1" ' +
               (params.disableBackwardsNavigation ? 'aria-disabled="true"' : '') +
-              ' aria-controls="qs-panel-' +
-              (i + 1) +
+              ' aria-controls="' +
+              tabPanelIDs[i] +
               '" ' +
               'aria-selected="false" ' +
               'role="tab"></a>',

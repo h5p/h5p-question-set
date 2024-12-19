@@ -113,6 +113,10 @@
         {
           "label": "Navigācijas etiķete ekrānlasītājiem",
           "default": "Jautājumi"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },
