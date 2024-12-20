@@ -110,7 +110,7 @@
 /* Overrides whatever margins have been set in site-CSS, to avoid too much spacing
    on description field, aswell as getting same padding on top and bottom of field */
 .intro-page .introduction > p {
-  margin: 0 0 0.5em 0;
+  margin: 0 0 var(--h5p-theme-spacing-xxs) 0;
   color: var(--h5p-theme-text-primary);
 }
 .intro-page .introduction > p:last-child {
@@ -197,6 +197,7 @@
   text-align: center;
   background: var(--h5p-theme-ui-base);
 }
+
 .questionset-results .h5p-theme-results-list{
   max-height: 13rem;
 }
@@ -222,7 +223,7 @@
 .questionset-results .result-header,
 .questionset-results .result-text,
 .questionset-results .feedback-section {
-  color: #1a73d9;
+  color: var(--h5p-theme-main-cta-base);
   font-weight: bold;
 }
 
@@ -263,4 +264,25 @@
 /* TODO: I added this to remove extra container but it might not be the best way to do this! Vilde should look into this */
 .qs-footer .h5p-theme-primary-cta.h5p-theme-show-results.h5p-hidden{
   display: none;
+}
+.question-container{
+    margin: var(--h5p-theme-spacing-xs) var(--h5p-theme-spacing-xs);
+    box-shadow: 0px 8px 19.9px 0px rgba(0, 0, 0, 0.05);
+    border: solid 1px var(--h5p-theme-stroke-1);
+    border-radius: var(--h5p-theme-border-radius-medium);
+    padding: var(--h5p-theme-spacing-s);
+    background-color: var(--h5p-theme-ui-base);
+}
+
+.h5p-column .h5p-theme .questionset-results {
+  margin: calc(-1*var(--h5p-theme-spacing-m));
+}
+
+.h5p-column .question-container {
+    margin: unset;
+    box-shadow: unset;
+    border: unset;
+    border-radius: unset;
+    padding: unset;
+    background-color: unset;
 }
