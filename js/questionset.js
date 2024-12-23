@@ -313,7 +313,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   }
 
   self.$footer = $('<div>', {
-    class: 'qs-footer',
+    class: 'qs-footer h5p-navigation',
     appendTo: self.$questionsContainer
   });
 
