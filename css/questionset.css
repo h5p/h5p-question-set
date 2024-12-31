@@ -93,39 +93,57 @@
 .progress-dot:focus {
   transform: scale(1.15);
 }
+.intro-page{
+  display: flex;
+  gap: calc(var(--h5p-theme-spacing-s));
+  padding: var(--h5p-theme-spacing-l);
+  align-items: center;
+  background-color: var(--h5p-theme-ui-base);
+}
+.introText-container{
+  order: 2;
+  display: flex;
+  flex-direction: column;
+}
+.intro-image{
+  order: 1;
+  display: block;
+  height: fit-content;
+  width: 40%;
+  max-width: calc(14 * var(--h5p-theme-spacing-m));
+  margin: calc(1.6 * var(--h5p-theme-spacing-m));
+  border-radius: var(--h5p-theme-border-radius-medium);
+  box-shadow: 9px 9px 16.1px 0px rgba(37, 37, 37, 0.20);
+}
 
 .intro-page .title {
   line-height: 1.5;
   font-weight: bold;
-  text-align: center;
   color: var(--h5p-theme-text-primary);
 }
 .intro-page .title > h1 {
-  padding: calc(var(--h5p-theme-spacing-xxs)/4) var(--h5p-theme-spacing-xxs);
+  line-height: normal;
   border-radius: var(--h5p-theme-border-radius-small);
   background: var(--h5p-theme-ui-base);  /* Fallback for browsers not supporting rgba */
   background: color-mix(in srgb, var(--h5p-theme-ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
 }
 .intro-page .introduction {
   font-size: var(--h5p-theme-font-size-l);
-  margin: 0 var(--h5p-theme-spacing-s);
   border-radius: var(--h5p-theme-border-radius-small);
   background: var(--h5p-theme-ui-base); /* Fallback for browsers not supporting rgba */
   background: color-mix(in srgb, var(--h5p-theme-ui-base), transparent 20%); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
-  padding: calc(var(--h5p-theme-spacing-xxs)/2) var(--h5p-theme-spacing-xxs);
 }
 /* Overrides whatever margins have been set in site-CSS, to avoid too much spacing
    on description field, aswell as getting same padding on top and bottom of field */
 .intro-page .introduction > p {
   margin: 0 0 var(--h5p-theme-spacing-xxs) 0;
-  color: var(--h5p-theme-text-primary);
+  color: var(--h5p-theme-text-third);
 }
 .intro-page .introduction > p:last-child {
   margin: 0;
 }
 .intro-page .buttons {
-  margin: calc(3*var(--h5p-theme-spacing-s)) auto;
-  text-align: center;
+  margin: calc(3*var(--h5p-theme-spacing-xxs)) 0;
 }
 .qs-footer {
   display: grid;
@@ -287,7 +305,9 @@
 }
 
 .h5p-column .h5p-theme .questionset-results {
-  margin: calc(-1*var(--h5p-theme-spacing-xl));
+  margin: calc(-1*var(--h5p-theme-spacing-xs));
+      border: solid 1px var(--h5p-theme-stroke-1);
+    border-radius: var(--h5p-theme-border-radius-large);
 }
 
 .h5p-column .question-container {

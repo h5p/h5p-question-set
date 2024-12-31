@@ -262,6 +262,11 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.$introPage = $('<div>', {
       class: 'intro-page'
     });
+    
+   self.$introText = $('<div>', {
+      class: 'introText-container',
+      appendTo: self.$introPage
+    });
   
     if (params.introPage.title) {
       $('<div>', {
@@ -269,7 +274,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         html: '<h1>' + 
               params.introPage.title + 
               '</h1>',
-        appendTo: self.$introPage
+        appendTo: self.$introText
       });
     }
 
@@ -277,13 +282,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       $('<div>', {
         class: 'introduction',
         html: params.introPage.introduction,
-        appendTo: self.$introPage
+        appendTo: self.$introText
       });
     }
 
     self.$introButtonsContainer = $('<div>', {
       class: 'buttons',
-      appendTo: self.$introPage
+      appendTo: self.$introText
     });
   
     $('<button>', {
@@ -355,6 +360,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   self.$finishBtn = $('<button>', {
     class: 'h5p-theme-primary-cta h5p-theme-show-results h5p-hidden',
     text: finishButtonText,
+    html: '<span>' + 
+              finishButtonText + 
+              '</span>',
     'aria-label': finishButtonText,
     appendTo: self.$footer
   }).on('click', () => this.moveQuestion(1));
@@ -1064,13 +1072,22 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if ($intro.length) {
         var bgImg = params.introPage.backgroundImage;
         var bgImgRatio = (bgImg.height / bgImg.width);
-        $intro.css({
+         var $img = $('<img/>', {
+           class: 'intro-image',
+        src: H5P.getPath(bgImg.path, contentId),
+        appendTo: $intro
+      });
+      /*  $intro.css({
           background: 'var(--h5p-theme-ui-base) url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
           backgroundSize: 'auto 90%',
           minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
-        });
+        }
+        );*/
       }
+      //TODO: clear up
     }
+    
+
 
     initializeQuestion();
 
