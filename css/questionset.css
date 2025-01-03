@@ -92,6 +92,9 @@
 
 .progress-dot:focus {
   transform: scale(1.15);
+  outline: 2px ridge var(--h5p-theme-main-cta-base);
+  border-radius: 4px;
+  outline-offset: 2px;
 }
 .intro-page{
   display: flex;
@@ -99,6 +102,9 @@
   padding: var(--h5p-theme-spacing-l);
   align-items: center;
   background-color: var(--h5p-theme-ui-base);
+     @media (max-width: 576px) {
+       flex-wrap: wrap;
+  }
 }
 .introText-container{
   order: 2;
@@ -110,10 +116,14 @@
   display: block;
   height: fit-content;
   width: 40%;
+  min-width: 250px;
   max-width: calc(14 * var(--h5p-theme-spacing-m));
   margin: calc(1.6 * var(--h5p-theme-spacing-m));
   border-radius: var(--h5p-theme-border-radius-medium);
   box-shadow: 9px 9px 16.1px 0px rgba(37, 37, 37, 0.20);
+       @media (max-width: 576px) {
+       margin: 0;
+  }
 }
 
 .intro-page .title {
