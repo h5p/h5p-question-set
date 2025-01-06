@@ -113,6 +113,10 @@
         {
           "label": "Texte de navigation pour la synthèse vocale",
           "default": "Questions"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },
@@ -151,7 +155,6 @@
           "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
         },
         {
-
           "label": "Score announcer",
           "description": "Cette vignette sera utilisée pour annoncer la note finale à l'utilisateur sur l'écran de fin",
           "default": "Vous avez obtenu @finals sur @totals points"

@@ -232,6 +232,14 @@
         "label": "Navigation label for readspeakers",
         "importance": "low",
         "default": "Questions"
+      },
+      {
+        "name": "questionSetInstruction",
+        "type": "text",
+        "label": "Instruction for navigating question set with screenreader",
+        "importance": "low",
+        "default": "Choose question to display",
+        "state": "new"
       }
     ]
   },

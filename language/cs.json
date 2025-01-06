@@ -113,6 +113,10 @@
         {
           "label": "Navigační popisek pro čtecí zařízení",
           "default": "Otázky"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },

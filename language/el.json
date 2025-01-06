@@ -113,6 +113,10 @@
         {
           "label": "Ετικέτα πλοήγησης για αναγνώστες",
           "default": "Ερωτήσεις"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },
