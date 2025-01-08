@@ -807,31 +807,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         'class': 'questionset-results'
       });
 
-      self.$resultBanner = $('<div>', {
-        class: 'h5p-theme-results-banner',
-        appendTo: self.$resultPage
-      });
-
-      $('<div>', {
-        class: 'h5p-theme-pattern',
-        appendTo: self.$resultBanner
-      });
-
-      $('<div>', {
-        class: 'h5p-theme-results-title',
-        html: eparams.message,
-        appendTo: self.$resultBanner
-      });
-
-      $('<div>', {
-        class: 'h5p-theme-results-score',
-        html: (params.endGame.amountCorrect)
+      H5P.Components.ResultScreen(self.$resultPage[0], {
+        header: eparams.message,
+        scoreHeader: (params.endGame.amountCorrect)
           .replace('@finals', `<span>${finals}</span>`).replace('@totals', `<span>${totals}</span>`),
-        appendTo: self.$resultBanner
+        listHeaders: [params.texts.questionLabel, params.endGame.scoreHeader],
       });
 
       self.$resultsContainer = $('<div>', {
-        class: 'h5p-summary-table-holder h5p-theme-results-list-container',
+        class: 'h5p-theme-results-list-container',
         appendTo: self.$resultPage
       });
 
@@ -1086,8 +1070,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
       //TODO: clear up
     }
-    
-
 
     initializeQuestion();
 
