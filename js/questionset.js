@@ -807,71 +807,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         'class': 'questionset-results'
       });
 
-      self.$resultBanner = $('<div>', {
-        class: 'h5p-theme-results-banner',
-        appendTo: self.$resultPage
-      });
-
-      $('<div>', {
-        class: 'h5p-theme-pattern',
-        appendTo: self.$resultBanner
-      });
-
-      $('<div>', {
-        class: 'h5p-theme-results-title',
-        html: eparams.message,
-        appendTo: self.$resultBanner
-      });
-
-      $('<div>', {
-        class: 'h5p-theme-results-score',
-        html: (params.endGame.amountCorrect)
+      H5P.Components.ResultScreen(self.$resultPage[0], {
+        header: eparams.message,
+        scoreHeader: (params.endGame.amountCorrect)
           .replace('@finals', `<span>${finals}</span>`).replace('@totals', `<span>${totals}</span>`),
-        appendTo: self.$resultBanner
-      });
-
-      self.$resultsContainer = $('<div>', {
-        class: 'h5p-summary-table-holder h5p-theme-results-list-container',
-        appendTo: self.$resultPage
-      });
-
-      const $resultsHeaders = $('<div/>', {
-        'class': 'h5p-theme-results-list-heading'
-      }).appendTo(self.$resultsContainer);
-
-      $('<h3/>', {
-        'text': params.texts.questionLabel
-      }).appendTo($resultsHeaders);
-
-      $('<h3/>', {
-        'class': 'h5p-theme-results-list-last-header',
-        'text': params.endGame.scoreHeader,
-      }).appendTo($resultsHeaders);
-
-      // Create the results list
-      const $resultsList = $('<ul>', {
-        class: 'h5p-theme-results-list',
-        appendTo: self.$resultsContainer
-      });
-
-      questionInstances.forEach((instance) => {
-        const $listItem = $('<li/>', {
-          'class': 'h5p-theme-results-list-item'
-        }).appendTo($resultsList);
-
-        const $questionContainer = $('<div/>', {
-          'class': 'h5p-theme-results-question-container'
-        }).appendTo($listItem);
-
-        $('<div/>', {
-          'class': 'h5p-theme-results-question',
-          'text': instance.contentData.metadata.title
-        }).appendTo($questionContainer);
-
-        $('<div/>', {
-          'class': 'h5p-theme-results-points',
-          'text': `${instance.getScore()}/${instance.getMaxScore()}`
-        }).appendTo($listItem);
+        listHeaders: [params.texts.questionLabel, params.endGame.scoreHeader],
+        questions: questionInstances.map((question) => ({
+          title: question.contentData.metadata.title,
+          points: `${question.getScore()}/${question.getMaxScore()}`,
+        })),
       });
 
       if (params.comment) {
@@ -1086,8 +1030,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       }
       //TODO: clear up
     }
-    
-
 
     initializeQuestion();
 
