@@ -455,6 +455,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       else {
         self.$finishBtn.addClass('h5p-hidden');
       }
+    } else {
+      self.$finishBtn.addClass('h5p-hidden')
     }
   };
 
@@ -1066,27 +1068,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         backgroundSize: '90% auto'
       });
     }
-
-    if (params.introPage.backgroundImage !== undefined) {
-      var $intro = $myDom.find('.intro-page');
-      if ($intro.length) {
-        var bgImg = params.introPage.backgroundImage;
-        var bgImgRatio = (bgImg.height / bgImg.width);
-         var $img = $('<img/>', {
-           class: 'intro-image',
-        src: H5P.getPath(bgImg.path, contentId),
-        appendTo: $intro
-      });
-      /*  $intro.css({
-          background: 'var(--h5p-theme-ui-base) url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
-          backgroundSize: 'auto 90%',
-          minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
-        }
-        );*/
-      }
-      //TODO: clear up
-    }
     
+    var $intro = $myDom.find('.intro-page');
+
+    if ($intro.length) {
+      if (params.introPage.backgroundImage !== undefined) {
+        var bgImg = params.introPage.backgroundImage;
+        $('<img/>', {
+          class: 'intro-image',
+          src: H5P.getPath(bgImg.path, contentId),
+          appendTo: $intro
+        });
+      } else {
+        $intro.addClass('without-image')
+      }
+    }
 
 
     initializeQuestion();
