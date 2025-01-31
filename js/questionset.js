@@ -574,7 +574,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * This prevents loss of focus if reset from within content
    */
   this.resetTask = function (moveFocus = false) {
-    console.log('test');
     // Clear previous state to ensure questions are created cleanly
     contentData.previousState = {};
     self.hasPrevState = false;
