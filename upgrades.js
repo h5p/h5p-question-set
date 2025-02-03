@@ -99,6 +99,25 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
         }
 
         finished(null, parameters);
+      },
+
+      /**
+       * Asynchronous content upgrade hook.
+       * 
+       * Upgrades params to handle new location of background image
+       * 
+       * @param {Object} parameters 
+       * @param {function} finished 
+       */
+      21: function (parameters, finished) {
+        if (parameters.backgroundImage) {
+          parameters.override = parameters.override ?? {};
+          parameters.override.backgroundImage = {
+            ...parameters.backgroundImage
+          };
+          delete parameters.backgroundImage;
+        }
+        finished(null, parameters);
       }
     }
   };

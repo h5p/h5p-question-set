@@ -1,5 +1,5 @@
 .questionset{
-  background-color: var(--h5p-theme-background) !important;
+  background-color: var(--h5p-theme-background);
   padding: 0;
 }
 .questionset .h5p-question-main-content{

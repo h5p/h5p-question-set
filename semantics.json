@@ -63,14 +63,6 @@
     ]
   },
   {
-    "name": "backgroundImage",
-    "type": "image",
-    "label": "Background image",
-    "importance": "low",
-    "optional": true,
-    "description": "An optional background image for the Question set."
-  },
-  {
     "name": "progressType",
     "type": "select",
     "label": "Progress indicator",
@@ -611,6 +603,14 @@
             "label": "Disabled"
           }
         ]
+      },
+      {
+        "name": "backgroundImage",
+        "type": "image",
+        "label": "Background image",
+        "importance": "low",
+        "optional": true,
+        "description": "An optional background image for the Question set."
       }
     ]
   }
