@@ -40,7 +40,8 @@
   border-radius: var(--h5p-theme-border-radius-medium);
   margin: 0;
   background-color: var(--h5p-theme-ui-base);
-  display: inline-flex;
+  display: flex;
+  flex-flow: row wrap;
 }
 .progress-item {
   list-style: none;
@@ -96,16 +97,41 @@
   border-radius: 4px;
   outline-offset: 2px;
 }
+
+.h5p-theme:has(.h5p-question-evaluation-container:not(.evaluation-mode)) .h5p-pattern-container.h5p-intro-pattern-vertical {
+  width: 30px;
+  height: auto;
+  opacity: 1;
+}
+
+.h5p-theme .h5p-pattern-container.h5p-intro-pattern-vertical .h5p-theme-pattern {
+  mask-size: 500%;
+}
+
+.h5p-theme.h5p-is-intro {
+  display: flex;
+  flex-flow: row;
+}
+
 .intro-page{
   display: flex;
+  flex: 1;
   gap: calc(var(--h5p-theme-spacing-s));
   padding: var(--h5p-theme-spacing-l);
   align-items: center;
   background-color: var(--h5p-theme-ui-base);
-     @media (max-width: 576px) {
-       flex-wrap: wrap;
+  @media (max-width: 576px) {
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
   }
 }
+
+.intro-page.without-image {
+  justify-content: center;
+  text-align: center;
+}
+
 .introText-container{
   order: 2;
   display: flex;
@@ -301,7 +327,6 @@
   display: none;
 }
 
-/* TODO: I added this to remove extra container but it might not be the best way to do this! Vilde should look into this */
 .qs-footer .h5p-theme-primary-cta.h5p-theme-show-results.h5p-hidden{
   display: none;
 }
