@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "صورة الخلفية",
-      "description": "صورة خلفية اختيارية لأسئلة."
-    },
-    {
       "label": "مؤشر التقدم",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Disabled"
             }
           ]
+        },
+        {
+          "label": "صورة الخلفية",
+          "description": "صورة خلفية اختيارية لأسئلة."
         }
       ]
     }

@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Slika za ozadje",
-      "description": "Neobvezno. Slika je prikazana v ozadju kviza."
-    },
-    {
       "label": "Indikator napredka",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Onemogoči"
             }
           ]
+        },
+        {
+          "label": "Slika za ozadje",
+          "description": "Neobvezno. Slika je prikazana v ozadju kviza."
         }
       ]
     }

@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Фоновое изображение",
-      "description": "Необязательное фоновое изображение для набора вопросов."
-    },
-    {
       "label": "Индикатор прогресса",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Отключена"
             }
           ]
+        },
+        {
+          "label": "Фоновое изображение",
+          "description": "Необязательное фоновое изображение для набора вопросов."
         }
       ]
     }

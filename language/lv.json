@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Fona attēls",
-      "description": "Neobligāts fona attēls jautājumu kopai."
-    },
-    {
       "label": "Progresa indikators",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Atspējota"
             }
           ]
+        },
+        {
+          "label": "Fona attēls",
+          "description": "Neobligāts fona attēls jautājumu kopai."
         }
       ]
     }

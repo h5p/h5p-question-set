@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Taustakuva",
-      "description": "Valinnainen taustakuva kysymyksille."
-    },
-    {
       "label": "Edistymisen näyttäminen",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Pois käytöstä"
             }
           ]
+        },
+        {
+          "label": "Taustakuva",
+          "description": "Valinnainen taustakuva kysymyksille."
         }
       ]
     }

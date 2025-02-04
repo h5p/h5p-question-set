@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Hintergrundbild",
-      "description": "Ein optionales Hintergrundbild für den Fragensatz"
-    },
-    {
       "label": "Fortschrittsanzeige",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Immer ausblenden"
             }
           ]
+        },
+        {
+          "label": "Hintergrundbild",
+          "description": "Ein optionales Hintergrundbild für den Fragensatz"
         }
       ]
     }

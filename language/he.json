@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "תמונת רקע",
-      "description": "תמונת רקע אפשרית עבור הגדרות השאלה."
-    },
-    {
       "label": "מחוון התקדמות",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "כבוי"
             }
           ]
+        },
+        {
+          "label": "תמונת רקע",
+          "description": "תמונת רקע אפשרית עבור הגדרות השאלה."
         }
       ]
     }

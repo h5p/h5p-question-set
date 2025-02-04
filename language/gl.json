@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Imaxe de fondo",
-      "description": "Unha imaxe de fondo opcional para o grupo de preguntas."
-    },
-    {
       "label": "Indicador de progreso",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Desactivado"
             }
           ]
+        },
+        {
+          "label": "Imaxe de fondo",
+          "description": "Unha imaxe de fondo opcional para o grupo de preguntas."
         }
       ]
     }

@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "배경 이미지",
-      "description": "문제 세트 배경 이미지(선택사항)"
-    },
-    {
       "label": "진행률 표시",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "비활성화"
             }
           ]
+        },
+        {
+          "label": "배경 이미지",
+          "description": "문제 세트 배경 이미지(선택사항)"
         }
       ]
     }

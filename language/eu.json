@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Atzeko planoaren irudia",
-      "description": "Galdetegiaren atzeko planoaren aukerazko irudia."
-    },
-    {
       "label": "Aurrerapenaren adierazlea",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Desgaitua"
             }
           ]
+        },
+        {
+          "label": "Atzeko planoaren irudia",
+          "description": "Galdetegiaren atzeko planoaren aukerazko irudia."
         }
       ]
     }

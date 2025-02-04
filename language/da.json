@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Baggrundsbillede",
-      "description": "Et valgfrit baggrundsbillde til quizzen."
-    },
-    {
       "label": "Progress indicator",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Deaktiveret"
             }
           ]
+        },
+        {
+          "label": "Baggrundsbillede",
+          "description": "Et valgfrit baggrundsbillde til quizzen."
         }
       ]
     }

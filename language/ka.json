@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "ფონური სურათი",
-      "description": "არჩევითი ფონის სურათი კითხვების ნაკრებისთვის."
-    },
-    {
       "label": "პროგრესის მაჩვენებელი",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "გამორთული"
             }
           ]
+        },
+        {
+          "label": "ფონური სურათი",
+          "description": "არჩევითი ფონის სურათი კითხვების ნაკრებისთვის."
         }
       ]
     }

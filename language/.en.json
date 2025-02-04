@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
-    },
-    {
       "label": "Progress indicator",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Disabled"
             }
           ]
+        },
+        {
+          "label": "Background image",
+          "description": "An optional background image for the Question set."
         }
       ]
     }

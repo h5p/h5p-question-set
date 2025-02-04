@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Εικόνα φόντου",
-      "description": "Μια εικόνα φόντου για τη συλλογή ερωτήσεων (προαιρετικό)."
-    },
-    {
       "label": "Δείκτης προόδου",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "Απενεργοποιημένη"
             }
           ]
+        },
+        {
+          "label": "Εικόνα φόντου",
+          "description": "Μια εικόνα φόντου για τη συλλογή ερωτήσεων (προαιρετικό)."
         }
       ]
     }

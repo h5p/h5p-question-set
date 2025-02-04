@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "背景圖示",
-      "description": "選填。可選擇一張圖像做為問題集的畫面背景."
-    },
-    {
       "label": "進度指示",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -289,6 +285,10 @@
               "label": "禁用"
             }
           ]
+        },
+        {
+          "label": "背景圖示",
+          "description": "選填。可選擇一張圖像做為問題集的畫面背景."
         }
       ]
     }
