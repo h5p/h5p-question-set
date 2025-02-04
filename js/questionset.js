@@ -1007,7 +1007,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       this.$questionsContainer.css({
         backgroundColor: 'transparent'
       });
-      Object.assign($myDom.get(0).style, {
+      $myDom.css({
         overflow: 'hidden',
         backgroundColor: 'var(--h5p-theme-ui-base)',
         backgroundImage: 'url("' + H5P.getPath(params.backgroundImage.path, contentId) + '")',
