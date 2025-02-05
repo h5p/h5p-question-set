@@ -537,7 +537,7 @@
   {
     "name": "override",
     "type": "group",
-    "label": "Settings for \"Check\", \"Show solution\" and \"Retry\"",
+    "label": "Behavioural settings",
     "importance": "low",
     "optional": true,
     "fields": [
