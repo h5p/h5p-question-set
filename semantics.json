@@ -55,10 +55,10 @@
       {
         "name": "backgroundImage",
         "type": "image",
-        "label": "Background image",
+        "label": "Cover image",
         "importance": "low",
         "optional": true,
-        "description": "An optional background image for the introduction."
+        "description": "Optional image to display on the cover."
       }
     ]
   },
