@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Configuración para os botóns \"Comprobar\", \"Amosar solución\" e \"Tentar de novo\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Amosar botóns \"Comprobar\"",

@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Settings for \"Seiceáil\", \"Taispeáin an freagra\" and \"Retry\" buttons",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Show \"Seiceáil\" buttons",

@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "「解を表示」と「リトライ」ボタンの設定",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Show \"Check\" buttons",

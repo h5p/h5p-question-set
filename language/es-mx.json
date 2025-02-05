@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Configuraciones para #comprobar\", \"Mostrar solución\" y \"Reintentar\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Botones Mostrar \"Comprobar\"",

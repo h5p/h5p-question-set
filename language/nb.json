@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Innstillinger for \"Sjekk\", \"Vis svar\" og \"Prøv igjen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Vis \"Sjekk\"-knapper",

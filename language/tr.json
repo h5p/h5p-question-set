@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "\"Çözümü göster\" ve \"Yeniden dene\" butonları için ayarlar",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "\"Kontrol et\" butonlarını göster",

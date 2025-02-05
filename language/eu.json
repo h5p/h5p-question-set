@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "\"Egiaztatu\", \"Erakutsi emaitza\" eta \"Saiatu berriro\" ezarpenak",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Erakutsi \"Egiaztatu\" botoiak",

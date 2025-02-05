@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Nastavitve gumbov \"Prikaži rešitev\" in \"Poskusi ponovno\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Določi prikaz gumba \"Preveri\"",

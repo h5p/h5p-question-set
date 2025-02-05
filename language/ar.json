@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "إعدادات الأزرار \"لعرض الحل\" و\"المحاولة مرة أخرى\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Show \"Check\" buttons",

@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Impostazioni per i pulsanti \"Mostra soluzione\" e \"Riprova\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostra pulsanti di \"Verifica\"",

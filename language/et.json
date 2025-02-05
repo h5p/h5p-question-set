@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "\"Näita lahendust\" ja \"Proovi uuesti\" nuppude seadistused",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Näita \"Kontrolli\" nuppu",

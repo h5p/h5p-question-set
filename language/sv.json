@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Inställningar för knapparna \"Svara\", \"Visa lösning\" och \"Försök igen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Visa \"Svara\"-knappar",

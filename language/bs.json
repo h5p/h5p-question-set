@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Podešavanje dugmeta \"Prikaži rješenje\" i \"Ponovi\".",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Prikaži \"Provjeri\" dgme",

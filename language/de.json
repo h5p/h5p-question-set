@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Einstellungen für \"Lösung anzeigen\"-Button und \"Wiederholen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Überschreiben der Anzeigeoptionen des \"Überprüfen\"-Buttons",

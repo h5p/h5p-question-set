@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Nastavení tlačítek \"Zkontrolovat\", \"Zobrazit výsledek\" a \"Opakovat\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Zobrazit tlačítko \"Zkontrolovat\"",

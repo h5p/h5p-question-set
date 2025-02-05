@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Asetukset \"Näytä vastaus\" ja \"Yritä uudelleen\" painikkeille",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Näytä \"Check\" painike",

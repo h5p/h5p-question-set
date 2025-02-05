@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Configurações para os botões \"Mostrar solução\" e \"Tentar Novamente",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostrar botões \"Verificar\"",

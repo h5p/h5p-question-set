@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "設定＂查看解法＂和＂重試＂功能鈕",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "顯示”檢查”功能鈕",

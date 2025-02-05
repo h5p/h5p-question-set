@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "\"Pārbaudīt\", \"Rādīt risinājumu\" un \"Mēģināt vēlreiz\" iestatījumi",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Rādīt pogas \"Pārbaudīt\"",

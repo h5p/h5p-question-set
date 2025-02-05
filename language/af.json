@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Instellings vir die \"Wys antwoord\" en \"Probeer weer\" knoppies",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Wys \"Toets\" knoppies",

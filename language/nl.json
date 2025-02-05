@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Instellingen voor \"Toon oplossing\" en \"Opnieuw\"-knoppen",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Toon \"Controleer\"-knoppen",

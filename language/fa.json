@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "تنظیمات برای نمایش پاسخ صحیح و تلاش مجدد",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "نمایش دکمه بررسی",

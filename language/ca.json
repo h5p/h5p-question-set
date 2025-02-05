@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Configuració dels botons \"Mostra la solució\" i \"Torna-ho a provar\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostra els botons \"Comprova\"",

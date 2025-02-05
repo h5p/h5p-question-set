@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Paramètres pour les touches « Montrer la solution » et « Réessayer »",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Montrer les boutons \"Vérifier\"",

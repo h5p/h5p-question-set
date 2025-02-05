@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "\"Show solution\" 및 \"Retry\" 버튼 설정",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "\"Check\"버튼 표시",

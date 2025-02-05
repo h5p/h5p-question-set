@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Configuración para los botones \"Comprobar\", \"Mostrar solución\" e \"Intentar de nuevo\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostrar botones \"Comprobar\"",

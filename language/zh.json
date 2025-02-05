@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "核對答案、顯示正解、再試一次的設定",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "覆寫「核對答案」按鈕",

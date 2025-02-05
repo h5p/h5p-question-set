@@ -256,7 +256,7 @@
       ]
     },
     {
-      "label": "Ustawienia przycisków pokazywania odpowiedzi i ponownej próby",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Pokaż przycisk \"Sprawdź\"",
