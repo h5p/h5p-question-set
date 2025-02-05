@@ -1003,14 +1003,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     $myDom.append(self.$introPage, self.$questionsContainer);
     $myDom.parent().append(self.$progressAnnouncer);
 
-    if (params.backgroundImage !== undefined) {
+    if (params.override?.backgroundImage !== undefined) {
       this.$questionsContainer.css({
         backgroundColor: 'transparent'
       });
       $myDom.css({
         overflow: 'hidden',
         backgroundColor: 'var(--h5p-theme-ui-base)',
-        backgroundImage: 'url("' + H5P.getPath(params.backgroundImage.path, contentId) + '")',
+        backgroundImage: 'url("' + H5P.getPath(params.override.backgroundImage.path, contentId) + '")',
         backgroundSize: '90% auto',
         backgroundPosition: '50% 50%',
         backgroundRepeat: 'no-repeat'
