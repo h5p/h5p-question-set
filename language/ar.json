@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "صورة الخلفية",
-      "description": "صورة خلفية اختيارية لأسئلة."
-    },
-    {
       "label": "مؤشر التقدم",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "إعدادات الأزرار \"لعرض الحل\" و\"المحاولة مرة أخرى\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Show \"Check\" buttons",
@@ -289,6 +285,10 @@
               "label": "Disabled"
             }
           ]
+        },
+        {
+          "label": "صورة الخلفية",
+          "description": "صورة خلفية اختيارية لأسئلة."
         }
       ]
     }

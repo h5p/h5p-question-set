@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Fono paveikslėlis",
-      "description": "Pasirenkamas fono paveikslėlis klausimų rinkiniui."
-    },
-    {
       "label": "Pažangos indikatorius",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Settings for \"Check\", \"Show solution\" and \"Retry\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Show \"Check\" buttons",
@@ -289,6 +285,10 @@
               "label": "Disabled"
             }
           ]
+        },
+        {
+          "label": "Fono paveikslėlis",
+          "description": "Pasirenkamas fono paveikslėlis klausimų rinkiniui."
         }
       ]
     }

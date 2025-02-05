@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Picha ya mandharinyuma",
-      "description": "Picha ya hiari ya mandharinyuma kwa Swali lililowekwa."
-    },
-    {
       "label": "Kiashiria cha maendeleo",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Mipangilio kwa vifungo vya Onyesha suluhisho na Jaribu tena",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Onyesha vifungo vya \"Weka alama\"",
@@ -289,6 +285,10 @@
               "label": "Imezimwa"
             }
           ]
+        },
+        {
+          "label": "Picha ya mandharinyuma",
+          "description": "Picha ya hiari ya mandharinyuma kwa Swali lililowekwa."
         }
       ]
     }

@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Позадинска слика",
-      "description": "Необавезна позадинска слика за скуп питања."
-    },
-    {
       "label": "Показатељ напретка",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Подешавања за \"Прикажи решења\" и \"Врати\" дугмиће",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Прикажи \"Провери\" дугме",
@@ -289,6 +285,10 @@
               "label": "Онемогући"
             }
           ]
+        },
+        {
+          "label": "Позадинска слика",
+          "description": "Необавезна позадинска слика за скуп питања."
         }
       ]
     }

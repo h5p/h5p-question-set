@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Taustapilt",
-      "description": "Valikuline taustapilt küsimustikule."
-    },
-    {
       "label": "Edenemise osuti",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "\"Näita lahendust\" ja \"Proovi uuesti\" nuppude seadistused",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Näita \"Kontrolli\" nuppu",
@@ -289,6 +285,10 @@
               "label": "Keelatud"
             }
           ]
+        },
+        {
+          "label": "Taustapilt",
+          "description": "Valikuline taustapilt küsimustikule."
         }
       ]
     }

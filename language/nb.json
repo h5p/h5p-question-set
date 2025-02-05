@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Bakgrunnsbilde",
-      "description": "Valgfritt bakgrunnsbilde for oppgavesettet."
-    },
-    {
       "label": "Framdriftsindikator",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Innstillinger for \"Sjekk\", \"Vis svar\" og \"Prøv igjen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Vis \"Sjekk\"-knapper",
@@ -289,6 +285,10 @@
               "label": "Deaktivert"
             }
           ]
+        },
+        {
+          "label": "Bakgrunnsbilde",
+          "description": "Valgfritt bakgrunnsbilde for oppgavesettet."
         }
       ]
     }

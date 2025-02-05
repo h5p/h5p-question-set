@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Tło quizu",
-      "description": "Tło dla wszystkich pytań w quizie (opcjonalne)."
-    },
-    {
       "label": "Wskaźnik postępu",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Ustawienia przycisków pokazywania odpowiedzi i ponownej próby",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Pokaż przycisk \"Sprawdź\"",
@@ -289,6 +285,10 @@
               "label": "Wyłączone"
             }
           ]
+        },
+        {
+          "label": "Tło quizu",
+          "description": "Tło dla wszystkich pytań w quizie (opcjonalne)."
         }
       ]
     }

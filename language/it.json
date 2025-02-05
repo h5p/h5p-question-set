@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Immagine di sfondo",
-      "description": "Immagine di sfondo facoltativa per il gruppo di domande"
-    },
-    {
       "label": "Indicatore di avanzamento",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Impostazioni per i pulsanti \"Mostra soluzione\" e \"Riprova\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostra pulsanti di \"Verifica\"",
@@ -289,6 +285,10 @@
               "label": "Disattivato"
             }
           ]
+        },
+        {
+          "label": "Immagine di sfondo",
+          "description": "Immagine di sfondo facoltativa per il gruppo di domande"
         }
       ]
     }

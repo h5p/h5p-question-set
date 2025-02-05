@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Фоново изображение",
-      "description": "Незадължително фоново изображение за въпросите."
-    },
-    {
       "label": "Индикатор на напредъка",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Настройки за бутони \"Покажи решение\" и \"Опитай пак\" ",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Покажи бутони \"Провери\" ",
@@ -289,6 +285,10 @@
               "label": "Деактивирано"
             }
           ]
+        },
+        {
+          "label": "Фоново изображение",
+          "description": "Незадължително фоново изображение за въпросите."
         }
       ]
     }

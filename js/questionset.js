@@ -825,7 +825,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           .replace('@finals', `<span>${finals}</span>`).replace('@totals', `<span>${totals}</span>`),
         listHeaders: [params.texts.questionLabel, params.endGame.scoreHeader],
         questions: questionInstances.map((question) => ({
-          title: question.contentData.metadata.title,
+          title: question.contentData?.metadata.title ?? '',
           points: `${question.getScore()}/${question.getMaxScore()}`,
         })),
       });
@@ -1015,11 +1015,17 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     $myDom.append(self.$introBanner, self.$introPage, self.$questionsContainer);
     $myDom.parent().append(self.$progressAnnouncer);
 
-    if (params.backgroundImage !== undefined) {
+    if (params.override?.backgroundImage !== undefined) {
+      this.$questionsContainer.css({
+        backgroundColor: 'transparent'
+      });
       $myDom.css({
         overflow: 'hidden',
-        background: 'var(--h5p-theme-ui-base) url("' + H5P.getPath(params.backgroundImage.path, contentId) + '") no-repeat 50% 50%',
-        backgroundSize: '90% auto'
+        backgroundColor: 'var(--h5p-theme-ui-base)',
+        backgroundImage: 'url("' + H5P.getPath(params.override.backgroundImage.path, contentId) + '")',
+        backgroundSize: '90% auto',
+        backgroundPosition: '50% 50%',
+        backgroundRepeat: 'no-repeat'
       });
     }
     

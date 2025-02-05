@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "問題集背景圖片",
-      "description": "非必要項，作為問題集區塊背景的圖片。"
-    },
-    {
       "label": "進度指示樣式",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "核對答案、顯示正解、再試一次的設定",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "覆寫「核對答案」按鈕",
@@ -289,6 +285,10 @@
               "label": "停用"
             }
           ]
+        },
+        {
+          "label": "問題集背景圖片",
+          "description": "非必要項，作為問題集區塊背景的圖片。"
         }
       ]
     }

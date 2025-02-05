@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Image d'arrière-plan",
-      "description": "Image d'arrière-plan optionnelle pour la série de questions."
-    },
-    {
       "label": "Indicateur de progression",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Paramètres pour les touches « Montrer la solution » et « Réessayer »",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Montrer les boutons \"Vérifier\"",
@@ -289,6 +285,10 @@
               "label": "Désactivé"
             }
           ]
+        },
+        {
+          "label": "Image d'arrière-plan",
+          "description": "Image d'arrière-plan optionnelle pour la série de questions."
         }
       ]
     }

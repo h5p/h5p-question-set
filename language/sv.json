@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Bakgrundsbild",
-      "description": "En valfri bakgrundsbild för uppsättningen av frågor."
-    },
-    {
       "label": "Framstegsindikator",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Inställningar för knapparna \"Svara\", \"Visa lösning\" och \"Försök igen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Visa \"Svara\"-knappar",
@@ -289,6 +285,10 @@
               "label": "Inaktiverad"
             }
           ]
+        },
+        {
+          "label": "Bakgrundsbild",
+          "description": "En valfri bakgrundsbild för uppsättningen av frågor."
         }
       ]
     }

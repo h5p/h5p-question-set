@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Imagem de fundo",
-      "description": "Uma imagem de fundo opcional para a Série de perguntas."
-    },
-    {
       "label": "Indicador de progresso",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Configurações para os botões \"Mostrar solução\" e \"Tentar Novamente",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostrar botões \"Verificar\"",
@@ -289,6 +285,10 @@
               "label": "Desativado"
             }
           ]
+        },
+        {
+          "label": "Imagem de fundo",
+          "description": "Uma imagem de fundo opcional para a Série de perguntas."
         }
       ]
     }

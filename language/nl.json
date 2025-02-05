@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Achtergrondafbeelding",
-      "description": "Een optionele achtergrondafbeelding voor de vragenreeks."
-    },
-    {
       "label": "Voortgangsindicator",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Instellingen voor \"Toon oplossing\" en \"Opnieuw\"-knoppen",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Toon \"Controleer\"-knoppen",
@@ -289,6 +285,10 @@
               "label": "Uitgeschakeld"
             }
           ]
+        },
+        {
+          "label": "Achtergrondafbeelding",
+          "description": "Een optionele achtergrondafbeelding voor de vragenreeks."
         }
       ]
     }

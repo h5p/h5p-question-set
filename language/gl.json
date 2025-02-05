@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Imaxe de fondo",
-      "description": "Unha imaxe de fondo opcional para o grupo de preguntas."
-    },
-    {
       "label": "Indicador de progreso",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Configuración para os botóns \"Comprobar\", \"Amosar solución\" e \"Tentar de novo\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Amosar botóns \"Comprobar\"",
@@ -289,6 +285,10 @@
               "label": "Desactivado"
             }
           ]
+        },
+        {
+          "label": "Imaxe de fondo",
+          "description": "Unha imaxe de fondo opcional para o grupo de preguntas."
         }
       ]
     }

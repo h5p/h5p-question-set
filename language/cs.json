@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Obrázek na pozadí",
-      "description": "Volitelný obrázek na pozadí pro sadu otázek."
-    },
-    {
       "label": "Ukazatel průběhu",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Nastavení tlačítek \"Zkontrolovat\", \"Zobrazit výsledek\" a \"Opakovat\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Zobrazit tlačítko \"Zkontrolovat\"",
@@ -289,6 +285,10 @@
               "label": "Zakázáno"
             }
           ]
+        },
+        {
+          "label": "Obrázek na pozadí",
+          "description": "Volitelný obrázek na pozadí pro sadu otázek."
         }
       ]
     }

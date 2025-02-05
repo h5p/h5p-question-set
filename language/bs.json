@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Slika pozadine",
-      "description": "Slika pozadine seta pitanja. (opcionalno)."
-    },
-    {
       "label": "Prikaz napredovanja",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Podešavanje dugmeta \"Prikaži rješenje\" i \"Ponovi\".",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Prikaži \"Provjeri\" dgme",
@@ -289,6 +285,10 @@
               "label": "Nemoj prikazati"
             }
           ]
+        },
+        {
+          "label": "Slika pozadine",
+          "description": "Slika pozadine seta pitanja. (opcionalno)."
         }
       ]
     }

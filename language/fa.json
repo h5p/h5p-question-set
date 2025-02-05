@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "تصویر پس‌زمینه",
-      "description": "یک تصویر انتخابی برای قرار گرفتن در پس‌زمینه مجموعه سوالات."
-    },
-    {
       "label": "شاخص پیشرفت",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "تنظیمات برای نمایش پاسخ صحیح و تلاش مجدد",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "نمایش دکمه بررسی",
@@ -289,6 +285,10 @@
               "label": "غیرفعال"
             }
           ]
+        },
+        {
+          "label": "تصویر پس‌زمینه",
+          "description": "یک تصویر انتخابی برای قرار گرفتن در پس‌زمینه مجموعه سوالات."
         }
       ]
     }

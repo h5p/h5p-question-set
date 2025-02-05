@@ -25,10 +25,6 @@
       ]
     },
     {
-      "label": "Фонове зображення",
-      "description": "Необов'язкове зображення тла для набору запитань."
-    },
-    {
       "label": "Індикатор прогресу",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
@@ -260,7 +256,7 @@
       ]
     },
     {
-      "label": "Настройки для кнопок \"Показати відповідь\" і \"Повторити\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Показати кнопку \"Перевірити\"",
@@ -289,6 +285,10 @@
               "label": "Вимкнена"
             }
           ]
+        },
+        {
+          "label": "Фонове зображення",
+          "description": "Необов'язкове зображення тла для набору запитань."
         }
       ]
     }
