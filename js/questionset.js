@@ -825,7 +825,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           .replace('@finals', `<span>${finals}</span>`).replace('@totals', `<span>${totals}</span>`),
         listHeaders: [params.texts.questionLabel, params.endGame.scoreHeader],
         questions: questionInstances.map((question) => ({
-          title: question.contentData.metadata.title,
+          title: question.contentData?.metadata.title ?? '',
           points: `${question.getScore()}/${question.getMaxScore()}`,
         })),
       });
