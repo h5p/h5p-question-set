@@ -59,14 +59,6 @@
         "importance": "low",
         "optional": true,
         "description": "Optional image to display on the cover."
-      },
-      {
-        "name": "backgroundImageAltText",
-        "type": "text",
-        "label": "Alternative text",
-        "importance": "low",
-        "optional": true,
-        "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
       }
     ]
   },
