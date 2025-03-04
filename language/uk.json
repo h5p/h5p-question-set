@@ -21,6 +21,10 @@
         {
           "label": "Фонове зображення ",
           "description": "Додаткове зображення тла для опису."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },

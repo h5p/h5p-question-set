@@ -21,6 +21,10 @@
         {
           "label": "Imagem de fundo",
           "description": "Uma imagem de fundo opcional para a introdução."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },

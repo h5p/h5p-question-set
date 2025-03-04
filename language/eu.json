@@ -21,6 +21,10 @@
         {
           "label": "Atzeko planoaren irudia",
           "description": "Sarreraren atzeko planorako aukerazko irudia."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
