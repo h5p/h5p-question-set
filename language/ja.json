@@ -21,6 +21,10 @@
         {
           "label": "背景画像",
           "description": "概要のオプションの背景画像"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -289,6 +293,10 @@
         {
           "label": "背景画像",
           "description": "設問集のオプションの背景画像"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

@@ -21,6 +21,10 @@
         {
           "label": "Immagine di sfondo",
           "description": "Immagine di sfondo facoltativa per l'introduzione"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -289,6 +293,10 @@
         {
           "label": "Immagine di sfondo",
           "description": "Immagine di sfondo facoltativa per il gruppo di domande"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

@@ -21,6 +21,10 @@
         {
           "label": "Obrázek na pozadí",
           "description": "Volitelný obrázek na pozadí pro úvod."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -289,6 +293,10 @@
         {
           "label": "Obrázek na pozadí",
           "description": "Volitelný obrázek na pozadí pro sadu otázek."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

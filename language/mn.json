@@ -21,6 +21,10 @@
         {
           "label": "Арын зураг",
           "description": "Танилцуулгад зориулсан нэмэлт дэвсгэр зураг."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -289,6 +293,10 @@
         {
           "label": "Арын зураг",
           "description": "Асуултын багцын нэмэлт дэвсгэр зураг."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

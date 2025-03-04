@@ -21,6 +21,10 @@
         {
           "label": "תמונת רקע",
           "description": "תמונת רקע אפשרית למבוא."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -289,6 +293,10 @@
         {
           "label": "תמונת רקע",
           "description": "תמונת רקע אפשרית עבור הגדרות השאלה."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }
