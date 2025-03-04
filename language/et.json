@@ -21,10 +21,6 @@
         {
           "label": "Taustapilt",
           "description": "Valikuline taustapilt tutvustusele."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Taustapilt",
           "description": "Valikuline taustapilt küsimustikule."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

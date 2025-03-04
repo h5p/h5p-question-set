@@ -21,10 +21,6 @@
         {
           "label": "Slika za ozadje",
           "description": "Neobvezno. Slika je prikazana v ozadju uvoda."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Slika za ozadje",
           "description": "Neobvezno. Slika je prikazana v ozadju kviza."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

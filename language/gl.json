@@ -21,10 +21,6 @@
         {
           "label": "Imaxe de fondo",
           "description": "Unha imaxe de fondo opcional para a introdución."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Imaxe de fondo",
           "description": "Unha imaxe de fondo opcional para o grupo de preguntas."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

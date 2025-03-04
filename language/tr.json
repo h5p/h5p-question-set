@@ -21,10 +21,6 @@
         {
           "label": "Arka plan görseli",
           "description": "Bilgilendirme bölümü için isterseniz arka plan görseli ekleyebilirsiniz."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Arka plan görseli",
           "description": "Soru seti için isteğe bağlı arka plan görseli."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

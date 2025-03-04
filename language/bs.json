@@ -21,10 +21,6 @@
         {
           "label": "Slika pozadine",
           "description": "Slika pozadine na početku. (opcionalno)."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Slika pozadine",
           "description": "Slika pozadine seta pitanja. (opcionalno)."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

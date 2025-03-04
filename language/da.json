@@ -21,10 +21,6 @@
         {
           "label": "Baggrundsbillede",
           "description": "Et valgfrit baggrundsbillde til introduktionen."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Baggrundsbillede",
           "description": "Et valgfrit baggrundsbillde til quizzen."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

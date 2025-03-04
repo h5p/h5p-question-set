@@ -21,10 +21,6 @@
         {
           "label": "배경 이미지",
           "description": "소개 배경 이미지(선택사항)"
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "배경 이미지",
           "description": "문제 세트 배경 이미지(선택사항)"
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

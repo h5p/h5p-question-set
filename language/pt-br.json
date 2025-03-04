@@ -21,10 +21,6 @@
         {
           "label": "Imagem do plano de fundo",
           "description": "Uma imagem de plano de fundo opcional para a introdução."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Imagem de plano de fundo",
           "description": "Uma imagem de plano de fundo opcional para o conjunto de questões."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

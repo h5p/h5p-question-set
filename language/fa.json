@@ -21,10 +21,6 @@
         {
           "label": "تصویر پس‌زمینه",
           "description": "یک تصویر انتخابی برای قرارگرفتن در پس‌زمینه مقدمه."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "تصویر پس‌زمینه",
           "description": "یک تصویر انتخابی برای قرار گرفتن در پس‌زمینه مجموعه سوالات."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }

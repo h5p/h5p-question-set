@@ -21,10 +21,6 @@
         {
           "label": "Agtergrondprent",
           "description": "'n Opsionele agtergrondprent vir die inleiding."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
@@ -293,10 +289,6 @@
         {
           "label": "Agtergrondprent",
           "description": "'n Vrywillige agtergrondprent vir die vraagstel."
-        },
-        {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     }
