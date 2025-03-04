@@ -1038,6 +1038,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         $('<img/>', {
           class: 'intro-image',
           src: H5P.getPath(bgImg.path, contentId),
+          alt: params.introPage.backgroundImageAltText,
           appendTo: $intro
         });
       } else {

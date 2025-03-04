@@ -619,14 +619,6 @@
         "importance": "low",
         "optional": true,
         "description": "An optional background image for the Question set."
-      },
-      {
-        "name": "backgroundImageAltText",
-        "type": "text",
-        "label": "Alternative text",
-        "importance": "low",
-        "optional": true,
-        "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
       }
     ]
   }
