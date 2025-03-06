@@ -21,6 +21,10 @@
         {
           "label": "Εικόνα φόντου",
           "description": "Μια εικόνα φόντου για την εισαγωγή (προαιρετικό)."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },

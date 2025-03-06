@@ -21,6 +21,10 @@
         {
           "label": "Фоновое изображение",
           "description": "Дополнительное фоновое изображение для введения."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },

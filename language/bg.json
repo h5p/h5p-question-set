@@ -21,6 +21,10 @@
         {
           "label": "Фоново изображение",
           "description": "Незадължително фоново изображение за въведението."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },

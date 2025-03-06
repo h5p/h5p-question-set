@@ -21,6 +21,10 @@
         {
           "label": "背景圖示",
           "description": "選填。可選擇一張圖像做為簡介的背景畫面."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
