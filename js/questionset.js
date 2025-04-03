@@ -819,16 +819,18 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         'class': 'questionset-results'
       });
 
-      H5P.Components.ResultScreen(self.$resultPage[0], {
+      self.$resultPage[0].appendChild(H5P.Components.ResultScreen({
         header: eparams.message,
         scoreHeader: (params.endGame.amountCorrect)
           .replace('@finals', `<span>${finals}</span>`).replace('@totals', `<span>${totals}</span>`),
-        listHeaders: [params.texts.questionLabel, params.endGame.scoreHeader],
-        questions: questionInstances.map((question) => ({
-          title: question.contentData?.metadata.title ?? '',
-          points: `${question.getScore()}/${question.getMaxScore()}`,
-        })),
-      });
+        questionGroups: [{
+          listHeaders: [params.texts.questionLabel, params.endGame.scoreHeader],
+          questions: questionInstances.map((question) => ({
+            title: question.contentData?.metadata.title ?? '',
+            points: `${question.getScore()}/${question.getMaxScore()}`,
+          })),
+        }],
+      }));
 
       if (params.comment) {
         $('<div>', {
