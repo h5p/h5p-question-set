@@ -1009,11 +1009,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if ($intro.length) {
         var bgImg = params.introPage.backgroundImage;
         var bgImgRatio = (bgImg.height / bgImg.width);
-        $intro.css({
-          background: '#fff url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
-          backgroundSize: 'auto 100%',
-          minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
-        });
+
+        setTimeout(function () {
+          $intro.css({
+            background: '#fff url("' + H5P.getPath(bgImg.path, contentId) + '") no-repeat 50% 50%',
+            backgroundSize: 'auto 100%',
+            minHeight: bgImgRatio * +window.getComputedStyle($intro[0]).width.replace('px','')
+          });
+        }, 0);
       }
     }
 
