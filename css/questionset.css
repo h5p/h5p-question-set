@@ -42,6 +42,7 @@
   background-color: var(--h5p-theme-ui-base);
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 .progress-item {
   list-style: none;

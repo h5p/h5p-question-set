@@ -1025,7 +1025,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         overflow: 'hidden',
         backgroundColor: 'var(--h5p-theme-ui-base)',
         backgroundImage: 'url("' + H5P.getPath(params.override.backgroundImage.path, contentId) + '")',
-        backgroundSize: '90% auto',
+        backgroundSize: '100% auto',
         backgroundPosition: '50% 50%',
         backgroundRepeat: 'no-repeat'
       });
