@@ -113,6 +113,10 @@
         {
           "label": "Navigation label for readspeakers",
           "default": "Questions"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },
