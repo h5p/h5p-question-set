@@ -19,13 +19,13 @@
   padding-bottom: var(--h5p-theme-spacing-xxs);
 }
 
-.questionset, .h5p-theme-cover-page, .questionset-results {
+.questionset, .questionset-results {
   overflow: hidden;
 }
 .questionset.hidden {
   display: none;
 }
-.questionset, .h5p-theme-cover-page, .questionset-results {
+.questionset, .questionset-results {
   position: relative;
 }
 .h5p-multichoice > .h5p-question {
