@@ -257,54 +257,23 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   }
 
   // Create html for intro page layout
-  self.$introBanner = '';
-  self.$introPage = '';
+  this.$introPage = '';
   if (params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) {
-    self.$introBanner = $('<div>', {
-      class: 'h5p-pattern-container h5p-intro-pattern-vertical'
-    });
-    $('<div>', {
-      class: 'h5p-theme-pattern',
-      appendTo: self.$introBanner
-    });
-
-    self.$introPage = $('<div>', {
-      class: 'intro-page'
-    });
-    
-   self.$introText = $('<div>', {
-      class: 'introText-container',
-      appendTo: self.$introPage
-    });
-  
-    if (params.introPage.title) {
-      $('<div>', {
-        class: 'title',
-        html: '<h1>' + 
-              params.introPage.title + 
-              '</h1>',
-        appendTo: self.$introText
-      });
-    }
-
-    if (params.introPage.introduction) {
-      $('<div>', {
-        class: 'introduction',
-        html: params.introPage.introduction,
-        appendTo: self.$introText
-      });
-    }
-
-    self.$introButtonsContainer = $('<div>', {
-      class: 'buttons',
-      appendTo: self.$introText
-    });
-  
-    $('<button>', {
-      class: 'qs-startbutton h5p-joubelui-button h5p-button h5p-theme-primary-cta h5p-theme-check',
-      html: params.introPage.startButtonText,
-      appendTo: self.$introButtonsContainer
-    });
+    this.$introPage = $(H5P.Components.CoverPage({
+      title: params.introPage.title,
+      description: params.introPage.introduction,
+      img: params.introPage.backgroundImage ? H5P.getPath(params.introPage.backgroundImage  .path, contentId): undefined,
+      imgAlt: params.introPage.backgroundImageAltText,
+      buttonLabel: params.introPage.startButtonText,
+      buttonOnClick: function (event) {
+        self.$introPage.hide();
+        $myDom.removeClass('h5p-is-intro');
+        $('.questionset', $myDom).show();
+        _showQuestion(params.initialQuestion);
+        event.preventDefault();
+      },
+      icon: 'quiz',
+    }));
   }
 
   // Create html for progress announcer
@@ -647,15 +616,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     currentQuestion = 0;
 
     $myDom.children().hide();
-    var $intro = $('.intro-page', $myDom);
 
-    if ($intro.length) {
+    if (this.$introPage.length) {
       // Show intro
       $myDom.addClass('h5p-is-intro');
-      $('.intro-page', $myDom).show();
-      self.$introBanner.show();
+      this.$introPage.show();
       if (moveFocus) {
-        $('.qs-startbutton', $myDom).focus();
+        $('.h5p-theme-quiz', this.$introPage).focus();
       }
     }
     else {
@@ -1014,7 +981,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     // Render own DOM into target.
     $myDom.addClass('h5p-question-set h5p-theme');
     $myDom.children().remove();
-    $myDom.append(self.$introBanner, self.$introPage, self.$questionsContainer);
+    $myDom.append(this.$introPage, self.$questionsContainer);
     $myDom.parent().append(self.$progressAnnouncer);
 
     if (params.override?.backgroundImage !== undefined) {
@@ -1030,49 +997,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         backgroundRepeat: 'no-repeat'
       });
     }
-    
-    var $intro = $myDom.find('.intro-page');
 
-    if ($intro.length) {
+    if (this.$introPage.length) {
       $myDom.addClass('h5p-is-intro');
-      if (params.introPage.backgroundImage !== undefined) {
-        var bgImg = params.introPage.backgroundImage;
-        $('<img/>', {
-          class: 'intro-image',
-          src: H5P.getPath(bgImg.path, contentId),
-          alt: params.introPage.backgroundImageAltText,
-          appendTo: $intro
-        });
-      } else {
-        $intro.addClass('without-image')
-      }
     }
-
 
     initializeQuestion();
 
     // Allow other libraries to add transitions after the questions have been inited
     $('.questionset', $myDom).addClass('started');
-
-    $('.qs-startbutton', $myDom)
-      .click(function () {
-        $(this).parents('.intro-page').hide();
-        $myDom.removeClass('h5p-is-intro');
-        $('.questionset', $myDom).show();
-        _showQuestion(params.initialQuestion);
-        event.preventDefault();
-      })
-      .keydown(function (event) {
-        switch (event.which) {
-          case 13: // Enter
-          case 32: // Space
-            $(this).parents('.intro-page').hide();
-            $myDom.removeClass('h5p-is-intro');
-            $('.questionset', $myDom).show();
-            _showQuestion(params.initialQuestion);
-            event.preventDefault();
-        }
-      });
 
     /**
      * Triggers changing the current question.
