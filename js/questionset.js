@@ -306,7 +306,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     styleType: 'nav',
     ariaLabel: params.texts.prevButton,
     onClick: () => this.moveQuestion(-1),
-  }));      
+  }));
   self.$footer.append(self.$prevBtn);
 
   $('<span>', {
@@ -328,7 +328,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     styleType: 'nav',
     ariaLabel: params.texts.nextButton,
     onClick: () => this.moveQuestion(1),
-  }));      
+  }));
   self.$footer.append(self.$nextBtn);
 
   $('<span>', {
@@ -343,9 +343,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     class: 'h5p-hidden',
     icon: 'show-results',
     label: finishButtonText,
-    ariaLabel: finishButtonText,
     onClick: () => this.moveQuestion(1),
-  }));      
+  }));
   self.$footer.append(self.$finishBtn);
 
   // If backwards navigation is disabled, we show textual progress instead
@@ -756,22 +755,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     var scoreString = H5P.Question.determineOverallFeedback(params.endGame.overallFeedback, finals / totals).replace('@score', finals).replace('@total', totals);
     var success = ((100 * finals / totals) >= params.passPercentage);
 
-    /**
-     * Makes our buttons behave like other buttons.
-     *
-     * @private
-     * @param {string} classSelector
-     * @param {function} handler
-     */
-    var hookUpButton = function (classSelector, handler) {
-      $(classSelector, $myDom).click(handler).keypress(function (e) {
-        if (e.which === 32) {
-          handler();
-          e.preventDefault();
-        }
-      });
-    };
-
     var displayResults = function () {
       self.triggerXAPICompleted(self.getScore(), self.getMaxScore(), success);
 
@@ -828,8 +811,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           class: 'qs-solutionbutton',
           icon: 'show-results',
           styleType: 'secondary',
-          ariaLabel: eparams.solutionButtonText,
-        }));      
+          label: eparams.solutionButtonText,
+          onClick: () => {
+          showSolutions();
+            $myDom.children().hide().filter('.questionset').show();
+            _showQuestion(params.initialQuestion);
+          },
+        }));
         self.$buttonsContainer.append(self.$showSolutionBtn);
       }
 
@@ -838,8 +826,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           class: 'qs-retrybutton',
           icon: 'retry',
           styleType: 'secondary',
-          ariaLabel: eparams.retryButtonText,
-        }));      
+          label: eparams.retryButtonText,
+          onClick: () => self.resetTask(true),
+        }));
         self.$buttonsContainer.append(self.$retryBtn);
       }
 
@@ -848,15 +837,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       $myDom.append(self.$resultPage);
 
       if (params.endGame.showResultPage) {
-        hookUpButton('.qs-solutionbutton', function () {
-          showSolutions();
-          $myDom.children().hide().filter('.questionset').show();
-          _showQuestion(params.initialQuestion);
-        });
-        hookUpButton('.qs-retrybutton', function () {
-          self.resetTask(true);
-        });
-
         if (scoreBar === undefined) {
           scoreBar = H5P.JoubelUI.createScoreBar(totals);
         }
