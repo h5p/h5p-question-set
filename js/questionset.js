@@ -259,41 +259,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   // Create html for intro page layout
   this.$introPage = '';
   if (params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) {
-    self.$introBanner = $('<div>', {
-      class: 'h5p-pattern-container h5p-intro-pattern-vertical'
-    });
-    $('<div>', {
-      class: 'h5p-theme-pattern',
-      appendTo: self.$introBanner
-    });
-
-    self.$introPage = $('<div>', {
-      class: 'intro-page'
-    });
-    
-   self.$introText = $('<div>', {
-      class: 'introText-container',
-      appendTo: self.$introPage
-    });
-  
-    if (params.introPage.title) {
-      $('<div>', {
-        class: 'title',
-        html: '<h1>' + 
-              params.introPage.title + 
-              '</h1>',
-        appendTo: self.$introText
-      });
-    }
-
-    if (params.introPage.introduction) {
-      $('<div>', {
-        class: 'introduction',
-        html: params.introPage.introduction,
-        appendTo: self.$introText
-      });
-    }
-
     this.$introPage = $(H5P.Components.CoverPage({
       title: params.introPage.title,
       description: params.introPage.introduction,
