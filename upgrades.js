@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.QuestionSet'] = (function ($) {
+H5PUpgrades['H5P.QuestionSet'] = (function () {
   return {
     1: {
       3: function (parameters, finished) {
@@ -121,4 +121,4 @@ H5PUpgrades['H5P.QuestionSet'] = (function ($) {
       }
     }
   };
-})(H5P.jQuery);
+})();
