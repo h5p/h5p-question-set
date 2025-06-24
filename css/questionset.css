@@ -127,11 +127,6 @@
   float: none;
 }
 
-.h5p-column.h5p-theme .qs-footer.h5p-navigation {
-  margin-top: 0px !important;
-  padding-bottom: var(--h5p-theme-spacing-s);
-}
-
 /* Need to disable max-height animation stuff, since this will
    make resizing of iframe in Safari not work! */
 .questionset .h5p-question-buttons.h5p-question-visible {
@@ -147,7 +142,7 @@
 
 .h5p-question .h5p-question-prev {
   left: var(--h5p-theme-spacing-l);
-  
+
 }
 .h5p-question .h5p-question-next {
   right: var(--h5p-theme-spacing-l);
