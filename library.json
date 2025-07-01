@@ -4,7 +4,7 @@
   "contentType": "question",
   "majorVersion": 1,
   "minorVersion": 21,
-  "patchVersion": 5,
+  "patchVersion": 6,
   "embedTypes": [
     "iframe"
   ],
@@ -20,11 +20,17 @@
   "preloadedJs": [
     {
       "path": "js/questionset.js"
+    },
+    {
+      "path": "@legacy/js/questionset.js"
     }
   ],
   "preloadedCss": [
     {
       "path": "css/questionset.css"
+    },
+    {
+      "path": "@legacy/css/questionset.css"
     }
   ],
   "preloadedDependencies": [
