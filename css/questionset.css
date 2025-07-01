@@ -202,6 +202,9 @@
 
 .questionset-results .buttons {
   margin: var(--h5p-theme-spacing-m) 0 var(--h5p-theme-spacing-m) 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--h5p-theme-spacing-s);
 }
 
 .questionset-results .result-header,
