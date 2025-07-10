@@ -301,7 +301,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   });
 
   self.$prevBtn = $(H5P.Components.Button({
-    class: currentQuestion === 0 || params.disableBackwardsNavigation ? ' h5p-hidden' : '',
+    classes: currentQuestion === 0 || params.disableBackwardsNavigation ? ' h5p-hidden' : '',
     icon: 'previous',
     styleType: 'nav',
     ariaLabel: params.texts.prevButton,
@@ -323,7 +323,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   });
 
   self.$nextBtn = $(H5P.Components.Button({
-    class: currentQuestion === params.questions.length -1 ? ' h5p-hidden' : '',
+    classes: currentQuestion === params.questions.length -1 ? ' h5p-hidden' : '',
     icon: 'next',
     styleType: 'nav',
     ariaLabel: params.texts.nextButton,
