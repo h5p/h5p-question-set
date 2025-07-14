@@ -284,7 +284,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Create html for questionset
   self.$questionsContainer = $('<div>', {
-    class: 'questionset ' + 
+    class: 'questionset ' +
     ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
   });
 
@@ -301,7 +301,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   });
 
   self.$prevBtn = $(H5P.Components.Button({
-    class: currentQuestion === 0 || params.disableBackwardsNavigation ? ' h5p-hidden' : '',
+    classes: currentQuestion === 0 || params.disableBackwardsNavigation ? ' h5p-hidden' : '',
     icon: 'previous',
     styleType: 'nav',
     ariaLabel: params.texts.prevButton,
@@ -323,7 +323,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   });
 
   self.$nextBtn = $(H5P.Components.Button({
-    class: currentQuestion === params.questions.length -1 ? ' h5p-hidden' : '',
+    classes: currentQuestion === params.questions.length -1 ? ' h5p-hidden' : '',
     icon: 'next',
     styleType: 'nav',
     ariaLabel: params.texts.nextButton,
@@ -357,7 +357,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     for (let i=0; i<params.questions.length; i++) {
       $('<li>', {
         class: 'progress-item',
-        html: '<a href="#" class= "progress-dot unanswered ' + 
+        html: '<a href="#" class= "progress-dot unanswered ' +
               '" ' +
               'aria-label=' +
                 '"' +
@@ -792,7 +792,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           appendTo: self.$resultPage
         });
       }
-    
+
       if (params.resulttext) {
         $('<div>', {
           class: 'result-text',
@@ -800,7 +800,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           appendTo: self.$resultPage
         });
       }
-      
+
       self.$buttonsContainer = $('<div>', {
         class: 'buttons',
         appendTo: self.$resultPage
@@ -846,7 +846,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         // Announce that the question set is complete
         setTimeout(function () {
           self.$progressAnnouncer
-            .html(eparams.message + 
+            .html(eparams.message +
                   scoreString + '.' +
                   (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
@@ -1199,7 +1199,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     if (progressedEvent.data.statement.context.extensions === undefined) {
       progressedEvent.data.statement.context.extensions = {};
     }
-    
+
     progressedEvent.data.statement.context.extensions['http://id.tincanapi.com/extension/ending-point'] = currentQuestion + 1;
     this.trigger(progressedEvent);
   }
