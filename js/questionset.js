@@ -341,7 +341,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.texts.finishButton
   self.$finishBtn = $(H5P.Components.Button({
     class: 'h5p-hidden',
-    icon: 'show-results',
+    icon: 'submit',
     label: finishButtonText,
     onClick: () => this.moveQuestion(1),
   }));
