@@ -115,7 +115,7 @@
   visibility: hidden;
 }
 
-.qs-footer:has(.h5p-theme-show-results:not(.h5p-hidden)) .h5p-theme-next {
+.qs-footer:has(.h5p-theme-submit:not(.h5p-hidden)) .h5p-theme-next {
   display: none;
 }
 
@@ -248,7 +248,7 @@
   display: none;
 }
 
-.qs-footer .h5p-theme-primary-cta.h5p-theme-show-results.h5p-hidden {
+.qs-footer .h5p-theme-primary-cta.h5p-theme-submit.h5p-hidden {
   display: none;
 }
 .question-container {
