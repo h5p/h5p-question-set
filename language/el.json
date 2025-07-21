@@ -115,8 +115,8 @@
           "default": "Ερωτήσεις"
         },
         {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+          "label": "Οδηγία για πλοήγηση στη συλλογή ερωτήσεων με αναγνώστη οθόνης",
+          "default": "Επιλέξτε ερώτηση για εμφάνιση"
         }
       ]
     },
