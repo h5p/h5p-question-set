@@ -1,54 +1,54 @@
 {
   "semantics": [
     {
-      "label": "Quiz introduction",
+      "label": "Introducere chestionar",
       "fields": [
         {
-          "label": "Display introduction"
+          "label": "Afișare introducere"
         },
         {
-          "label": "Title",
-          "description": "This title will be displayed above the introduction text."
+          "label": "Titlu",
+          "description": "Acest titlu va fi afișat deasupra textului introductiv."
         },
         {
-          "label": "Introduction text",
-          "description": "This text will be displayed before the quiz starts."
+          "label": "Text introductiv",
+          "description": "Acest text va fi afișat înainte de începerea chestionarului."
         },
         {
-          "label": "Start button text",
-          "default": "Start Quiz"
+          "label": "Text buton de pornire",
+          "default": "Pornește chestionarul"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Imagine de fundal",
+          "description": "O imagine de fundal opțională pentru introducere."
         }
       ]
     },
     {
-      "label": "Background image",
-      "description": "An optional background image for the Question set."
+      "label": "Imagine de fundal",
+      "description": "O imagine de fundal opțională pentru setul de întrebări."
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style.",
+      "label": "Indicator de progres",
+      "description": "Stilul indicatorului de progres al setului de întrebări.",
       "options": [
         {
           "label": "Textual"
         },
         {
-          "label": "Dots"
+          "label": "Puncte"
         }
       ]
     },
     {
-      "label": "Pass percentage",
-      "description": "Percentage of Total score required for passing the quiz."
+      "label": "Procentaj de promovare",
+      "description": "Procentajul din scorul total necesar pentru promovarea chestionarului."
     },
     {
-      "label": "Questions",
+      "label": "Întrebări",
       "widgets": [
         {
-          "label": "Default"
+          "label": "Implicit"
         },
         {
           "label": "Textual"
@@ -56,130 +56,130 @@
       ],
       "entity": "question",
       "field": {
-        "label": "Question type",
-        "description": "Library for this question."
+        "label": "Tipul întrebării",
+        "description": "Biblioteca pentru această întrebare."
       }
     },
     {
-      "label": "Interface texts in quiz",
+      "label": "Texte de interfață în chestionar",
       "fields": [
         {
-          "label": "Back button",
-          "default": "Previous question"
+          "label": "Butonul Înapoi",
+          "default": "Întrebarea precedentă"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Butonul Următorul",
+          "default": "Întrebarea următoare"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Butonul Finalizare",
+          "default": "Finalizare"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Butonul Trimitere",
+          "default": "Trimitere"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "Text progres",
+          "description": "Text utilizat dacă este selectat progresul textual.",
+          "default": "Întrebarea: @current din @total întrebări"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Etichetă pentru a sări la o anumită întrebare",
+          "description": "Trebuie să utilizați substituentul „%d” în loc de numărul întrebării și %total în loc de numărul total de întrebări.",
+          "default": "Întrebarea %d din %total"
         },
         {
-          "label": "Copyright dialog question label",
-          "default": "Question"
+          "label": "Eticheta întrebării din dialogul privind drepturile de autor",
+          "default": "Întrebare"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Progres Readspeaker",
+          "description": "Poate utiliza variabilele de întrebare @current și @total",
+          "default": "Întrebarea @current din @total"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Text întrebare fără răspuns",
+          "default": "Fără răspuns"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Text întrebare cu răspuns",
+          "default": "Cu răspuns"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
+          "label": "Text întrebare curentă",
+          "default": "Întrebare curentă"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Etichetă de navigare pentru readspeakers",
+          "default": "Întrebări"
         },
         {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+          "label": "Instrucțiuni pentru navigarea în setul de întrebări cu cititor de ecran",
+          "default": "Alegeți întrebarea de afișat"
         }
       ]
     },
     {
-      "label": "Disable backwards navigation",
-      "description": "This option will only allow you to move forward in Question Set"
+      "label": "Dezactivați navigarea înapoi",
+      "description": "Această opțiune vă va permite să vă deplasați doar înainte în setul de întrebări"
     },
     {
-      "label": "Randomize questions",
-      "description": "Enable to randomize the order of questions on display."
+      "label": "Amestecare întrebări",
+      "description": "Activați pentru a amesteca ordinea întrebărilor la afișare."
     },
     {
-      "label": "Number of questions to be shown:",
-      "description": "Create a randomized batch of questions from the total."
+      "label": "Numărul de întrebări de afișat:",
+      "description": "Creați un lot aleatoriu de întrebări din total."
     },
     {
-      "label": "Quiz finished",
+      "label": "Chestionar finalizat",
       "fields": [
         {
-          "label": "Display results"
+          "label": "Afișare rezultate"
         },
         {
-          "label": "Display solution button"
+          "label": "Afișare buton de soluție"
         },
         {
-          "label": "Display retry button"
+          "label": "Afișare buton de reîncercare"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
+          "label": "Mesaj fără rezultate",
+          "description": "Text afișat pe pagina de finalizare când „Afișare rezultate” este dezactivat",
+          "default": "Finalizat"
         },
         {
-          "label": "Feedback heading",
-          "default": "Your result:",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Antet feedback",
+          "default": "Rezultatul tău:",
+          "description": "Acest antet va fi afișat la sfârșitul chestionarului când utilizatorul a răspuns la toate întrebările."
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Anunțător scor",
+          "description": "Această etichetă va fi utilizată pentru a anunța scorul final utilizatorului pe ecranul de final",
+          "default": "Ai obținut @finals din @totals puncte"
         },
         {
-          "label": "Overall Feedback",
+          "label": "Feedback general",
           "fields": [
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Implicit"
                 }
               ],
-              "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+              "label": "Definiți feedback personalizat pentru orice interval de scor",
+              "description": "Faceți clic pe butonul „Adăugare interval” pentru a adăuga oricâte intervale aveți nevoie. Exemplu: 0-20% Scor slab, 21-91% Scor mediu, 91-100% Scor excelent!",
               "entity": "range",
               "field": {
                 "fields": [
                   {
-                    "label": "Score Range"
+                    "label": "Interval de scor"
                   },
                   {},
                   {
-                    "label": "Feedback for defined score range",
-                    "placeholder": "Fill in the feedback"
+                    "label": "Feedback pentru intervalul de scor definit",
+                    "placeholder": "Completați feedback-ul"
                   }
                 ]
               }
@@ -187,92 +187,92 @@
           ]
         },
         {
-          "label": "Old Feedback",
+          "label": "Feedback vechi",
           "fields": [
             {
-              "label": "Quiz passed greeting",
-              "description": "This text will be displayed above the score if the user has successfully passed the quiz."
+              "label": "Salutare de promovare a chestionarului",
+              "description": "Acest text va fi afișat deasupra scorului dacă utilizatorul a promovat cu succes chestionarul."
             },
             {
-              "label": "Passed comment",
-              "description": "This comment will be displayed after the score if the user has successfully passed the quiz."
+              "label": "Comentariu de promovare",
+              "description": "Acest comentariu va fi afișat după scor dacă utilizatorul a promovat cu succes chestionarul."
             },
             {
-              "label": "Quiz failed title",
-              "description": "This text will be displayed above the score if the user has failed the quiz."
+              "label": "Titlu de eșuare a chestionarului",
+              "description": "Acest text va fi afișat deasupra scorului dacă utilizatorul a eșuat la chestionar."
             },
             {
-              "label": "Failed comment",
-              "description": "This comment will be displayed after the score if the user has failed the quiz."
+              "label": "Comentariu de eșuare",
+              "description": "Acest comentariu va fi afișat după scor dacă utilizatorul a eșuat la chestionar."
             }
           ]
         },
         {
-          "label": "Solution button label",
-          "default": "Show solution",
-          "description": "Text for the solution button."
+          "label": "Etichetă buton soluție",
+          "default": "Arată soluția",
+          "description": "Text pentru butonul de soluție."
         },
         {
-          "label": "Retry button label",
-          "default": "Retry",
-          "description": "Text for the retry button."
+          "label": "Etichetă buton de reîncercare",
+          "default": "Reîncearcă",
+          "description": "Text pentru butonul de reîncercare."
         },
         {
-          "label": "Finish button text",
-          "default": "Finish"
+          "label": "Text buton Finalizare",
+          "default": "Finalizare"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Text buton Trimitere",
+          "default": "Trimitere"
         },
         {
-          "label": "Display video before quiz results"
+          "label": "Afișare videoclip înainte de rezultatele chestionarului"
         },
         {
-          "label": "Enable skip video button"
+          "label": "Activare buton de omitere a videoclipului"
         },
         {
-          "label": "Skip video button label",
-          "default": "Skip video"
+          "label": "Etichetă buton de omitere a videoclipului",
+          "default": "Omite videoclipul"
         },
         {
-          "label": "Passed video",
-          "description": "This video will be played if the user successfully passed the quiz."
+          "label": "Videoclip de promovare",
+          "description": "Acest videoclip va fi redat dacă utilizatorul a promovat cu succes chestionarul."
         },
         {
-          "label": "Fail video",
-          "description": "This video will be played if the user fails the quiz."
+          "label": "Videoclip de eșuare",
+          "description": "Acest videoclip va fi redat dacă utilizatorul eșuează la chestionar."
         }
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Setări pentru „Verificare”, „Afișare soluție” și „Reîncercare”",
       "fields": [
         {
-          "label": "Show \"Check\" buttons",
-          "description": "This option determines if the \"Check\" button will be shown for all questions."
+          "label": "Afișare butoane „Verificare”",
+          "description": "Această opțiune determină dacă butonul „Verificare” va fi afișat pentru toate întrebările."
         },
         {
-          "label": "Override \"Show Solution\" button",
-          "description": "This option determines if the \"Show Solution\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Suprascriere buton „Afișare soluție”",
+          "description": "Această opțiune determină dacă butonul „Afișare soluție” va fi afișat pentru toate întrebările, dezactivat pentru toate sau configurat pentru fiecare întrebare în parte.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Activat"
             },
             {
-              "label": "Disabled"
+              "label": "Dezactivat"
             }
           ]
         },
         {
-          "label": "Override \"Retry\" button",
-          "description": "This option determines if the \"Retry\" button will be shown for all questions, disabled for all or configured for each question individually.",
+          "label": "Suprascriere buton „Reîncercare”",
+          "description": "Această opțiune determină dacă butonul „Reîncercare” va fi afișat pentru toate întrebările, dezactivat pentru toate sau configurat pentru fiecare întrebare în parte.",
           "options": [
             {
-              "label": "Enabled"
+              "label": "Activat"
             },
             {
-              "label": "Disabled"
+              "label": "Dezactivat"
             }
           ]
         }
