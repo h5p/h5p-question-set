@@ -40,10 +40,6 @@
   flex-flow: row;
 }
 
-/* .qs-footer:has(.h5p-theme-show-results:not(.h5p-hidden)) .h5p-theme-next {
-  display: none;
-} */
-
 .qs-footer > .qs-solutionbutton {
   float: none;
 }
@@ -172,7 +168,7 @@
   display: none;
 }
 
-.qs-footer .h5p-theme-primary-cta.h5p-theme-show-results.h5p-hidden {
+.qs-footer .h5p-theme-primary-cta.h5p-theme-submit.h5p-hidden {
   display: none;
 }
 .question-container {
