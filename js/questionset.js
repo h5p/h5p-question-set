@@ -316,39 +316,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     return false;
   };
 
-<<<<<<< HEAD
   self.toggleNextButton = function (enable) {
     if (self?.nextButton) {
       self.nextButton.setAttribute('aria-disabled', !enable);
     }
   };
-=======
-  self.$nextBtn = $(H5P.Components.Button({
-    classes: currentQuestion === params.questions.length -1 ? ' h5p-hidden' : '',
-    icon: 'next',
-    styleType: 'nav',
-    ariaLabel: params.texts.nextButton,
-    onClick: () => this.moveQuestion(1),
-  }));
-  self.$footer.append(self.$nextBtn);
-
-  $('<span>', {
-    class: 'h5p-theme-label',
-    text: params.texts.next,
-    appendTo: self.$nextBtn
-  });
-
-  // Add finish button
-  const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.texts.finishButton
-  self.$finishBtn = $(H5P.Components.Button({
-    class: 'h5p-hidden',
-    icon: 'submit',
-    label: finishButtonText,
-    onClick: () => this.moveQuestion(1),
-  }));
-  self.$footer.append(self.$finishBtn);
->>>>>>> feature/redesign
-
+  
   let nav;
   const navigationTexts = {
     previousButton: params.texts.previous,
@@ -378,26 +351,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       })),
       handleProgressDotClick,
     });
-<<<<<<< HEAD
-=======
-
-    for (let i=0; i<params.questions.length; i++) {
-      $('<li>', {
-        class: 'progress-item',
-        html: '<a href="#" class= "progress-dot unanswered ' +
-              '" ' +
-              'aria-label=' +
-                '"' +
-                params.texts.jumpToQuestion.replace("%d", i + 1).replace("%total", params.questions.length) +
-                ', ' +
-                params.texts.unansweredText +
-                '" ' +
-              'tabindex="-1" ' +
-              '></a>',
-        appendTo: self.$dotsContainer
-      })
-    }
->>>>>>> feature/redesign
   }
   else {
     nav = H5P.Components.Navigation({
