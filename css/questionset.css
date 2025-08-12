@@ -7,7 +7,7 @@
 }
 
 .questionset .question-container {
-  margin: var(--h5p-theme-spacing-m) !important;
+  margin: var(--h5p-theme-spacing-m);
 }
 .h5p-column .questionset .question-container {
   margin: unset !important;
@@ -178,6 +178,9 @@
   border-radius: var(--h5p-theme-border-radius-medium);
   padding: var(--h5p-theme-spacing-s);
   background-color: var(--h5p-theme-ui-base);
+}
+.h5p-no-frame .questionset .question-container {
+  margin: 0;
 }
 
 .h5p-column .h5p-theme .questionset-results {
