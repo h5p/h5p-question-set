@@ -693,7 +693,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if (params.endGame.showSolutionButton) {
         self.$showSolutionBtn = $(H5P.Components.Button({
           class: 'qs-solutionbutton',
-          icon: 'show-results',
+          icon: 'show-solutions',
           styleType: 'secondary',
           label: eparams.solutionButtonText,
           onClick: () => {
