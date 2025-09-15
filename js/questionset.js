@@ -480,6 +480,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         H5P.error(error);
       }
     }
+
+    nav.setCurrentIndex(0);
   };
 
   /**
