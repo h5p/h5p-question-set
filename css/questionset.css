@@ -196,3 +196,7 @@
   border-radius: unset;
   padding: unset;
 }
+
+.h5p-theme-nav-button.h5p-theme-previous.visibility-hidden {
+  visibility: hidden; /* Components.Navigation uses grid layout, so we can't use display: none */
+}
