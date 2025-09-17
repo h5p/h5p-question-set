@@ -308,20 +308,19 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.triggerXAPIProgressed();
   };
 
-  var handleNextClick = () => {
-    if (self.nextButton.getAttribute('aria-disabled') !== 'true') {
-      self.moveQuestion(1)
-      return true;
+  /**
+   * Enable or disables a button.
+   * @param {string} id 'next' or 'previous' to select button.
+   * @param {boolean} shouldBeEnabled True to enable, false to disable.
+   */
+  self.setButtonEnabled = (id, shouldBeEnabled) => {
+    if (!self.buttons[id]) {
+      return;
     }
-    return false;
+
+    self.buttons[id].disabled = !shouldBeEnabled;
   };
 
-  self.toggleNextButton = function (enable) {
-    if (self?.nextButton) {
-      self.nextButton.setAttribute('aria-disabled', !enable);
-    }
-  };
-  
   let nav;
   const navigationTexts = {
     previousButton: params.texts.previous,
@@ -356,21 +355,26 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     nav = H5P.Components.Navigation({
       className: 'qs-footer',
       variant: '3-split',
-      texts: navigationTexts,
-      handleNext: handleNextClick,
+      handlePrevious: () => this.moveQuestion(-1),
+      handleNext: () => this.moveQuestion(1),
       handleLast: () => this.moveQuestion(1),
       progressType: 'text',
-      navigationLength: params.questions.length,
+      texts: navigationTexts,
       index: currentQuestion,
+      navigationLength: params.questions.length
     });
-    self.nextButton = nav.querySelector('.h5p-theme-next');
-    self.toggleNextButton(false);
   }
   self.nav = nav;
 
   self.$questionsContainer.get(0).appendChild(nav);
-  self.$prevBtn = $(nav.querySelector('.h5p-theme-previous'));
-  self.$nextBtn = $(nav.querySelector('.h5p-theme-next'));
+  self.buttons = {
+    next: nav.querySelector('.h5p-theme-next'),
+    previous: nav.querySelector('.h5p-theme-previous'),
+  };
+
+  if (params.disableBackwardsNavigation) {
+    self.buttons.previous.classList.add('visibility-hidden');
+  }
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && !self.hasPrevState) {
@@ -394,25 +398,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Update button state.
   var _updateButtons = function () {
-    var answered = true;
-    for (var i = questionInstances.length - 1; i >= 0; i--) {
-      answered = answered && (questionInstances[i]).getAnswerGiven();
-    }
-
     const answeredCurrentQuestion = questionInstances[currentQuestion].getAnswerGiven();
+    self.setButtonEnabled('next', !params.disableBackwardsNavigation || answeredCurrentQuestion);
 
-    if (answeredCurrentQuestion) {
-      self.toggleNextButton(answeredCurrentQuestion);
-    }
-
-    if (currentQuestion === (params.questions.length - 1)
-      && questionInstances[currentQuestion]
-      && answered
-    ) {
-      self.nav?.setCanShowLast(true);
-    } else {
-      self.nav?.setCanShowLast(false);
-    }
+    const answeredAllQuestions = questionInstances.every(instance => instance.getAnswerGiven());
+    const isViewingLastQuestion = currentQuestion === (params.questions.length - 1);
+    const aQuestionIsSet = !!questionInstances[currentQuestion];
+    self.nav?.setCanShowLast(isViewingLastQuestion && answeredAllQuestions && aQuestionIsSet);
   };
 
   var _showQuestion = function (questionNumber, preventAnnouncement) {
@@ -493,7 +485,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   this.resetTask = function (moveFocus = false) {
     this.nav.setCurrentIndex(0);
-    this.toggleNextButton(false);
+    this.setButtonEnabled('next', false);
     // Clear previous state to ensure questions are created cleanly
     contentData.previousState = {};
     self.hasPrevState = false;
