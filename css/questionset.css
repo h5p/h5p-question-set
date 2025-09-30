@@ -179,8 +179,8 @@
   padding: var(--h5p-theme-spacing-s);
   background-color: var(--h5p-theme-ui-base);
 }
-.h5p-no-frame .questionset .question-container {
-  margin: 0;
+.h5p-no-frame .questionset .h5p-navigation {
+  border-top: 0;
 }
 
 .h5p-column .h5p-theme .questionset-results {
