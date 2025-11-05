@@ -9,9 +9,6 @@
 .questionset .question-container {
   margin: var(--h5p-theme-spacing-m);
 }
-.h5p-column .questionset .question-container {
-  margin: unset !important;
-}
 
 .questionset-results h2 {
   font-size: calc(var(--h5p-theme-spacing-s)*1.2);
@@ -181,20 +178,6 @@
 }
 .h5p-no-frame .questionset .h5p-navigation {
   border-top: 0;
-}
-
-.h5p-column .h5p-theme .questionset-results {
-  margin: calc(-1*var(--h5p-theme-spacing-xs));
-  border: solid 1px var(--h5p-theme-stroke-1);
-  border-radius: var(--h5p-theme-border-radius-large);
-}
-
-.h5p-column .question-container {
-  margin: unset;
-  box-shadow: unset;
-  border: unset;
-  border-radius: unset;
-  padding: unset;
 }
 
 .h5p-theme-nav-button.h5p-theme-previous.visibility-hidden {
