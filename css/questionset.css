@@ -9,9 +9,6 @@
 .questionset .question-container {
   margin: var(--h5p-theme-spacing-m);
 }
-.h5p-column .questionset .question-container {
-  margin: unset !important;
-}
 
 .questionset-results h2 {
   font-size: calc(var(--h5p-theme-spacing-s)*1.2);
