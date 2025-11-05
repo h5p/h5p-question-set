@@ -180,20 +180,6 @@
   margin: 0;
 }
 
-.h5p-column .h5p-theme .questionset-results {
-  margin: calc(-1*var(--h5p-theme-spacing-xs));
-  border: solid 1px var(--h5p-theme-stroke-1);
-  border-radius: var(--h5p-theme-border-radius-large);
-}
-
-.h5p-column .question-container {
-  margin: unset;
-  box-shadow: unset;
-  border: unset;
-  border-radius: unset;
-  padding: unset;
-}
-
 .h5p-theme-nav-button.h5p-theme-previous.visibility-hidden {
   visibility: hidden; /* Components.Navigation uses grid layout, so we can't use display: none */
 }
