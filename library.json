@@ -3,11 +3,8 @@
   "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 22,
-  "patchVersion": 10,
-  "embedTypes": [
-    "iframe"
-  ],
+  "minorVersion": 21,
+  "patchVersion": 7,
   "runnable": 1,
   "fullscreen": 0,
   "machineName": "H5P.QuestionSet",
