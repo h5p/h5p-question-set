@@ -45,7 +45,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       unansweredText: 'Unanswered',
       answeredText: 'Answered',
       currentQuestionText: 'Current question',
-      navigationLabel: 'Questions'
+      navigationLabel: 'Questions',
+      questionSetInstruction: 'Choose question to display'
     },
     endGame: {
       showResultPage: true,
@@ -219,6 +220,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         question = questions[i];
       }
 
+      if (!question.library) {
+        continue;
+      }
+
       if (override) {
         // Extend subcontent with the overrided settings.
         $.extend(question.params.behaviour, override);
@@ -288,9 +293,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     ((params.introPage.showIntroPage && params.noOfQuestionAnswered === 0) ? 'hidden' : ''),
   });
 
+  const tabIDs = Array.from({length: params.questions.length}, () => H5P.createUUID());
+  const tabPanelIDs = Array.from({length: params.questions.length}, () => H5P.createUUID());
+
   for (let i=0; i<params.questions.length; i++) {
     $('<div>', {
       class: 'question-container',
+      role: 'tabpanel',
+      id: tabPanelIDs[i],
+      'aria-labelledby': tabIDs[i],
       appendTo: self.$questionsContainer
     });
   }
