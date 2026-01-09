@@ -121,6 +121,10 @@
         {
           "label": "Texte de navigation pour la synthèse vocale",
           "default": "Questions"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },
