@@ -3,7 +3,9 @@
     {
       "label": "Kvíz bevezető",
       "fields": [
-        { "label": "Bevezető megjelenítése" },
+        {
+          "label": "Bevezető megjelenítése"
+        },
         {
           "label": "Cím",
           "description": "Ez a cím a bevezető szöveg felett jelenik meg."
@@ -15,10 +17,6 @@
         {
           "label": "Start gomb szövege",
           "default": "Kvíz indítása"
-        },
-        {
-          "label": "Start button text",
-          "default": "Start Quiz"
         },
         {
           "label": "Background image",
@@ -34,8 +32,12 @@
       "label": "Progress indicator",
       "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
-        { "label": "Szöveges" },
-        { "label": "Pontok" }
+        {
+          "label": "Szöveges"
+        },
+        {
+          "label": "Pontok"
+        }
       ]
     },
     {
@@ -45,8 +47,12 @@
     {
       "label": "Kérdések",
       "widgets": [
-        { "label": "Alapértelmezett" },
-        { "label": "Szöveges" }
+        {
+          "label": "Alapértelmezett"
+        },
+        {
+          "label": "Szöveges"
+        }
       ],
       "entity": "kérdés",
       "field": {
@@ -57,27 +63,21 @@
     {
       "label": "Felület szövegei a kvízben",
       "fields": [
-        { "label": "Vissza gomb", "default": "Előző kérdés" },
-        { "label": "Következő gomb", "default": "Következő kérdés" },
-        { "label": "Befejezés gomb", "default": "Befejezés" },
-        { "label": "Beküldés gomb", "default": "Beküldés" },
         {
-          "label": "Előrehaladás szövege",
-          "description": "A szöveges előrehaladás kiválasztásakor használt szöveg.",
-          "default": "Kérdés: @current / @total"
+          "label": "Vissza gomb",
+          "default": "Előző kérdés"
         },
         {
-          "label": "Back button label",
-          "default": "Previous"
+          "label": "Következő gomb",
+          "default": "Következő kérdés"
         },
         {
-          "label": "Next button",
-          "default": "Next question"
+          "label": "Befejezés gomb",
+          "default": "Befejezés"
         },
-        { "label": "Szerzői jog párbeszéd címkéje", "default": "Kérdés" },
         {
-          "label": "Next button label",
-          "default": "Next"
+          "label": "Beküldés gomb",
+          "default": "Beküldés"
         },
         {
           "label": "Finish button",
@@ -88,9 +88,9 @@
           "default": "Submit"
         },
         {
-          "label": "Progress text",
-          "description": "Text used if textual progress is selected.",
-          "default": "Question: @current of @total questions"
+          "label": "Előrehaladás szövege",
+          "description": "A szöveges előrehaladás kiválasztásakor használt szöveg.",
+          "default": "Kérdés: @current / @total"
         },
         {
           "label": "Label for jumping to a certain question",
@@ -121,6 +121,10 @@
         {
           "label": "Navigation label for readspeakers",
           "default": "Questions"
+        },
+        {
+          "label": "Instruction for navigating question set with screenreader",
+          "default": "Choose question to display"
         }
       ]
     },
@@ -139,9 +143,15 @@
     {
       "label": "Kvíz befejezve",
       "fields": [
-        { "label": "Eredmények megjelenítése" },
-        { "label": "Megoldás gomb megjelenítése" },
-        { "label": "Újrapróbálkozás gomb megjelenítése" },
+        {
+          "label": "Eredmények megjelenítése"
+        },
+        {
+          "label": "Megoldás gomb megjelenítése"
+        },
+        {
+          "label": "Újrapróbálkozás gomb megjelenítése"
+        },
         {
           "label": "Nincs eredmény üzenet",
           "description": "A záró oldalon megjelenő szöveg, ha az 'Eredmények megjelenítése' le van tiltva.",
@@ -158,21 +168,6 @@
           "default": "@finals pontot értél el @totals pontból"
         },
         {
-          "label": "No results message",
-          "description": "Text displayed on end page when \"Display results\" is disabled",
-          "default": "Finished"
-        },
-        {
-          "label": "Results heading",
-          "default": "Results",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
-        },
-        {
-          "label": "Amount correct heading",
-          "description": "Header to show the final score to the user on the end screen",
-          "default": "@finals of @totals correct"
-        },
-        {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
@@ -186,13 +181,19 @@
           "label": "Overall Feedback",
           "fields": [
             {
-              "widgets": [ { "label": "Alapértelmezett" } ],
+              "widgets": [
+                {
+                  "label": "Alapértelmezett"
+                }
+              ],
               "label": "Egyéni visszajelzés definiálása bármely ponttartományhoz",
               "description": "Példa: 0-20% Rossz eredmény, 21-91% Átlagos eredmény, 91-100% Kiváló eredmény!",
               "entity": "tartomány",
               "field": {
                 "fields": [
-                  { "label": "Ponttartomány" },
+                  {
+                    "label": "Ponttartomány"
+                  },
                   {},
                   {
                     "label": "Visszajelzés a megadott ponttartományhoz",
@@ -234,10 +235,20 @@
           "default": "Újrapróbálkozás",
           "description": "Az újrapróbálkozás gomb szövege."
         },
-        { "label": "Befejezés gomb szövege", "default": "Befejezés" },
-        { "label": "Beküldés gomb szövege", "default": "Beküldés" },
-        { "label": "Videó megjelenítése a kvíz eredményei előtt" },
-        { "label": "Videó átugrásának engedélyezése" },
+        {
+          "label": "Befejezés gomb szövege",
+          "default": "Befejezés"
+        },
+        {
+          "label": "Beküldés gomb szövege",
+          "default": "Beküldés"
+        },
+        {
+          "label": "Videó megjelenítése a kvíz eredményei előtt"
+        },
+        {
+          "label": "Videó átugrásának engedélyezése"
+        },
         {
           "label": "Videó átugrása gomb felirata",
           "default": "Videó átugrása"
@@ -263,16 +274,24 @@
           "label": "\"Megoldás mutatása\" gomb felülírása",
           "description": "Ez az opció meghatározza, hogy a \"Megoldás mutatása\" gomb minden kérdésnél látható legyen, le legyen tiltva, vagy kérdésenként konfigurálható legyen.",
           "options": [
-            { "label": "Engedélyezve" },
-            { "label": "Letiltva" }
+            {
+              "label": "Engedélyezve"
+            },
+            {
+              "label": "Letiltva"
+            }
           ]
         },
         {
           "label": "\"Újrapróbálkozás\" gomb felülírása",
           "description": "Ez az opció meghatározza, hogy az \"Újrapróbálkozás\" gomb minden kérdésnél látható legyen, le legyen tiltva, vagy kérdésenként konfigurálható legyen.",
           "options": [
-            { "label": "Engedélyezve" },
-            { "label": "Letiltva" }
+            {
+              "label": "Engedélyezve"
+            },
+            {
+              "label": "Letiltva"
+            }
           ]
         },
         {
