@@ -32,11 +32,6 @@
   zoom: 1;
 }
 
-.h5p-theme.h5p-is-intro {
-  display: flex;
-  flex-flow: row;
-}
-
 .qs-footer > .qs-solutionbutton {
   float: none;
 }

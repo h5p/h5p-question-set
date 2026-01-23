@@ -272,7 +272,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       buttonLabel: params.introPage.startButtonText,
       buttonOnClick: function (event) {
         self.$introPage.hide();
-        $myDom.removeClass('h5p-is-intro');
         $('.questionset', $myDom).show();
         _showQuestion(params.initialQuestion);
         event.preventDefault();
@@ -555,7 +554,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     if (this.$introPage.length) {
       // Show intro
-      $myDom.addClass('h5p-is-intro');
       this.$introPage.show();
       if (moveFocus) {
         $('.h5p-theme-quiz', this.$introPage).focus();
@@ -870,10 +868,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         backgroundPosition: '50% 50%',
         backgroundRepeat: 'no-repeat'
       });
-    }
-
-    if (this.$introPage.length) {
-      $myDom.addClass('h5p-is-intro');
     }
 
     initializeQuestion();
