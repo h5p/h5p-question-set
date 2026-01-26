@@ -886,6 +886,12 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
     this.trigger('resize');
 
+    $myDom.on('h5p-question-reset', () => {
+      for (var i = 0; i < questionInstances.length; i++) {
+        toggleAnsweredDot(i, questionInstances[i].getAnswerGiven());
+      }
+    })
+
     return this;
   };
 
