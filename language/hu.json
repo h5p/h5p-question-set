@@ -76,7 +76,8 @@
         { "label": "Meg nem válaszolt kérdés szövege", "default": "Meg nem válaszolt" },
         { "label": "Megválaszolt kérdés szövege", "default": "Megválaszolt" },
         { "label": "Jelenlegi kérdés szövege", "default": "Jelenlegi kérdés" },
-        { "label": "Navigációs címke olvasóhanghoz", "default": "Kérdések" }
+        { "label": "Navigációs címke olvasóhanghoz", "default": "Kérdések" },
+        {}
       ]
     },
     {
