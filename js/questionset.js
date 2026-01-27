@@ -417,6 +417,20 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.nav?.setCanShowLast(isViewingLastQuestion && answeredAllQuestions && aQuestionIsSet);
   };
 
+  var _getQuestionFocusTarget = function ($container) {
+    return $container.find('.h5p-question-introduction').first();
+  };
+
+  var _focusQuestionContainer = function ($container) {
+    let focusTarget = _getQuestionFocusTarget($container);
+    if (focusTarget.length) {
+      if (!focusTarget.attr('tabindex')) {
+        focusTarget.attr('tabindex', '-1');
+      }
+      focusTarget[0].focus();
+    }
+  };
+
   var _showQuestion = function (questionNumber, preventAnnouncement) {
     // Sanitize input.
     if (questionNumber < 0) {
@@ -429,7 +443,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     currentQuestion = questionNumber;
 
     // Hide all questions
-    $('.question-container', $myDom).hide().eq(questionNumber).show();
+    var $currentQuestionContainer = $('.question-container', $myDom).hide().eq(questionNumber).show();
 
     if (questionInstances[questionNumber]) {
       // Trigger resize on question in case the size of the QS has changed.
@@ -437,6 +451,13 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       instance.setActivityStarted();
       if (instance.$ !== undefined) {
         instance.trigger('resize');
+      }
+    }
+
+    if ($currentQuestionContainer.length) {
+      var activeElement = document.activeElement;
+      if (!activeElement || !$currentQuestionContainer[0].contains(activeElement)) {
+        _focusQuestionContainer($currentQuestionContainer);
       }
     }
 
@@ -823,6 +844,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           toggleAnsweredDot(currentQuestion,
             questionInstances[currentQuestion].getAnswerGiven());
           _updateButtons();
+        }
+        if (shortVerb === 'answered') {
+          setTimeout(function () {
+            var activeElement = document.activeElement;
+            if (!activeElement || !$myDom[0].contains(activeElement)) {
+              _focusQuestionContainer($('.question-container', $myDom).eq(currentQuestion));
+            }
+          }, 0);
         }
         if (shortVerb === 'completed') {
           // An activity within this activity is not allowed to send completed events
