@@ -417,23 +417,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.nav?.setCanShowLast(isViewingLastQuestion && answeredAllQuestions && aQuestionIsSet);
   };
 
-  var focusableElementsSelector =
-    'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]';
-
-  var _getQuestionFocusTarget = function ($container, options) {
-    if (options?.preferInteractive) {
-      const focusableElement = $container.find(focusableElementsSelector).first();
-      if (focusableElement.length) {
-        return focusableElement;
-      }
-    }
+  var _getQuestionFocusTarget = function ($container) {
     return $container.find('.h5p-question-introduction').first();
   };
 
-  var _focusQuestionContainer = function ($container, options) {
-    let focusTarget = _getQuestionFocusTarget($container, options);
+  var _focusQuestionContainer = function ($container) {
+    let focusTarget = _getQuestionFocusTarget($container);
     if (focusTarget.length) {
-      if (focusTarget.is('.h5p-question-introduction') && !focusTarget.attr('tabindex')) {
+      if (!focusTarget.attr('tabindex')) {
         focusTarget.attr('tabindex', '-1');
       }
       focusTarget[0].focus();
@@ -597,7 +588,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if (moveFocus) {
         // Focus first tabbable element
         $myDom[0].querySelectorAll(
-          focusableElementsSelector
+          'audio, button, input, select, textarea, video, [contenteditable], [href], [tabindex="0"]'
         )[0].focus();
       }
     }
@@ -858,9 +849,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           setTimeout(function () {
             var activeElement = document.activeElement;
             if (!activeElement || !$myDom[0].contains(activeElement)) {
-              _focusQuestionContainer($('.question-container', $myDom).eq(currentQuestion), {
-                preferInteractive: true,
-              });
+              _focusQuestionContainer($('.question-container', $myDom).eq(currentQuestion));
             }
           }, 0);
         }
