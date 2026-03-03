@@ -817,6 +817,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
       question.on('xAPI', function (event) {
         var shortVerb = event.getVerb();
+        if (shortVerb === 'reset') {
+          toggleAnsweredDot(currentQuestion, questionInstances[currentQuestion].getAnswerGiven());
+          _updateButtons();
+        }
         if (shortVerb === 'interacted' ||
           shortVerb === 'answered' ||
           shortVerb === 'attempted') {
