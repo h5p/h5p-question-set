@@ -24,13 +24,13 @@
         },
         {
           "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
+           "description": "Hvis nettleseren ikke kan laste inn bildet, vil denne teksten vises i stedet. Brukes også av skjermlesere."
         }
       ]
     },
     {
       "label": "Framdriftsindikator",
-      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
+      "description": "Stil for fremdriftsindikator i oppgavesettet. Vises som tekst dersom tilbakenavigering er deaktivert.",
       "options": [
         {
           "label": "Tekst"
@@ -123,8 +123,8 @@
           "default": "Oppgaver"
         },
         {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+            "label": "Instruksjon for navigering i oppgavesett med skjermleser",
+          "default": "Velg spørsmål som skal vises"
         }
       ]
     },
@@ -264,7 +264,7 @@
       ]
     },
     {
-      "label": "Behavioural settings",
+      "label": "Atferdsinnstillinger",
       "fields": [
         {
           "label": "Vis \"Sjekk\"-knapper",
