@@ -158,14 +158,14 @@
           "default": "Voltooid"
         },
         {
-          "label": "Results heading",
-          "default": "Results",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Resultaten kop",
+          "default": "Resultaat",
+          "description": "De resultaat wordt getoond aan het einde van de quiz wanneer de gebruiker alle vragen heeft beantwoord."
         },
         {
-          "label": "Amount correct heading",
-          "description": "Header to show the final score to the user on the end screen",
-          "default": "@finals of @totals correct"
+          "label": "Aantal juist kop",
+          "description": "De gebruiker kan op het eind scherm zien wat zijn totaal score is.",
+          "default": "@finals van @totals juist"
         },
         {
           "label": "Score announcer",
