@@ -21,16 +21,16 @@
         {
           "label": "Picha ya mandharinyuma",
           "description": "Picha ya hiari ya mandharinyuma kwa utangulizi."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Picha ya mandharinyuma",
-      "description": "Picha ya hiari ya mandharinyuma kwa Swali lililowekwa."
-    },
-    {
       "label": "Kiashiria cha maendeleo",
-      "description": "Swali kuwekwa mtindo wa kiashiria cha maendeleo.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Kimaandishi"
@@ -68,8 +68,16 @@
           "default": "Swali la awali"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Kitufe kinachofuata",
           "default": "Swali linalofuata"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Kitufe cha kumaliza",
@@ -90,7 +98,7 @@
           "default": "Swali %dkati ya%total"
         },
         {
-          "label": "Lebo ya maswali ya mazungumzo ya hakimiliki",
+          "label": "Question heading",
           "default": "Swali"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Imemalizika"
         },
         {
-          "label": "Kichwa cha maoni",
-          "default": "Matokeo yako:",
-          "description": "Kichwa hiki kitaonyeshwa mwishoni mwa jaribio wakati mtumiaji amejibu maswali yote."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Mtangazaji wa alama",
           "description": "Lebo hii itatumika kutangaza alama ya mwisho kwa mtumiaji kwenye skrini ya mwisho",
           "default": "Umepata @finals kati ya alama@totals"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Maoni ya Jumla",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Mipangilio kwa vifungo vya Onyesha suluhisho na Jaribu tena",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Onyesha vifungo vya \"Weka alama\"",
@@ -275,6 +293,10 @@
               "label": "Imezimwa"
             }
           ]
+        },
+        {
+          "label": "Picha ya mandharinyuma",
+          "description": "Picha ya hiari ya mandharinyuma kwa Swali lililowekwa."
         }
       ]
     }

@@ -21,16 +21,16 @@
         {
           "label": "Фоново изображение",
           "description": "Незадължително фоново изображение за въведението."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Фоново изображение",
-      "description": "Незадължително фоново изображение за въпросите."
-    },
-    {
       "label": "Индикатор на напредъка",
-      "description": "Стил за индикатор на напредъка.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текстов"
@@ -68,8 +68,16 @@
           "default": "Предишен въпрос"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Напред",
           "default": "Следващ въпрос"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Бутон Край",
@@ -90,7 +98,7 @@
           "default": "Въпрос %d от %total"
         },
         {
-          "label": "Етикет за диалогов прозорец Copyright",
+          "label": "Question heading",
           "default": "Въпрос"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Завършен"
         },
         {
-          "label": "Заглавие за обратна връзка",
-          "default": "Вашият резултат:",
-          "description": "Това заглавие ще се показва накрая на теста, когато ученикът е отговорил на всички въпроси."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Обща обратна връзка",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Настройки за бутони \"Покажи решение\" и \"Опитай пак\" ",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Покажи бутони \"Провери\" ",
@@ -275,6 +293,10 @@
               "label": "Деактивирано"
             }
           ]
+        },
+        {
+          "label": "Фоново изображение",
+          "description": "Незадължително фоново изображение за въпросите."
         }
       ]
     }

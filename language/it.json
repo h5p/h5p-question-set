@@ -21,16 +21,16 @@
         {
           "label": "Immagine di sfondo",
           "description": "Immagine di sfondo facoltativa per l'introduzione"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Immagine di sfondo",
-      "description": "Immagine di sfondo facoltativa per il gruppo di domande"
-    },
-    {
       "label": "Indicatore di avanzamento",
-      "description": "Stile dell'indicatore di avanzamento del gruppo di domande",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Testuale"
@@ -68,8 +68,16 @@
           "default": "Domanda precedente"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Pulsante avanti",
           "default": "Prossima domanda"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Pulsante fine",
@@ -90,7 +98,7 @@
           "default": "Domanda %d di %total"
         },
         {
-          "label": "Etichetta della domanda nella finestra sul diritto d'autore",
+          "label": "Question heading",
           "default": "Domanda"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Finito"
         },
         {
-          "label": "Intestazione di feedback",
-          "default": "Il tuo risultato:",
-          "description": "Questa intestazione sarà mostrata alla fine del compito, dopo che l'utente avrà risposto a tutte le domande"
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Feedback generale",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Impostazioni per i pulsanti \"Mostra soluzione\" e \"Riprova\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostra pulsanti di \"Verifica\"",
@@ -275,6 +293,10 @@
               "label": "Disattivato"
             }
           ]
+        },
+        {
+          "label": "Immagine di sfondo",
+          "description": "Immagine di sfondo facoltativa per il gruppo di domande"
         }
       ]
     }

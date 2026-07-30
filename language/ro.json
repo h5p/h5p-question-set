@@ -19,18 +19,18 @@
           "default": "Pornește chestionarul"
         },
         {
-          "label": "Imagine de fundal",
-          "description": "O imagine de fundal opțională pentru introducere."
+          "label": "Background image",
+          "description": "An optional background image for the introduction."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Imagine de fundal",
-      "description": "O imagine de fundal opțională pentru setul de întrebări."
-    },
-    {
-      "label": "Indicator de progres",
-      "description": "Stilul indicatorului de progres al setului de întrebări.",
+      "label": "Progress indicator",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textual"
@@ -68,12 +68,20 @@
           "default": "Întrebarea precedentă"
         },
         {
-          "label": "Butonul Următorul",
-          "default": "Întrebarea următoare"
+          "label": "Back button label",
+          "default": "Previous"
         },
         {
-          "label": "Butonul Finalizare",
-          "default": "Finalizare"
+          "label": "Next button",
+          "default": "Next question"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
+        },
+        {
+          "label": "Finish button",
+          "default": "Finish"
         },
         {
           "label": "Butonul Trimitere",
@@ -90,8 +98,8 @@
           "default": "Întrebarea %d din %total"
         },
         {
-          "label": "Eticheta întrebării din dialogul privind drepturile de autor",
-          "default": "Întrebare"
+          "label": "Question heading",
+          "default": "Question"
         },
         {
           "label": "Progres Readspeaker",
@@ -150,17 +158,27 @@
           "default": "Finalizat"
         },
         {
-          "label": "Antet feedback",
-          "default": "Rezultatul tău:",
-          "description": "Acest antet va fi afișat la sfârșitul chestionarului când utilizatorul a răspuns la toate întrebările."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
         },
         {
-          "label": "Anunțător scor",
-          "description": "Această etichetă va fi utilizată pentru a anunța scorul final utilizatorului pe ecranul de final",
-          "default": "Ai obținut @finals din @totals puncte"
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
-          "label": "Feedback general",
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
+        },
+        {
+          "label": "Overall Feedback",
           "fields": [
             {
               "widgets": [
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Setări pentru „Verificare”, „Afișare soluție” și „Reîncercare”",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Afișare butoane „Verificare”",
@@ -275,6 +293,10 @@
               "label": "Dezactivat"
             }
           ]
+        },
+        {
+          "label": "Background image",
+          "description": "An optional background image for the Question set."
         }
       ]
     }

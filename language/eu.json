@@ -21,16 +21,16 @@
         {
           "label": "Atzeko planoaren irudia",
           "description": "Sarreraren atzeko planorako aukerazko irudia."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Atzeko planoaren irudia",
-      "description": "Galdetegiaren atzeko planoaren aukerazko irudia."
-    },
-    {
       "label": "Aurrerapenaren adierazlea",
-      "description": "Galdetegiaren aurrerapen-adierazlearen estiloa.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Testuala"
@@ -68,8 +68,16 @@
           "default": "Aurreko galdera"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Hurrengoa botoia",
           "default": "Hurrengo galdera"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Bukatu botoia",
@@ -90,7 +98,7 @@
           "default": "%total galderetatik %d -garren galdera"
         },
         {
-          "label": "Copyright elkarrizketa galderaren etiketa",
+          "label": "Question heading",
           "default": "Galdera"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Bukatu da"
         },
         {
-          "label": "Feedbackaren goiburua",
-          "default": "Zure emaitza:",
-          "description": "Goiburu hau erakutsiko da galdetegiaren bukaeran erabiltzaileak galdera guztiak erantzun dituenean."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Puntuazio iragarkia",
           "description": "Etiketa hau erabiltzaileari pantailan amaierako puntuazioa erakusteko erabiliko da",
           "default": "@finals puntu lortu duzu guztirako @totals puntutik"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Feedback orokorra",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "\"Egiaztatu\", \"Erakutsi emaitza\" eta \"Saiatu berriro\" ezarpenak",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Erakutsi \"Egiaztatu\" botoiak",
@@ -275,6 +293,10 @@
               "label": "Desgaitua"
             }
           ]
+        },
+        {
+          "label": "Atzeko planoaren irudia",
+          "description": "Galdetegiaren atzeko planoaren aukerazko irudia."
         }
       ]
     }

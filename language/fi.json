@@ -21,16 +21,16 @@
         {
           "label": "Taustakuva",
           "description": "Valinnainen taustakuva johdantoon."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Taustakuva",
-      "description": "Valinnainen taustakuva kysymyksille."
-    },
-    {
       "label": "Edistymisen näyttäminen",
-      "description": "Miten edistyminen tehtävässä näytetään tekijälle.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Teksti"
@@ -68,8 +68,16 @@
           "default": "Edellinen kysymys"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Painikkeen Seuraava teksti",
           "default": "Seuraava kysymys"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Painikkeen Lopeta teksti",
@@ -90,7 +98,7 @@
           "default": "Kysymys %d/%total"
         },
         {
-          "label": "Kysymyksen selite tekijänoikeusvalinnoissa",
+          "label": "Question heading",
           "default": "Kysymys"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Valmis"
         },
         {
-          "label": "Palautteet otsikko",
-          "default": "Tuloksesi:",
-          "description": "Otsikko näytetään tehtävän lopussa, kun käyttäjä on vastannut kaikkiin kysymyksiin."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Yleispalaute",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Asetukset \"Näytä vastaus\" ja \"Yritä uudelleen\" painikkeille",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Näytä \"Check\" painike",
@@ -275,6 +293,10 @@
               "label": "Pois käytöstä"
             }
           ]
+        },
+        {
+          "label": "Taustakuva",
+          "description": "Valinnainen taustakuva kysymyksille."
         }
       ]
     }

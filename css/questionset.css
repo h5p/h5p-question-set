@@ -1,121 +1,35 @@
-.questionset-results h2 {
-  font-size: 1.2em;
-  font-weight: bold;
-  padding-bottom: 0.5em;
+.questionset {
+  background-color: var(--h5p-theme-background);
+  padding: 0;
+}
+.questionset .h5p-question-main-content {
+  padding-top: 1px;
 }
 
-.questionset, .intro-page, .questionset-results {
+.questionset .question-container {
+  margin: var(--h5p-theme-spacing-m);
+}
+
+.questionset-results h2 {
+  font-size: calc(var(--h5p-theme-spacing-s)*1.2);
+  font-weight: bold;
+  padding-bottom: var(--h5p-theme-spacing-xxs);
+}
+
+.questionset, .questionset-results {
   overflow: hidden;
 }
 .questionset.hidden {
   display: none;
 }
-.questionset, .intro-page, .questionset-results {
+.questionset, .questionset-results {
   position: relative;
 }
 .h5p-multichoice > .h5p-question {
   text-align: left;
-  margin: 0.5em 0.5em 0.7em;
-  background: rgba(255, 255, 255, 0.9);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
+  margin: var(--h5p-theme-spacing-xxs) var(--h5p-theme-spacing-xxs) calc(var(--h5p-theme-spacing-s)*0.7);
+  background: var(--h5p-theme-ui-base);
   zoom: 1;
-}
-.dots-container {
-  text-align: center;
-  line-height: 2em;
-  padding: 0;
-  margin: 0;
-}
-.progress-item {
-  list-style: none;
-  display: inline-block;
-}
-.progress-dot {
-  display: inline-block;
-  width: 0.5625em;
-  height: 0.5625em;
-  border-radius: 50%;
-  margin: 0 0.25em;
-  cursor: pointer;
-  border: 1px solid #1356a3;
-  position: relative;
-  transition: transform 0.2s;
-}
-
-.progress-dot.disabled {
-  cursor: default;
-}
-
-.progress-dot:not(.disabled):hover {
-  transform: scale(1.25);
-}
-.progress-dot.answered {
-  background: #1356a3;
-}
-.progress-dot:before {
-  display: block;
-  content: "";
-  border: 2px solid transparent;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border-radius: 50%;
-  position: absolute;
-  box-sizing: border-box;
-  left: -5px;
-  top: -5px;
-  transition: border-color 0.5s;
-}
-
-.progress-dot.current:before {
-  border-color: #285585;
-}
-
-.progress-dot.disabled:focus-visible {
-  outline: none
-}
-
-.progress-dot:focus {
-  transform: scale(1.15);
-}
-
-.intro-page .title {
-  line-height: 1.5;
-  font-weight: bold;
-  text-align: center;
-}
-.intro-page .title > h1 {
-  padding: 0.125em 0.5em;
-  border-radius: 0.125em;
-  background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
-  background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
-}
-.intro-page .introduction {
-  font-size: 1.25em;
-  margin: 0 1em;
-  border-radius: 0.25em;
-  background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */
-  background: rgba(255,255,255,0.8); /* Gives WCAG contrast ratio of 5.6:1 with the current font color */
-  padding: 0.25em 0.5em;
-}
-/* Overrides whatever margins have been set in site-CSS, to avoid too much spacing
-   on description field, aswell as getting same padding on top and bottom of field */
-.intro-page .introduction > p {
-  margin: 0 0 0.5em 0;
-}
-.intro-page .introduction > p:last-child {
-  margin: 0;
-}
-.intro-page .buttons {
-  margin: 3em auto;
-  text-align: center;
-}
-.qs-footer {
-  overflow: hidden;
-  clear: both;
-}
-
-.qs-footer > .prev {
-  float: left;
 }
 
 .qs-footer > .qs-solutionbutton {
@@ -124,12 +38,6 @@
 
 .qs-footer > .qs-retrybutton {
   float: none;
-}
-
-.questionset-results button.h5p-button.qs-retrybutton:before {
-  font-family: 'H5PFontAwesome4';
-  padding-right: 0.5em;
-  content: "\f01e";
 }
 
 /* Need to disable max-height animation stuff, since this will
@@ -145,46 +53,18 @@
   overflow: hidden;
 }
 
-.h5p-question .h5p-question-prev,
-.h5p-question .h5p-question-finish,
-.h5p-question .h5p-question-next {
-  float: right;
-}
+.h5p-question .h5p-question-prev {
+  left: var(--h5p-theme-spacing-l);
 
-.h5p-question .h5p-question-prev,
+}
 .h5p-question .h5p-question-next {
-  padding: 0.5em 0;
-  width: 2.1875em;
+  right: var(--h5p-theme-spacing-l);
 }
 
 .h5p-question .h5p-question-prev.truncated,
 .h5p-question .h5p-question-next.truncated {
   padding: 0;
   line-height: 2.2335em;
-}
-
-.h5p-question .h5p-question-next:before {
-  content: "\f054";
-  padding-right: 0;
-  position: relative;
-  left: 2px;
-}
-
-.h5p-question .h5p-question-prev:before {
-  content: "\f053";
-  padding-right: 0;
-  position: relative;
-  left: -2px;
-}
-
-.h5p-question .h5p-question-finish:before {
-  content: "\f00c";
-}
-
-.questionset-results button.h5p-button.qs-solutionbutton:before {
-  font-family: 'H5PFontAwesome4';
-  padding-right: 0.5em;
-  content: "\f06e";
 }
 
 .video-container {
@@ -196,52 +76,66 @@
 }
 .video-container > .h5p-button {
   position: absolute;
-  top: 0.5em;
-  right: 0.5em;
+  top: calc(--h5p-theme-spacing-xxs);
+  right: calc(--h5p-theme-spacing-xxs);
 }
 
 .qs-progress {
   text-align: center;
-  line-height: 1.5em;
+  line-height: var(--h5p-theme-spacing-m);
+}
+
+.questionset .h5p-theme-progress {
+  display:  inline-flex;
 }
 
 .questionset-results {
   text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6FFFFFF,endColorstr=#E6FFFFFF);
+  background: var(--h5p-theme-ui-base);
+}
+
+.questionset-results .h5p-theme-results-list {
+  max-height: 13rem;
+}
+
+.questionset-results .h5p-joubelui-button.h5p-button.qs-solutionbutton.h5p-theme-secondary-cta.h5p-theme-show-results.h5p-question-show-solution {
+  margin-right: var(--h5p-theme-spacing-xs);
 }
 
 .questionset-results .feedback-section {
-  margin: 0.75em;
+  margin: calc(var(--h5p-theme-spacing-s)*0.75);
 }
 
 .questionset-results .greeting {
-  margin-top: 1em;
-  color: #777;
-  font-size: 1.25em;
+  margin-top: var(--h5p-theme-spacing-s);
+  color: var(--h5p-theme-text-third);
+  font-size: var(--h5p-theme-font-size-xl);
 }
 
 .questionset-results .buttons {
-  margin: 2em 0 1em 0;
+  margin: var(--h5p-theme-spacing-m) 0 var(--h5p-theme-spacing-m) 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--h5p-theme-spacing-s);
 }
 
 .questionset-results .result-header,
 .questionset-results .result-text,
-.questionset-results .feedback-section .feedback-text {
-  color: #1a73d9;
+.questionset-results .feedback-section {
+  color: var(--h5p-theme-main-cta-base);
   font-weight: bold;
 }
 
 .questionset-results .result-header {
-  font-size: 2em;
-  margin: 1em 0.5em 0.5em 0.5em;
+  font-size: calc (2 * var(--h5p-theme-font-size-m));
+  margin: var(--h5p-theme-spacing-s) var(--h5p-theme-spacing-xxs) var(--h5p-theme-spacing-xxs) var(--h5p-theme-spacing-xxs) ;
 }
 
 .questionset-results .result-text,
 .questionset-results .feedback-section .feedback-text {
-  font-size: 1.25em;
-  line-height: 1.25em;
-  margin: 1em;
+  font-size: var(--h5p-theme-font-size-xl);
+  line-height: var(--h5p-theme-font-size-l);
+  margin: var(--h5p-theme-spacing-s);
 }
 
 /* No margin for questions when no frame */
@@ -264,4 +158,23 @@
 .questionset .h5p-question.h5p-dragquestion .h5p-my-fullscreen-button-enter,
 .questionset .h5p-question.h5p-dragquestion .h5p-my-fullscreen-button-exit {
   display: none;
+}
+
+.qs-footer .h5p-theme-primary-cta.h5p-theme-show-results.h5p-hidden {
+  display: none;
+}
+.question-container {
+  margin: var(--h5p-theme-spacing-xs) var(--h5p-theme-spacing-xs);
+  box-shadow: 0px 8px 19.9px 0px rgba(0, 0, 0, 0.05);
+  border: solid 1px var(--h5p-theme-stroke-1);
+  border-radius: var(--h5p-theme-border-radius-medium);
+  padding: var(--h5p-theme-spacing-s);
+  background-color: var(--h5p-theme-ui-base);
+}
+.h5p-no-frame .questionset .h5p-navigation {
+  border-top: 0;
+}
+
+.h5p-theme-nav-button.h5p-theme-previous.visibility-hidden {
+  visibility: hidden; /* Components.Navigation uses grid layout, so we can't use display: none */
 }

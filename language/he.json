@@ -21,16 +21,16 @@
         {
           "label": "תמונת רקע",
           "description": "תמונת רקע אפשרית למבוא."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "תמונת רקע",
-      "description": "תמונת רקע אפשרית עבור הגדרות השאלה."
-    },
-    {
       "label": "מחוון התקדמות",
-      "description": "הגדרות שאלה מסוג מחוון התקדמות.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "מילולי"
@@ -68,8 +68,16 @@
           "default": "שאלה קודמת"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "כפתור הבא",
           "default": "שאלה הבאה"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "כפתור סיום",
@@ -90,7 +98,7 @@
           "default": "שאלה %d מתוך %total"
         },
         {
-          "label": "תווית שאלת שיח זכויות יוצרים",
+          "label": "Question heading",
           "default": "שאלה"
         },
         {
@@ -150,14 +158,24 @@
           "default": "הסתיים"
         },
         {
-          "label": "כותרת המשוב",
-          "default": "התוצאה שלכם:",
-          "description": "כותרת זו תוצג בסיום החידון כאשר הנבחן ענה על כל השאלות."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "הודעת ניקוד",
           "description": "תווית זו תשמש להכרזה על הציון הסופי למשתמש במסך הסיום",
           "default": "קיבלתם @finals מתוך @totals הנקודות"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "משוב כולל",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "הגדרות עבור כפתורי \"הציגו פתרון\" ו \"נסו בשנית\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "הציגו כפתורי \"נבחר\"",
@@ -275,6 +293,10 @@
               "label": "כבוי"
             }
           ]
+        },
+        {
+          "label": "תמונת רקע",
+          "description": "תמונת רקע אפשרית עבור הגדרות השאלה."
         }
       ]
     }

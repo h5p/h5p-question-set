@@ -21,16 +21,16 @@
         {
           "label": "Image d'arrière-plan",
           "description": "Image d'arrière-plan optionnelle pour l'introduction."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Image d'arrière-plan",
-      "description": "Image d'arrière-plan optionnelle pour la série de questions."
-    },
-    {
       "label": "Indicateur de progression",
-      "description": "Style de l'indicateur de progression de la série de questions.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Texte"
@@ -68,8 +68,16 @@
           "default": "Retour"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Bouton Suivant",
           "default": "Suivant"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Bouton Fin",
@@ -90,7 +98,7 @@
           "default": "Question %d sur %total"
         },
         {
-          "label": "Texte de la question de la boîte de dialogue de copyright",
+          "label": "Question heading",
           "default": "Question"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Terminé"
         },
         {
-          "label": "Titre des commentaires",
-          "default": "Vos résultats :",
-          "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Annonceur de score",
           "description": "Cette vignette sera utilisée pour annoncer la note finale à l'utilisateur sur l'écran de fin",
           "default": "Vous avez obtenu @finals sur @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Feedback général",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Paramètres pour les touches « Montrer la solution » et « Réessayer »",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Montrer les boutons \"Vérifier\"",
@@ -275,6 +293,10 @@
               "label": "Désactivé"
             }
           ]
+        },
+        {
+          "label": "Image d'arrière-plan",
+          "description": "Image d'arrière-plan optionnelle pour la série de questions."
         }
       ]
     }

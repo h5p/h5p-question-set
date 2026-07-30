@@ -21,16 +21,16 @@
         {
           "label": "Imaxe de fondo",
           "description": "Unha imaxe de fondo opcional para a introdución."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Imaxe de fondo",
-      "description": "Unha imaxe de fondo opcional para o grupo de preguntas."
-    },
-    {
       "label": "Indicador de progreso",
-      "description": "Estilo do indicador de progreso para o grupo de preguntas.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textual"
@@ -68,8 +68,16 @@
           "default": "Pregunta anterior"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Botón seguinte",
           "default": "Pregunta seguinte"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Botón rematar",
@@ -90,7 +98,7 @@
           "default": "Pregunta %d de %total"
         },
         {
-          "label": "Etiqueta para o diálogo de Copyright da pregunta",
+          "label": "Question heading",
           "default": "Pregunta"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Rematado"
         },
         {
-          "label": "Cabeceira da retroalimentación",
-          "default": "O teu resultado:",
-          "description": "Amosarase esta cabeceira ao final do cuestionario cando o usuario acabe de contestar todas as preguntas."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Anunciador da puntuación",
           "description": "Usarase este etiqueta para anunciar a puntuación final do usuario na pantalla final",
           "default": "Conseguiches @finals puntos dun total de @totals"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Retroalimentación Xeral",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Configuración para os botóns \"Comprobar\", \"Amosar solución\" e \"Tentar de novo\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Amosar botóns \"Comprobar\"",
@@ -275,6 +293,10 @@
               "label": "Desactivado"
             }
           ]
+        },
+        {
+          "label": "Imaxe de fondo",
+          "description": "Unha imaxe de fondo opcional para o grupo de preguntas."
         }
       ]
     }

@@ -21,16 +21,16 @@
         {
           "label": "Fona attēls",
           "description": "Neobligāts fona attēls ievadam."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Fona attēls",
-      "description": "Neobligāts fona attēls jautājumu kopai."
-    },
-    {
       "label": "Progresa indikators",
-      "description": "Jautājumu kopas progresa indikatora stils.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Teksta"
@@ -68,8 +68,16 @@
           "default": "Iepriekšējais jautājums"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Nākamā jautājuma poga",
           "default": "Nākamais jautājums"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Pabeigšanas poga",
@@ -90,7 +98,7 @@
           "default": "Jautājums %d no %total"
         },
         {
-          "label": "Autortiesību dialoga jautājuma etiķete",
+          "label": "Question heading",
           "default": "Jautājums"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Pabeigts"
         },
         {
-          "label": "Atgriezeniskās saites virsraksts",
-          "default": "Tavs rezultāts:",
-          "description": "Šis virsraksts tiks parādīts testa beigās, kad lietotājs būs atbildējis uz visiem jautājumiem."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "Šī etiķete tiks izmantota, lai lietotājam beigu ekrānā paziņotu gala rezultātu",
           "default": "Jūs ieguvāt @finals no @totals punktiem"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Kopējā atgriezeniskā saite",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "\"Pārbaudīt\", \"Rādīt risinājumu\" un \"Mēģināt vēlreiz\" iestatījumi",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Rādīt pogas \"Pārbaudīt\"",
@@ -275,6 +293,10 @@
               "label": "Atspējota"
             }
           ]
+        },
+        {
+          "label": "Fona attēls",
+          "description": "Neobligāts fona attēls jautājumu kopai."
         }
       ]
     }

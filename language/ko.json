@@ -21,16 +21,16 @@
         {
           "label": "배경 이미지",
           "description": "소개 배경 이미지(선택사항)"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "배경 이미지",
-      "description": "문제 세트 배경 이미지(선택사항)"
-    },
-    {
       "label": "진행률 표시",
-      "description": "문제 세트 진행률 표시 스타일.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "텍스트 유형"
@@ -68,8 +68,16 @@
           "default": "이전 질문"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "다음 버튼",
           "default": "다음 질문"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "완료 단추",
@@ -90,7 +98,7 @@
           "default": "%total 중 %d 문제"
         },
         {
-          "label": "저작권 대화 문제 라벨",
+          "label": "Question heading",
           "default": "문제"
         },
         {
@@ -150,14 +158,24 @@
           "default": "완료"
         },
         {
-          "label": "피드백 제목",
-          "default": "결과:",
-          "description": "이 제목은 사용자가 모든 질문에 답했을 때 퀴즈 끝에 표시됨."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "전반적인 피드백",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "\"Show solution\" 및 \"Retry\" 버튼 설정",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "\"Check\"버튼 표시",
@@ -275,6 +293,10 @@
               "label": "비활성화"
             }
           ]
+        },
+        {
+          "label": "배경 이미지",
+          "description": "문제 세트 배경 이미지(선택사항)"
         }
       ]
     }

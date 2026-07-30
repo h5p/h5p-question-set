@@ -21,22 +21,22 @@
         {
           "label": "Imagen de Fondo",
           "description": "Una imagen de fondo opcional para la introducción."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Imagen de fondo",
-      "description": "Una imagen de fondo opcional para el Conjunto de preguntas."
-    },
-    {
-      "label": "Indicador del progreso",
-      "description": "Estilo del indicador del progreso para el Conjunto de preguntas.",
+      "label": "Progress indicator",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textual"
         },
         {
-          "label": "Puntos"
+          "label": "Dots"
         }
       ]
     },
@@ -68,8 +68,16 @@
           "default": "Pregunta anterior"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Botón Siguiente",
           "default": "Pregunta siguiente"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Botón Terminar",
@@ -90,7 +98,7 @@
           "default": "Pregunta %d de %total"
         },
         {
-          "label": "Etiqueta de diálogo de Copyright de pregunta",
+          "label": "Question heading",
           "default": "Pregunta"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Terminado"
         },
         {
-          "label": "Encabezado de Retroalimentación",
-          "default": "Tu resultado:",
-          "description": "Este encabezado se mostrará al final del cuestionario cuando el usuario haya respondido todas las preguntas."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Anunciador de la puntuación",
           "description": "Esta etiqueta se utilizará para anunciar la puntuación final al usuario en la pantalla final",
           "default": "Has conseguido @finals de @totals puntos"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Retroalimentación Global",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Configuración para los botones \"Comprobar\", \"Mostrar solución\" e \"Intentar de nuevo\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Mostrar botones \"Comprobar\"",
@@ -275,6 +293,10 @@
               "label": "Deshabilitado"
             }
           ]
+        },
+        {
+          "label": "Imagen de fondo",
+          "description": "Una imagen de fondo opcional para el Conjunto de preguntas."
         }
       ]
     }

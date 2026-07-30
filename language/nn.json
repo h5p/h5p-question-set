@@ -21,16 +21,16 @@
         {
           "label": "Bakgrunnsbilete",
           "description": "Valfritt bakgrunnsbilete for introduksjonssida"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Bakgrunnsbilete",
-      "description": "Valfritt bakgrunnsbilete for oppgåvesettet"
-    },
-    {
       "label": "Framdriftsindikator",
-      "description": "Vel om framdrifta skal visast som prikkar (ved få spørsmål) eller som tekst (ved mange spørsmål).",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekst"
@@ -68,8 +68,16 @@
           "default": "Førre"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Namn på \"Neste\"-knapp",
           "default": "Neste"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Namn på \"Avslutt\"-knapp",
@@ -90,7 +98,7 @@
           "default": "Oppgåve %d av %total"
         },
         {
-          "label": "Merkelapp for spørsmål om opphavsrett",
+          "label": "Question heading",
           "default": "Oppgåve"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Ferdig"
         },
         {
-          "label": "Overskrift for tilbakemelding",
-          "default": "Resultat:",
-          "description": "Denne overskrifta blir vist over tilbakemeldinga heilt sist i oppgåvesettet."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Melding om poengsum",
           "description": "Denne teksten står på siste side og fortel brukaren kva sluttresultatet er.",
           "default": "Du fekk @finals av @totals poeng."
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Samla tilbakemelding",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Innstillingar for \"Sjekk\", \"Vis svar\" og \"Prøv igjen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Vis \"Sjekk\"-knappar",
@@ -275,6 +293,10 @@
               "label": "Deaktivert"
             }
           ]
+        },
+        {
+          "label": "Bakgrunnsbilete",
+          "description": "Valfritt bakgrunnsbilete for oppgåvesettet"
         }
       ]
     }

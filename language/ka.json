@@ -21,16 +21,16 @@
         {
           "label": "ფონური სურათი",
           "description": "არასავალდებულო ფონური სურათი შესავლისთვის."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "ფონური სურათი",
-      "description": "არჩევითი ფონის სურათი კითხვების ნაკრებისთვის."
-    },
-    {
       "label": "პროგრესის მაჩვენებელი",
-      "description": "კითხვების ნაკრების პროგრესის ინდიკატორის სტილი.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "ტექსტური"
@@ -68,8 +68,16 @@
           "default": "წინა შეკითხვა"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "შემდეგი ღილაკი",
           "default": "შემდეგი შეკითხვა"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "დასრულების ღილაკი",
@@ -90,7 +98,7 @@
           "default": "კითხვა %d %total -დან"
         },
         {
-          "label": "საავტორო უფლებების დიალოგის კითხვის წარწერა",
+          "label": "Question heading",
           "default": "შეკითხვა"
         },
         {
@@ -150,14 +158,24 @@
           "default": "დასრულდა"
         },
         {
-          "label": "უკუკავშირის სათაური",
-          "default": "თქვენი შედეგი:",
-          "description": "ეს სათაური გამოჩნდება ქვიზის ბოლოს, როდესაც მომხმარებელი უპასუხებს ყველა კითხვას."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "ქულების გამომცხადებელი",
           "description": "ეს წარწერა გამოყენებული იქნება მომხმარებლისთვის საბოლოო ქულის გამოსაცხადებლად ბოლო ეკრანზე",
           "default": "თქვენ მიიღეთ @finals @totals ქულიდან"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "საერთო გამოხმაურება",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "პარამეტრები \"შემოწმების\", \"გადაწყვეტის ჩვენების\" და \"თავიდან ცდისას\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "\"შემოწმების\" ღილაკების ჩვენება",
@@ -275,6 +293,10 @@
               "label": "გამორთული"
             }
           ]
+        },
+        {
+          "label": "ფონური სურათი",
+          "description": "არჩევითი ფონის სურათი კითხვების ნაკრებისთვის."
         }
       ]
     }

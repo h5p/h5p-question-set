@@ -21,16 +21,16 @@
         {
           "label": "صورة الخلفية",
           "description": "إدخال صورة خلفية اختيارية."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "صورة الخلفية",
-      "description": "صورة خلفية اختيارية لأسئلة."
-    },
-    {
       "label": "مؤشر التقدم",
-      "description": "أسئلة لتعيين نمط مؤشر التقدم.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "النصية"
@@ -68,8 +68,16 @@
           "default": "Previous question"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "زر التقدم",
           "default": "Next question"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "زر الانتهاء",
@@ -90,7 +98,7 @@
           "default": "Question %d of %total"
         },
         {
-          "label": "Copyright dialog question label",
+          "label": "Question heading",
           "default": "السؤال"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Finished"
         },
         {
-          "label": "نص راس الملاحظات",
-          "default": "Your result:",
-          "description": "سيتم عرض هذا العنوان في نهاية هذه المسابقة حيثما أجاب المستخدم على جميع الأسئلة المستعملة"
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "سيتم استخدام هذه التسمية لإعلان النتيجة النهائية للمستخدم على الشاشة النهائية",
           "default": "لقد حصلت على @finals من @totals"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "شفافية خلفية العناصر",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "إعدادات الأزرار \"لعرض الحل\" و\"المحاولة مرة أخرى\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Show \"Check\" buttons",
@@ -275,6 +293,10 @@
               "label": "Disabled"
             }
           ]
+        },
+        {
+          "label": "صورة الخلفية",
+          "description": "صورة خلفية اختيارية لأسئلة."
         }
       ]
     }

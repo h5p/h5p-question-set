@@ -21,16 +21,16 @@
         {
           "label": "Фонове зображення ",
           "description": "Додаткове зображення тла для опису."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Фонове зображення",
-      "description": "Необов'язкове зображення тла для набору запитань."
-    },
-    {
       "label": "Індикатор прогресу",
-      "description": "Встановіть стиль індикатора прогресу для набору запитань.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текстовий"
@@ -68,8 +68,16 @@
           "default": "Попереднє запитання"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Кнопка Далі",
           "default": "Наступне запитання"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Кнопка Завершити",
@@ -90,7 +98,7 @@
           "default": "Запитання %d із %total"
         },
         {
-          "label": "Надпис діалогового вікна про авторські права запитання",
+          "label": "Question heading",
           "default": "Запитання"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Завершено"
         },
         {
-          "label": "Заголовок зворотнього зв'язку",
-          "default": "Ваш результат:",
-          "description": "Цей заголовок буде відображатися в кінці тесту, коли користувач дасть відповіді на всі запитання."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Оголошувач балів",
           "description": "Ця мітка буде використовуватись для оголошення підсумкових балів користувачеві на кінцевому екрані",
           "default": "Ви отримали @finals з @totals балів"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Загальний відгук",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Настройки для кнопок \"Показати відповідь\" і \"Повторити\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Показати кнопку \"Перевірити\"",
@@ -275,6 +293,10 @@
               "label": "Вимкнена"
             }
           ]
+        },
+        {
+          "label": "Фонове зображення",
+          "description": "Необов'язкове зображення тла для набору запитань."
         }
       ]
     }

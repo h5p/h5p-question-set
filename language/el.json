@@ -21,16 +21,16 @@
         {
           "label": "Εικόνα φόντου",
           "description": "Μια εικόνα φόντου για την εισαγωγή (προαιρετικό)."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Εικόνα φόντου",
-      "description": "Μια εικόνα φόντου για τη συλλογή ερωτήσεων (προαιρετικό)."
-    },
-    {
       "label": "Δείκτης προόδου",
-      "description": "Καθορισμός στυλ δείκτη προόδου.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Κείμενο"
@@ -68,8 +68,16 @@
           "default": "Προηγούμενη"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Κουμπί για \"επόμενο\"",
           "default": "Επόμενη"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Κουμπί ολοκλήρωσης",
@@ -90,7 +98,7 @@
           "default": "Ερώτηση %d από %total"
         },
         {
-          "label": "Ετικέτα διαλογικού παραθύρου Πνευματικών Δικαιωμάτων",
+          "label": "Question heading",
           "default": "Ερώτηση"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Ολοκληρώθηκε"
         },
         {
-          "label": "Επικεφαλίδα ανατροφοδότησης",
-          "default": "Η βαθμολογία σου:",
-          "description": "Αυτή η επικεφαλίδα θα εμφανίζεται στο τέλος του κουίζ όταν ο χρήστης θα έχει απαντήσει σε όλες τις ερωτήσεις."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Εκφωνητής βαθμολογίας",
           "description": "Αυτή η ετικέτα θα χρησιμοποιηθεί για την ανακοίνωση της τελικής βαθμολογίας στον χρήστη στην τελική οθόνη",
           "default": "Έχετε @finals από @totals πόντους"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Συνολική ανατροφοδότηση",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Ρυθμίσεις κουμπιών \"Λύση\" και \"Επανάληψη\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Εμφάνιση κουμπιού \"Έλεγχος\"",
@@ -275,6 +293,10 @@
               "label": "Απενεργοποιημένη"
             }
           ]
+        },
+        {
+          "label": "Εικόνα φόντου",
+          "description": "Μια εικόνα φόντου για τη συλλογή ερωτήσεων (προαιρετικό)."
         }
       ]
     }

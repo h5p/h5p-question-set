@@ -21,16 +21,16 @@
         {
           "label": "Agtergrondprent",
           "description": "'n Opsionele agtergrondprent vir die inleiding."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Agtergrondprent",
-      "description": "'n Vrywillige agtergrondprent vir die vraagstel."
-    },
-    {
       "label": "Vorderingaanwyser",
-      "description": "Vraagstel vorderingaanwyser styl.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstueel"
@@ -68,8 +68,16 @@
           "default": "Vorige vraag"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Volgende knoppie",
           "default": "Volgende vraag"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Klaar knoppie",
@@ -90,7 +98,7 @@
           "default": "Vraag %d van %total"
         },
         {
-          "label": "Kopiereg dialoog vraagetiket",
+          "label": "Question heading",
           "default": "Vraag"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Klaar"
         },
         {
-          "label": "Terugvoer opskrif",
-          "default": "Jou uitslae:",
-          "description": "Hierdie opskrif sal aan die einde van die vasvra vertoon wanneer die gebruiker al die vrae beantwoord het."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Algehele terugvoer",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Instellings vir die \"Wys antwoord\" en \"Probeer weer\" knoppies",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Wys \"Toets\" knoppies",
@@ -275,6 +293,10 @@
               "label": "Deaktiveer"
             }
           ]
+        },
+        {
+          "label": "Agtergrondprent",
+          "description": "'n Vrywillige agtergrondprent vir die vraagstel."
         }
       ]
     }

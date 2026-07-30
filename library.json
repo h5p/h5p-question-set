@@ -3,18 +3,15 @@
   "description": "Put together a set of different questions that has to be solved. (Quiz)",
   "contentType": "question",
   "majorVersion": 1,
-  "minorVersion": 20,
-  "patchVersion": 31,
-  "embedTypes": [
-    "iframe"
-  ],
+  "minorVersion": 21,
+  "patchVersion": 13,
   "runnable": 1,
   "fullscreen": 0,
   "machineName": "H5P.QuestionSet",
   "author": "Joubel",
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 26
+    "minorVersion": 28
   },
   "license": "MIT",
   "preloadedJs": [
@@ -42,6 +39,11 @@
       "machineName": "H5P.JoubelUI",
       "majorVersion": 1,
       "minorVersion": 3
+    },
+    {
+      "machineName": "H5P.Components",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ],
   "editorDependencies": [

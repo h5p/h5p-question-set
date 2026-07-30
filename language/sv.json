@@ -21,16 +21,16 @@
         {
           "label": "Bakgrundsbild",
           "description": "En valfri bakgrundsbild för introduktionen."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Bakgrundsbild",
-      "description": "En valfri bakgrundsbild för uppsättningen av frågor."
-    },
-    {
       "label": "Framstegsindikator",
-      "description": "Stil på framstegsindikator för fråge-uppsättningen.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Textuell"
@@ -68,8 +68,16 @@
           "default": "Föregående fråga"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Nästa-knapp",
           "default": "Nästa fråga"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Avsluta-knapp",
@@ -90,7 +98,7 @@
           "default": "Fråga %d av %total"
         },
         {
-          "label": "Upphovsrätt fråge-etikett",
+          "label": "Question heading",
           "default": "Fråga"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Avslutat"
         },
         {
-          "label": "Rubrik för feedback",
-          "default": "Ditt resultat:",
-          "description": "Denna rubrik visas på slutet av denna quiz när användaren har svarat på alla frågor."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Poängvisare",
           "description": "Denna etikett kommer att användas för att visa slutgiltig poäng för användaren på slutskärmen",
           "default": "Du fick @finals av @totals poäng"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Samlad feedback",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Inställningar för knapparna \"Svara\", \"Visa lösning\" och \"Försök igen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Visa \"Svara\"-knappar",
@@ -275,6 +293,10 @@
               "label": "Inaktiverad"
             }
           ]
+        },
+        {
+          "label": "Bakgrundsbild",
+          "description": "En valfri bakgrundsbild för uppsättningen av frågor."
         }
       ]
     }

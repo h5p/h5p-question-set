@@ -21,16 +21,16 @@
         {
           "label": "Tło planszy",
           "description": "Tło planszy wprowadzającej (opcjonalne)."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Tło quizu",
-      "description": "Tło dla wszystkich pytań w quizie (opcjonalne)."
-    },
-    {
       "label": "Wskaźnik postępu",
-      "description": "W jaki sposób ma być pokazywany postęp.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstowo"
@@ -68,8 +68,16 @@
           "default": "Poprzednie pytanie"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Przycisk dalej",
           "default": "Kolejne pytanie"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Przycisk zakończenia",
@@ -90,7 +98,7 @@
           "default": "Pytanie %d z %total"
         },
         {
-          "label": "Etykieta informacji o prawach autorskich",
+          "label": "Question heading",
           "default": "Pytanie"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Koniec"
         },
         {
-          "label": "Nagłówek sekcji informacji zwrotnej",
-          "default": "Twój wynik:",
-          "description": "Ten nagłówek zostanie wyświetlony na ekranie końcowym po udzieleniu odpowiedzi na wszystkie pytania."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Podsumowanie odpowiedzi",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Ustawienia przycisków pokazywania odpowiedzi i ponownej próby",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Pokaż przycisk \"Sprawdź\"",
@@ -275,6 +293,10 @@
               "label": "Wyłączone"
             }
           ]
+        },
+        {
+          "label": "Tło quizu",
+          "description": "Tło dla wszystkich pytań w quizie (opcjonalne)."
         }
       ]
     }

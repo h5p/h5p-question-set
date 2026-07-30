@@ -21,16 +21,16 @@
         {
           "label": "Bakgrunnsbilde",
           "description": "Valgfritt bakgrunnsbilde for introduksjonssida."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Bakgrunnsbilde",
-      "description": "Valgfritt bakgrunnsbilde for oppgavesettet."
-    },
-    {
       "label": "Framdriftsindikator",
-      "description": "Velg om framdriften skal vises som prikker (ved få spørsmål) eller som tekst (ved mange spørsmål).",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekst"
@@ -68,8 +68,16 @@
           "default": "Forrige"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Navn på \"Neste\"-knapp",
           "default": "Neste"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Navn på \"Avslutt\"-knapp",
@@ -90,7 +98,7 @@
           "default": "Oppgave %d av %total"
         },
         {
-          "label": "Merkelapp for spørsmål om opphavsrett",
+          "label": "Oppgave overskrift",
           "default": "Oppgave"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Ferdig"
         },
         {
-          "label": "Overskrift for tilbakemelding",
-          "default": "Resultat:",
-          "description": "Denne overskriften vises over tilbakemeldinga helt sist i oppgavesettet."
+          "label": "Resultatsoverskrift",
+          "default": "Resultat",
+          "description": "Denne overskriften blir vist på slutten av oppgavesettet når brukeren har besvart alle spørsmålene."
+        },
+        {
+          "label": "Antall korrekt overskrift",
+          "description": "Overskrift for å vise poengsummen på sluttskjermen",
+          "default": "@finals av @totals korrekt"
         },
         {
           "label": "Melding om poengsum",
           "description": "Denne teksten står på siste side og forteller bruker hva sluttresultatet er.",
           "default": "Du fikk @finals av @totals poeng."
+        },
+        {
+          "label": "Poengtittel",
+          "description": "Overskrift for poengdelen av resultatstabellen",
+          "default": "Poeng"
         },
         {
           "label": "Samla tilbakemelding",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Innstillinger for \"Sjekk\", \"Vis svar\" og \"Prøv igjen\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Vis \"Sjekk\"-knapper",
@@ -275,6 +293,10 @@
               "label": "Deaktivert"
             }
           ]
+        },
+        {
+          "label": "Bakgrunnsbilde",
+          "description": "Valgfritt bakgrunnsbilde for oppgavesettet."
         }
       ]
     }

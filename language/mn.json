@@ -21,16 +21,16 @@
         {
           "label": "Арын зураг",
           "description": "Танилцуулгад зориулсан нэмэлт дэвсгэр зураг."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Арын зураг",
-      "description": "Асуултын багцын нэмэлт дэвсгэр зураг."
-    },
-    {
       "label": "Явцын үзүүлэлт",
-      "description": "Асуултын багцын явцын үзүүлэлтийн загвар.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текст"
@@ -68,8 +68,16 @@
           "default": "Өмнөх асуулт"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Дараагийн товчлуур",
           "default": "Дараагийн асуулт"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Дуусгах товчлуур",
@@ -90,7 +98,7 @@
           "default": "%total ээс %d асуулт"
         },
         {
-          "label": "Зохиогчийн эрхийн харилцах цонхны асуултын шошго",
+          "label": "Question heading",
           "default": "Асуулт"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Дууслаа"
         },
         {
-          "label": "Санал хүсэлтийн гарчиг",
-          "default": "Таны үр дүн:",
-          "description": "Хэрэглэгч бүх асуултад хариулсны дараа асуулт хариултын төгсгөлд энэ гарчиг гарч ирнэ."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Онооны хөтлөгч",
           "description": "Энэ шошгыг эцсийн дэлгэц дээр хэрэглэгчдэд эцсийн оноог зарлахад ашиглана",
           "default": "Та нийт онооноос @totals финалд шалгарлаа"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Ерөнхий санал хүсэлт",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "\"Шалгах\", \"Шийдлийг харуулах\" болон \"Дахин оролдох\"-н тохиргоо",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "\"Шалгах\" товчийг харуул",
@@ -275,6 +293,10 @@
               "label": "Идэвхгүй"
             }
           ]
+        },
+        {
+          "label": "Арын зураг",
+          "description": "Асуултын багцын нэмэлт дэвсгэр зураг."
         }
       ]
     }

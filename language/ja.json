@@ -21,16 +21,16 @@
         {
           "label": "背景画像",
           "description": "概要のオプションの背景画像"
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "背景画像",
-      "description": "設問集のオプションの背景画像"
-    },
-    {
       "label": "進行状況インジケーター",
-      "description": "設問集の進捗状況インジケータースタイル",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "原文"
@@ -68,8 +68,16 @@
           "default": "前の設問"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "次へボタン",
           "default": "次の設問"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "完了ボタン",
@@ -90,7 +98,7 @@
           "default": "設問 %d / %total"
         },
         {
-          "label": "著作権ダイアログ設問ラベル",
+          "label": "Question heading",
           "default": "設問"
         },
         {
@@ -150,14 +158,24 @@
           "default": "完了"
         },
         {
-          "label": "フィードバックの見出し",
-          "default": "結果:",
-          "description": "この見出しは、ユーザーがすべての設問に答えたときクイズの終わりに表示されます。"
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Score announcer",
           "description": "This label will be used for announcing the final score to the user on the end screen",
           "default": "You got @finals out of @totals points"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "全体のフィードバック",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "「解を表示」と「リトライ」ボタンの設定",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Show \"Check\" buttons",
@@ -275,6 +293,10 @@
               "label": "無効"
             }
           ]
+        },
+        {
+          "label": "背景画像",
+          "description": "設問集のオプションの背景画像"
         }
       ]
     }

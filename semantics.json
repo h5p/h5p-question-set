@@ -55,27 +55,27 @@
       {
         "name": "backgroundImage",
         "type": "image",
-        "label": "Background image",
+        "label": "Cover image",
         "importance": "low",
         "optional": true,
-        "description": "An optional background image for the introduction."
+        "description": "Optional image to display on the cover."
+      },
+      {
+        "name": "backgroundImageAltText",
+        "type": "text",
+        "label": "Alternative text",
+        "importance": "low",
+        "optional": true,
+        "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
       }
     ]
-  },
-  {
-    "name": "backgroundImage",
-    "type": "image",
-    "label": "Background image",
-    "importance": "low",
-    "optional": true,
-    "description": "An optional background image for the Question set."
   },
   {
     "name": "progressType",
     "type": "select",
     "label": "Progress indicator",
     "importance": "low",
-    "description": "Question set progress indicator style.",
+    "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
     "options": [
       {
         "value": "textual",
@@ -122,9 +122,10 @@
       "label": "Question type",
       "importance": "high",
       "description": "Library for this question.",
+      "showDescriptionAsTooltip": false,
       "options": [
         "H5P.MultiChoice 1.16",
-        "H5P.DragQuestion 1.14",
+        "H5P.DragQuestion 1.15",
         "H5P.Blanks 1.14",
         "H5P.MarkTheWords 1.11",
         "H5P.DragText 1.10",
@@ -149,11 +150,25 @@
         "default": "Previous question"
       },
       {
+        "name": "previous",
+        "type": "text",
+        "label": "Back button label",
+        "importance": "low",
+        "default": "Previous"
+      },
+      {
         "name": "nextButton",
         "type": "text",
         "label": "Next button",
         "importance": "low",
         "default": "Next question"
+      },
+      {
+        "name": "next",
+        "type": "text",
+        "label": "Next button label",
+        "importance": "low",
+        "default": "Next"
       },
       {
         "name": "finishButton",
@@ -193,7 +208,7 @@
       {
         "name": "questionLabel",
         "type": "text",
-        "label": "Copyright dialog question label",
+        "label": "Question heading",
         "importance": "low",
         "default": "Question"
       },
@@ -306,9 +321,9 @@
       {
         "name": "message",
         "type": "text",
-        "label": "Feedback heading",
+        "label": "Results heading",
         "importance": "low",
-        "default": "Your result:",
+        "default": "Results",
         "description": "This heading will be displayed at the end of the quiz when the user has answered all questions.",
         "tags": [
           "strong",
@@ -317,12 +332,28 @@
         ]
       },
       {
+        "name": "amountCorrect",
+        "type": "text",
+        "label": "Amount correct heading",
+        "importance": "low",
+        "description": "Header to show the final score to the user on the end screen",
+        "default": "@finals of @totals correct"
+      },
+      {
         "name": "scoreBarLabel",
         "type": "text",
         "label": "Score announcer",
         "importance": "low",
         "description": "This label will be used for announcing the final score to the user on the end screen",
         "default": "You got @finals out of @totals points"
+      },
+      {
+        "name": "scoreHeader",
+        "type": "text",
+        "label": "Score heading",
+        "importance": "low",
+        "description": "Header for the score part of the results table",
+        "default": "Score"
       },
       {
         "name": "overallFeedback",
@@ -523,7 +554,7 @@
   {
     "name": "override",
     "type": "group",
-    "label": "Settings for \"Check\", \"Show solution\" and \"Retry\"",
+    "label": "Behavioural settings",
     "importance": "low",
     "optional": true,
     "fields": [
@@ -589,6 +620,14 @@
             "label": "Disabled"
           }
         ]
+      },
+      {
+        "name": "backgroundImage",
+        "type": "image",
+        "label": "Background image",
+        "importance": "low",
+        "optional": true,
+        "description": "An optional background image for the Question set."
       }
     ]
   }

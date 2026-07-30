@@ -21,16 +21,16 @@
         {
           "label": "Фоновое изображение",
           "description": "Дополнительное фоновое изображение для введения."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Фоновое изображение",
-      "description": "Необязательное фоновое изображение для набора вопросов."
-    },
-    {
       "label": "Индикатор прогресса",
-      "description": "Установите стиль индикатора прогресса для набора вопросов.",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Текстовый"
@@ -68,8 +68,16 @@
           "default": "Предыдущий вопрос"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Кнопка Далее",
           "default": "Следующий вопрос"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Кнопка Завершить",
@@ -90,7 +98,7 @@
           "default": "Вопрос %d из %total"
         },
         {
-          "label": "Надпись диалогового окна об авторском праве вопроса",
+          "label": "Question heading",
           "default": "Вопрос"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Завершен"
         },
         {
-          "label": "Заголовок обратной связи",
-          "default": "Ваш результат:",
-          "description": "Этот заголовок будет отображаться в конце теста, когда пользователь ответит на все вопросы."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Объявитель оценок",
           "description": "Эта метка будет использоваться для объявления итоговых баллов пользователю на конечном экране",
           "default": "Вы получили @finals из @totals баллов"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Общий отзыв",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Настройки для кнопок \"Показать решение\" и \"Повторить\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Показать кнопку \"Проверить\"",
@@ -275,6 +293,10 @@
               "label": "Отключена"
             }
           ]
+        },
+        {
+          "label": "Фоновое изображение",
+          "description": "Необязательное фоновое изображение для набора вопросов."
         }
       ]
     }

@@ -21,16 +21,16 @@
         {
           "label": "Slika za ozadje",
           "description": "Neobvezno. Slika je prikazana v ozadju uvoda."
+        },
+        {
+          "label": "Alternative text",
+          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
         }
       ]
     },
     {
-      "label": "Slika za ozadje",
-      "description": "Neobvezno. Slika je prikazana v ozadju kviza."
-    },
-    {
       "label": "Indikator napredka",
-      "description": "Nastavitev prikaza napredka v kvizu (npr. število trenutnega in preostalih vprašanj).",
+      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
       "options": [
         {
           "label": "Tekstovni"
@@ -68,8 +68,16 @@
           "default": "Prejšnje vprašanje"
         },
         {
+          "label": "Back button label",
+          "default": "Previous"
+        },
+        {
           "label": "Besedilo za gumb \"Naslednje vprašanje\"",
           "default": "Naslednje vprašanje"
+        },
+        {
+          "label": "Next button label",
+          "default": "Next"
         },
         {
           "label": "Besedilo gumba \"Potrdi\"",
@@ -90,7 +98,7 @@
           "default": "Vprašanje: %d od %total"
         },
         {
-          "label": "Besedilo pogovornega okna za avtorske pravice",
+          "label": "Question heading",
           "default": "Vprašanje"
         },
         {
@@ -150,14 +158,24 @@
           "default": "Zaključeno"
         },
         {
-          "label": "Naslov povratne informacije",
-          "default": "Rezultat reševanja:",
-          "description": "Besedilo se izpiše na koncu kviza, ko udeleženec reši vsa vprašanja."
+          "label": "Results heading",
+          "default": "Results",
+          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+        },
+        {
+          "label": "Amount correct heading",
+          "description": "Header to show the final score to the user on the end screen",
+          "default": "@finals of @totals correct"
         },
         {
           "label": "Sporočilo o doseženem rezultatu",
           "description": "Besedilo se izpiše na končnem zaslonu kviza in udeleženca obvesti o doseženih točkah.",
           "default": "Dosežene točke: @finals od @totals"
+        },
+        {
+          "label": "Score heading",
+          "description": "Header for the score part of the results table",
+          "default": "Score"
         },
         {
           "label": "Splošna povratna informacija",
@@ -246,7 +264,7 @@
       ]
     },
     {
-      "label": "Nastavitve gumbov \"Prikaži rešitev\" in \"Poskusi ponovno\"",
+      "label": "Behavioural settings",
       "fields": [
         {
           "label": "Določi prikaz gumba \"Preveri\"",
@@ -275,6 +293,10 @@
               "label": "Onemogoči"
             }
           ]
+        },
+        {
+          "label": "Slika za ozadje",
+          "description": "Neobvezno. Slika je prikazana v ozadju kviza."
         }
       ]
     }
