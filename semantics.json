@@ -122,7 +122,6 @@
       "label": "Question type",
       "importance": "high",
       "description": "Library for this question.",
-      "showDescriptionAsTooltip": false,
       "options": [
         "H5P.MultiChoice 1.16",
         "H5P.DragQuestion 1.15",
