@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Kvíz bevezető",
+      "label": "Teszt bevezető",
       "fields": [
         {
           "label": "Bevezető megjelenítése"
@@ -12,25 +12,25 @@
         },
         {
           "label": "Bevezető szöveg",
-          "description": "Ez a szöveg a kvíz megkezdése előtt jelenik meg."
+          "description": "Ez a szöveg a teszt megkezdése előtt jelenik meg."
         },
         {
-          "label": "Start gomb szövege",
-          "default": "Kvíz indítása"
+          "label": "Indítás gomb szövege",
+          "default": "Teszt indítása"
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the introduction."
+          "label": "Háttérkép",
+          "description": "Opcionális háttérkép a bemutatkozáshoz."
         },
         {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
+          "label": "Helyettesítő szöveg",
+          "description": "Ha a böngésző nem tudja betölteni a képet, ez a szöveg jelenik meg helyette. A képernyőfelolvasók is ezt használják."
         }
       ]
     },
     {
-      "label": "Progress indicator",
-      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
+      "label": "Haladásjelző",
+      "description": "A Kérdéskészlet haladásjelzőjének stílusa. Szöveges lesz, ha a visszafelé navigálás nincs engedélyezve.",
       "options": [
         {
           "label": "Szöveges"
@@ -41,8 +41,8 @@
       ]
     },
     {
-      "label": "Sikerességi százalék",
-      "description": "A kvíz teljes pontszámának hány százaléka szükséges a sikeres teljesítéshez."
+      "label": "Ponthatár százalékban",
+      "description": "A teszt összpontszámából elérendő százalék a teljesítéshez."
     },
     {
       "label": "Kérdések",
@@ -54,94 +54,94 @@
           "label": "Szöveges"
         }
       ],
-      "entity": "kérdés",
+      "entity": "kérdés ",
       "field": {
         "label": "Kérdés típusa",
-        "description": "Ennek a kérdésnek a könyvtára."
+        "description": "Könyvtár ehhez a kérdéshez."
       }
     },
     {
-      "label": "Felület szövegei a kvízben",
+      "label": "Felület szövegei a tesztben",
       "fields": [
         {
           "label": "Vissza gomb",
           "default": "Előző kérdés"
         },
         {
+          "label": "Vissza gomb címke",
+          "default": "Előző"
+        },
+        {
           "label": "Következő gomb",
           "default": "Következő kérdés"
+        },
+        {
+          "label": "Következő gomb címke",
+          "default": "Következő"
         },
         {
           "label": "Befejezés gomb",
           "default": "Befejezés"
         },
         {
-          "label": "Beküldés gomb",
-          "default": "Beküldés"
+          "label": "Beadás gomb",
+          "default": "Beadás"
         },
         {
-          "label": "Finish button",
-          "default": "Finish"
+          "label": "Haladás szöveg",
+          "description": "Szöveges haladásjelzés esetén szöveg lesz használva.",
+          "default": "Kérdés: @current. a @total kérdésből"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Felirat egy adott kérdéshez való ugráshoz",
+          "description": "A kérdések száma helyett a „%d” helyőrzőt kell használnia, a kérdések darabszáma helyett pedig a %total-t.",
+          "default": "%d. kérdés a(z) %total kérdésből"
         },
         {
-          "label": "Előrehaladás szövege",
-          "description": "A szöveges előrehaladás kiválasztásakor használt szöveg.",
-          "default": "Kérdés: @current / @total"
+          "label": "Kérdés címsor",
+          "default": "Kérdés"
         },
         {
-          "label": "Label for jumping to a certain question",
-          "description": "You must use the placeholder '%d' instead of the question number, and %total instead of total amount of questions.",
-          "default": "Question %d of %total"
+          "label": "Előrehaladás szövegfelolvasónál",
+          "description": "Használható a @current és @total kérdésváltozókat",
+          "default": "@current. kérdés a @total kérdésből"
         },
         {
-          "label": "Question heading",
-          "default": "Question"
+          "label": "Megválaszolatlan kérdés szöveg",
+          "default": "Megválaszolatlan"
         },
         {
-          "label": "Readspeaker progress",
-          "description": "May use @current and @total question variables",
-          "default": "Question @current of @total"
+          "label": "Megválaszolt kérdés szöveg",
+          "default": "Megválaszolt"
         },
         {
-          "label": "Unanswered question text",
-          "default": "Unanswered"
+          "label": "Jelenlegi kérdés szöveg",
+          "default": "Jelenlegi kérdés"
         },
         {
-          "label": "Answered question text",
-          "default": "Answered"
+          "label": "Navigációs címke felolvasók számára",
+          "default": "Kérdések"
         },
         {
-          "label": "Current question text",
-          "default": "Current question"
-        },
-        {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
-        },
-        {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+          "label": "Útmutató a kérdéskészlet navigálásához képernyőfelolvasó használatakor",
+          "default": "Válassza ki a megjelenítendő kérdést"
         }
       ]
     },
     {
-      "label": "Hátrafelé navigáció letiltása",
-      "description": "Ez az opció csak előrehaladást tesz lehetővé a kérdéssorban."
+      "label": "Visszafelé navigáció letiltása",
+      "description": "Használatával csak előre lehet haladni a Kérdéskészletben"
     },
     {
-      "label": "Kérdések véletlenszerű sorrendje",
-      "description": "Engedélyezés esetén a kérdések megjelenési sorrendje véletlenszerű lesz."
+      "label": "Véletlenszerű kérdéssorrend",
+      "description": "Bekapcsolásával a kérdések véletlen sorrendben jelennek meg."
     },
     {
-      "label": "Megjelenítendő kérdések száma",
-      "description": "A kérdésekből véletlenszerűen kiválasztott halmaz létrehozása."
+      "label": "Megjelenítendő kérdések száma:",
+      "description": "Az összes kérdésből egy véletlenszerű részhalmaz használata."
     },
     {
-      "label": "Kvíz befejezve",
+      "label": "Teszt befejezve",
       "fields": [
         {
           "label": "Eredmények megjelenítése"
@@ -150,35 +150,35 @@
           "label": "Megoldás gomb megjelenítése"
         },
         {
-          "label": "Újrapróbálkozás gomb megjelenítése"
+          "label": "Újra gomb megjelenítése"
         },
         {
           "label": "Nincs eredmény üzenet",
-          "description": "A záró oldalon megjelenő szöveg, ha az 'Eredmények megjelenítése' le van tiltva.",
-          "default": "Befejezve"
+          "description": "A záróoldalon megjelenő szöveg, ha az „Eredmények megjelenítése” nincs engedélyezve",
+          "default": "Befejezett"
         },
         {
-          "label": "Visszajelzés címe",
-          "default": "Eredményed:",
-          "description": "Ez a cím a kvíz végén jelenik meg, ha a felhasználó minden kérdést megválaszolt."
+          "label": "Eredmények címsor",
+          "default": "Eredmények",
+          "description": "Ez a címsor a teszt végén jelenik meg, amikor a felhasználó minden kérdésre válaszolt."
         },
         {
-          "label": "Pontszám bejelentő",
-          "description": "Ez a címke a végső pontszám bejelentésére szolgál a felhasználónak a záró képernyőn.",
-          "default": "@finals pontot értél el @totals pontból"
+          "label": "Helyes válaszok száma címsor",
+          "description": "A felhasználónak a záróképen a végső pontszámot megjelenítő címsor",
+          "default": "@finals a @totals kérdésből helyes"
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Eredményhirdető",
+          "description": "Ez a címke a végső pontszám bejelentésére szolgál a felhasználónak a záróképen",
+          "default": "Ön @finals pontot kapott a(z) @totals pontból"
         },
         {
-          "label": "Score heading",
-          "description": "Header for the score part of the results table",
-          "default": "Score"
+          "label": "Pontszám címsor",
+          "description": "Az eredménytábla pontszámrészének címsora",
+          "default": "Pontszám"
         },
         {
-          "label": "Overall Feedback",
+          "label": "Globális visszajelzés",
           "fields": [
             {
               "widgets": [
@@ -186,18 +186,18 @@
                   "label": "Alapértelmezett"
                 }
               ],
-              "label": "Egyéni visszajelzés definiálása bármely ponttartományhoz",
-              "description": "Példa: 0-20% Rossz eredmény, 21-91% Átlagos eredmény, 91-100% Kiváló eredmény!",
-              "entity": "tartomány",
+              "label": "Egyéni visszajelzés megadása tetszőleges eredmény intervallumokra",
+              "description": "Kattintson az \"Új intervallum\" gombra további intervallumok hozzáadásához. Például: 0-20% Rossz eredmény, 21-91% Átlagos eredmény, 91-100% Kimagasló eredmény!",
+              "entity": "intervallum",
               "field": {
                 "fields": [
                   {
-                    "label": "Ponttartomány"
+                    "label": "Eredmény intervallum"
                   },
                   {},
                   {
-                    "label": "Visszajelzés a megadott ponttartományhoz",
-                    "placeholder": "Add meg a visszajelzést"
+                    "label": "Visszajelzés az adott eredmény intervallumnál",
+                    "placeholder": "Adja meg a visszajelzést"
                   }
                 ]
               }
@@ -208,95 +208,95 @@
           "label": "Régi visszajelzés",
           "fields": [
             {
-              "label": "Kvíz sikeres teljesítésének köszöntője",
-              "description": "Ez a szöveg a pontszám felett jelenik meg, ha a felhasználó sikeresen teljesítette a kvízt."
+              "label": "Teszt teljesítve üdvözlés",
+              "description": "Ez a szöveg a pontszám felett jelenik meg, ha a felhasználó sikeresen teljesítette a tesztet."
             },
             {
-              "label": "Sikeres teljesítés utáni komment",
-              "description": "Ez a komment a pontszám után jelenik meg, ha a felhasználó sikeresen teljesítette a kvízt."
+              "label": "Sikeres teljesítés megjegyzés",
+              "description": "Ez a megjegyzés a pontszám alatt jelenik meg, ha a felhasználó sikeresen teljesítette a tesztet."
             },
             {
-              "label": "Kvíz sikertelen teljesítésének címe",
-              "description": "Ez a szöveg a pontszám felett jelenik meg, ha a felhasználó megbukott a kvízen."
+              "label": "Teszt sikertelen felirata",
+              "description": "Ez a szöveg a pontszám felett jelenik meg, ha a felhasználó nem felelt meg a teszten."
             },
             {
-              "label": "Bukás utáni komment",
-              "description": "Ez a komment a pontszám után jelenik meg, ha a felhasználó megbukott a kvízen."
+              "label": "Sikertelen teljesítés megjegyzés",
+              "description": "Ez a megjegyzés a pontszám alatt jelenik meg, ha a felhasználó sikertelenül próbálkozott a teszttel."
             }
           ]
         },
         {
-          "label": "Megoldás gomb felirata",
-          "default": "Megoldás megjelenítése",
-          "description": "A megoldás gomb szövege."
+          "label": "Megoldás mutatása gomb felirata",
+          "default": "Megoldás mutatása",
+          "description": "Megoldás mutatása gomb szövege."
         },
         {
-          "label": "Újrapróbálkozás gomb felirata",
-          "default": "Újrapróbálkozás",
-          "description": "Az újrapróbálkozás gomb szövege."
+          "label": "Újra gomb felirata",
+          "default": "Újra",
+          "description": "Újra gomb szövege."
         },
         {
           "label": "Befejezés gomb szövege",
           "default": "Befejezés"
         },
         {
-          "label": "Beküldés gomb szövege",
-          "default": "Beküldés"
+          "label": "Beadás gomb szövege",
+          "default": "Beadás"
         },
         {
-          "label": "Videó megjelenítése a kvíz eredményei előtt"
+          "label": "Videó megjelenítése a teszteredmények előtt"
         },
         {
-          "label": "Videó átugrásának engedélyezése"
+          "label": "Videó átugrásának engedélyezése gomb"
         },
         {
           "label": "Videó átugrása gomb felirata",
-          "default": "Videó átugrása"
+          "default": "Videó kihagyása"
         },
         {
-          "label": "Sikeres videó",
-          "description": "Ez a videó fog lejátszódni, ha a felhasználó sikeresen teljesítette a kvízt."
+          "label": "Sikeres teljesítés videója",
+          "description": "Ez a videó akkor kerül lejátszásra, ha a felhasználó sikeresen teljesítette a tesztet."
         },
         {
-          "label": "Sikertelen videó",
-          "description": "Ez a videó fog lejátszódni, ha a felhasználó megbukott a kvízen."
+          "label": "Sikertelen teljesítés videója",
+          "description": "Ez a videó akkor kerül lejátszásra, ha a felhasználó sikertelenül teljesíti a tesztet."
         }
       ]
     },
     {
-      "label": "Behavioural settings",
+      "label": "Viselkedési beállítások",
       "fields": [
         {
-          "label": "\"Ellenőrzés\" gombok megjelenítése",
-          "description": "Ez az opció meghatározza, hogy az \"Ellenőrzés\" gomb megjelenjen-e minden kérdésnél."
+          "label": "„Ellenőrzés” gombok megjelenítése",
+          "description": "Ez a beállítás határozza meg, hogy az „Ellenőrzés” gomb minden kérdésnél látható lesz-e."
         },
         {
-          "label": "\"Megoldás mutatása\" gomb felülírása",
-          "description": "Ez az opció meghatározza, hogy a \"Megoldás mutatása\" gomb minden kérdésnél látható legyen, le legyen tiltva, vagy kérdésenként konfigurálható legyen.",
+          "label": "„Megoldás mutatása” gomb felülírása",
+          "description": "Ez a beállítás megadja, hogy a „Megoldás mutatása” gomb minden kérdésnél egyformán látható, rejtett, avagy ez kérdésenként állítható.",
           "options": [
             {
-              "label": "Engedélyezve"
+              "label": "Bekapcsolva"
             },
             {
-              "label": "Letiltva"
+              "label": "Kikapcsolva"
             }
           ]
         },
         {
-          "label": "\"Újrapróbálkozás\" gomb felülírása",
-          "description": "Ez az opció meghatározza, hogy az \"Újrapróbálkozás\" gomb minden kérdésnél látható legyen, le legyen tiltva, vagy kérdésenként konfigurálható legyen.",
+          "label": "„Újra” gomb felülírása",
+          "description": "Ez a beállítás megadja, hogy az „Újra” gomb minden kérdésnél egyformán látható, rejtett, avagy ez kérdésenként állítható.",
           "options": [
             {
-              "label": "Engedélyezve"
+              "label": "Bekapcsolva"
             },
             {
-              "label": "Letiltva"
+              "label": "Kikapcsolva"
             }
           ]
         },
         {
-          "label": "Background image",
-          "description": "An optional background image for the Question set."
+          "label": "Háttérkép",
+          "description": "Opcionális háttérkép a kérdéskészlethez."
         }
       ]
     }
