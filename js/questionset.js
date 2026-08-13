@@ -688,16 +688,18 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         });
       }
 
-      // Restore feedback-section wrapper removed in VA-460 so the
-      // overall feedback text and score bar have a place to render.
-      $('<div>', {
-        class: 'feedback-section',
-        append: [
-          $('<div>', { class: 'feedback-scorebar' }),
-          $('<div>', { class: 'feedback-text' })
-        ],
-        appendTo: self.$resultPage
-      });
+      var feedbackSection = document.createElement('div');
+      feedbackSection.className = 'feedback-section';
+
+      var feedbackScorebar = document.createElement('div');
+      feedbackScorebar.className = 'feedback-scorebar';
+      feedbackSection.appendChild(feedbackScorebar);
+
+      var feedbackText = document.createElement('div');
+      feedbackText.className = 'feedback-text';
+      feedbackSection.appendChild(feedbackText);
+
+      self.$resultPage.append(feedbackSection);
 
       self.$buttonsContainer = $('<div>', {
         class: 'buttons',
