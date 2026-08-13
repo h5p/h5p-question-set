@@ -688,14 +688,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         });
       }
 
-      var feedbackSection = document.createElement('div');
+      const feedbackSection = document.createElement('div');
       feedbackSection.className = 'feedback-section';
 
-      var feedbackScorebar = document.createElement('div');
+      const feedbackScorebar = document.createElement('div');
       feedbackScorebar.className = 'feedback-scorebar';
       feedbackSection.appendChild(feedbackScorebar);
 
-      var feedbackText = document.createElement('div');
+      const feedbackText = document.createElement('div');
       feedbackText.className = 'feedback-text';
       feedbackSection.appendChild(feedbackText);
 
