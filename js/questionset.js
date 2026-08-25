@@ -342,9 +342,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     answeredText: params.texts.answeredText,
     unansweredText: params.texts.unansweredText,
     textualProgress: params.texts.textualProgress,
+    currentQuestionText: params.texts.currentQuestionText,
   }
   // If backwards navigation is disabled, we show textual progress instead
-  if (params.progressType == "dots" && !params.disableBackwardsNavigation) {
+  if (params.progressType === "dots" && !params.disableBackwardsNavigation) {
     nav = H5P.Components.Navigation({
       className: 'qs-footer',
       handlePrevious: () => this.moveQuestion(-1),
