@@ -23,14 +23,14 @@
           "description": "Valfritt bakgrunnsbilete for introduksjonssida"
         },
         {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
+          "label": "Alternativ tekst",
+          "description": "Dersom nettlesaren ikkje kan laste inn biletet, blir denne teksten vist i staden. Brukast òg av skjermlesarar."
         }
       ]
     },
     {
       "label": "Framdriftsindikator",
-      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
+      "description": "Question set progress indicator style. Vil vere tekstbasert dersom tilbakenavigering er deaktivert.",
       "options": [
         {
           "label": "Tekst"
@@ -98,7 +98,7 @@
           "default": "Oppgåve %d av %total"
         },
         {
-          "label": "Question heading",
+          "label": "Oppgåveoverskrift",
           "default": "Oppgåve"
         },
         {
@@ -107,7 +107,7 @@
           "default": "Oppgåve @current av @total"
         },
         {
-          "label": "Tekst dersom ei oppgåve ikkje har svar",
+          "label": "Tekst dersom ei oppgåve er ubesvart",
           "default": "Utan svar"
         },
         {
@@ -123,14 +123,14 @@
           "default": "Oppgåver"
         },
         {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+          "label": "Instruksjon for navigering i oppgåvesett med skjermlesar",
+          "default": "Vel spørsmål som skal visast"
         }
       ]
     },
     {
       "label": "Slå av tilbakenavigering",
-      "description": "Slå på for å hindre at brukar kan gå tilbake i oppgåvesettet"
+      "description": "Slå på for å hindre at brukaren kan gå tilbake i oppgåvesettet"
     },
     {
       "label": "Stokk spørsmåla",
@@ -158,14 +158,14 @@
           "default": "Ferdig"
         },
         {
-          "label": "Results heading",
-          "default": "Results",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Resultatoverskrift",
+          "default": "Resultat",
+          "description": "Denne overskrifta blir vist på slutten av oppgåvesettet når brukaren har svart på alle spørsmåla."
         },
         {
-          "label": "Amount correct heading",
-          "description": "Header to show the final score to the user on the end screen",
-          "default": "@finals of @totals correct"
+          "label": "Antal rette overskrift",
+          "description": "Overskrift for å vise poengsummen på sluttskjermen",
+          "default": "@finals av @totals rett"
         },
         {
           "label": "Melding om poengsum",
@@ -173,9 +173,9 @@
           "default": "Du fekk @finals av @totals poeng."
         },
         {
-          "label": "Score heading",
-          "description": "Header for the score part of the results table",
-          "default": "Score"
+          "label": "Poengtittel",
+          "description": "Overskrift for poengdelen av resultattabellen",
+          "default": "Poeng"
         },
         {
           "label": "Samla tilbakemelding",
@@ -217,7 +217,7 @@
             },
             {
               "label": "Overskrift ved ikkje bestått",
-              "description": "Denne meldinga blir vist før poengsummen dersom brukaren ikkje har bestått oppgåvesettet."
+              "description": "Denne tittelen blir vist før poengsummen dersom brukaren ikkje har bestått oppgåvesettet."
             },
             {
               "label": "Melding ved ikkje bestått",
