@@ -23,14 +23,14 @@
           "description": "Valinnainen taustakuva johdantoon."
         },
         {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
+          "label": "Vaihtoehtoinen teksti",
+          "description": "Jos selain ei voi ladata kuvaa, tämä teksti näytetään sen sijaan. Tätä käyttävät myös ruudunluku- ja tekstistä puheeksi -ohjelmat."
         }
       ]
     },
     {
       "label": "Edistymisen näyttäminen",
-      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
+      "description": "Kysymyssarjan edistymisen ilmaisimen tyyli. Käytetään tekstimuotoista ilmaisinta, jos taaksepäin siirtyminen on estetty.",
       "options": [
         {
           "label": "Teksti"
@@ -68,24 +68,24 @@
           "default": "Edellinen kysymys"
         },
         {
-          "label": "Back button label",
-          "default": "Previous"
+          "label": "Edellinen-painikkeen teksti",
+          "default": "Edellinen"
         },
         {
           "label": "Painikkeen Seuraava teksti",
           "default": "Seuraava kysymys"
         },
         {
-          "label": "Next button label",
-          "default": "Next"
+          "label": "Seuraava-painikkeen teksti",
+          "default": "Seuraava"
         },
         {
           "label": "Painikkeen Lopeta teksti",
           "default": "Lopeta"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Lähetä-painike",
+          "default": "Lähetä"
         },
         {
           "label": "Edistyminen",
@@ -98,7 +98,7 @@
           "default": "Kysymys %d/%total"
         },
         {
-          "label": "Question heading",
+          "label": "Kysymyksen otsikko",
           "default": "Kysymys"
         },
         {
@@ -119,12 +119,12 @@
           "default": "Meneillään oleva kysymys"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Navigoinnin nimi ruudunlukijoille",
+          "default": "Kysymykset"
         },
         {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+          "label": "Ohje kysymyssarjassa liikkumiseen ruudunlukijalla",
+          "default": "Valitse näytettävä kysymys"
         }
       ]
     },
@@ -158,24 +158,24 @@
           "default": "Valmis"
         },
         {
-          "label": "Results heading",
-          "default": "Results",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Tulosten otsikko",
+          "default": "Tulokset",
+          "description": "Tämä otsikko näytetään tietovisan lopussa, kun käyttäjä on vastannut kaikkiin kysymyksiin."
         },
         {
-          "label": "Amount correct heading",
-          "description": "Header to show the final score to the user on the end screen",
-          "default": "@finals of @totals correct"
+          "label": "Oikeiden vastausten otsikko",
+          "description": "Otsikko, jossa näytetään käyttäjän lopullinen pistemäärä lopetusnäkymässä",
+          "default": "@finals / @totals oikein"
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Pistemäärän ilmoitus",
+          "description": "Tätä tekstiä käytetään lopullisen pistemäärän ilmoittamiseen käyttäjälle lopetusnäkymässä",
+          "default": "Sait @finals pistettä yhteensä @totals mahdollisesta"
         },
         {
-          "label": "Score heading",
+          "label": "Pistemäärän otsikko",
           "description": "Header for the score part of the results table",
-          "default": "Score"
+          "default": "Pisteet"
         },
         {
           "label": "Yleispalaute",
@@ -183,7 +183,7 @@
             {
               "widgets": [
                 {
-                  "label": "Default"
+                  "label": "Oletus"
                 }
               ],
               "label": "Määritä muokattu palaute pisterajojen mukaan.",
@@ -240,8 +240,8 @@
           "default": "Lopeta"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Lähetä-painikkeen teksti",
+          "default": "Lähetä"
         },
         {
           "label": "Näytä video ennen tuloksia"
@@ -264,11 +264,11 @@
       ]
     },
     {
-      "label": "Behavioural settings",
+      "label": "Toiminta-asetukset",
       "fields": [
         {
-          "label": "Näytä \"Check\" painike",
-          "description": "Tämä asetus määrittää näytetäänkö \"Check\" painike kaikkien kysymysten yhteydessä."
+          "label": "Näytä \"Tarkista\" painike",
+          "description": "Tämä asetus määrittää näytetäänkö \"Tarkista\" painike kaikkien kysymysten yhteydessä."
         },
         {
           "label": "\"Näytä vastaus\"-painike",
