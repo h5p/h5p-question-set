@@ -15,7 +15,7 @@
           "description": "Teksti näytetään ennen visan alkua."
         },
         {
-          "label": "Aloita -painikkeen teksti",
+          "label": "Aloita-painikkeen teksti",
           "default": "Aloita"
         },
         {
@@ -23,14 +23,14 @@
           "description": "Valinnainen taustakuva johdantoon."
         },
         {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
+          "label": "Vaihtoehtoinen teksti",
+          "description": "Mikäli selain ei pysty lataamaan kuvaa, tämä teksti näytetään sen sijaan. Käytetään myös ruudunlukijoita varten."
         }
       ]
     },
     {
       "label": "Edistymisen näyttäminen",
-      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
+      "description": "Edistymisen ilmaisimen tyyli. Näytetään tekstinä, jos taaksepäin siirtyminen ei ole käytössä.",
       "options": [
         {
           "label": "Teksti"
@@ -68,24 +68,24 @@
           "default": "Edellinen kysymys"
         },
         {
-          "label": "Back button label",
-          "default": "Previous"
+          "label": "Edellinen-nappulan teksti",
+          "default": "Edellinen"
         },
         {
           "label": "Painikkeen Seuraava teksti",
           "default": "Seuraava kysymys"
         },
         {
-          "label": "Next button label",
-          "default": "Next"
+          "label": "Seuraava-nappulan teksti",
+          "default": "Seuraava"
         },
         {
           "label": "Painikkeen Lopeta teksti",
           "default": "Lopeta"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Painikkeen Lähetä teksti",
+          "default": "Lähetä"
         },
         {
           "label": "Edistyminen",
@@ -98,7 +98,7 @@
           "default": "Kysymys %d/%total"
         },
         {
-          "label": "Question heading",
+          "label": "Kysymyksen otsikko",
           "default": "Kysymys"
         },
         {
@@ -119,12 +119,12 @@
           "default": "Meneillään oleva kysymys"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Navigointi-teksti readspeakerereille",
+          "default": "Kysymykset"
         },
         {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+          "label": "Ohjeistus kysymyksen valintaan ruudunlukijalla",
+          "default": "Valitse näytettävä kysymys"
         }
       ]
     },
@@ -158,24 +158,24 @@
           "default": "Valmis"
         },
         {
-          "label": "Results heading",
-          "default": "Results",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Tulokset-otsikko",
+          "default": "Tulokset",
+          "description": "Tämä teksti näytetään tehtävän lopuksi, kun käyttäjä on vastannut kaikkiin kysymyksiin."
         },
         {
-          "label": "Amount correct heading",
-          "description": "Header to show the final score to the user on the end screen",
-          "default": "@finals of @totals correct"
+          "label": "Oikeita vastauksia -otsikko",
+          "description": "Lopullisen pistemäärän teksti, joka näytetään käyttäjälle tulossivulla.",
+          "default": "@finals / @totals oikein"
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Pistemäärän ilmoittaja",
+          "description": "Tämä teksti kertoo käyttäjälle lopullisen pistemäärän tulossivulla.",
+          "default": "Sait @finals / @totals pistettä"
         },
         {
-          "label": "Score heading",
-          "description": "Header for the score part of the results table",
-          "default": "Score"
+          "label": "Pisteet-otsikko",
+          "description": "Teksti pisteet-tekstille tulossivulla",
+          "default": "Pisteet"
         },
         {
           "label": "Yleispalaute",
@@ -264,7 +264,7 @@
       ]
     },
     {
-      "label": "Behavioural settings",
+      "label": "Toiminta-asetukset",
       "fields": [
         {
           "label": "Näytä \"Check\" painike",
