@@ -688,6 +688,19 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         });
       }
 
+      const feedbackSection = document.createElement('div');
+      feedbackSection.className = 'feedback-section';
+
+      const feedbackScorebar = document.createElement('div');
+      feedbackScorebar.className = 'feedback-scorebar';
+      feedbackSection.appendChild(feedbackScorebar);
+
+      const feedbackText = document.createElement('div');
+      feedbackText.className = 'feedback-text';
+      feedbackSection.appendChild(feedbackText);
+
+      self.$resultPage.append(feedbackSection);
+
       self.$buttonsContainer = $('<div>', {
         class: 'buttons',
         appendTo: self.$resultPage
