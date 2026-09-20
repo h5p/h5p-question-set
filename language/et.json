@@ -23,14 +23,14 @@
           "description": "Valikuline taustapilt tutvustusele."
         },
         {
-          "label": "Alternative text",
-          "description": "If the browser can't load the image this text will be displayed instead. Also used by \"text-to-speech\" readers."
+          "label": "Alternatiivne tekst",
+          "description": "Kui veebilehitseja ei saa pilti laadida, kuvatakse selle asemel see tekst. Seda kasutavad ka ettelugevad seadmed."
         }
       ]
     },
     {
       "label": "Edenemise osuti",
-      "description": "Question set progress indicator style. Will be Textual if backwards navigation is disabled.",
+      "description": "Küsimuste komplekti edenemise osuti stiil. Tekstiline, kui tagasi navigeerimine on keelatud.",
       "options": [
         {
           "label": "Tekstiline"
@@ -68,24 +68,24 @@
           "default": "Eelmine küsimus"
         },
         {
-          "label": "Back button label",
-          "default": "Previous"
+          "label": "Tagasi nupu tekst",
+          "default": "Eelmine"
         },
         {
           "label": "Edasi nupp",
           "default": "Järgmine küsimus"
         },
         {
-          "label": "Next button label",
-          "default": "Next"
+          "label": "Järgmine nupu tekst",
+          "default": "Järgmine"
         },
         {
           "label": "Lõpeta nupp",
           "default": "Valmis"
         },
         {
-          "label": "Submit button",
-          "default": "Submit"
+          "label": "Edasta nupp",
+          "default": "Edasta"
         },
         {
           "label": "Edenemise tekst",
@@ -98,7 +98,7 @@
           "default": "Küsimus %d kokku %total küsimusest"
         },
         {
-          "label": "Question heading",
+          "label": "Küsimuse pealkiri",
           "default": "Küsimus"
         },
         {
@@ -119,12 +119,12 @@
           "default": "Jooksev küsimus"
         },
         {
-          "label": "Navigation label for readspeakers",
-          "default": "Questions"
+          "label": "Ettelugeja tekst navigeerimiseks",
+          "default": "Küsimused"
         },
         {
-          "label": "Instruction for navigating question set with screenreader",
-          "default": "Choose question to display"
+          "label": "Juhised ekraanilugeriga küsimuste komplektis navigeerimiseks",
+          "default": "Vali kuvatavad küsimused"
         }
       ]
     },
@@ -150,7 +150,7 @@
           "label": "Näita lahendust nupp"
         },
         {
-          "label": "Display retry button"
+          "label": "Näita uuesti proovimise nuppu"
         },
         {
           "label": "Tulemusi ei ole sõnum",
@@ -158,24 +158,24 @@
           "default": "Lõppenud"
         },
         {
-          "label": "Results heading",
-          "default": "Results",
-          "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
+          "label": "Tulemuste pealkiri",
+          "default": "Tulemused",
+          "description": "Seda pealkirja näidatakse viktoriini lõpus, kui kasutaja on vastanud kõikidele küsimustele."
         },
         {
-          "label": "Amount correct heading",
-          "description": "Header to show the final score to the user on the end screen",
-          "default": "@finals of @totals correct"
+          "label": "Õigete vastuste arvu pealkiri",
+          "description": "Pealkiri, mis näitab lõppskoori viktoriini lõpus",
+          "default": "@finals õiget @totals-st"
         },
         {
-          "label": "Score announcer",
-          "description": "This label will be used for announcing the final score to the user on the end screen",
-          "default": "You got @finals out of @totals points"
+          "label": "Skooriteadustaja",
+          "description": "Seda teksti kasutatakse teadustamaks kasutajale lõppskoori viktoriini lõpus",
+          "default": "Saite @finals punkti @totals-st"
         },
         {
-          "label": "Score heading",
-          "description": "Header for the score part of the results table",
-          "default": "Score"
+          "label": "Skoori pealkiri",
+          "description": "Tulemuste tabelis skoori osa pealkiri",
+          "default": "Skoor"
         },
         {
           "label": "Üldine tagasiside",
@@ -240,8 +240,8 @@
           "default": "Valmis"
         },
         {
-          "label": "Submit button text",
-          "default": "Submit"
+          "label": "Esita nupu tekst",
+          "default": "Esita"
         },
         {
           "label": "Kuva videot enne viktoriini tulemusi"
@@ -264,7 +264,7 @@
       ]
     },
     {
-      "label": "Behavioural settings",
+      "label": "Käitumise sätted",
       "fields": [
         {
           "label": "Näita \"Kontrolli\" nuppu",
