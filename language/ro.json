@@ -125,6 +125,10 @@
         {
           "label": "Instrucțiuni pentru navigarea în setul de întrebări cu cititor de ecran",
           "default": "Alegeți întrebarea de afișat"
+        },
+        {
+          "label": "Message displayed when no question has been added",
+          "default": "No question has been added"
         }
       ]
     },

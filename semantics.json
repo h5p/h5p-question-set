@@ -254,6 +254,14 @@
         "importance": "low",
         "default": "Choose question to display",
         "state": "new"
+      },
+      {
+        "name": "noQuestionAdded",
+        "type": "text",
+        "label": "Message displayed when no question has been added",
+        "importance": "low",
+        "default": "No question has been added",
+        "state": "new"
       }
     ]
   },

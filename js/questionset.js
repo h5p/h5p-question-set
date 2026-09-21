@@ -46,7 +46,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       answeredText: 'Answered',
       currentQuestionText: 'Current question',
       navigationLabel: 'Questions',
-      questionSetInstruction: 'Choose question to display'
+      questionSetInstruction: 'Choose question to display',
+      noQuestionAdded: 'No question has been added'
     },
     endGame: {
       showResultPage: true,
@@ -408,13 +409,15 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Update button state.
   var _updateButtons = function () {
-    const answeredCurrentQuestion = questionInstances[currentQuestion].getAnswerGiven();
-    self.setButtonEnabled('next', !params.disableBackwardsNavigation || answeredCurrentQuestion);
-
-    const answeredAllQuestions = questionInstances.every(instance => instance.getAnswerGiven());
-    const isViewingLastQuestion = currentQuestion === (params.questions.length - 1);
-    const aQuestionIsSet = !!questionInstances[currentQuestion];
-    self.nav?.setCanShowLast(isViewingLastQuestion && answeredAllQuestions && aQuestionIsSet);
+    if (questionInstances.length > 0) {
+      const answeredCurrentQuestion = questionInstances[currentQuestion].getAnswerGiven();
+      self.setButtonEnabled('next', !params.disableBackwardsNavigation || answeredCurrentQuestion);
+      
+      const answeredAllQuestions = questionInstances.every(instance => instance.getAnswerGiven());
+      const isViewingLastQuestion = currentQuestion === (params.questions.length - 1);
+      const aQuestionIsSet = !!questionInstances[currentQuestion];
+      self.nav?.setCanShowLast(isViewingLastQuestion && answeredAllQuestions && aQuestionIsSet);
+    }
   };
 
   var _showQuestion = function (questionNumber, preventAnnouncement) {
@@ -427,6 +430,18 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
 
     currentQuestion = questionNumber;
+
+    if (questionInstances.length === 0) {
+      $myDom.empty().append(
+        $('<p>', {
+          class: 'h5p-question-set-empty',
+          text: params.texts.noQuestionAdded,
+        }),
+      );
+
+      self.trigger('resize');
+      return this;
+    }
 
     // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
