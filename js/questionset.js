@@ -495,6 +495,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * This prevents loss of focus if reset from within content
    */
   this.resetTask = function (moveFocus = false) {
+    if (checkEmptyQuestionSet()) {
+      return this;
+    }
     this.nav.setCurrentIndex(0);
     this.setButtonEnabled('next', false);
     // Clear previous state to ensure questions are created cleanly
@@ -799,6 +802,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     });
   };
 
+  const checkEmptyQuestionSet = () => {
+    if (questionInstances.length === 0) {
+      $myDom.empty().append(
+        $('<p>', {
+          class: 'h5p-question-set-empty',
+          text: params.texts.noQuestionAdded,
+        }),
+      );
+
+      self.trigger('resize');
+      return true;
+    }
+    return false;
+  };
+
   /**
    * Initialize a question and attach it to the DOM
    *
@@ -871,15 +889,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       });
     }
 
-    if (questionInstances.length === 0) {
-      $myDom.empty().append(
-        $('<p>', {
-          class: 'h5p-question-set-empty',
-          text: params.texts.noQuestionAdded,
-        }),
-      );
-
-      self.trigger('resize');
+    if (checkEmptyQuestionSet()) {
       return this;
     }
 
