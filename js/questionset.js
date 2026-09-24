@@ -46,7 +46,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       answeredText: 'Answered',
       currentQuestionText: 'Current question',
       navigationLabel: 'Questions',
-      questionSetInstruction: 'Choose question to display'
+      questionSetInstruction: 'Choose question to display',
+      noQuestionAdded: 'No question has been added'
     },
     endGame: {
       showResultPage: true,
@@ -407,14 +408,14 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   });
 
   // Update button state.
-  var _updateButtons = function () {
+  var _updateButtons = function () {   
     const answeredCurrentQuestion = questionInstances[currentQuestion].getAnswerGiven();
     self.setButtonEnabled('next', !params.disableBackwardsNavigation || answeredCurrentQuestion);
-
+    
     const answeredAllQuestions = questionInstances.every(instance => instance.getAnswerGiven());
     const isViewingLastQuestion = currentQuestion === (params.questions.length - 1);
     const aQuestionIsSet = !!questionInstances[currentQuestion];
-    self.nav?.setCanShowLast(isViewingLastQuestion && answeredAllQuestions && aQuestionIsSet);
+    self.nav?.setCanShowLast(isViewingLastQuestion && answeredAllQuestions && aQuestionIsSet);    
   };
 
   var _showQuestion = function (questionNumber, preventAnnouncement) {
@@ -494,6 +495,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    * This prevents loss of focus if reset from within content
    */
   this.resetTask = function (moveFocus = false) {
+    if (checkEmptyQuestionSet()) {
+      return this;
+    }
     this.nav.setCurrentIndex(0);
     this.setButtonEnabled('next', false);
     // Clear previous state to ensure questions are created cleanly
@@ -798,6 +802,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     });
   };
 
+  const checkEmptyQuestionSet = () => {
+    if (questionInstances.length === 0) {
+      $myDom.empty().append(
+        $('<p>', {
+          class: 'h5p-question-set-empty',
+          text: params.texts.noQuestionAdded,
+        }),
+      );
+
+      self.trigger('resize');
+      return true;
+    }
+    return false;
+  };
+
   /**
    * Initialize a question and attach it to the DOM
    *
@@ -868,6 +887,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         backgroundPosition: '50% 50%',
         backgroundRepeat: 'no-repeat'
       });
+    }
+
+    if (checkEmptyQuestionSet()) {
+      return this;
     }
 
     initializeQuestion();

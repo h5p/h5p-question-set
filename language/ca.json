@@ -125,6 +125,10 @@
         {
           "label": "Instruction for navigating question set with screenreader",
           "default": "Choose question to display"
+        },
+        {
+          "label": "Message displayed when no question has been added",
+          "default": "No question has been added"
         }
       ]
     },

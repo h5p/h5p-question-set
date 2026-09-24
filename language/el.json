@@ -125,6 +125,10 @@
         {
           "label": "Οδηγία για πλοήγηση στη συλλογή ερωτήσεων με αναγνώστη οθόνης",
           "default": "Επιλέξτε ερώτηση για εμφάνιση"
+        },
+        {
+          "label": "Message displayed when no question has been added",
+          "default": "No question has been added"
         }
       ]
     },
