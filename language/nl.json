@@ -68,16 +68,16 @@
           "default": "Vorige vraag"
         },
         {
-          "label": "Back button label",
-          "default": "Previous"
+          "label": "Vorige knop label",
+          "default": "Vorige"
         },
         {
           "label": "Tekst van \"Volgende\"-knop",
           "default": "Volgende vraag"
         },
         {
-          "label": "Next button label",
-          "default": "Next"
+          "label": "Volgende knop label",
+          "default": "Volgende"
         },
         {
           "label": "Tekst van \"Afsluiten\"-knop",
